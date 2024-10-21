@@ -1,5 +1,16 @@
 @charset "UTF-8"; /*--------------------------------------------------------- 리더기전용 ---------------------------*/
 .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; } 
+#skip a {
+    z-index: 100000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
 :root{
     /* color */
     --color-main: #67DF37;
