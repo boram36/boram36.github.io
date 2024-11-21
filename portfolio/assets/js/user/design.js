@@ -19,13 +19,13 @@ function effectTxt() {
     yoyo: true,
   });
 
-  tl.from(document.querySelectorAll('span'), {
+  tl.from(document.querySelectorAll('.main-section00__tit span'), {
     y: 20,
     opacity: 0,
     skewX: 30,
     stagger: 0.03,
     duration: 1,
-  }).to(document.querySelectorAll('span'), {
+  }).to(document.querySelectorAll('.main-section00__tit span'), {
     y: -20,
     skewX: 0,
     opacity: 1,
