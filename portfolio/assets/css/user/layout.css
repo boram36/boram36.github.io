@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+html{font-size: 1px;}
 .pc-ver { display: block !important; } 
 .pad-ver { display: none !important; } 
 .mobile-ver { display: none !important; } 
