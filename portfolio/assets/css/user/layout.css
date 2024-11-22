@@ -12,16 +12,15 @@
 .container-wrap { margin-top: 60px; padding-bottom: 100px; min-height: 500px; } 
 
 
-
-@media (max-width: 1420px){
- .inner, .inner-wide { max-width: 100%; padding: 0 40px; } 
+@media (max-width: 1420px) {
+ .inner,
+ .inner-wide { max-width: 100%; padding: 0 40px; } 
  .container-wrap { margin-top: 50px; } 
-
- 
-
-
 }
 
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
+ .inner,
+ .inner-wide { padding: 0 20px; } 
  .container-wrap { margin-top: 40px; } 
- }
+}
