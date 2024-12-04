@@ -58,11 +58,11 @@ html:is(html.safari.desktop, .ios) .jt-gradient-motion__item { filter: blur(300r
 .btn-top{position: fixed;bottom: 50px;right: 50px;width: 50px;height: 50px;border-radius: 50%;background-color: #232323;box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);display: flex;align-items: center;justify-content: center;opacity: 0; transition: .4s;}
 .btn-top span{width: 24px;height: 24px;background: no-repeat 50% / cover;background-image: url(../../images/ico/ico-arrow.svg);}
 .btn-top.active {opacity: 1;}
-.work-list li{ 
+/* .work-list li{ 
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.3s ease-in-out;
-}
+} */
 
 
 /*------------------------ PAD ---------------------------*/
