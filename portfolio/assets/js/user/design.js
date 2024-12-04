@@ -1,8 +1,20 @@
+/**
+ * design.js
+ * 2024.11.20
+ * kimboram
+ */
+
+
 $(function () {
-  gradient_background_motion();
+  backgroundMotion();
   effectTxt();
+  scrollTop();
 });
 
+/**  
+ * 메인 텍스트 효과
+ * 
+ */
 function effectTxt() {
   const h1 = document.querySelector('.main-section00__tit').textContent;
   const text = h1.split('');
@@ -34,7 +46,11 @@ function effectTxt() {
   });
 }
 
-function gradient_background_motion() {
+/**  
+ * 메인 배경 효과
+ * 
+ */
+function backgroundMotion() {
   const element = document.querySelectorAll('.motion');
 
   element.forEach((background) => {
@@ -117,3 +133,82 @@ function gradient_background_motion() {
     });
   });
 }
+
+/**  
+ * 메인 스크롤 효과
+ * 
+ */
+function scrollTop(){
+  let scrollY;
+	let btnTop = document.querySelector('.btn-top');
+
+
+	window.addEventListener('scroll', () => {
+
+		if(window.scrollY > 500){
+			btnTop.classList.add('active');
+		}else{
+			btnTop.classList.remove('active');
+		}
+
+	});
+
+  btnTop.addEventListener('click', function(){
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // 스크롤 애니메이션 추가
+    });
+  })
+
+}
+
+/**  
+ * 메인 스크롤
+ * 
+ */
+
+(function () {
+  var sec1_3 = document.querySelectorAll('.main-section00');
+  var list_txt = document.querySelectorAll('.work-list li');
+
+  // 디버깅용 콘솔 출력
+  console.log('sec1_3:', sec1_3); // .cont가 잘 선택되었는지 확인
+  console.log('list_txt:', list_txt); // .work-list li가 잘 선택되었는지 확인
+
+  function init() {
+      if (sec1_3 && list_txt.length > 0) {
+          setPosition();
+      } else {
+          console.error('필요한 요소가 없습니다. HTML 구조를 확인하세요.');
+      }
+  }
+
+  function setPosition() {
+      if (!sec1_3 || list_txt.length === 0) return; // 요소가 없을 경우 실행 방지
+
+      var percent = sec1_3.getBoundingClientRect().top - 100;
+
+      if (percent < 0) {
+          list_txt[0].style.opacity = 1;
+          list_txt[1].style.opacity = 1;
+          list_txt[0].style.transform = 'translateY(0)';
+          list_txt[1].style.transform = 'translateY(0)';
+      } else {
+          list_txt[0].style.opacity = 0;
+          list_txt[1].style.opacity = 0;
+          list_txt[0].style.transform = 'translateY(25%)';
+          list_txt[1].style.transform = 'translateY(25%)';
+      }
+  }
+
+  window.addEventListener('scroll', function () {
+      setPosition();
+  }, false);
+
+  window.addEventListener('resize', function () {
+      setPosition();
+  }, false);
+
+  init();
+})();
+

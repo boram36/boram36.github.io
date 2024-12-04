@@ -13,9 +13,9 @@
 }
 :root{
     /* color */
-    --color-main: #67DF37;
-    --color-main2: #3DE5FF;
-    --color-main3: #FDE135;
+    --color-main: #bef5aa;
+    --color-main2: #9cd7f2;
+    --color-main3: #fed1d6;
     --font-fahkwang : "Fahkwang", sans-serif;
 }
 .font-fahkwang{font-family: var(--font-fahkwang);}

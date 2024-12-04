@@ -2,13 +2,39 @@
 .main-section00 { width: 100%; height: 100vh; position: relative; overflow: hidden; } 
 .main-section00__tit { position: absolute; font-size: 46rem; z-index: 22; color: #000; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; } 
 .main-section00__tit span { font-family: var(--font-fahkwang); } 
+.scroll_wrap {position: absolute;bottom: 45px;left: 50%;transform: translateX(-50%);z-index: 11;} 
+.scroll__txt {color: #232323;font-size: 12px;padding-bottom: 10px;transition: 0.4s;font-family: var(--font-fahkwang);font-weight: 700;} 
+.scroll__icon { position: relative; background-image: url(../../images/ico/ico-scroll.svg); background-position: center; background-repeat: no-repeat; width: 30px; margin: 0 auto; height: 42px; text-align: center; } 
+.scroll__icon:before { content:''; position: absolute; width: 4px; height: 4px; top: 8px; background: #232323; border-radius: 50%; left: 13px; transition: transform 0.4s; } 
+
+
+@keyframes active_scroll { 
+  0% { transform: translateY(0px); } 
+  100% { transform: translateY(20px); } 
+}
+@-webkit-keyframes active_scroll { 
+  0% { transform: translateY(0px); } 
+  100% { transform: translateY(20px); } 
+}
+
+@-moz-keyframes active_scroll { 
+  0% { transform: translateY(0px); } 
+  100% { transform: translateY(20px); } 
+}
+
+@-o-keyframes active_scroll { 
+  0% { transform: translateY(0px); } 
+  100% { transform: translateY(20px); } 
+}
+
+.scroll_wrap.active_scroll .scroll__icon:before { animation:active_scroll .8s ease-in-out infinite alternate-reverse; -webkit-animation:active_scroll .8s ease-in-out infinite alternate-reverse; -moz-animation:active_scroll .8s ease-in-out infinite alternate-reverse; -o-animation: active_scroll .8s ease-in-out infinite alternate-reverse; } 
 .main-section00__bg { width: calc(100% - 40px); height: calc(100% - 40px); position: relative; margin: 20px; border-radius: 20px; overflow: hidden; } 
 .motion { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; } 
 .motion-item { width: 100%; height: 100%; position: absolute; border-radius: 50%; filter: blur(500rem); will-change: transform; } 
 .motion-item-01 { background: var(--color-main); left: -18.5%; top: -46%; } 
 .motion-item-02 { background: var(--color-main2); left: 26.3%; top: 10%; } 
 .motion-item-03 { background: var(--color-main3); left: 65.7%; top: -65%; } 
-html:is(html.safari.desktop, .ios) .jt-gradient-motion__item { filter: blur(300rem); } 
+html:is(html.safari.desktop, .ios) .jt-gradient-motion__item { filter: blur(300rem); } /* 사파리 설정 */
 .main-section01 { width: 100%; min-height: 100vh; background-color: #fff; overflow: hidden; padding-bottom: 100px; } 
 .main-section01 .tit { display: flex; align-items: center; margin-top: 100px; margin-bottom: 20px; font-size: 28rem; } 
 .main-section01 .tit::before { content: ''; width: 7px; height: 7px; background: #000; border-radius: 50%; margin-right: 10px; } 
@@ -29,8 +55,17 @@ html:is(html.safari.desktop, .ios) .jt-gradient-motion__item { filter: blur(300r
 .work-cont h3 span { font-weight: 500; font-size: 14rem; padding: 6px 7px; line-height: 1; background-color: #292929; color: #fff; border-radius: 5px; margin-left: 10px; } 
 .work-cont p+p { margin-top: 5px; } 
 
+.btn-top{position: fixed;bottom: 50px;right: 50px;width: 50px;height: 50px;border-radius: 50%;background-color: #232323;box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);display: flex;align-items: center;justify-content: center;opacity: 0; transition: .4s;}
+.btn-top span{width: 24px;height: 24px;background: no-repeat 50% / cover;background-image: url(../../images/ico/ico-arrow.svg);}
+.btn-top.active {opacity: 1;}
+.work-list li{ 
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.3s ease-in-out;
+}
 
 
+/*------------------------ PAD ---------------------------*/
 @media screen and (max-width: 1024px) {
   html { font-size: 0.9px; } 
   .main-section00 { height: auto; } 
@@ -39,7 +74,7 @@ html:is(html.safari.desktop, .ios) .jt-gradient-motion__item { filter: blur(300r
 }
 
 
-
+/*------------------------ MOBILE ---------------------------*/
 @media screen and (max-width: 768px) { 
   html { font-size: 0.85px; } 
  .main-section00__tit { word-break: keep-all; max-width: 263px; } 
