@@ -68,8 +68,6 @@ html:is(html.safari.desktop, .ios) .jt-gradient-motion__item { filter: blur(300r
 /*------------------------ PAD ---------------------------*/
 @media screen and (max-width: 1024px) {
   html { font-size: 0.9px; } 
-  .main-section00 { height: auto; } 
-  .main-section00__bg { height: 0; padding-bottom: 100%; } 
   .work-list { grid-template-columns: 1fr 1fr; } 
 }
 
