@@ -128,63 +128,6 @@ input[type="time"],
 
 
 
-/*--------------------------------------------------------------------- 체크박스 & 라디오 --------------------------*/
-/*-- 공통 --*/
-input[type="checkbox"],
-input[type="radio"] {
-    position: absolute;
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    left: -10000px;
-    top: auto;
-    overflow: hidden;
-} 
-
-
-input[type="checkbox"] + label,
-input[type="radio"] + label { display:flex; align-items:center; font-size:14px; } 
-
-input[type="checkbox"] + label::before,
-input[type="radio"] + label::before { content:''; border:1px solid #000; margin-right:6px; box-sizing:border-box; } 
-
-input[type="checkbox"]:checked + label::before,
-input[type="radio"]:checked + label::before { content:''; background:url(../../images/cmn/ico_check.svg) no-repeat 50%; } 
-
-
-/*-- CHECK BOX --*/
-input[type="checkbox"] + label { color:#333; } 
-input[type="checkbox"] + label::before { width:20px; height:20px; } 
-
-/* type */
-.checkbox-02 input[type="checkbox"]:checked + label,
-.radio-02 input[type="radio"]:checked + label { position:relative; } 
-.checkbox-02 input[type="checkbox"]:checked + label::before,
-.radio-02 input[type="radio"]:checked + label::before { background:none; } 
-.checkbox-02 input[type="checkbox"]:checked + label::after,
-.radio-02 input[type="radio"]:checked + label::after { content:""; position:absolute; top:50%; transform:translateY(-50%); background:#000; } 
-
-.checkbox-02 input[type="checkbox"]:checked + label::after { left:3px; width:14px; height:14px; } 
-.checkbox-03 input[type="checkbox"] + label::before { border-radius:4px; } 
-.checkbox-04 input[type="checkbox"] + label::before { border-radius:4px; } 
-.checkbox-04 input[type="checkbox"]:checked + label::before { background-color:#000; background-image:url(../../images/cmn/ico_check_w.svg); } 
-.checkbox-05 input[type="checkbox"] + label { color:#a2a2a2; } 
-
-
-/*-- RADIO --*/
-input[type="radio"] + label { color:#000; } 
-input[type="radio"] + label::before { width:20px; height:20px; border-radius:50%; } 
-input[type="radio"]:checked + label::before { background-size:0.4375rem; } 
-
-/* type */
-.radio-02 input[type="radio"]:checked + label::after { left:4px; width:12px; height:12px; border-radius:50%; } 
-
-
 
 /*--------------------------------------------------------------------- BUTTON --------------------------*/
 /*-- 개수 --*/
@@ -221,20 +164,12 @@ input[type="radio"]:checked + label::before { background-size:0.4375rem; }
 .btn.yellow { background:#f4ff00; color:#fff; }
 
 
-.btn.c-naver { background: #20C65F; border: 1px solid #20C65F; color: #fff !important; } 
-.btn.c-kakao {background: #F9DF32;border: 1px solid #F9DF32;color: #292929;} 
-.btn.c-google { border: 1px solid #000; background: #fff; } 
-
-.btn.unlink{background: #f7f7f7; color: #888 !important;}
 
 /* line */
 .btn.blackLine { border:1px solid #000; } 
 .btn.blackLine02 { border:1px solid #232323; } 
 .btn.blackLine03 { border:1px solid #888; } 
 .btn.blueLine{ border:1px solid #235FD9; color: #235FD9;} 
-
-.btn--shar {border: 1px solid #000000; border-radius: 5px; width: 50px; height: 40px; display: flex; justify-content: center; align-items: center; min-width: 50px; position: relative; z-index: 9; background-color: #fff;}
-.btn--list {background-color: #000000; border-radius: 5px; color: #fff; width: 100px; height: 40px; display: flex; justify-content: center; align-items: center; min-width: 100px;}
 
 
 
@@ -258,22 +193,6 @@ input[type="radio"]:checked + label::before { background-size:0.4375rem; }
 .ico-txt { font-size:inherit; color:inherit; letter-spacing:inherit; } 
 
 
-/*-- IMAGE --*/
-.ico-home{background-image: url(../../images/cmn/ico-home.svg);}
-.ico-bio{background-image: url(../../images/cmn/ico-bio.svg);}
-.ico-estimate{background-image: url(../../images/cmn/ico-estimate.svg);}
-.ico-product{background-image: url(../../images/cmn/ico-product.svg);}
-.ico-buy{background-image: url(../../images/cmn/ico-buy.svg);}
-.ico-calendar{background-image: url(../../images/cmn/ico-calendar.svg);}
-.ico-list{background-image: url(../../images/cmn/ico-list.svg);}
-.ico-search{background-image: url(../../images/cmn/ico-search.svg);}
-.ico-setting{background-image: url(../../images/cmn/ico-setting.svg);}
-.ico-alarm{background-image: url(../../images/cmn/ico-alarm.svg);}
-.ico-more{background-image: url(../../images/cmn/ico-more.svg);}
-.ico-mail{background-image: url(../../images/cmn/ico-mail.svg);}
-.ico-plus{background-image: url(../../images/cmn/ico-plus.svg);}
-.ico-plus_b{background-image: url(../../images/cmn/ico-plus_b.svg);}
-
 
 
 /*--------------------------------------------------------------------- bg --------------------------*/
@@ -281,38 +200,6 @@ input[type="radio"]:checked + label::before { background-size:0.4375rem; }
 
 
 
-/*--------------------------------------------------------------------- 검색바 --------------------------*/
-.search select { max-width:fit-content; margin-right:8px; } 
-.search button { width:85px; } 
-.search button span + i { margin-left:8px; } 
-
-.search-fix { position:relative; } 
-.search-fix button { position:absolute; top:0; right:0; min-width:initial; } 
-
-
-
-/*--------------------------------------------------------------------- timepicker --------------------------*/
-.input-time .ti_tx,
-.input-time .mi_tx,
-.input-time .mer_tx { width:100%; text-align:center; margin:10px 0; } 
-
-.input-time .time,
-.input-time .mins,
-.input-time .meridian { width:42px; float:left; margin:0 10px; } 
-
-.input-time .prev,
-.input-time .next { cursor:pointer; padding:18px; border:1px solid #ccc; background:url(../../images/cmn/img_time_arr_02.png) no-repeat; border-radius:5px; } 
-.input-time .next { background-position:50% 150%; } 
-.input-time .prev { background-position:50% -50%; } 
-
-.input-time .prev:hover,
-.input-time .next:hover { background-color:#ccc; } 
-
-.input-time .time_pick { position:relative; } 
-.input-time .timepicker_wrap { display:none; position:absolute; padding:10px; border-radius:5px; z-index:998; box-shadow:2px 2px 5px 0 rgba(50,50,50,0.35); background:#f6f6f6; border:1px solid #ccc; } 
-
-.input-time .arrow_top { position:absolute; top:-10px; left:20px; background:url(../../images/cmn/img_time_arr.png) no-repeat; width:18px; height:10px; } 
-.input-time .timepicki-input { border:1px solid #ccc; border-radius:5px; } 
 
 
 
