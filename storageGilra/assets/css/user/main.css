@@ -1,26 +1,22 @@
 @charset "UTF-8";
 
-:root{
-  --color-main: #FAC213;
-  --font-line: "LINESeedKR-Bd", sans-serif;
-}
 
 .inner { padding: 0 20px; }
 main {max-width: 393px;width: 100%;height: 100vh;margin: 0 auto;background: url("../../images/bg.png") no-repeat top/ cover;position: relative;}
 .main .intro01 { cursor: pointer; width: 100%; height: 100%; }
 .main-cover { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .main-footer { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); }
-.main-top { position: absolute; top: 130px; left: 50%; transform: translateX(-50%); } 
+.main-top {position: absolute;top: 130px;left: 50%;transform: translateX(-50%);width: 100%;text-align: center;} 
+.main-top__side{display: flex;justify-content: space-between;align-items: center;position: absolute;bottom: 0;left: 50%;transform: translateX(-50%);width: calc(100% - 80px);z-index: -1;}
 .main-top img {max-width: 80px;}
-
 .intro02 { height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; position: relative; }
 .intro02-cont {overflow: hidden;position: relative;height: 100%;margin-top: 275px;}
 .intro02-img { -webkit-overflow-scrolling: touch; height: 100%; width: 100%; position: relative; display: flex; justify-content: center; align-items: center; overflow-x: auto; overflow-y: hidden; justify-content: flex-start; } 
-.intro02-img img { height: 576px; width: 984px; display: block; margin: 0 auto; transition: transform 1s; } 
-.intro02.active .intro02-img img {transform: scale(1.05); } 
+.intro02-img img {height: 100%;width: auto;display: block;margin: 0 auto;transition: transform 1s;} 
+.intro02.active .intro02-img img {transform: scale(1.1); } 
 .intro02-bg {position: absolute;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0, 0, 0, 0.75);opacity: 0;z-index: 3;transition: opacity 1s;transition-delay: 1s;width: 100%;height: 100%;}
 .intro02-bg.active { opacity: 1; }
-.intro02-box {opacity: 0;transition: opacity 1s;transition-delay: 2s;position: absolute;z-index: 4;\: 100%;width: 100%;height: 100%;bottom: 0;left: 0;text-align: center;font-size: 0;padding-bottom: 60px;padding-top: 70px;}
+.intro02-box {opacity: 0;transition: opacity 1s;transition-delay: 2s;position: absolute;z-index: 4;width: 100%;height: 100%;bottom: 0;left: 0;text-align: center;font-size: 0;padding-bottom: 60px;padding-top: 70px;}
 .intro02-box .inner {display: flex;flex-direction: column;justify-content: space-between;height: 100%;} 
 .intro02.active .intro02-box { opacity: 1; }
 .intro-txt { font-family: var(--font-line); text-align: center; color: #fff; font-size: 19px; margin-bottom: 25px; }
@@ -28,16 +24,46 @@ main {max-width: 393px;width: 100%;height: 100vh;margin: 0 auto;background: url(
 .intro02-list > li {text-align: right;width: 100%;font-size: 0;}
 .intro02-list > li:nth-child(2) {text-align: left;margin-top: -58px;}
 .intro02-list > li:nth-child(3) {margin-top: -38px;}
-
 .btn-next { width: 65px; height: 65px; background: url("../../images/btn-next.png") no-repeat 50% / cover; }
 .intro02_2 .intro-txt{line-height: 1.6;}
 .intro02_3 .inner { justify-content: end; } 
 .intro-txt02{margin: 14px 0 22px; font-family: var(--font-line); font-size: 20px; color: var(--color-main); font-weight: 700;}
-
 .intro03 { width: 100%; height: 100vh; overflow: hidden; }
 .btn-style-yellow { background: var(--color-main); border: 2px solid #000; color: #000; font-family: var(--font-line); font-size: 22px; font-weight: 700; width: 100%; height: 62px; line-height: 62px; text-align: center; position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); width: calc(100% - 40px); padding: 0 20px; }
 .intro02-box.intro02_3 { padding-bottom: 30px; } 
 
-.intro03-cont{
-  overflow: hidden;position: relative;height: 100%;margin-top: 275px;
-}
+.main-list { display:grid;grid-gap: 15px;grid-template-columns: repeat(3, minmax(auto, 1fr));align-items: center;justify-content: space-around; } 
+.main-list > li{margin: 0 auto;}
+.list-box{cursor: pointer;}
+.list-num { text-align: center; font-size: 0; margin-bottom: 10px;} 
+.list-bg { font-size: 0; position: relative; z-index: 1; } 
+.list-cont { position: relative; width: 102px; height: 126px; } 
+.list-img{font-size: 0;}
+.btn-next.btn-sm { width: 31px; height: 31px; background-image: url("../../images/btn-next_sm.png"); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); z-index: 1; } 
+.hover-cont {display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;} 
+.hover-txt {position: absolute;top: 17px;left: 4px;width: 91px;height: 103px;text-align: center;font-size: 13px;font-weight: 700;display: flex;align-items: center;justify-content: center;padding-bottom: 30px;} 
+.main-list .list01 .hover-txt{background-color: var(--color-list01); color: #fff;}
+.main-list .list02 .hover-txt{background-color: var(--color-list02); color: #000;}
+.main-list .list03 .hover-txt{background-color: var(--color-list03); color: #fff;}
+.main-list .list04 .hover-txt{background-color: var(--color-list04); color: #fff;}
+.main-list .list05 .hover-txt{background-color: var(--color-list05); color: #fff;}
+.main-list .list06 .hover-txt{background-color: var(--color-list06); color: #fff;}
+.main-list .list07 .hover-txt{background-color: var(--color-list07); color: #000;}
+.main-list .list08 .hover-txt{background-color: var(--color-list08); color: #fff;}
+.main-list .list09 .hover-txt{background-color: var(--color-list09); color: #000;}
+
+
+.layer{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 9999;display: none;}
+.layer .main-top{top: 193px;}
+.layer .list{display: flex; justify-content: center;}
+.layer .main-top__txt { font-size: 29px; font-weight: 700; background: #FFFFFF; padding: 2px 10px; border: 2px solid #000; height: 43px; } 
+.layer .main-top__img { background: #EF8026; border: 2px solid #000; display: flex; align-items: center; justify-content: center; padding: 0 10px; gap: 7px; } 
+.layer .list01 .main-top__img{border-left: 0;}
+.layer .list02 .main-top__img{border-right: 0;}
+.layer .list02 > div{border-top: 0;}
+.layer .list02 .main-top__txt{padding: 2px 7.7px;}
+.layer .list.list02 .main-top__img {align-items: end; padding-bottom: 5px;}
+.layer-cont{overflow: hidden;position: relative;height: 100%;margin-top: 275px;}
+
+
+
