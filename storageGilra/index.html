@@ -47,7 +47,7 @@
 	<script type="text/javascript" src="./assets/js/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="./assets/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="./assets/js/jquery.modal.min.js"></script>
-	<script type="text/javascript" src="./assets/js/swiper-bundle.min.js"></script>
+	<!-- <script type="text/javascript" src="./assets/js/swiper-bundle.min.js"></script> -->
 
 
 	<!-- js :: common -->
@@ -142,9 +142,9 @@
 							<div class="inner">
 								<div class="intro-txt">입구에 들어가는 순간 열린 수장고를 만나다.</div>
 								<ul class="intro02-list">
-									<li><img src="./assets/images/main-intro_list01.png" alt="소장품에 번호만 붙어있네?"></li>
-									<li><img src="./assets/images/main-intro_list01.png" alt="소장품을 왜 빽빽하게 놓아 두었을까?"></li>
-									<li><img src="./assets/images/main-intro_list01.png" alt="이 공간은 무엇을 하는 공간일까?"></li>
+									<li><img src="./assets/images/main-intro_list01.svg" alt="소장품에 번호만 붙어있네?"></li>
+									<li><img src="./assets/images/main-intro_list02.svg" alt="소장품을 왜 빽빽하게 놓아 두었을까?"></li>
+									<li><img src="./assets/images/main-intro_list03.svg" alt="이 공간은 무엇을 하는 공간일까?"></li>
 								</ul>
 								<div class="intro-bottom">
 									<button type="button" class="btn01 btn-next" title="다음"></button>
@@ -389,8 +389,9 @@
 			</main>
 
 			<div class="layer layer-worksheet" id="layer-worksheet" style="display: none;">
-				<main>
+				<div class="layer-wrap">
 					<button type="button" class="btn-close"><i></i></button>
+
 					<div class="main-top">
 						<div class="main-top__box">
 							<div class="list list01">
@@ -412,7 +413,7 @@
 						<div class="input-list question01">
 							<div class="input-top">
 								<div class="inner">
-									<div class="input-top__num">#1</div>
+									<div class="input-top__num"><span>#</span>1</div>
 									<div class="input-top__tit">
 										수장고<br>
 										초심자에게 알림
@@ -421,17 +422,193 @@
 							</div>
 							<div class="input-cont">
 								<div class="inner">
-									<div class="question"><b>Q1.</b> 수장고의 역할은 무엇인가요?</div>
-									<div class="input-wrap">
-										<textarea></textarea>
+									<div class="question-list">
+										<div class="question"><b>Q1.</b> 수장고의 역할은 무엇인가요?</div>
+										<div class="input-wrap">
+											<textarea id="list01_1" name="list01"></textarea>
+										</div>
+									</div>
+									<div class="question-list">
+										<div class="question"><b>Q2.</b> 국립민속박물관 파주는 어떤 곳일까요?</div>
+										<div class="input-wrap">
+											<textarea id="list01_2" name="list01"></textarea>
+										</div> 
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+						<div class="input-list question03">
+							<div class="input-top">
+								<div class="inner">
+									<div class="input-top__num"><span>#</span>3</div>
+									<div class="input-top__tit">
+										수장고<br>
+										활용법
+									</div>
+								</div>
+							</div>
+							<div class="input-cont">
+								<div class="inner">
+									<div class="question-list">
+										<div class="question"><b>Q3.</b> 내가 만약 학예사라면, 수장고에서 어떻게 소장품을 활용할 수 있을까요?</div>
+										<div class="input-wrap">
+											<div class="input-label">활동이름</div>
+											<textarea id="list03_1" name="list03"></textarea>
+										</div>
+										<div class="input-wrap">
+											<div class="input-label">활동내용</div>
+											<textarea id="list03_2" name="list03"></textarea>
+										</div>
+										<div class="input-wrap">
+											<div class="input-label">목표</div>
+											<textarea id="list03_3" name="list03"></textarea>
+										</div>
+										<div class="input-wrap">
+											<div class="input-label">활동방법</div>
+											<textarea id="list03_4" name="list03"></textarea>
+										</div>
+										<div class="input-wrap">
+											<div class="input-label">체험 후 기대되는 점</div>
+											<textarea id="list03_5" name="list03"></textarea>
+										</div>
 									</div>
 								</div>
 								
 							</div>
 						</div>
+						<div class="input-list question05">
+							<div class="input-top">
+								<div class="inner">
+									<div class="input-top__num"><span>#</span>5</div>
+									<div class="input-top__tit">
+										기록=아카이브<br>=민속
+									</div>
+								</div>
+							</div>
+							<div class="input-cont">
+								<div class="inner">
+									<div class="question-list">
+										<div class="question"><b>Q4.</b> 우리가 하는 SNS 사진과 글은 민속이 될 수 있을까? 내 삶에서 남기고 싶고 기념하고 싶은 순간은 언제인가요?</div>
+										<div class="input-wrap">
+											<textarea id="list05_1" name="list05"></textarea>
+										</div>
+									</div>
+									<div class="question-list">
+										<div class="question"><b>Q5.</b> 옛날 옛적에 노동요는 어땠을까?</div>
+										<img src="./assets/images/question03-img01.png" alt="">
+										<div class="input-wrap">
+											<textarea id="list05_2" name="list05"></textarea>
+										</div> 
+									</div>
+									<div class="question-list">
+										<div class="question"><b>Q6.</b> 과거와 오늘날의 돌잔치 비교해 보기</div>
+										<img src="./assets/images/question03-img02.png" alt="">
+										<div class="input-wrap">
+											<textarea id="list05_3" name="list05"></textarea>
+										</div> 
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+						<div class="input-list question06">
+							<div class="input-top">
+								<div class="inner">
+									<div class="input-top__num"><span>#</span>6</div>
+									<div class="input-top__tit">
+										소장품이<br>우리에게 오기까지
+									</div>
+								</div>
+							</div>
+							<div class="input-cont">
+								<div class="inner">
+									<div class="question-list">
+										<div class="question"><b>Q7.</b> 나의 소중한 물건을 소장품으로 등록시킨다면?</div>
+										<div class="input-wrap">
+											<div class="input-label">고유 번호</div>
+											<textarea id="list06_1" name="list06"></textarea>
+										</div>
+										<div class="input-wrap">
+											<div class="input-label">명칭</div>
+											<textarea id="list06_2" name="list06"></textarea>
+										</div>
+										<div class="input-wrap">
+											<div class="input-label">크기</div>
+											<textarea id="list06_3" name="list06"></textarea>
+										</div>
+										<div class="input-wrap">
+											<div class="input-label">재질</div>
+											<textarea id="list06_4" name="list06"></textarea>
+										</div>
+									</div>
+									
+									
+								</div>
+								
+							</div>
+						</div>
+						<div class="input-list question07">
+							<div class="input-top">
+								<div class="inner">
+									<div class="input-top__num"><span>#</span>7</div>
+									<div class="input-top__tit">
+										보존과학은<br>이렇게
+									</div>
+								</div>
+							</div>
+							<div class="input-cont">
+								<div class="inner">
+									<div class="question-list">
+										<div class="question"><b>Q8.</b> 보존과학의 주요 목적은 무엇인가요?</div>
+										<div class="input-wrap">
+											<textarea id="list07_1" name="list07"></textarea>
+										</div>
+									</div>
+									<div class="question-list">
+										<div class="question"><b>Q9.</b> 소장품을 보존하기 위해 고려해야 할 요소는 무엇일까요?</div>
+										<div class="input-wrap">
+											<textarea id="list07_2" name="list07"></textarea>
+										</div> 
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="input-list question08">
+							<div class="input-top">
+								<div class="inner">
+									<div class="input-top__num"><span>#</span>8</div>
+									<div class="input-top__tit">
+										박물관을<br>나가며
+									</div>
+								</div>
+							</div>
+							<div class="input-cont">
+								<div class="inner">
+									<div class="question-list">
+										<div class="question"><b>Q8.</b> 내가 생각하는 박물관은?</div>
+										<div class="input-wrap">
+											<textarea id="list07_1" name="list07"></textarea>
+										</div>
+									</div>
+									<div class="question-list">
+										<div class="question"><b>Q9.</b> 소장품을 보면서 느낀 점이나 우리 문화유산을 보존하고 어떻게 활용할 수 있는지 토론해 보기.</div>
+										<div class="input-wrap">
+											<textarea id="list07_2" name="list07"></textarea>
+										</div> 
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 
-				</main>
+					<button type="button" class="layer-top-btn"></button>
+
+				</div>
+
+
 			</div>
 
 
@@ -501,9 +678,10 @@
 						});
 					});
 
-					
-
-
+					$(".layer-top-btn").click(function() {
+						$(".layer").animate({ scrollTop: 0 }, 600); // 600ms 동안 스크롤
+						return false;
+					});
 					
 
 				});
@@ -513,11 +691,21 @@
 				function openWorksheet() {
 					$("#layer-worksheet").fadeIn(500);
 					$(".layer-worksheet").addClass("active");
+					$("main").fadeOut();
+					$("body").css("overflow", "hidden"); // 스크롤 비활성화
 				}
+
+				$(".layer-worksheet .btn-close").click(function(){
+					$("main").show();
+					$("#layer-worksheet").fadeOut(500);
+					$(".layer-worksheet").removeClass("active");
+					$("body").css("overflow", ""); // 스크롤 활성화
+				}); 
 
 			</script>
 
 		</div>
+
 
 
 

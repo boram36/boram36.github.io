@@ -1,4 +1,25 @@
 @charset "UTF-8"; 
+
+:root{
+  --color-main: #FAC213;
+  --font-line: "LINESeedKR",sans-serif;
+  --color-list01: #01A26B;
+  --color-list02: #64C5EB;
+  --color-list03: #EF8026;       
+  --color-list04: #B67CB2;       
+  --color-list05: #5C87BE;       
+  --color-list06: #FF7266;       
+  --color-list07: #AECF30;       
+  --color-list08: #8C4729;       
+  --color-list09: #FFF251;  
+  --color-list01_bg: #CCECE0;
+  --color-list02_bg: #C8EBF8;
+  --color-list03_bg: #FADBC1;
+  --color-list05_bg: #CDDBEC;
+  --color-list06_bg: #FFD4D1;
+  --color-list07_bg: #E7EEB9;
+  --color-list08_bg: rgba(140, 71, 41, 0.2);
+}
 /*--------------------------------------------------------- 리더기전용 ---------------------------*/
 .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; } 
 
