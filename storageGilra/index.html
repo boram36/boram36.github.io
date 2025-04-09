@@ -610,13 +610,51 @@
 
 
 			</div>
+			<!-- e: 학습지 모음 -->
 
 
 			<div class="layer layer-guide" id="layer-guide" style="display: none;">
-				<main>
-					
-				</main>
+				<div class="layer-wrap">
+					<button type="button" class="btn-close"><i></i></button>
+
+					<div class="main-top">
+						<div class="main-top__box">
+							<div class="list list01">
+								<div class="main-top__txt">학습지</div>
+								<div class="main-top__img">
+									<img src="./assets/images/worksheet_icon01.svg" alt="">
+								</div>
+							</div>
+							<div class="list list02">
+								<div class="main-top__img">
+									<img src="./assets/images/worksheet_icon02.svg" alt="">
+									<img src="./assets/images/worksheet_icon03.svg" alt="">
+								</div>
+								<div class="main-top__txt">모음</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="main-top">
+						<div class="main-top__box">
+							<div class="list list01">
+								<div class="main-top__txt">학습지</div>
+								<div class="main-top__img">
+									<img src="./assets/images/worksheet_icon01.svg" alt="">
+								</div>
+							</div>
+							<div class="list list02">
+								<div class="main-top__img">
+									<img src="./assets/images/worksheet_icon02.svg" alt="">
+									<img src="./assets/images/worksheet_icon03.svg" alt="">
+								</div>
+								<div class="main-top__txt">모음</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			<!-- e: 관람지 모음 -->
 			
 			<script>
 				$(document).ready(function(){
@@ -699,6 +737,20 @@
 					$("main").show();
 					$("#layer-worksheet").fadeOut(500);
 					$(".layer-worksheet").removeClass("active");
+					$("body").css("overflow", ""); // 스크롤 활성화
+				}); 
+
+				function openGUide() {
+					$("#layer-guide").fadeIn(500);
+					$(".layer-guide").addClass("active");
+					$("main").fadeOut();
+					$("body").css("overflow", "hidden"); // 스크롤 비활성화
+				}
+
+				$(".layer-guide .btn-close").click(function(){
+					$("main").show();
+					$("#layer-guide").fadeOut(500);
+					$(".layer-guide").removeClass("active");
 					$("body").css("overflow", ""); // 스크롤 활성화
 				}); 
 
