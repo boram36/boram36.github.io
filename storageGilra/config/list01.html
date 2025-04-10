@@ -111,7 +111,7 @@
                             <button type="button" class="gnb-close-btn"><i></i></button>
                             <div class="gnb-menu__top">
                                 <div class="inner">
-                                    <a href="../index2.html" class="btn btn-home"><i class="ico-home"></i></a>
+                                    <a href="../index.html" class="btn btn-home"><i class="ico-home"></i></a>
                                     <div class="btn-layer">
                                         <button type="button" class="btn" onclick="openWorksheet()">
                                             <img src="../assets/images/main-top__side01.svg" alt="">
@@ -272,23 +272,16 @@
                         </div>
                     </div>
                 </div>
-
-                
             </div>
-           
-
-			
-
-			
-			
-			
-
 		</div>
 
+
+        <!-- 모달창 -->
         <div class="layer-pop"  id="layer-worksheet" style="display: none;"></div>
         <div class="layer-pop"  id="layer-guide" style="display: none;"></div>
 
 
+        <!-- 상단으로 이동 -->
         <div class="top-btn__wrap">
             <button type="button" class="top-btn"></button>
         </div>
@@ -300,15 +293,17 @@
 
 
     <script>
-    function openWorksheet() {
-        $('#layer-worksheet').load('../modal/layerWork.html'); //호출
-        $('#layer-worksheet').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
-    }
+        // 학습지 모음
+        function openWorksheet() {
+            $('#layer-worksheet').load('../modal/layerWork.html'); //호출
+            $('#layer-worksheet').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
+        }
 
-    function openGuide() {
-        $('#layer-guide').load('../modal/layerGuide.html'); //호출
-        $('#layer-guide').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
-    }
+        // 가이드 모음
+        function openGuide() {
+            $('#layer-guide').load('../modal/layerGuide.html'); //호출
+            $('#layer-guide').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
+        }
     </script>
 
 

@@ -92,173 +92,396 @@
 		<div class="contents">
 
 			<main>
-				<!-- 인트로 1 -->
-				<div class="intro01">
-					<div class="main-cover">
-						<img src="./assets/images/main-cover.png" alt="개방형 수장고 길라잡이">
+
+				<div class="intro-cont">
+					<!-- 인트로 1 -->
+					<div class="intro01">
+						<div class="main-cover">
+							<img src="./assets/images/main-cover.png" alt="개방형 수장고 길라잡이">
+						</div>
+						<div class="main-footer">
+							<img src="./assets/images/main-logo_bt.png" alt="국립민속박물관 파주">
+						</div>
 					</div>
-					<div class="main-footer">
-						<img src="./assets/images/main-logo_bt.png" alt="국립민속박물관 파주">
+
+					<!-- 인트로 2 -->
+					<div class="intro02" style="display: none;">
+						
+						<div class="main-top">
+							<img src="./assets/images/main-top.png" alt="개방형 수장고 길라잡이">
+						</div>
+						
+						<div class="intro02-cont">
+							<div class="intro02-bg"></div>
+							<div class="intro02-img">
+								<img src="./assets/images/main-intro02.png" alt="">
+							</div>
+
+							<!-- 첫 번째 텍스트 박스 -->
+							<div class="intro02-box intro02_1">
+								<div class="inner">
+									<div class="intro-txt">입구에 들어가는 순간 열린 수장고를 만나다.</div>
+									<ul class="intro02-list">
+										<li><img src="./assets/images/main-intro_list01.svg" alt="소장품에 번호만 붙어있네?"></li>
+										<li><img src="./assets/images/main-intro_list02.svg" alt="소장품을 왜 빽빽하게 놓아 두었을까?"></li>
+										<li><img src="./assets/images/main-intro_list03.svg" alt="이 공간은 무엇을 하는 공간일까?"></li>
+									</ul>
+									<div class="intro-bottom">
+										<button type="button" class="btn01 btn-next" title="다음"></button>
+									</div>
+								</div>
+							</div>
+
+							<!-- 두 번째 텍스트 박스 -->
+							<div class="intro02-box intro02_2" style="display: none;">
+								<div class="inner">
+									<div class="intro-txt">안녕하세요. 여러분!<br>길라잡이를 통해 수장고를 톺아보면서<br>재미있게 관람하길 바라요.</div>
+									<div class="intro-bottom">
+										<img src="./assets/images/intro-swipe.svg" alt="">
+										<div class="intro-txt02">화면을 좌우로 스크롤하여<br>웅장한 수장고 타워를 둘러보세요!</div>
+										<button type="button" class="btn02 btn-next" title="다음"></button>
+									</div>
+								</div>
+							</div>
+
+							<!-- 세 번째 버튼 -->
+							<a href="javascript:;" class="btn03 btn-style-yellow" style="display: none;" >학습하러 가기</a>
+
+						
+						</div>
+						<!-- e: intro02-cont -->
+
 					</div>
 				</div>
-			
-				<!-- 인트로 2 -->
-				<div class="intro02" style="display: none;">
-					
-					<div class="main-top">
-						<div class="main-top__side" style="display: none;">
-							<button type="button" class="btn" onclick="openWorksheet()">
-								<img src="./assets/images/main-top__side01.svg" alt="">
-							</button>
-							<button type="button" class="btn" onclick="openGuide()">
-								<img src="./assets/images/main-top__side02.svg" alt="">
-							</button>
-						</div>
-						<img src="./assets/images/main-top.png" alt="개방형 수장고 길라잡이">
-					</div>
-					
-					<div class="intro02-cont">
-						<div class="intro02-bg"></div>
-						<div class="intro02-img">
-							<img src="./assets/images/main-intro02.png" alt="">
-						</div>
-			
-						<!-- 첫 번째 텍스트 박스 -->
-						<div class="intro02-box intro02_1">
-							<div class="inner">
-								<div class="intro-txt">입구에 들어가는 순간 열린 수장고를 만나다.</div>
-								<ul class="intro02-list">
-									<li><img src="./assets/images/main-intro_list01.svg" alt="소장품에 번호만 붙어있네?"></li>
-									<li><img src="./assets/images/main-intro_list02.svg" alt="소장품을 왜 빽빽하게 놓아 두었을까?"></li>
-									<li><img src="./assets/images/main-intro_list03.svg" alt="이 공간은 무엇을 하는 공간일까?"></li>
-								</ul>
-								<div class="intro-bottom">
-									<button type="button" class="btn01 btn-next" title="다음"></button>
-								</div>
+
+				<!-- 메인 -->
+				<div class="main-cont" style="display: none;">
+
+					<div class="intro02">
+						<div class="main-top">
+							<div class="main-top__side">
+								<button type="button" class="btn" onclick="openWorksheet()">
+									<img src="./assets/images/main-top__side01.svg" alt="">
+								</button>
+								<button type="button" class="btn" onclick="openGuide()">
+									<img src="./assets/images/main-top__side02.svg" alt="">
+								</button>
 							</div>
+							<img src="./assets/images/main-top.png" alt="개방형 수장고 길라잡이">
 						</div>
-			
-						<!-- 두 번째 텍스트 박스 -->
-						<div class="intro02-box intro02_2" style="display: none;">
-							<div class="inner">
-								<div class="intro-txt">안녕하세요. 여러분!<br>길라잡이를 통해 수장고를 톺아보면서<br>재미있게 관람하길 바라요.</div>
-								<div class="intro-bottom">
-									<img src="./assets/images/intro-swipe.svg" alt="">
-									<div class="intro-txt02">화면을 좌우로 스크롤하여<br>웅장한 수장고 타워를 둘러보세요!</div>
-									<button type="button" class="btn02 btn-next" title="다음"></button>
+						<div class="intro02-cont">
+								<!-- 메인 -->
+								<div class="intro03">
+									<div class="inner">
+										<ul class="main-list">
+											<li class="list01">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num01.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list01.png" alt="">
+														</div>
+														<a href="./config/list01.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg01.png" alt="">
+															</div>
+															<div class="hover-txt">
+																수장고<br>
+																초심자에게<br>
+																알림
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list02">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num02.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list02.png" alt="">
+														</div>
+														<a href="./config/list02.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg02.png" alt="">
+															</div>
+															<div class="hover-txt">
+																열리다 +<br>
+																보이다 =<br>
+																개방형 수장고
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list03">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num03.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list03.png" alt="">
+														</div>
+														<a href="./config/list03.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg03.png" alt="">
+															</div>
+															<div class="hover-txt">
+																수장고<br>
+																활용법
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list04">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num04.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list04.png" alt="">
+														</div>
+														<a href="./config/list04.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg04.png" alt="">
+															</div>
+															<div class="hover-txt">
+																수장고<br>
+																100%<br>
+																활용하기
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list05">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num05.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list05.png" alt="">
+														</div>
+														<a href="./config/list05.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg05.png" alt="">
+															</div>
+															<div class="hover-txt">
+																기록<br>
+																= 아카이브<br>
+																= 민속
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list06">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num06.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list06.png" alt="">
+														</div>
+														<a href="./config/list06.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg06.png" alt="">
+															</div>
+															<div class="hover-txt">
+																소장품이<br>
+																우리에게<br>
+																오기까지
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list07">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num07.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list07.png" alt="">
+														</div>
+														<a href="./config/list07.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg07.png" alt="">
+															</div>
+															<div class="hover-txt">
+																보존<br>
+																과학은<br>
+																이렇게
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list08">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num08.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list08.png" alt="">
+														</div>
+														<a href="./config/list08.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg08.png" alt="">
+															</div>
+															<div class="hover-txt">
+																박물관을<br>
+																나가며
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+											<li class="list09">
+												<div class="list-box">
+													<div class="list-num">
+														<img src="./assets/images/main-num09.svg" alt="">
+													</div>
+													<div class="list-cont">
+														<div class="list-img">
+															<img src="./assets/images/main-list09.png" alt="">
+														</div>
+														<a href="./config/list09.html" class="hover-cont">
+															<div class="list-bg">
+																<img src="./assets/images/main-list_bg09.png" alt="">
+															</div>
+															<div class="hover-txt">
+																수장고<br>
+																용어<br>
+																알아보기
+															</div>
+															<div class="btn-next btn-sm"></div>
+														</a>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									
 								</div>
-							</div>
+	
 						</div>
-
-						<!-- 세 번째 버튼 -->
-						<a href="./index2.html" class="btn03 btn-style-yellow" style="display: none;" >학습하러 가기</a>
-
-					
 					</div>
-					<!-- e: intro02-cont -->
-
 				</div>
 				
 			</main>
 
-			
+
+			<!-- 모달창 -->
+			<div class="layer-pop"  id="layer-worksheet" style="display: none;"></div>
+			<div class="layer-pop"  id="layer-guide" style="display: none;"></div>
+		
+			<!-- e: 관람지 모음 -->
 			<script>
-				$(document).ready(function(){
-					// 첫 화면 클릭
-					$(".intro01").click(function(){
+
+				// 학습지 모음
+				function openWorksheet() {
+					$('#layer-worksheet').load('./modal/layerWork.html');
+					$('#layer-worksheet').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false });
+				}
+
+				// 가이드
+				function openGuide() {
+					$('#layer-guide').load('./modal/layerGuide.html');
+					$('#layer-guide').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false });
+				}
+
+				$(document).ready(function() {
+
+					// 메인 메뉴 리스트 클릭 
+					$(".list-img").each(function () {
+						$(this).click(function () {
+								const $img = $(this); // 현재 클릭된 이미지
+								const $hover = $img.siblings(".hover-cont"); // 현재 hover-cont
+
+								// 모든 리스트 초기화
+								$(".list-img").show().removeClass("active");
+								$(".hover-cont").hide();
+
+								// 현재 리스트만 활성화
+								$img.addClass("active").hide();
+								$hover.show();
+							});
+						});
+
+
+					// 방문자 체크
+					if (localStorage.getItem('visited') === 'true') {
+						$('.intro-cont').hide();
+						$('.main-cont').show();
+						$('.intro03').show();
+						$('.main-top__side').show();
+						return;
+					}
+
+					// 인트로 클릭 시 방문 기록 저장
+					$('.intro01').click(function() {
+						localStorage.setItem('visited', 'true');
 						$(this).fadeOut(500);
 
-						// 스크롤 중앙 정렬
-						setTimeout(function(){
-							const scrollArea = document.querySelector(".intro02-img");
+						setTimeout(function() {
+							const scrollArea = document.querySelector('.intro02-img');
 							scrollArea.scrollLeft = (scrollArea.scrollWidth - scrollArea.clientWidth) / 2;
-						}, 100); // 이미지 크기 변경 후 스크롤 위치 설정
-					
+						}, 100);
 
-						$(".intro02").fadeIn(500, function(){
-							setTimeout(function(){
-								$(".intro02").addClass("active");
-								$(".intro02-bg").addClass("active");
+						$('.intro02').fadeIn(500, function() {
+							setTimeout(function() {
+								$('.intro02').addClass('active');
+								$('.intro02-bg').addClass('active');
 							}, 500);
 						});
 					});
 
-					// 첫 번째 버튼 클릭 → 텍스트 교체
-					$(".btn-next.btn01").click(function(){
-						$(".intro02_1").hide();
-						$(".intro02_2").fadeIn(500);
+					// 인트로 버튼 클릭 이벤트
+					$('.btn-next.btn01').click(function() {
+						$('.intro02_1').hide();
+						$('.intro02_2').fadeIn(500);
 					});
 
-					// 두 번째 버튼 클릭 → 스크롤 화면
-					$(".btn-next.btn02").click(function(){
-						$(".intro02-bg").hide();
-						$(".intro02_2").hide();
-						$(".intro02-img").addClass("active");
-						$(".btn-style-yellow").fadeIn(500);
-						$(".btn-style-yellow").addClass("active");
-
+					// 인트로 버튼 클릭 이벤트 
+					$('.btn-next.btn02').click(function() {
+						$('.intro02-bg').hide();
+						$('.intro02_2').hide();
+						$('.intro02-img').addClass('active');
+						$('.btn-style-yellow').fadeIn(500).addClass('active');
 					});
 
+					// 인트로 버튼 클릭 이벤트 (메인페이지 이동)
+					$('.btn03').click(function() {
+						$('.intro-cont').fadeOut(500);
+						$('.main-cont').show();
+					});
 
-					// $(".btn03").click(function(){
-					// 	$(".intro02-img").fadeOut(500);
-					// 	$(".btn-style-yellow").fadeOut(500);
-					// 	$(".intro03").show();
-					// 	$(".main-top__side").show();
-					// });
-
-					// $(".list-img").each(function () {
-					// 	$(this).click(function () {
-					// 		const $img = $(this); // 현재 클릭된 이미지
-					// 		const $hover = $img.siblings(".hover-cont"); // 현재 hover-cont
-
-					// 		// 모든 리스트 초기화
-					// 		$(".list-img").show().removeClass("active");
-					// 		$(".hover-cont").hide();
-
-					// 		// 현재 리스트만 활성화
-					// 		$img.addClass("active").hide();
-					// 		$hover.show();
-					// 	});
-					// });
-
-					// $(".layer-top-btn").click(function() {
-					// 	$(".layer").animate({ scrollTop: 0 }, 600); // 600ms 동안 스크롤
-					// 	return false;
-					// });
-					
-
+					// 레이어 탑 버튼 클릭 이벤트
+					$('.layer-top-btn').click(function() {
+						$('.layer').animate({ scrollTop: 0 }, 600);
+						return false;
+					});
 				});
-
-
-				// openWorksheet() 함수 정의
-				// function openWorksheet() {
-				// 	$("#layer-worksheet").show();
-				// 	$(".layer-worksheet").addClass("active");
-				// 	$("main").hide();
-				// 	$("body").css("overflow", "hidden"); // 스크롤 비활성화
-				// }
-
-				// $(".layer-worksheet .btn-close").click(function(){
-				// 	$("main").show();
-				// 	$("#layer-worksheet").hide();
-				// 	$(".layer-worksheet").removeClass("active");
-				// 	$("body").css("overflow", ""); // 스크롤 활성화
-				// }); 
-
-				// function openGuide() {
-				// 	$("#layer-guide").show();
-				// 	$(".layer-guide").addClass("active");
-				// 	$("main").hide();
-				// 	$("body").css("overflow", "hidden"); // 스크롤 비활성화
-				// }
-
-				// $(".layer-guide .btn-close").click(function(){
-				// 	$("main").show();
-				// 	$("#layer-guide").hide();
-				// 	$(".layer-guide").removeClass("active");
-				// 	$("body").css("overflow", ""); // 스크롤 활성화
-				// }); 
 
 			</script>
 

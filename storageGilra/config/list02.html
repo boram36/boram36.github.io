@@ -213,6 +213,7 @@
 
             <div class="contents-wrap">
 
+                <!-- s: 열리는 수장고 -->
                 <div class="contents-box bg-white">
                     <div class="inner">
                         <div class="contents-tit">
@@ -307,165 +308,478 @@
                             </ul>
                         </div>
 
-                        <div class="storage-contents__slide">
-                            <div class="inner">
-                                <div class="storage-slide slide01 swiper-container">
-                                    <ul class="swiper-wrapper">
-                                        <li class="swiper-slide" data-txt="열린 수장고 4">
-                                            <div class="storage-slide__img">
-                                                <img src="../assets/images/storage-open01.png" alt="">
-                                                <div class="toggle-btn btn01">
-                                                    <button type="button" class="btn"></button>
-                                                    <div class="toggle-txt">시루</div>
-                                                </div>
-                                                <div class="toggle-btn btn02">
-                                                    <button type="button" class="btn"></button>
-                                                    <div class="toggle-txt">맷돌</div>
-                                                </div>
-                                            </div>
-    
-                                            <div class="storage-slide__table">
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>젓독</td>
-                                                            <td>자배기</td>
-                                                            <td>맷돌</td>
-                                                            <td>솥</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>시루</td>
-                                                            <td>단지</td>
-                                                            <td>절구</td>
-                                                            <td>냄비</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </li>
-                                        <li class="swiper-slide" data-txt="열린 수장고 5">
-                                            <div class="storage-slide__img">
-                                                <img src="../assets/images/storage-open02.png" alt="">
-                                                <div class="toggle-btn btn03">
-                                                    <button type="button" class="btn"></button>
-                                                    <div class="toggle-txt">해주항아리</div>
-                                                </div>       
-                                                <div class="toggle-btn btn04 bottomRight">
-                                                    <button type="button" class="btn"></button>
-                                                    <div class="toggle-txt">양념단지</div>
-                                                </div>
-                                            </div>
-    
-                                            <div class="storage-slide__table">
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>해주항아리</td>
-                                                            <td>푼주</td>
-                                                            <td>완 / 발</td>
-                                                            <td>찬합</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>보시기 / 종지</td>
-                                                            <td>접시</td>
-                                                            <td>잔 / 컵</td>
-                                                            <td>차제구</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </li>
-                                        <li class="swiper-slide" data-txt="열린 수장고 6">
-                                            <div class="storage-slide__img">
-                                                <img src="../assets/images/storage-open03.png" alt="">
-                                                <div class="toggle-btn btn05 bottomLeft">
-                                                    <button type="button" class="btn"></button>
-                                                    <div class="toggle-txt">기름병</div>
-                                                </div>       
-                                                <div class="toggle-btn btn06 topRight">
-                                                    <button type="button" class="btn"></button>
-                                                    <div class="toggle-txt">소주고리</div>
-                                                </div>
-                                                <div class="toggle-btn btn07">
-                                                    <button type="button" class="btn"></button>
-                                                    <div class="toggle-txt">초병</div>
-                                                </div>
-                                            </div>
-    
-                                            <div class="storage-slide__table">
-                                                <table>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>소주고리</td>
-                                                            <td>주병</td>
-                                                            <td>벼루</td>
-                                                            <td>연적</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>등잔 / 촛대</td>
-                                                            <td>기름병</td>
-                                                            <td>연초합</td>
-                                                            <td>초병</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="swiper-btn__wrap">
-                                        <button type="button" class="swiper-btn swiper-prev"><i></i></button>
-                                        <div class="swiper-pagination"></div>
-                                        <button type="button" class="swiper-btn swiper-next"><i></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-
-                            <script>
-                                  const swiper = new Swiper(".storage-slide.slide01", {
-                                        loop: true,
-                                        slidesPerView: 1,   
-                                        navigation: {
-                                            nextEl: ".swiper-next",
-                                            prevEl: ".swiper-prev",
-                                        },
-                                        pagination: {
-                                            el: ".swiper-pagination",
-                                            clickable: true,
-                                        },
-                                        on: {
-                                            init: function () {
-                                                updatePaginationText(this);
-                                            },
-                                            slideChange: function () {
-                                                updatePaginationText(this);
-                                            },
-                                        },
-                                    });
-
-                                    function updatePaginationText(swiperInstance) {
-                                        const currentSlide = swiperInstance.slides[swiperInstance.activeIndex];
-                                        const txt = currentSlide.getAttribute("data-txt") || "";
-                                        const paginationEl = swiperInstance.el.querySelector(".swiper-pagination");
-                                        paginationEl.innerText = txt;
-                                    }
-
-                                    // 토글 버튼 기능
-                                    document.querySelectorAll(".toggle-btn .btn").forEach((button) => {
-                                        button.addEventListener("click", () => {
-                                        const parent = button.closest(".toggle-btn");
-                                        parent.classList.toggle("active");
-                                        });
-                                    });
-                            </script>
-                        </div>
+                      
                        
                     </div>
+
 
 
                         
                 </div>
 
+                <div class="storage-contents__slide">
+                    <div class="inner">
+                        <div class="storage-slide slide01 swiper-container">
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide" data-txt="열린 수장고 4">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-open01.png" alt="">
+                                        <div class="toggle-btn btn01">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">시루</div>
+                                        </div>
+                                        <div class="toggle-btn btn02">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">맷돌</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>젓독</td>
+                                                    <td>자배기</td>
+                                                    <td>맷돌</td>
+                                                    <td>솥</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>시루</td>
+                                                    <td>단지</td>
+                                                    <td>절구</td>
+                                                    <td>냄비</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="열린 수장고 5">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-open02.png" alt="">
+                                        <div class="toggle-btn btn03">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">해주항아리</div>
+                                        </div>       
+                                        <div class="toggle-btn btn04 bottomRight">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">양념단지</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>해주항아리</td>
+                                                    <td>푼주</td>
+                                                    <td>완 / 발</td>
+                                                    <td>찬합</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>보시기 / 종지</td>
+                                                    <td>접시</td>
+                                                    <td>잔 / 컵</td>
+                                                    <td>차제구</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="열린 수장고 6">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-open03.png" alt="">
+                                        <div class="toggle-btn btn05 bottomLeft">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">기름병</div>
+                                        </div>       
+                                        <div class="toggle-btn btn06 topRight">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">소주고리</div>
+                                        </div>
+                                        <div class="toggle-btn btn07">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">초병</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>소주고리</td>
+                                                    <td>주병</td>
+                                                    <td>벼루</td>
+                                                    <td>연적</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>등잔 / 촛대</td>
+                                                    <td>기름병</td>
+                                                    <td>연초합</td>
+                                                    <td>초병</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="열린 수장고 9">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-open04.png" alt="">
+                                        <div class="toggle-btn btn08 bottomRight">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">요강</div>
+                                        </div>       
+                                        <div class="toggle-btn btn09 ">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">귀때동이</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>제주독</td>
+                                                    <td>씨항아리</td>
+                                                    <td>약탕기</td>
+                                                    <td>요강</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>그물추</td>
+                                                    <td>귀때동이</td>
+                                                    <td>저울추</td>
+                                                    <td>인장 / 낙관</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">고드랫돌</td>
+                                                    <td colspan="2">다듬잇돌</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="열린 수장고 10">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-open05.png" alt="">
+                                        <div class="toggle-btn btn10 topRight">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">물동이</div>
+                                        </div>       
+                                        <div class="toggle-btn btn11 topRight">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">허벅</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>허벅</td>
+                                                    <td>물동이</td>
+                                                    <td>장군</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>호</td>
+                                                    <td>옹기독</td>
+                                                    <td>소꿉</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="열린 수장고 11">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-open06.png" alt="">
+                                        <div class="toggle-btn btn12 topRight">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">화분</div>
+                                        </div>       
+                                        <div class="toggle-btn btn13">
+                                            <button type="button" class="btn"></button>
+                                            <div class="toggle-txt">화로</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>제기접시</td>
+                                                    <td>약연</td>
+                                                    <td>향로</td>
+                                                    <td>화분</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>태항아리</td>
+                                                    <td>화로</td>
+                                                    <td>명기</td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="열린 수장고 16">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-open07.png" alt="">
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>반닫이</td>
+                                                    <td>소반</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>다식판</td>
+                                                    <td>떡살</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="swiper-btn__wrap">
+                                <button type="button" class="swiper-btn swiper-prev"><i></i></button>
+                                <div class="swiper-pagination"></div>
+                                <button type="button" class="swiper-btn swiper-next"><i></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <script>
+                          const swiper = new Swiper(".slide01", {
+                                loop: true,
+                                loopedSlides: 1,
+                                slidesPerView: 1,   
+                                effect : 'fade', 
+                                fadeEffect: { crossFade: true },
+                                speed: 300,
+                                observer: true,
+                                observeParents: true,
+                                navigation: {
+                                    nextEl: ".swiper-next",
+                                    prevEl: ".swiper-prev",
+                                },
+                                pagination: {
+                                    el: ".swiper-pagination",
+                                    clickable: true,
+                                },
+                                on: {
+                                    init: function () {
+                                        updatePaginationText(this);
+                                    },
+                                    slideChange: function () {
+                                        updatePaginationText(this);
+                                    },
+                                },
+                            });
+
+                            function updatePaginationText(swiperInstance) {
+                                const currentSlide = swiperInstance.slides[swiperInstance.activeIndex];
+                                const txt = currentSlide.getAttribute("data-txt") || "";
+                                const paginationEl = swiperInstance.el.querySelector(".swiper-pagination");
+                                paginationEl.innerText = txt;
+                            }
+
+                            // 토글 버튼 기능
+                            document.querySelectorAll(".toggle-btn .btn").forEach((button) => {
+                                button.addEventListener("click", () => {
+                                const parent = button.closest(".toggle-btn");
+                                parent.classList.toggle("active");
+                                });
+                            });
+                    </script>
+                </div>
+                <!-- e: 열리는 수장고 -->
+
+                <!-- e: 보이는 수장고 -->
+                <div class="contents-box bg-white">
+                    
+                    <div class="storage-contents">
+                        <div class="inner">
+                            <div class="contents-tit">
+                                <h3>보이는 수장고 <span class="en-txt">Visible Storage</span></h3>
+                                <p>창을 통해 내부를 볼 수 있는 수장고</p>
+                            </div>
+    
+                            <ul class="contents-list">
+                                <li><p class="contents-txt">보이는 수장고 3, 7, 8</p></li>
+                                <li><p class="contents-txt">비개방 보관 장소 + 창문 = 보이는 수장고</p></li>
+                                <li><p class="contents-txt">수장고 외부에서 유리창으로 관람</p></li>
+                                <li><p class="contents-txt">제한 개방 / 철저한 온·습도 관리 필요</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="storage-contents__slide">
+                    <div class="inner">
+                        <div class="storage-slide slide02 swiper-container">
+                          
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide" data-txt="보이는 수장고 3">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-view01.png" alt="">
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>금속 유물 (화로, 호미 등)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="보이는 수장고 7">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-view02.png" alt="">
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>소장품 등록실 (소장품 실측 및 등록, 포장 등 )</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                                <li class="swiper-slide" data-txt="보이는 수장고 8">
+                                    <div class="storage-slide__img">
+                                        <img src="../assets/images/storage-view03.png" alt="">
+                                    </div>
+
+                                    <div class="storage-slide__table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>목재/초재 유물 (함, 짚풀 바구니 등)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="swiper-btn__wrap">
+                                <button type="button" class="swiper-btn swiper-prev"><i></i></button>
+                                <div class="swiper-pagination"></div>
+                                <button type="button" class="swiper-btn swiper-next"><i></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <script>
+                          const swiper2 = new Swiper(".slide02", {
+                                loop: true,
+                                loopedSlides: 1,
+                                slidesPerView: 1,   
+                                effect : 'fade', 
+                                fadeEffect: { crossFade: true },
+                                speed: 300,
+                                observer: true,
+                                observeParents: true,
+                                navigation: {
+                                    nextEl: ".swiper-next",
+                                    prevEl: ".swiper-prev",
+                                },
+                                pagination: {
+                                    el: ".swiper-pagination",
+                                    clickable: true,
+                                },
+                                on: {
+                                    init: function () {
+                                        updatePaginationText(this);
+                                    },
+                                    slideChange: function () {
+                                        updatePaginationText(this);
+                                    },
+                                },
+                            });
+
+                            function updatePaginationText(swiperInstance) {
+                                const currentSlide = swiperInstance.slides[swiperInstance.activeIndex];
+                                const txt = currentSlide.getAttribute("data-txt") || "";
+                                const paginationEl = swiperInstance.el.querySelector(".swiper-pagination");
+                                paginationEl.innerText = txt;
+                            }
+
+                            // 토글 버튼 기능
+                            document.querySelectorAll(".toggle-btn .btn").forEach((button) => {
+                                button.addEventListener("click", () => {
+                                const parent = button.closest(".toggle-btn");
+                                parent.classList.toggle("active");
+                                });
+                            });
+                    </script>
+                </div>
+                <!-- e: 보이는 수장고 -->
+
+
+                <div class="contents-box bg-white">
+                    
+                    <div class="storage-contents">
+                        <div class="inner">
+                            <div class="contents-tit">
+                                <h3>외부 환경의 변화에도 소장품은<br>괜찮을까요?</h3>
+                            </div>
+    
+                            <ul class="contents-list">
+                                <li><p class="contents-txt">소장품의 ‘보존’을 최우선으로 고려해요.</p></li>
+                                <li><p class="contents-txt">‘재질’과 ‘유형별’로 분류해요.</p></li>
+                                <li><p class="contents-txt">각각의 재질별 보존환경에 맞춰 관리되고 있어요.</p></li>
+                                <li><p class="contents-txt">로비와 가장 가까운 4, 5, 6, 9, 10, 11 수장고는 외부 환경의 변화에도 상대적으로 잘 견디는 재질인 도·토기와 석재 소장품이에요.</p></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contents-box__table bg-white">
+                    <div class="inner">
+                        <h3 class="table-tit">수장고 현황표</h3>
+                    </div>
+                    <div class="table-wrapper">
+                        <!-- 고정 열 -->
+                        <table class="fixed-col">
+                          <thead>
+                            <tr>
+                                <th class="bg-blue">수장고</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <td class="bg-blue02">2수장고</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    
+                        <!-- 가로 스크롤 영역 -->
+                        <table>
+                          <thead>
+                            <tr>
+                              <th class="bg-blue">보관 소장품(재질)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>지/서화류</td>
+                            </tr>
+                            <tr>
+                              <td>금속품</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                    <div class="table-exp">좌우로 스크롤하여 확인해 보세요.</div>
+                </div>
                 
             </div>
            
@@ -478,10 +792,12 @@
 
 		</div>
 
+        <!-- 모달 -->
         <div class="layer-pop"  id="layer-worksheet" style="display: none;"></div>
         <div class="layer-pop"  id="layer-guide" style="display: none;"></div>
 
 
+        <!-- top-btn -->
         <div class="top-btn__wrap">
             <button type="button" class="top-btn"></button>
         </div>
@@ -493,15 +809,18 @@
 
 
     <script>
-    function openWorksheet() {
-        $('#layer-worksheet').load('../modal/layerWork.html'); //호출
-        $('#layer-worksheet').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
-    }
 
-    function openGuide() {
-        $('#layer-guide').load('../modal/layerGuide.html'); //호출
-        $('#layer-guide').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
-    }
+        // 학습지 모달창
+        function openWorksheet() {
+            $('#layer-worksheet').load('../modal/layerWork.html'); //호출
+            $('#layer-worksheet').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
+        }
+
+        // 가이드 모달창
+        function openGuide() {
+            $('#layer-guide').load('../modal/layerGuide.html'); //호출
+            $('#layer-guide').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
+        }
     </script>
 
 
