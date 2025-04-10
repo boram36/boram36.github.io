@@ -9,7 +9,7 @@ $(".gnb-btn").on("click", function () {
 
 
 $(".top-btn").on("click", function () {
-  $("html, body").animate({ scrollTop: 0 }, 600); // 600ms 동안 스크롤
+  $("html, body, .container").animate({ scrollTop: 0 }, 600); // 600ms 동안 스크롤
   return false;
 });
 });
