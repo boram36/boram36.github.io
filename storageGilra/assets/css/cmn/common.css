@@ -456,3 +456,10 @@ table td { padding:5px; }
 .pr100{padding-right: 100px !important;}
 .pr150{padding-right: 150px !important;}
 .pr200{padding-right: 200px !important;}
+
+
+
+/* align */
+.text-left{text-align:left !important;}
+.text-right{text-align:right !important;}
+.text-center{text-align:center !important;}
