@@ -111,7 +111,7 @@
                             <button type="button" class="gnb-close-btn"><i></i></button>
                             <div class="gnb-menu__top">
                                 <div class="inner">
-                                    <a href="../index2.html" class="btn btn-home"><i class="ico-home"></i></a>
+                                    <a href="../index.html" class="btn btn-home"><i class="ico-home"></i></a>
                                     <div class="btn-layer">
                                         <button type="button" class="btn" onclick="openWorksheet()">
                                             <img src="../assets/images/main-top__side01.svg" alt="">
@@ -319,7 +319,7 @@
 
                 <div class="storage-contents__slide">
                     <div class="inner">
-                        <div class="storage-slide slide01 swiper-container">
+                        <div class="storage-slide table-slide slide01 swiper-container">
                             <ul class="swiper-wrapper">
                                 <li class="swiper-slide" data-txt="열린 수장고 4">
                                     <div class="storage-slide__img">
@@ -585,11 +585,9 @@
                                 paginationEl.innerText = txt;
                             }
 
-                            // 토글 버튼 기능
-                            document.querySelectorAll(".toggle-btn .btn").forEach((button) => {
-                                button.addEventListener("click", () => {
-                                const parent = button.closest(".toggle-btn");
-                                parent.classList.toggle("active");
+                            $(document).ready(function () {
+                                $('.toggle-btn .btn').on('click', function () {
+                                    $(this).closest('.toggle-btn').toggleClass('active');
                                 });
                             });
                     </script>
@@ -618,7 +616,7 @@
 
                 <div class="storage-contents__slide">
                     <div class="inner">
-                        <div class="storage-slide slide02 swiper-container">
+                        <div class="storage-slide table-slide slide02 swiper-container">
                           
                             <ul class="swiper-wrapper">
                                 <li class="swiper-slide" data-txt="보이는 수장고 3">
@@ -711,13 +709,8 @@
                                 paginationEl.innerText = txt;
                             }
 
-                            // 토글 버튼 기능
-                            document.querySelectorAll(".toggle-btn .btn").forEach((button) => {
-                                button.addEventListener("click", () => {
-                                const parent = button.closest(".toggle-btn");
-                                parent.classList.toggle("active");
-                                });
-                            });
+                            
+
                     </script>
                 </div>
                 <!-- e: 보이는 수장고 -->
@@ -747,101 +740,91 @@
                         <h3 class="table-tit">수장고 현황표</h3>
                     </div>
                     <div class="table-wrapper">
-                        <!-- 고정 열 -->
-                        <table class="fixed-col">
+                        <table class="storage-table">
                           <thead>
                             <tr>
-                                <th class="bg-blue">수장고</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr><td class="bg-blue02">2수장고</td></tr>
-                            <tr><td class="bg-blue02">3수장고</td></tr>
-                            <tr><td class="bg-blue02">4수장고</td></tr>
-                            <tr><td class="bg-blue02">5수장고</td></tr>
-                            <tr><td class="bg-blue02">6수장고</td></tr>
-                            <tr><td class="bg-blue02">7수장고</td></tr>
-                            <tr><td class="bg-blue02">8수장고</td></tr>
-                            <tr><td class="bg-blue02">9수장고</td></tr>
-                            <tr><td class="bg-blue02">10수장고</td></tr>
-                            <tr><td class="bg-blue02">11수장고</td></tr>
-                            <tr><td class="bg-blue02">12수장고</td></tr>
-                            <tr><td class="bg-blue02">16수장고</td></tr>
-                          </tbody>
-                        </table>
-                    
-                        <!-- 가로 스크롤 영역 -->
-                        <table class="scroll-table">
-                          <thead>
-                            <tr>
-                              <th class="bg-blue">보관 소장품(재질)</th>
-                              <th class="bg-blue">적정 온·습도</th>
-                              <th class="bg-blue">개방여부</th>
+                                <th class="sticky-col bg-blue">수장고</th>
+                                <th class="bg-blue">보관 소장품(재질)</th>
+                                <th class="bg-blue">적정 온·습도</th>
+                                <th class="bg-blue">개방여부</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td>지/서화류</td>
-                              <td>20℃±4, 55%±5</td>
-                              <td>비개방 수장고</td>
+                                <td class="sticky-col bg-blue02">2수장고</td>
+                                <td>지/서화류</td>
+                                <td>20℃±4, 55%±5</td>
+                                <td>비개방 수장고</td>
                             </tr>
                             <tr>
-                              <td>금속품</td>
-                              <td>20℃±4, 45%±5</td>
-                              <td>보이는 수장고</td>
+                                <td class="sticky-col bg-blue02">3수장고</td>
+                                <td>금속품</td>
+                                <td>20℃±4, 45%±5</td>
+                                <td>보이는 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">4수장고</td>
                                 <td>도자기/옹기/석재류</td>
                                 <td>20℃±4, 50%±10</td>
                                 <td>열린 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">5수장고</td>
                                 <td>도자기/옹기/석재류</td>
                                 <td>20℃±4, 50%±10</td>
                                 <td>열린 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">6수장고</td>
                                 <td>도자기/옹기/석재류</td>
                                 <td>20℃±4, 50%±10</td>
                                 <td>열린 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">7수장고</td>
                                 <td>미등록품</td>
                                 <td>20℃±4, 50%±5</td>
                                 <td>보이는 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">8수장고</td>
                                 <td>목재류/초재류</td>
                                 <td>20℃±4, 55%±5</td>
                                 <td>보이는 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">9수장고</td>
                                 <td>도자기/옹기/석재류</td>
                                 <td>20℃±4, 50%±10</td>
                                 <td>열린 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">10수장고</td>
                                 <td>도자기/옹기/석재류</td>
                                 <td>20℃±4, 50%±10</td>
                                 <td>열린 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">11수장고</td>
                                 <td>도자기/옹기/석재류</td>
                                 <td>20℃±4, 50%±10</td>
                                 <td>열린 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">12수장고</td>
                                 <td>섬유</td>
                                 <td>20℃±4, 55%±5</td>
                                 <td>비개방 수장고</td>
                             </tr>
                             <tr>
+                                <td class="sticky-col bg-blue02">16수장고</td>
                                 <td>목재류</td>
                                 <td>20℃±4, 55%±5</td>
                                 <td>열린 수장고</td>
                             </tr>
                           </tbody>
                         </table>
+                    
                     </div>
                     <div class="table-exp flex-c-space">좌우로 스크롤하여 확인해 보세요.</div>
                 </div>

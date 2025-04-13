@@ -33,7 +33,7 @@
 
 
 *{
-    font-family: "Cafe24Ssurround","Noto Sans KR", sans-serif;
+    font-family: "LINESeedKR","Noto Sans KR", sans-serif;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -103,6 +103,13 @@ b{
     font-style:normal;
     font-size:inherit;
     letter-spacing:inherit;
+    font-family:inherit;
+}
+p{
+    font-style:normal;
+    font-size:inherit;
+    letter-spacing:inherit;
+    font-family:inherit; 
 }
 
 pre{
