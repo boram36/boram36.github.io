@@ -101,7 +101,7 @@
 .subTit-cont{font-size: 27px;position: relative;padding-left: 30px;margin-left: 30px; }
 .subTit-cont::before{content: '';position: absolute;top: 50%;transform: translateY(-50%);left: 0;width: 2px;height: 64px;background: #000;}
 .contents-tit{ margin-bottom: 15px; font-size: 22px; }
-.contents-tit h3{font-size: inherit; font-family: inherit; color: inherit; position: relative;}
+.contents-tit h3{font-size: inherit; font-family: inherit; color: inherit; position: relative; letter-spacing: -0.7px;}
 .contents-tit h3 .en-txt{position: absolute;top: 3px;font-size: 13px;color: inherit;font-family: inherit;font-weight: 600;padding-left: 4px;}
 .contents-tit p{font-size: inherit; color: inherit; font-family: inherit; line-height: 1.6;}
 .contents-tit p.txt02{font-size: 20px; margin-top: 10px;}
