@@ -195,7 +195,7 @@
 .toggle-btn.btn11 {top: 78%;right: 41%;} 
 .toggle-btn.btn12 {top: 54%;left: 3%;} 
 .toggle-btn.btn13 {top: 78%;right: 15%;} 
-.table-slide .swiper-btn__wrap{top: 345px;bottom: auto;}
+.table-slide .swiper-btn__wrap{top: calc(100% - 187px);bottom: auto;}
 .swiper-btn__wrap {display: flex;justify-content: space-between;align-items: center;bottom: 0;position: absolute;left: 0;z-index: 1;width: 100%;border: 2px solid #000;} 
 .swiper-btn {width: 45px;height: 45px;cursor: pointer; background-color: rgba(255, 255, 255, 0.8); display: flex; align-items: center; justify-content: center; } 
 .swiper-btn.swiper-prev{border-right: 2px solid #000;}
