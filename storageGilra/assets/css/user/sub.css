@@ -142,8 +142,8 @@ textarea :focus-visible { outline: none; }
 
 .contents-img{height: 535px; margin: 46px 0 40px; padding: 30px 0; border-top: 2px solid #000; border-bottom: 2px solid #000;}
 .contents-img__wrap{position: relative;}
-.contents-img img{width: 100%;}
-.ori-img{margin-bottom: 54px; font-size: 0;}
+.contents-img img{width: 100%; max-width: 350px}
+.ori-img{margin-bottom: 54px; font-size: 0; text-align: center;}
 .showImg{position: absolute;top: 0;left: 0;width: 100%;height: 100%; display: none;}
 .showImg::before{content: '';position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(255,255,255,0.5);}
 .showImg01{position: absolute; top: 38px; left: 46%; z-index: 1; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 4.5px;}
