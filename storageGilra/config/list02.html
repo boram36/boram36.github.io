@@ -870,6 +870,32 @@
             $('#layer-guide').load('../modal/layerGuide.html'); //호출
             $('#layer-guide').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const slide = document.querySelector(".storage-slide");
+            const image = slide.querySelector(".storage-slide__img img");
+            const buttonWrap = slide.querySelector(".swiper-btn__wrap");
+
+            // 이미지 로드 후 높이 측정
+            function adjustButtonPosition() {
+                const imageHeight = image.offsetHeight;
+                if (imageHeight && buttonWrap) {
+                // 이미지 높이 아래쪽 20px 여유를 두고 위치 지정
+                buttonWrap.style.top = imageHeight - 2 + "px";
+                }
+            }
+
+            // 이미지가 이미 로드됐으면 바로 실행
+            if (image.complete) {
+                adjustButtonPosition();
+            } else {
+                image.onload = adjustButtonPosition;
+            }
+
+            // 윈도우 리사이즈 시에도 다시 계산
+            window.addEventListener("resize", adjustButtonPosition);
+        });
+
     </script>
 
 
