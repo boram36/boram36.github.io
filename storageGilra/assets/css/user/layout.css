@@ -39,7 +39,7 @@ html{background: #fff; }
 .gnb-btn.active button span:before {transform: rotate(135deg);top: 0;}
 .gnb-btn.active button span:after {transform: rotate(-135deg);top: 0;}
 .gnb-menu {display: none;opacity: 0;visibility: hidden;transition: 0.4s;position: absolute;top: 0;right: 0;z-index: 9;width: 100%;justify-content: right;} 
-.gnb-menu__wrap{width: calc(100% - 94px); height: 100vh; background-color: var(--color-main); padding-top: 80px; border-left: 2px solid #000;}
+.gnb-menu__wrap{width: calc(100% - 94px);height: 100vh;background-color: var(--color-main);padding-top: 70px;border-left: 2px solid #000;}
 .gnb-menu::before{content: '';position: absolute;top: 0;left: 0;width: 94px;height: 100%;background-color: rgba(0, 0, 0, 0.7);z-index: -1;}
 .gnb-btn.active + .gnb-menu {display: flex;opacity: 1;visibility: visible;}
 .ico-home{width: 104px;height: 128px;background: url("../../images/ico-home.svg") no-repeat 50% / cover;margin-right: 10px;display: flex;}
