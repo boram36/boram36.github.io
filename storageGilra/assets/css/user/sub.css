@@ -22,7 +22,7 @@
 .layer .main-top__bottom{ font-size: 15px; font-weight: 700; color: #000; text-align: center; margin: 20px 0 50px;}
 .layer .guide-box{background-color: #fff; margin-top: 40px; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 40px 0 48px;}
 .layer .guide-box__tit{ font-size: 23px; font-weight: 700; margin-bottom: 20px;}
-.layer .guide-box__cont p{display: flex; align-items: center; gap: 8px;  font-size: 14px}
+.layer .guide-box__cont p{display: flex;align-items: center;gap: 8px;font-size: 14px;letter-spacing: -0.8px;}
 .layer .guide-box__cont p span{flex: none; display: flex; align-items: center; justify-content: center;  font-weight: 700; width: 24px; height: 24px; border-radius: 50%; border: 1px solid #000;}
 .layer .guide-box .bg-blue{background-color: #53A9DF;}
 .layer .guide-box .bg-orange{background-color: #EF8026  ;}
@@ -270,7 +270,7 @@ table th.bg-navy{color: #fff;}
 .contents-box__list .list-top { background-color: #FFD4D1; height: 172px; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 2px solid #000; } 
 .contents-box__list > li {background-color: #fff;border: 2px solid #000;} 
 .contents-box__list .list-num { position: absolute; top: 0; left: 0; width: 31px; height: 31px; background: var(--color-list06); display: flex; align-items: center; justify-content: center; border: 2px solid #000; border-top: 0; border-left: 0; font-weight: 700; } 
-.contents-box__list .list-cont {padding: 11px 17px;font-size: 18px;line-height: 1.5;height: ;} 
+.contents-box__list .list-cont {padding: 11px 17px;font-size: 18px;line-height: 1.5;} 
 .img-list > li{gap: 0 20px;}
 .img-list > li + li{margin-top: 41px;}
 .img-list .cont{padding: 10px 15px; border: 2px solid #000; background-color: #fff; line-height: 1.6; font-size: 20px;}
