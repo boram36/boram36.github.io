@@ -872,28 +872,35 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const slide = document.querySelector(".storage-slide");
-            const image = slide.querySelector(".storage-slide__img img");
-            const buttonWrap = slide.querySelector(".swiper-btn__wrap");
+            const slides = document.querySelectorAll(".storage-slide");
 
-            // 이미지 로드 후 높이 측정
-            function adjustButtonPosition() {
-                const imageHeight = image.offsetHeight;
-                if (imageHeight && buttonWrap) {
-                // 이미지 높이 아래쪽 20px 여유를 두고 위치 지정
-                buttonWrap.style.top = imageHeight - 2 + "px";
+            function adjustAllButtonPositions() {
+                slides.forEach(slide => {
+                const image = slide.querySelector(".storage-slide__img img");
+                const buttonWrap = slide.querySelector(".swiper-btn__wrap");
+
+                if (image && buttonWrap) {
+                    const imageHeight = image.offsetHeight;
+                    if (imageHeight > 0) {
+                    buttonWrap.style.top = (imageHeight - 2) + "px";
+                    }
                 }
+                });
             }
 
-            // 이미지가 이미 로드됐으면 바로 실행
-            if (image.complete) {
-                adjustButtonPosition();
-            } else {
-                image.onload = adjustButtonPosition;
-            }
+            // 이미지 로딩 후 위치 조정
+            slides.forEach(slide => {
+                const image = slide.querySelector(".storage-slide__img img");
 
-            // 윈도우 리사이즈 시에도 다시 계산
-            window.addEventListener("resize", adjustButtonPosition);
+                if (image.complete) {
+                adjustAllButtonPositions();
+                } else {
+                image.onload = adjustAllButtonPositions;
+                }
+            });
+
+            // 화면 크기 변경 시 다시 위치 조정
+            window.addEventListener("resize", adjustAllButtonPositions);
         });
 
     </script>

@@ -69,4 +69,5 @@ html{background: #fff; }
 
 @media screen and (max-width: 430px) {
   .hd-wrap{max-width: 100%;}
+  .top-btn__wrap{max-width: 100%;}
 }
