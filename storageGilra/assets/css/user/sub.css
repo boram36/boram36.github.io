@@ -18,8 +18,8 @@ textarea :focus-visible { outline: none; }
 .layer .list02 .main-top__img{border-right: 0;}
 .layer .list02 > div{border-top: 0;}
 .layer-cont{overflow: hidden;position: relative;margin-top: 40px;}
-.btn-close{position: absolute;width: 30px;height: 30px;top: 20px;right: 20px;z-index: 9999;display: flex;align-items: center;justify-content: center;}
-.btn-close i{width: 16px;height: 16px;background: url("../../images/btn-close.svg") no-repeat 50% / cover;}
+.layer .btn-close{position: absolute;width: 30px;height: 30px;top: 20px;right: 20px;z-index: 9999;display: flex;align-items: center;justify-content: center;}
+.layer .btn-close i{width: 16px;height: 16px;background: url("../../images/btn-close.svg") no-repeat 50% / cover;}
 .layer.layer-guide {background-color: var(--color-main);}
 .layer-guide .main-top{padding-top: 80px;}
 .layer-guide .layer-wrap {padding-top: 70px;}
