@@ -743,7 +743,7 @@
 							  <div class="etiquette-list__cont">조용한 목소리로<br>대화해요.</div>
 							</li>
 							<li>
-							  <a href="./config/list01.html">
+							  <a href="./index.html">
 								<div class="etiquette-list__img">
 								  <img src="./assets/images/etiquette09.svg" alt="">
 								</div>
@@ -824,7 +824,44 @@
 					$('.intro02_2').hide();
 					$('.btn-style-yellow').hide().removeClass('active');
 
-					localStorage.removeItem('visited');
+					// localStorage.removeItem('visited');
+					$('.intro01').click(function() {
+						localStorage.setItem('visited', 'true');
+						$(this).fadeOut(500);
+
+						setTimeout(function() {
+							const scrollArea = document.querySelector('.intro02-img');
+							scrollArea.scrollLeft = (scrollArea.scrollWidth - scrollArea.clientWidth) / 2;
+						}, 100);
+
+						$('.intro02').fadeIn(500, function() {
+							setTimeout(function() {
+								$('.intro02').addClass('active');
+								$('.intro02-bg').addClass('active');
+							}, 500);
+						});
+					});
+
+					// 인트로 버튼 클릭 이벤트
+					$('.btn-next.btn01').click(function() {
+						$('.intro02_1').hide();
+						$('.intro02_2').fadeIn(500);
+					});
+
+					// 인트로 버튼 클릭 이벤트 
+					$('.btn-next.btn02').click(function() {
+						$('.intro02-bg').hide();
+						$('.intro02_2').hide();
+						$('.intro02-img').addClass('active');
+						$('.btn-style-yellow').fadeIn(500).addClass('active');
+					});
+
+					// 인트로 버튼 클릭 이벤트 (메인페이지 이동)
+					$('.btn03').click(function() {
+						$('.intro-cont').fadeOut(500);
+						$('.main-cont').show();
+					});
+
 				}
 
 
