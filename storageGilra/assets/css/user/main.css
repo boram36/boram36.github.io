@@ -40,7 +40,7 @@ main {max-width: 393px;width: 100%;height: 100vh;margin: 0 auto;background: url(
 .list-num { text-align: center; font-size: 0; margin-bottom: 10px;} 
 .list-bg { font-size: 0; position: relative; z-index: 1; } 
 .list-bg img{width: 100%;}
-.list-cont {position: relative;width: 100px;height: 126px;} 
+.list-cont {position: relative;width: 100px;height: 126px; margin: 0 auto;} 
 .list-img{font-size: 0;width: 100%;}
 .list-img img {width: 100%;}
 .btn-next.btn-sm { width: 31px; height: 31px; background-image: url("../../images/btn-next_sm.svg"); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); z-index: 1; } 
