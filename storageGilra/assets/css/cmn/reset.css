@@ -40,10 +40,10 @@
     border: 0;
     box-sizing: border-box;
     font-size: 1rem;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.6px;
     line-height: 1.4;
     color: #000;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
 }   
 
 

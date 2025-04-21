@@ -164,7 +164,7 @@
                                     </a>
                                 </li>
                                 <li class="list07">
-                                    <a href="./list01.html" class="gnb-menu__btn">
+                                    <a href="./list07.html" class="gnb-menu__btn">
                                         <div class="num"><p><span>#</span>7</p></div>
                                         <div class="cont">보존과학은 이렇게</div>
                                     </a>
@@ -302,7 +302,7 @@
                     <div class="input-list question07">
                         <div class="input-top">
                           <div class="inner">
-                            <div class="input-top__tit color-white">
+                            <div class="input-top__tit">
                                 보존과학에 대해서 더 알아<br>봅시다.
                             </div>
                           </div>
@@ -468,6 +468,38 @@
             $('#layer-guide').load('../modal/layerGuide.html'); //호출
             $('#layer-guide').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll(".storage-slide");
+
+            function adjustAllButtonPositions() {
+                slides.forEach(slide => {
+                const image = slide.querySelector(".storage-slide__img img");
+                const buttonWrap = slide.querySelector(".swiper-btn__wrap");
+
+                if (image && buttonWrap) {
+                    const imageHeight = image.offsetHeight;
+                    if (imageHeight > 0) {
+                    buttonWrap.style.top = (imageHeight + 62) + "px";
+                    }
+                }
+                });
+            }
+
+            // 이미지 로딩 후 위치 조정
+            slides.forEach(slide => {
+                const image = slide.querySelector(".storage-slide__img img");
+
+                if (image.complete) {
+                adjustAllButtonPositions();
+                } else {
+                image.onload = adjustAllButtonPositions;
+                }
+            });
+
+            // 화면 크기 변경 시 다시 위치 조정
+            window.addEventListener("resize", adjustAllButtonPositions);
+        });
     </script>
 
 

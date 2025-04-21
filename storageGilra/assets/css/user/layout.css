@@ -64,8 +64,8 @@ html{background: #fff; }
 .gnb-menu__list .list08 .num{background-color: var(--color-list08);}
 .gnb-menu__list .list09 .num{background-color: var(--color-list09);}
 
-.top-btn__wrap { position: fixed; max-width: 393px; width: 100%; margin: 0 auto; z-index: 999; bottom: 0; } 
-.top-btn{position:absolute;bottom: 20px;right: 20px;z-index: 999;width: 65px;height: 65px;background: url("../../images/btn-top.png") no-repeat center / cover;border-radius: 50%;}
+.top-btn__wrap { position: fixed; max-width: 393px; width: 100%; margin: 0 auto; z-index: 8; bottom: 0; } 
+.top-btn{position:absolute;bottom: 20px;right: 20px;z-index: 8;width: 65px;height: 65px;background: url("../../images/btn-top.svg") no-repeat center / cover;border-radius: 50%;}
 
 @media screen and (max-width: 430px) {
   .hd-wrap{max-width: 100%;}
