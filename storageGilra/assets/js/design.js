@@ -13,6 +13,9 @@ $(".top-btn").on("click", function () {
   return false;
 });
 
+const { innerHeight } = window;
+document.documentElement.style.setProperty('--vh', `${innerHeight * 0.01}px`);
+
 });
 
 
