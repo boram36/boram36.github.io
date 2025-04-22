@@ -247,12 +247,6 @@ table .bg-navy02{background: #CDDBEC;}
 table .bg-green{background: #AEC519;}
 table .bg-green02{background: #E7EEB9;}
 .table-wrapper .sticky-col{border-left: 0; border-right: 0;}
-.table-wrapper .sticky-col.bg-blue02{background: transparent;}
-.table-wrapper .sticky-col{padding: 0;}
-.table-wrapper .sticky-col > div{width: 100%; height: 100%; padding: 10px 15px; font-size: inherit;}
-
-
-
 .table-wrapper th:last-child, 
 .table-wrapper td:last-child{border-right: 0;} 
 .table-exp{background: rgba(200, 235, 248, 0.3); border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 0 20px; height: 40px; font-size: 15px; font-weight: 700; color: #4BBCE7;}
@@ -266,6 +260,18 @@ table th.bg-navy{color: #fff;}
 .table-wrapper td:last-child.border-right{border-right: 1px solid #000}
 .storage-table.noscroll{border-bottom: 2px solid #000;}
 .storage-table.noscroll tr:last-child .sticky-col{border-bottom: 2px solid #000;}
+.table-wrapper td.sticky-col{border-bottom: 0;}
+.table-wrapper td.sticky-col::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  z-index: 2;
+}
+
 
 .container-list03 .contents-top img{right: -16px;}
 .storage-num__cont .toggle-btn.btn01{top: 39%; right: 27%;}
@@ -332,5 +338,5 @@ table th.bg-navy{color: #fff;}
 }
   */
 @media screen and (max-width: 375px) {
-  
+ 
 }
