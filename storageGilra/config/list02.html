@@ -197,7 +197,7 @@
 
             <div class="contents-top">
                 <div class="inner">
-                    <h3>열리다+보이다<br>=개방형 수장고</h3>
+                    <h3>열리다+보이다<br class="mo-ver">=개방형 수장고</h3>
                     <p><span>#</span>2</p>
                     <img src="../assets/images/content-top02.svg" alt="">
                 </div>
@@ -207,7 +207,7 @@
                 <div class="inner">
                     <div class="subTit-num">1</div>
                     <b class="subTit-cont">
-                        개방형 수장고는<br>어떤 곳일까요?
+                        개방형 수장고는<br class="mo-ver">어떤 곳일까요?
                     </b>
                 </div>
             </div>
@@ -218,7 +218,7 @@
                 <div class="contents-box bg-white">
                     <div class="inner">
                         <div class="contents-tit">
-                            <h3>국립민속박물관 파주에는<br>수장고가 몇 개 있을까요?</h3>
+                            <h3>국립민속박물관 파주에는<br class="mo-ver">수장고가 몇 개 있을까요?</h3>
                         </div>
                     </div>
                     <div class="contents-img ">
@@ -240,7 +240,7 @@
                                         <div>6</div>
                                     </div>
                                     <div class="showImg03 openImg03">
-                                        <div>열린<br>수장고<br>16</div>
+                                        <div>열린<br class="mo-ver">수장고<br class="mo-ver">16</div>
                                         
                                     </div>
                                     <button type="button" class="btn-close flex-c-space">
@@ -252,7 +252,7 @@
                                 <div class="showImg viewImg">
                                     <div class="showImg01 viewImg01"><div>보이는 수장고 8</div></div>
                                     <div class="showImg02 viewImg02"><div>보이는 수장고 3</div></div>
-                                    <div class="showImg03 viewImg03"><div>보이는<br>수장고 7</div></div>
+                                    <div class="showImg03 viewImg03"><div>보이는<br class="mo-ver">수장고 7</div></div>
                                     <button type="button" class="btn-close flex-c-space">
                                         <span>보이는 수장고</span>
                                         외부에서 유리창으로 볼 수 있어요
@@ -734,7 +734,7 @@
                     <div class="storage-contents">
                         <div class="inner">
                             <div class="contents-tit">
-                                <h3>외부 환경의 변화에도 소장품은<br>괜찮을까요?</h3>
+                                <h3>외부 환경의 변화에도 소장품은<br class="mo-ver">괜찮을까요?</h3>
                             </div>
     
                             <ul class="contents-list">
@@ -884,12 +884,12 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const slides = document.querySelectorAll(".storage-slide");
+            const slides = document.querySelectorAll(".storage-slide.slide01");
 
             function adjustAllButtonPositions() {
                 slides.forEach(slide => {
-                const image = slide.querySelector(".storage-slide__img img");
-                const buttonWrap = slide.querySelector(".swiper-btn__wrap");
+                const image = slide.querySelector(".slide01 .storage-slide__img img");
+                const buttonWrap = slide.querySelector(".slide01 .swiper-btn__wrap");
 
                 if (image && buttonWrap) {
                     const imageHeight = image.offsetHeight;
@@ -902,7 +902,7 @@
 
             // 이미지 로딩 후 위치 조정
             slides.forEach(slide => {
-                const image = slide.querySelector(".storage-slide__img img");
+                const image = slide.querySelector(".slide01 .storage-slide__img img");
 
                 if (image.complete) {
                 adjustAllButtonPositions();
@@ -915,6 +915,37 @@
             window.addEventListener("resize", adjustAllButtonPositions);
         });
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll(".storage-slide.slide02");
+
+            function adjustAllButtonPositions() {
+                slides.forEach(slide => {
+                const image = slide.querySelector(".slide02 .storage-slide__img img");
+                const buttonWrap = slide.querySelector(".slide02 .swiper-btn__wrap");
+
+                if (image && buttonWrap) {
+                    const imageHeight = image.offsetHeight;
+                    if (imageHeight > 0) {
+                    buttonWrap.style.top = (imageHeight - 0.5) + "px";
+                    }
+                }
+                });
+            }
+
+            // 이미지 로딩 후 위치 조정
+            slides.forEach(slide => {
+                const image = slide.querySelector(".slide02 .storage-slide__img img");
+
+                if (image.complete) {
+                adjustAllButtonPositions();
+                } else {
+                image.onload = adjustAllButtonPositions;
+                }
+            });
+
+            // 화면 크기 변경 시 다시 위치 조정
+            window.addEventListener("resize", adjustAllButtonPositions);
+        });
     </script>
 
 
