@@ -3,7 +3,7 @@
 
 body{overflow: hidden;}
 .inner { padding: 0 20px; }
-main {max-width: 393px;width: 100%;height: calc(var(--vh, 1vh) * 100);margin: 0 auto;background: url("../../images/bg.png") no-repeat top/ cover;position: relative;}
+main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("../../images/bg.png") no-repeat top/ cover;position: relative;}
 .main .intro01 { cursor: pointer; width: 100%; height: 100%; }
 .main-cover { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .main-cover img {max-width: 261px;}
@@ -37,7 +37,7 @@ main {max-width: 393px;width: 100%;height: calc(var(--vh, 1vh) * 100);margin: 0 
 
 .main-list {display: flex;margin: -7.5px;align-items: center;justify-content: space-around;flex-wrap: wrap;font-size: 0;} 
 .main-list > li{margin: 0 auto;width: 33.3333%;padding: 7.5px;}
-.list-box{cursor: pointer;width: 100%;}
+.list-box{cursor: pointer;width: 100%; display: flex; flex-direction: column; align-items: center;}
 .list-num { text-align: center; font-size: 0; margin-bottom: 10px;} 
 .list-bg { font-size: 0; position: relative; z-index: 1; } 
 .list-bg img{width: 100%;}
@@ -61,7 +61,7 @@ main {max-width: 393px;width: 100%;height: calc(var(--vh, 1vh) * 100);margin: 0 
 
 
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 393px){
   main{max-width: 100%;}
 }
 
@@ -115,7 +115,7 @@ main {max-width: 393px;width: 100%;height: calc(var(--vh, 1vh) * 100);margin: 0 
   .list-img img {width: auto;height: 100%;object-fit: cover;}
   .btn-next.btn-sm { width: 31px; height: 31px; background-image: url("../../images/btn-next_sm.svg"); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); z-index: 1; } 
   .hover-cont {display: none;position: static;top: 0;left: 0;width: 100%;height: 100%;z-index: 1;} 
-  .hover-txt {position: absolute;top: 13%;left: 49%;transform: translateX(-50%);width: calc(100% - 9vw); height: calc(100% - 16px); text-align: center;font-size: 12px;font-weight: 700;display: flex;align-items: center;justify-content: center; padding: 6px 0 32px;} 
+  .hover-txt {position: absolute;top: 13%;left: 49%;transform: translateX(-50%);width: calc(100% - 10px); height: calc(100% - 20px); text-align: center;font-size: 12px;font-weight: 700;display: flex;align-items: center;justify-content: center; padding: 6px 0 32px;} 
   .main-list .list01 .hover-txt{background-color: var(--color-list01); color: #fff;}
   .main-list .list02 .hover-txt{background-color: var(--color-list02); color: #000;}
   .main-list .list03 .hover-txt{background-color: var(--color-list03); color: #fff;}
