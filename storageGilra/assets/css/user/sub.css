@@ -18,7 +18,7 @@ textarea :focus-visible { outline: none; }
 .layer .list01 .main-top__img{border-left: 0;}
 .layer .list02 .main-top__img{border-right: 0;}
 .layer .list02 > div{border-top: 0;}
-.layer-cont{overflow: hidden;position: relative;margin-top: 40px;max-width: 750px;width: 100%;margin: 40px auto 0;overflow-y: auto;height: 100%;}
+.layer-cont{overflow: hidden;position: relative;margin-top: 40px;max-width: 750px;width: 100%;margin: 40px auto 0;overflow-y: auto;height: 100%;padding-bottom: 125px;}
 .layer-top .btn-close{position: absolute;width: 30px;height: 30px;top: 20px;right: 20px;z-index: 9999;display: flex;align-items: center;justify-content: center;}
 .layer-top .btn-close i{width: 16px;height: 16px;background: url("../../images/btn-close.svg") no-repeat 50% / cover;}
 .layer.layer-guide {background-color: var(--color-main);}
@@ -88,7 +88,7 @@ textarea :focus-visible { outline: none; }
 /* contents-top */
 .contents-top {position: relative;overflow: hidden;height: 420px;padding: 0;margin-top: -70px;padding-top: 88px;} 
 .contents-top img { position: absolute; right: 23px; bottom: 0; } 
-.contents-top h3{font-size: 43px;font-family: var(--font-cafe);}
+.contents-top h3{font-size: 72px; font-family: var(--font-cafe);}
 .contents-top p{ font-size: 40px;}
 .contents-top span{font-family: inherit; font-size: 30px;}
 .contents-top .inner{display: flex;flex-direction: column;justify-content: space-between;height: 100%;position: relative;padding: 14px 23px 18px;}
@@ -149,34 +149,38 @@ textarea :focus-visible { outline: none; }
 .tip-box{position: relative; border-bottom: 2px solid #000}
 .tip-box:last-child{border-bottom: 0;}
 .tip-txt{position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 60px;height: 46px;background: url("../../images/tip-bg.svg") no-repeat 50% / cover;display: flex;align-items: center;justify-content: center;font-size: 18px;font-weight: 700;}
-.tip-box .input-top .inner{padding: 36px 23px 35px;min-height: 153px;padding-right: 200px;}
+.tip-box .input-top .inner{padding: 36px 23px 35px;min-height: 153px;}
 .tip-box .input-top__tit{font-size: 20px;font-family: var(--font-line);}
 .tip-box .question01 .input-top{background-position: bottom right -20px;}
 .tip-box .question07 .input-top .inner {background-size: 133px 143px; background-position: bottom -10px right;}
-.contents-img{height: 535px; margin: 46px 0 40px; padding: 30px 0; border-top: 2px solid #000; border-bottom: 2px solid #000;}
+.contents-img{ margin: 46px 0 40px; padding: 30px 0 64px; border-top: 2px solid #000; border-bottom: 2px solid #000;}
 .contents-img__wrap{position: relative;}
-.contents-img img{width: 100%; max-width: 350px}
-.ori-img{margin-bottom: 54px; font-size: 0; text-align: center;}
+.contents-img img{width: 100%;}
+.ori-img{margin-bottom: 54px;font-size: 0;text-align: center;position: relative;}
+.ori-img img{max-width: 350px; width: 100%;}
 .showImg{position: absolute;top: 0;left: 0;width: 100%;height: 100%; display: none;}
+.showImg-wrap{position: relative;max-width: 350px;width: 100%;height: 100%;margin: 0 auto;}
 .showImg::before{content: '';position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: rgba(255,255,255,0.5);}
 .showImg01{position: absolute; top: 38px; left: 46%; z-index: 1; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 4.5px;}
 .showImg01 > div{font-size: 16px; font-weight: 700;  width: 42px; height: 44px; background-color: #53A9DF; color: #fff; border: 1px solid #000; display: flex; align-items: center; justify-content: center;}
 .showImg02{position: absolute; top: 188px; left: 46%; z-index: 1; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 4.5px;}
 .showImg02 > div{font-size: 16px; font-weight: 700;  width: 42px; height: 62px; background-color: #53A9DF; color: #fff; border: 1px solid #000; display: flex; align-items: center; justify-content: center;}
-.showImg03{position: absolute; top:  260px; left: 48px; z-index: 1; display: flex; align-items: center; justify-content: center;}
-.showImg03 > div{font-size: 16px; font-weight: 700;  text-align: center;  width: 66px; height: 96px; background-color: #53A9DF; color: #fff; border: 1px solid #000; display: flex; align-items: center; justify-content: center;}
-.showImg .btn-close{ padding: 0 18px; font-size: 15px; font-weight: 700; position: absolute; bottom: 0; left: 0; z-index: 1; width: 100%; height: 45px; background-color: #53A9DF; color: #fff; border: 1px solid #000;}
+.showImg03{position: absolute;top:  260px;left: 17%;z-index: 1;display: flex;align-items: center;justify-content: center;}
+.showImg03 > div{font-size: 16px; font-weight: 700;  text-align: center;  width: 75px; height: 96px; background-color: #53A9DF; color: #fff; border: 1px solid #000; display: flex; align-items: center; justify-content: center;}
+.showImg .btn-close{padding: 0 18px;font-size: 15px;font-weight: 700;position: absolute;bottom: -97px;left: 50%;transform: translateX(-50%);z-index: 1;width: 100%;margin: 0 auto;height: 45px;background-color: #53A9DF;color: #fff;border: 1px solid #000;}
 .showImg .btn-close span{font-size: 18px; color: inherit; font-family: inherit;}
 .showImg01.viewImg01 > div{width: 143px; height: 41px; background-color: var(--color-main); color: #000;}
 .showImg02.viewImg02 > div{width: 143px; height: 41px; background-color: var(--color-main); color: #000;}
 .showImg03.viewImg03 > div{width: 96px; height: 62px; background-color: var(--color-main); color: #000;}
 .showImg01.viewImg01 { top: 5px; left: 50%; } 
-.showImg02.viewImg02 { left: 50%; } 
-.showImg03.viewImg03 {left: 2px; bottom: 156px;}
+.showImg02.viewImg02 {left: 50%;top: 181px;} 
+.showImg03.viewImg03 {left: 1px;bottom: 22%;top: auto;}
 .showImg.viewImg .btn-close{background-color: var(--color-main); color: #000;}
+.contents-img__btn {max-width: 347px; width: 100%; margin: 0 auto;}
 .contents-img__btn .btn-wrap{gap: 25px;}
 .contents-img__btn .btn{height: 41px; flex: 1; background-color: var(--color-list02_bg); color: #000; border: 1px solid #000;  font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center;}
-.contents-img__btn p{margin-top: 12px;  color: #000; opacity: .5;}
+.contents-img__btn p{margin-top: 12px;color: #000;opacity: .5; position: absolute;}
+
 
 /* slide */
 .storage-contents__slide {padding: 50px 0;border-top: 2px solid #000;border-bottom: 2px solid #000;} 
@@ -333,16 +337,30 @@ table th.bg-navy{color: #fff;}
 
 br.mo-ver{display: none;}
 
-/* @media screen and (max-width: 430px) {
-  .container{max-width: 100%;height: calc(var(--vh, 1vh) * 100);}
-  .layer, .layer-pop{max-width: 100%;}
-} */
-/* @media screen and (max-width: 390px) {
-  .container-list05 .table-slide .swiper-btn__wrap {top: 343px;}
+
+@media screen and (min-width: 751px) {
+  .contents-img{min-height: 535px; height: auto; padding: 30px 0 95px;}
+  .showImg01 > div {width: 51px; height: 60px;}
+  .showImg01 {top: 12%;left: 46%;}
+  .contents-img img{max-width: 100%;}
+  .contents-img__btn p{position: absolute;}
+  .showImg03 {top: 82%;left: 20%;} 
+  .showImg03 > div { width: 100px; height: 130px; } 
+  .showImg02 {top: 62%;} 
+  .showImg02 > div { width: 54px; height: 73px; } 
+  .showImg .btn-close { max-width: 347px; } 
+  .showImg01.viewImg01 > div { width: 250px; height: 70px; } 
+  .showImg01.viewImg01 { top: 0; left: 47%; } 
+  .showImg02.viewImg02 > div { width: 250px; height: 70px; } 
+  .showImg02.viewImg02 { top: 50%; left: 46%; } 
+  .showImg03.viewImg03 { bottom: 31%; top: auto; left: 14%; }
+  .tip-box .input-top .inner{padding-right: 200px;}
 }
-  */
+
+
 @media screen and (max-width: 750px) {
   .contents-top img{right: 0;}
+  .contents-top h3 {font-size: 43px;}
   .container-list03 .contents-top img{right: -16px;}
   .container-list05 .contents-top img{right: -30px;}
   .container-list06 .contents-top img{right: -20px;}
@@ -351,4 +369,9 @@ br.mo-ver{display: none;}
   .question05 .input-top .inner {background-position: right -22px bottom;}
   br.mo-ver{display: block;}
 
+}
+
+@media screen and (max-width: 375px) {
+  .showImg02.viewImg02{top: 170px;}
+  .showImg03.viewImg03 {bottom: 20%; left: -5px;}
 }
