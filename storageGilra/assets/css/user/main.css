@@ -3,7 +3,7 @@
 
 body{overflow: hidden;}
 .inner { padding: 0 20px; }
-main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("../../images/bg_pc.jpeg") no-repeat top/ cover;position: relative;}
+main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("../../images/bg_pc.png") no-repeat top/ cover;position: relative;}
 .main .intro01 { cursor: pointer; width: 100%; height: 100%; }
 .main-cover { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .main-cover img {max-width: 261px;}
@@ -114,7 +114,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .list-num img{height: 100%;}
   .list-bg {font-size: 0;position: relative;z-index: 1;height: 100%;} 
   .list-bg img{/* width: 100%; */height: 100%;}
-  .list-cont {/* position: relative; */margin: 0 auto;flex-grow: 1;display: flex;flex-direction: column;height: calc(100% - 10vw);} 
+  .list-cont {/* position: relative; */margin: 0 auto;flex-grow: 1;display: flex;flex-direction: column;height: calc(100% - 10vw); width: auto; } 
   .list-img{font-size: 0;height: 100%;flex-grow: 1; text-align: center;}
   .list-img img {height: 100%;object-fit: cover;}
   .btn-next.btn-sm { width: 31px; height: 31px; background-image: url("../../images/btn-next_sm.svg"); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); z-index: 1; } 
@@ -130,5 +130,5 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .main-list .list08 .hover-txt{background-color: var(--color-list08); color: #fff;}
   .main-list .list09 .hover-txt{background-color: var(--color-list09); color: #000;}
   .main-cont { height: calc(var(--vh, 1vh) * 100); background: url("../../images/bg.png") no-repeat top -8vw center / cover; background-color: var(--color-main); } 
-
+  .main-cont .inner{height: 100%;}
 }
