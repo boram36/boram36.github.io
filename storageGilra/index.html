@@ -753,17 +753,10 @@
 										<div class="etiquette-list__cont">학습하러<br>가볼까요?</div>
 										</a>
 									</li>
-							
-									
-							
 									</ul>
 								</div>
 							</div>
 					  </div>
-				  
-					
-					  
-				  
 					</div>
 				  </div>
 				  <button type="button" class="layer-top-btn"></button>
@@ -938,13 +931,19 @@
 						$('.intro-cont').fadeOut(500);
 						$('.main-cont').show();
 					});
-
-					// 레이어 탑 버튼 클릭 이벤트
-					$('.layer-top-btn').click(function() {
-						$('.layer-pop').animate({ scrollTop: 0 }, 600);
-						return false;
-					});
 				});
+
+
+				$('.layer-pop').on('scroll', function () {
+					const scrollTop = $(this).scrollTop();
+					if (scrollTop > 50) {
+						$(this).find('.layer-top').addClass('active');
+					} else {
+						$(this).find('.layer-top').removeClass('active');
+					}
+				});
+
+
 				
 
 			</script>
