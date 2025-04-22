@@ -317,10 +317,10 @@ table th.bg-navy{color: #fff;}
 .storage-slide__table .row.bottom-row { border-bottom: 2px solid #000; } 
 
 
-@media screen and (max-width: 430px) {
-  .container{max-width: 100%;height: 100vh;}
+/* @media screen and (max-width: 430px) {
+  .container{max-width: 100%;height: calc(var(--vh, 1vh) * 100);}
   .layer, .layer-pop{max-width: 100%;}
-}
+} */
 /* @media screen and (max-width: 390px) {
   .container-list05 .table-slide .swiper-btn__wrap {top: 343px;}
 }
