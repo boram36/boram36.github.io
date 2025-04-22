@@ -246,7 +246,7 @@ table .bg-navy{background: #5D88C0;}
 table .bg-navy02{background: #CDDBEC;}
 table .bg-green{background: #AEC519;}
 table .bg-green02{background: #E7EEB9;}
-.table-wrapper .sticky-col{border-left: 0; border-right: 0;}
+.table-wrapper .sticky-col{border-left: 0; border-right: 0; border-bottom-width: 1.8px;}
 .table-wrapper th:last-child, 
 .table-wrapper td:last-child{border-right: 0;} 
 .table-exp{background: rgba(200, 235, 248, 0.3); border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 0 20px; height: 40px; font-size: 15px; font-weight: 700; color: #4BBCE7;}
