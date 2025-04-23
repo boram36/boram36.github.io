@@ -13,9 +13,13 @@ $(".top-btn").on("click", function () {
   return false;
 });
 
-const { innerHeight } = window;
-document.documentElement.style.setProperty('--vh', `${innerHeight * 0.01}px`);
+function setFullHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
 
+window.addEventListener('resize', setFullHeight);
+window.addEventListener('load', setFullHeight);
 });
 
 

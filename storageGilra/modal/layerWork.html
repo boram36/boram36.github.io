@@ -221,8 +221,17 @@
 
 
 <script>
-  $(".layer-top-btn").click(function() {
+    $(".layer-top-btn").click(function() {
       $(".layer-pop").animate({ scrollTop: 0 }, 600); // 600ms 동안 스크롤
       return false;
     });
+
+    $('.layer-pop').on('scroll', function () {
+        const scrollTop = $(this).scrollTop();
+        if (scrollTop > 50) {
+          $(this).find('.layer-top').addClass('active');
+        } else {
+          $(this).find('.layer-top').removeClass('active');
+        }
+      });
 </script>

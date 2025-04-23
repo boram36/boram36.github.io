@@ -374,7 +374,7 @@ br.mo-ver{display: none;}
 
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 376px) {
   .showImg02.viewImg02{top: 170px;}
   .showImg03.viewImg03 {bottom: 20%; left: -5px;}
 }
