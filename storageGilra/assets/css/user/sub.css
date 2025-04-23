@@ -4,7 +4,7 @@ textarea :focus-visible { outline: none; }
 .max-750{max-width: 750px; width: 100%; margin: 0 auto;}
 
 /* 팝업 */
-.layer{z-index: 999;background: url(../../images/bg_pc.png) no-repeat top / cover;position: relative;top: 0;left: 0;width: 100%;height: 100%;}
+.layer{z-index: 999;background: url(../../images/bg_pc.png) no-repeat top -5vh center / cover;position: relative;top: 0;left: 0;width: 100%;height: 100%;}
 .layer-pop {position: fixed;top: 0;left: 0;display: flex;align-items: center;justify-content: center;width: 100%;height: 100%;z-index: 9999;overflow-y: auto;background-color: var(--color-main);/* padding-top: 68px; */} 
 .layer-wrap {padding-top: 165px;padding-bottom: 0;} 
 .layer-top {position: fixed;top: 0;left: 0;width: 100%;/* height: 68px; */background: #53A9DF;z-index: 9999;} 
@@ -23,8 +23,7 @@ textarea :focus-visible { outline: none; }
 .layer-top .btn-close{position: absolute;width: 30px;height: 30px;top: 20px;right: 20px;z-index: 9999;display: flex;align-items: center;justify-content: center;}
 .layer-top .btn-close i{width: 16px;height: 16px;background: url("../../images/btn-close.svg") no-repeat 50% / cover;}
 .layer.layer-guide {background-color: var(--color-main);}
-.layer-guide .main-top{padding-top: 80px;}
-.layer-guide .layer-wrap {padding-top: 70px;}
+.layer-guide .main-top{}
 .layer .main-top__bottom{ font-size: 15px; font-weight: 700; color: #000; text-align: center; margin: 20px 0 50px;}
 .layer .guide-img img {width: 100%;}
 .layer .guide-box{background-color: #fff; margin-top: 40px; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 40px 0 48px;}
@@ -356,6 +355,8 @@ br.mo-ver{display: none;}
   .showImg02.viewImg02 { top: 50%; left: 46%; } 
   .showImg03.viewImg03 { bottom: 31%; top: auto; left: 14%; }
   .tip-box .input-top .inner{padding-right: 200px;}
+  .layer-wrap {padding-top: 22vh}
+
 }
 
 
@@ -370,7 +371,6 @@ br.mo-ver{display: none;}
   .question05 .input-top .inner {background-position: right -22px bottom;}
   br.mo-ver{display: block;}
   .layer{background:  url("../../images/bg.png") no-repeat top -8vw center / cover;}
-
 
 }
 
