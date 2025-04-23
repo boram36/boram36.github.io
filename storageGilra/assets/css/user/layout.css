@@ -34,8 +34,8 @@ html{background: #fff; }
 .gnb-btn button {width: 30px;height: 30px;border: 0;border-radius: 5px;position: relative;display: flex;align-items: center;justify-content: center;}
 .gnb-btn button span {display: block;height: 2px;width: 24px;background: #000;position: absolute;top: 50%;margin-top: -1px;left: 50%;margin-left: -11px;transition: all 0.5s;border-radius: 10px;}
 .gnb-btn button span:before,
-.gnb-btn button span:after {content: "";display: block;height: 100%;width: 100%;background: #000;position: absolute;top: -10px;transform: rotate(0deg);transition: all 0.5s;border-radius: 10px;}
-.gnb-btn button span:after {top: 10px;}
+.gnb-btn button span:after {content: "";display: block;height: 100%;width: 100%;background: #000;position: absolute;top: -8px;transform: rotate(0deg);transition: all 0.5s;border-radius: 10px;}
+.gnb-btn button span:after {top: 9px;}
 .gnb-btn.active button span{width: 20px;background: transparent;}
 .gnb-btn.active button span:before {transform: rotate(135deg);top: 0;}
 .gnb-btn.active button span:after {transform: rotate(-135deg);top: 0;}

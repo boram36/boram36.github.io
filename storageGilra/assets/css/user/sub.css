@@ -336,6 +336,7 @@ table th.bg-navy{color: #fff;}
 .storage-slide__table .row.bottom-row { border-bottom: 2px solid #000; } 
 
 br.mo-ver{display: none;}
+.img-border{border-top: 2px solid #000; border-bottom: 2px solid #000;}
 
 
 @media screen and (min-width: 751px) {
