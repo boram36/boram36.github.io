@@ -118,7 +118,8 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .list-img img {height: 15vh;object-fit: cover; width: auto;}
   .btn-next.btn-sm { width: 31px; height: 31px; background-image: url("../../images/btn-next_sm.svg"); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); z-index: 1; } 
   .hover-cont {display: none;position: static;top: 0;left: 0;width: 100%;height: 100%;z-index: 1;} 
-  .hover-txt { position: absolute; top: 12%; left: 49%; transform: translateX(-50%); width: calc(100% - 10px); height: calc(100% - 30px); text-align: center; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; padding: 5px 0 20px; }   .main-list .list01 .hover-txt{background-color: var(--color-list01); color: #fff;}
+  .hover-txt {position: absolute;top: 13%;left: 49%;transform: translateX(-50%);width: calc(100% - 10px); height: calc(100% - 31px); text-align: center;font-size: 12px;font-weight: 700;display: flex;align-items: center;justify-content: center; padding: 6px 0 32px;} 
+  .main-list .list01 .hover-txt{background-color: var(--color-list01); color: #fff;}
   .main-list .list02 .hover-txt{background-color: var(--color-list02); color: #000;}
   .main-list .list03 .hover-txt{background-color: var(--color-list03); color: #fff;}
   .main-list .list04 .hover-txt{background-color: var(--color-list04); color: #fff;}
