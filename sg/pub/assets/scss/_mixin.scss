@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+
+/*---- 정렬 ----*/
+@mixin pos-center($type: absolute){
+    @if($type == fixed or $type == absolute){
+        position: $type;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin pos-center-x($type: absolute){
+    @if($type == fixed or $type == absolute){
+        position: $type;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@mixin pos-center-y($type: absolute){
+    @if($type == fixed or $type == absolute){
+        position: $type;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+
+
+/*---- FONT-STYLE ----*/
+@mixin font-style($size, $letter, $weight){
+    font: {
+        size: $size;
+        weight: $weight;
+    }
+    
+    letter-spacing: $letter;
+}
+
+
+
+/*---- BOX-STYLE ----*/
+@mixin box-style{
+    width:100%;
+    border-radius:$border-radius-10;
+    background-color:var(--color-white);
+
+    padding-top:$pd-box-top;
+    padding-bottom:$pd-box-bottom;
+
+    @include mobile{
+        padding-top:$pd-box-top-m;
+        padding-bottom:$pd-box-bottom-m;
+    }
+}
+
+
+
+/*---- SELECT BAR ----*/
+@mixin select-style($bgSize, $pdRight, $bgName){
+    background-repeat:no-repeat;
+    background-position-y:50%;
+
+    background-image:url($url-bg + $bgName + ".svg");
+    background-size:$bgSize;
+    background-position-x:calc(100% - #{$bgSize} - 5px);
+    padding-right:$pdRight !important;
+}
+
+
+
+/*---- ICON ----*/
+@mixin bg-style($bgName){
+    background-image:url($url-bg + $bgName + ".svg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin bg-on-style($bgName){
+    background-image:url($url-bg + $bgName + "_on.svg");
+}
+
+@mixin icon-style($width, $height, $bgName){
+    @include bg-style($bgName);
+
+    width:$width;
+    height:$height;
+}
+
+
+
+/*---- INPUT ----*/
+@mixin input-style{
+    padding: 0 18px;
+    height:54px;
+    border:1px solid var(--color-primary-30);
+    border-radius: 20px;
+    font-size:$fs-16;
+    font-weight: 500;
+}
+
+
+
+/*---- CHECKBOX ----*/
+@mixin check-style{
+    $checkSize:26px;
+    width:$checkSize;
+    min-width:$checkSize;
+    height:$checkSize;
+    border-radius:$border-radius-5;
+    @include bg-style("ico-chk");
+}
+
+@mixin radio-style{
+    $checkSize:24px;
+    width:$checkSize;
+    min-width:$checkSize;
+    height:$checkSize;
+    border-radius:$border-radius-50;
+    @include bg-style("ico-radio");
+}
+
+
+
+/*----- BREAK-POINT ----*/
+$break-pc:1921px;
+$break-pc2:1450px;
+$break-laptop:1279px;
+$break-tablet:959px;
+$break-mobile:768px;
+$break-mobileSm:640px;
+$break-mobileSm2:640px;
+
+$break-laptop2:1600px;
+
+@mixin pc{
+    @media (min-width: #{$break-pc}){
+        @content;
+    }
+}
+
+@mixin pc2{
+    @media (max-width: #{$break-pc2}){
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media (max-width: #{$break-laptop}){
+        @content;
+    }
+}
+
+
+@mixin tablet{
+    @media (max-width: #{$break-tablet}){
+        @content;
+    }
+}
+
+
+@mixin mobile{
+    @media (max-width: #{$break-mobile}){
+        @content;
+    }
+}
+
+
+@mixin mobileSm{
+    @media (max-width: #{$break-mobileSm}){
+        @content;
+    }
+}
+
+@mixin mobileSm2{
+    @media (min-width: #{$break-mobileSm}){
+        @content;
+    }
+}
+
+
+@mixin laptop2{
+    @media (max-width: #{$break-laptop2}){
+        @content;
+    }
+}
+
+/*---- TRANSITION ----*/
+@mixin transition($time){
+    transition:$time;
+    -webkit-transition:$time;
+    -o-transition:$time;
+    -moz-transition:$time;
+}
+
+
+
+/*---- CONT SCROLL ----*/
+@mixin cont-scroll{
+    &::-webkit-scrollbar{
+        width:6px;
+        height:6px;
+        border-radius:20px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background:var(--color-blue)08;
+    }
+}
+
+
+
+/*---- TABLE ----*/
+@mixin tbl-view-th-size{
+    width:$view-th;
+    min-width:130px;
+}
+
+@mixin tbl-view-textarea{
+    padding-top:9px;
+    padding-bottom:9px;
+    min-height:100px;
+    overflow: hidden;
+}
+
+
+
+/*---- TEXT CUT ----*/
+@mixin text-cut{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+@mixin m-label-trans{
+    flex-direction:column;
+    align-items:flex-start;
+}
