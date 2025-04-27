@@ -58,7 +58,7 @@ textarea :focus-visible { outline: none; }
 
 /* 질문지 모음 */
 .question01 .input-top{background-color: var(--color-list01);}
-.question01 .input-top .inner{background: url("../../images/menu01_img.svg") no-repeat right 23px bottom / 144px 153px;}
+.question01 .input-top .inner{background: url("../../images/menu01_img.svg") no-repeat right 23px bottom / 115px 137px;}
 .question01 .input-cont{background-color: var(--color-list01_bg);}
 .question01 .question b{color: var(--color-list01)}
 .question-list + .question-list{margin-top: 50px;}
@@ -73,7 +73,7 @@ textarea :focus-visible { outline: none; }
 .question05 .question b{color: var(--color-list05)}
 .question05 .question-list + .question-list{margin-top: 70px;}
 .question06 .input-top{background-color: var(--color-list06);}
-.question06 .input-top .inner{background: url("../../images/menu06_img.svg") no-repeat right bottom  -1px / 144px 153px;}
+.question06 .input-top .inner{background: url("../../images/menu06_img.svg") no-repeat right 23px bottom  -16px / 96px 116px;}
 .question06 .input-cont{background-color: var(--color-list06_bg);}
 .question06 .question b{color: var(--color-list06)}
 .question07 .input-top{background-color: var(--color-list07);}
@@ -151,7 +151,7 @@ textarea :focus-visible { outline: none; }
 .tip-txt{position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 60px;height: 46px;background: url("../../images/tip-bg.svg") no-repeat 50% / cover;display: flex;align-items: center;justify-content: center;font-size: 18px;font-weight: 700;}
 .tip-box .input-top .inner{padding: 36px 23px 35px;min-height: 153px;}
 .tip-box .input-top__tit{font-size: 20px;font-family: var(--font-line);}
-.tip-box .question01 .input-top .inner{background-position: bottom right -20px;}
+.tip-box .question01 .input-top .inner{background-position: bottom -16px right;}
 .tip-box .question07 .input-top .inner {background-size: 133px 143px; background-position: bottom -10px right;}
 .contents-img{ margin: 46px 0 40px; padding: 30px 0 64px; border-top: 2px solid #000; border-bottom: 2px solid #000;}
 .contents-img__wrap{position: relative;}
@@ -369,7 +369,11 @@ br.mo-ver{display: none;}
   .container-list06 .contents-top img{right: -20px;}
   .container-list07 .contents-top img{right: -45px;}
   .container-list08 .contents-top img{right: -8px;}
+  .tip-box .question01 .input-top .inner{background-position: right -23px bottom -16px;}
   .question05 .input-top .inner {background-position: right -22px bottom;}
+  .question06 .input-top .inner {
+    background-position: right -15px bottom -12px;
+}
   br.mo-ver{display: block;}
   .layer{background:  url("../../images/bg.png") no-repeat top -8vw center / cover;}
 
