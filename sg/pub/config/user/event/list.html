@@ -24,7 +24,7 @@
 
 
 	<!-- favicon -->
-	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+	<link rel="shortcut icon" href="../../../assets/images/favicon/favicon.ico">
 
 
 
@@ -35,17 +35,18 @@
 
 
 	<!-- css -->
-	<link rel="stylesheet" href="../../assets/scss/sg.css">
+	
+	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
 
 	<!-- js :: lib -->
-	<script type="text/javascript" src="../../assets/js/lib/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery.modal.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
 
 
 	<!-- js :: common -->
-	<script type="text/javascript" src="../../assets/js/user/design.js"></script>
+	<script type="text/javascript" src="../../../assets/js/user/design.js"></script>
 </head>
 
 
@@ -68,7 +69,7 @@
 
     <nav class="header py-10 ">
       <div class="inner f-c-space">
-        <h2 class="header-tit main-tit">지지도</h2>
+        <h2 class="header-tit main-tit">행사</h2>
         <button type="button" class="search-btn ico" onclick="openPopup('searchFilterPopup');"><i class="ico-search"></i></button>
       </div>
     </nav>
@@ -91,7 +92,7 @@
           <div class="comBox-list">
             <div class="comBox-item">
               <div class="comBox-item__top f-c-space">
-                <div class="num">121</div>
+                <div class="num">17</div>
                 <button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
               </div>
               <!-- e: comBox-item__top -->
@@ -99,21 +100,18 @@
               <div class="comBox-item__cont">
                 <div class="profile f-c-space">
                   <div class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    <button type="button" class="edit-btn ico" title="수정" onclick="location.href='/sg/pub/config/user/editVoter.html'"><i class="ico-edit"></i></button>
+                    <b>구월 초청강연회</b>
                   </div>
-                  <p class="profile-tel">010-1***-4532</p>
                 </div>
                 <!-- e: profile -->
   
                 <ul class="detail">
                   <li>
                     <div class="detail-tit">
-                      <span>지지도</span>
+                      <span>행사일</span>
                     </div>
                     <div class="detail-cont">
-                      <!-- 지지도 표기 -->
-                      <div class="detail-state"><i class="ico ico-like_big"></i></div>
+                      2025.02.12 17:00
                     </div>
                   </li>
                   <li>
@@ -122,32 +120,42 @@
                     </div>
                     <div class="detail-cont">구월면 > 이읍리</div>
                   </li>
-                  <li>
+                  <li class="detail-hidden">
                     <div class="detail-tit">
-                      <span>조사일</span>
+                      <span>장&nbsp;&nbsp;&nbsp;&nbsp;소</span>
                     </div>
-                    <div class="detail-cont">2025.04.12 11:40</div>
+                    <div class="detail-cont">구월 강당</div>
+                  </li>
+                  <li class="detail-hidden">
+                    <div class="detail-tit">
+                      <span>인&nbsp;&nbsp;&nbsp;&nbsp;원</span>
+                    </div>
+                    <div class="detail-cont">1,000명</div>
                   </li>
   
                   <!-- 의견 : detail-idea 클래스 추가 -->
-                  <li class="detail-idea">
+                  <li class="detail-hidden detail-idea">
                     <div class="detail-tit">
-                      <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
+                      <span>내&nbsp;&nbsp;&nbsp;&nbsp;용</span>
                     </div>
                     <div class="detail-cont">
-                      평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+                      구월읍에 유명한 OOO 초청 강연회가 구월 강당에서 열립니다. 구월읍에 유명한 OOO 초청 강연회가 구월 강당에서 열립니다.<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
                     </div>
                   </li>
                 </ul>
                 <!-- e: detail -->
-  
               </div>
               <!-- e: comBox-item__cont -->
-  
-             </div>
-             <div class="comBox-item">
+              <div class="comBox-item__bottom">
+                <button type="button" class="btn open-btn ico" onclick="toggleOpen(this)">열기</button>
+              </div>
+
+            </div>
+
+            <!-- 행사기간 기준 당일 이전일 경우 : state-disabled 클래스 추가 -->
+            <div class="comBox-item state-disabled">
               <div class="comBox-item__top f-c-space">
-                <div class="num">120</div>
+                <div class="num">17</div>
                 <button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
               </div>
               <!-- e: comBox-item__top -->
@@ -155,24 +163,18 @@
               <div class="comBox-item__cont">
                 <div class="profile f-c-space">
                   <div class="tit">
-                    <b>김순미</b>(<span class="txt-14">여</span>, 64세)
-                    <button type="button" class="edit-btn ico" title="수정" ><i class="ico-edit"></i></button>
+                    <b>구월 초청강연회</b>
                   </div>
-                  <p class="profile-tel">010-1***-4532</p>
                 </div>
                 <!-- e: profile -->
   
                 <ul class="detail">
                   <li>
                     <div class="detail-tit">
-                      <span>지지도</span>
+                      <span>행사일</span>
                     </div>
                     <div class="detail-cont">
-                      <!-- 지지도 표기 -->
-                      <div class="detail-state">
-                        <i class="ico ico-like_big"></i>
-                        <i class="ico ico-mid_big"></i>
-                      </div>
+                      2025.02.12 17:00
                     </div>
                   </li>
                   <li>
@@ -181,87 +183,37 @@
                     </div>
                     <div class="detail-cont">구월면 > 이읍리</div>
                   </li>
-                  <li>
+                  <li class="detail-hidden">
                     <div class="detail-tit">
-                      <span>조사일</span>
+                      <span>장&nbsp;&nbsp;&nbsp;&nbsp;소</span>
                     </div>
-                    <div class="detail-cont">2025.04.12 11:40</div>
+                    <div class="detail-cont">구월 강당</div>
                   </li>
-                 <!-- 의견 : detail-idea 클래스 추가 -->
-                  <li class="detail-idea">
+                  <li class="detail-hidden">
                     <div class="detail-tit">
-                      <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
+                      <span>인&nbsp;&nbsp;&nbsp;&nbsp;원</span>
                     </div>
-                    <div class="detail-cont">
-                        지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
-                        <button class="detail-more" onclick="toggleComment(this)">...더보기</button>
-                    </div>
-  
+                    <div class="detail-cont">1,000명</div>
                   </li>
-                </ul>
-                <!-- e: detail -->
   
-              </div>
-              <!-- e: comBox-item__cont -->
-  
-             </div>
-             <div class="comBox-item">
-              <div class="comBox-item__top f-c-space">
-                <div class="num">119</div>
-                <button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
-              </div>
-              <!-- e: comBox-item__top -->
-  
-              <div class="comBox-item__cont">
-                <div class="profile f-c-space">
-                  <div class="profile-name">
-                    <b>김순미</b>(<span class="txt-14">여</span>, 64세)
-                    <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
-                  </div>
-                  <p class="profile-tel">010-1***-4532</p>
-                </div>
-                <!-- e: profile -->
-  
-                <ul class="detail">
-                  <li>
-                    <div class="detail-tit">
-                      <span>지지도</span>
-                    </div>
-                    <div class="detail-cont">
-                      <!-- 지지도 표기 -->
-                      <div class="detail-state">
-                        <i class="ico ico-hate_big"></i>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="detail-tit">
-                      <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
-                    </div>
-                    <div class="detail-cont">구월면 > 이읍리</div>
-                  </li>
-                  <li>
-                    <div class="detail-tit">
-                      <span>조사일</span>
-                    </div>
-                    <div class="detail-cont">2025.04.12 11:40</div>
-                  </li>
                   <!-- 의견 : detail-idea 클래스 추가 -->
-                  <li class="detail-idea">
+                  <li class="detail-hidden detail-idea">
                     <div class="detail-tit">
-                      <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
+                      <span>내&nbsp;&nbsp;&nbsp;&nbsp;용</span>
                     </div>
                     <div class="detail-cont">
-                     -<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+                      구월읍에 유명한 OOO 초청 강연회가 구월 강당에서 열립니다. 구월읍에 유명한 OOO 초청 강연회가 구월 강당에서 열립니다.<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
                     </div>
                   </li>
                 </ul>
                 <!-- e: detail -->
-  
               </div>
               <!-- e: comBox-item__cont -->
-  
-             </div>
+              <div class="comBox-item__bottom">
+                <button type="button" class="btn open-btn ico" onclick="toggleOpen(this)">열기</button>
+              </div>
+
+            </div>
              <!-- e: 반복구문 : comBox-item -->
           </div>
           <!-- e: comBox-list -->
@@ -269,9 +221,9 @@
         </div>
 
         <div class="btn-wrap btn-fixed">
-          <button type="button" class="btn btn-floating bg-red" title="플로팅 버튼">
+          <a href="/sg/pub/config/user/event/register.html" class="btn btn-floating bg-blue" title="행사 등록">
             <i class="ico-add"></i>
-          </button>
+          </a>
         </div>
 
       </div>
@@ -322,14 +274,23 @@
       <div class="popup-content">
 
         <div class="input-row">
-          <label class="input-tit" for="input01">유권자 검색</label>
+          <label class="input-tit" for="input01">행사명</label>
           <div class="input-wrap">
-            <input type="text" id="input01" name="input01" placeholder="이름, 전화번호 뒷자리" value="">
+            <input type="text" id="input01" name="input01" placeholder="행사명" value="">
           </div>
         </div>
 
         <div class="input-row">
-          <label class="input-tit" for="input02">유권자 지역</label>
+          <div class="input-tit">행사일</div>
+          <div class="input-wrap input-date">
+            <input type="text" id="" name="" placeholder="시작일">
+            <span>~</span>
+            <input type="text" id="" name="" placeholder="종료일">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <label class="input-tit" for="input02">행사일</label>
           <div class="select-wrap">
             <select name="" id="" class="width-half">
               <option value="">시/도</option>
@@ -362,29 +323,13 @@
         </div>
 
         <div class="input-row">
-          <div class="input-tit">지지도</div>
-          <div class="checkbox-box checkbox-wrap">
-            <div class="checkbox">
-              <input type="checkbox" id="checkAll" name="check">
-              <label for="checkAll">전체</label>
-            </div>
-  
-            <div class="checkbox">
-              <input type="checkbox" id="check01" name="check" >
-              <label for="check01"><i class="ico ico-like_big"></i></label>
-            </div>
-
-            <div class="checkbox">
-              <input type="checkbox" id="check02" name="check" >
-              <label for="check02"><i class="ico ico-mid_big"></i></label>
-            </div>
-
-            <div class="checkbox">
-              <input type="checkbox" id="check03" name="check" >
-              <label for="check03"><i class="ico ico-hate_big"></i></label>
-            </div>
+          <div class="input-tit">행사 장소</div>
+          <div class="input-wrap input-date">
+            <input type="text" id="" name="" placeholder="행사 장소">
           </div>
         </div>
+
+       
       </div>
       <!-- e: popup-content -->
 
@@ -420,7 +365,7 @@
       <div class="popup-footer">
         <div class="btn-wrap f-d-c">
           <button type="button" class="btn txt-system-red" onclick="openPopup('deletePopup'); closePopup('confirmPopup')">삭제</button>
-          <button type="button" class="btn" onclick="openPopup('modifyPopup'); closePopup('confirmPopup')">수정</button>
+          <a href="/sg/pub/config/user/event/edit.html" class="btn">수정</a>
         </div>
       </div>
       <!-- e: popup-footer -->
@@ -522,23 +467,6 @@
     </div>
   </div>
   <!-- e: 수정 팝업 -->
-
-
-
-
-	<script>
-
-	</script>
-
-
-<script>
- 
-
-</script>
-
-
-
-
 
 </body>
 

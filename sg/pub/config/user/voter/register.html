@@ -24,7 +24,7 @@
 
 
 	<!-- favicon -->
-	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+	<link rel="shortcut icon" href="../../../assets/images/favicon/favicon.ico">
 
 
 
@@ -35,17 +35,19 @@
 
 
 	<!-- css -->
-	<link rel="stylesheet" href="../../assets/scss/sg.css">
+	
+	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
+
 
 	<!-- js :: lib -->
-	<script type="text/javascript" src="../../assets/js/lib/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery.modal.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
 
 
 	<!-- js :: common -->
-	<script type="text/javascript" src="../../assets/js/user/design.js"></script>
+	<script type="text/javascript" src="../../../assets/js/user/design.js"></script>
 </head>
 
 
@@ -229,6 +231,17 @@
 				select.addEventListener('change', checkVoterFormStatus);
 			});
 		});
+
+		$(document).ready(function () {
+			// selectric 초기화
+			$('.select-wrap select').selectric();
+
+			// selectric의 커스텀 change 이벤트에 반응
+			$('.select-wrap select').on('selectric-change', function () {
+				checkVoterFormStatus();
+			});
+		});
+
 	</script>
 	
 

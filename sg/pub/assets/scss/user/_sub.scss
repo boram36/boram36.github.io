@@ -5,7 +5,7 @@
  *
  *
  * SUMMARY:
- * 01) main
+ * 01) login
  * 02) 
  */
 
@@ -131,10 +131,13 @@
     padding: 0 20px;
     &.state{
       &-disabled{
-        background: var(--color-primary-50);
+        background: var(--color-primary-30);
         *{
           color: var(--color-primary-70);
           border-color: var(--color-primary-50);
+        }
+        .detail-idea .detail-more{
+          background: var(--color-primary-30);
         }
       }
     }
@@ -264,3 +267,66 @@
     line-height: 1.5;
   }
 }
+
+/*---- 04) notice ----*/
+.notice{
+  &-list{
+    border-top: 1px solid var(--color-primary-30);
+    li{
+      padding: 25px 0;
+      border-bottom: 1px solid var(--color-primary-30);
+    }
+  }
+  &-tit{
+    font-weight: 500;
+    @extend .text-over;
+  }
+  &-info{
+    margin-top: 8px;
+    color: var(--color-primary-60);
+    font-size: $fs-14;
+    span{
+      font-size: $fs-14;
+      color: var(--color-primary-30);
+    }
+  }
+  &-detail{
+    &__top{
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--color-primary-30);
+      .notice-tit{font-size: 18px; font-weight: 700; white-space: normal;}
+      .notice-info{font-size: 16px; margin-top: 10px;}
+    }
+    &__cont{
+      margin-top: 15px;
+    }
+    &__txt{
+      margin-top: 25px;
+      img{max-width: 100%;}
+      p{
+        color: #000;
+        line-height: 1.8;
+      }
+    }
+    &__file{
+      border-radius: 10px;
+      padding: 11px 16px;
+      padding-left: 40px;
+      background: url("../../images/cmn/ico-file.svg") no-repeat left 10px top 10px / 20px 20px;
+      background-color: var(--color-primary-10);
+      .file-name{
+        font-size: $fs-14;
+        font-weight: 500;
+        text-decoration: underline;
+        @extend .text-over2;
+      }
+      .file-size{
+        font-size: $fs-12;
+        margin-top: 5px;
+        color: var(--color-primary-60);
+      }
+    }
+  }
+}
+
+

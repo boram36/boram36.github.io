@@ -24,7 +24,7 @@
 
 
 	<!-- favicon -->
-	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+	<link rel="shortcut icon" href="../../../assets/images/favicon/favicon.ico">
 
 
 
@@ -35,17 +35,19 @@
 
 
 	<!-- css -->
-	<link rel="stylesheet" href="../../assets/scss/sg.css">
+	
+	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
+
 
 	<!-- js :: lib -->
-	<script type="text/javascript" src="../../assets/js/lib/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery.modal.min.js"></script>
-	<script type="text/javascript" src="../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
 
 
 	<!-- js :: common -->
-	<script type="text/javascript" src="../../assets/js/user/design.js"></script>
+	<script type="text/javascript" src="../../../assets/js/user/design.js"></script>
 </head>
 
 
@@ -67,9 +69,9 @@
 	<div class="container bg-primary-10" id="container">
 
     <nav class="header py-10 ">
-      <div class="inner f-c-space">
-        <h2 class="header-tit main-tit">행사</h2>
-        <button type="button" class="search-btn ico" onclick="openPopup('searchFilterPopup');"><i class="ico-search"></i></button>
+      <div class="inner f-c-l">
+        <button type="button" class="back-btn ico" onclick=""><i class="ico-back"></i></button>
+        <h2 class="header-tit">검색 결과</h2>
       </div>
     </nav>
     <!-- e: header -->
@@ -78,9 +80,9 @@
       <div class="inner">
         <div class="comBox">
           <div class="comBox-top f-c-space">
-            <b class="comBox-top__tit">전체(121)</b>
+            <b class="comBox-top__tit">검색 결과(1)</b>
             <div class="tooltip-wrap">
-              <button type="button" class="tooltip-btn btn ico"><i class="ico-tooltip"></i></button>
+              <button type="button" class="tooltip-btn btn ico" onclick=""><i class="ico-tooltip"></i></button>
               <div class="tooltip-box">
                 본인이 등록한 지지도 조사만 보입니다.
               </div>
@@ -91,7 +93,7 @@
           <div class="comBox-list">
             <div class="comBox-item">
               <div class="comBox-item__top f-c-space">
-                <div class="num">17</div>
+                <div class="num">2</div>
                 <button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
               </div>
               <!-- e: comBox-item__top -->
@@ -148,211 +150,23 @@
               <div class="comBox-item__bottom">
                 <button type="button" class="btn open-btn ico" onclick="toggleOpen(this)">열기</button>
               </div>
-
             </div>
-
-            <!-- 행사기간 기준 당일 이전일 경우 : state-disabled 클래스 추가 -->
-            <div class="comBox-item state-disabled">
-              <div class="comBox-item__top f-c-space">
-                <div class="num">17</div>
-                <button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
-              </div>
-              <!-- e: comBox-item__top -->
-  
-              <div class="comBox-item__cont">
-                <div class="profile f-c-space">
-                  <div class="tit">
-                    <b>구월 초청강연회</b>
-                  </div>
-                </div>
-                <!-- e: profile -->
-  
-                <ul class="detail">
-                  <li>
-                    <div class="detail-tit">
-                      <span>행사일</span>
-                    </div>
-                    <div class="detail-cont">
-                      2025.02.12 17:00
-                    </div>
-                  </li>
-                  <li>
-                    <div class="detail-tit">
-                      <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
-                    </div>
-                    <div class="detail-cont">구월면 > 이읍리</div>
-                  </li>
-                  <li class="detail-hidden">
-                    <div class="detail-tit">
-                      <span>장&nbsp;&nbsp;&nbsp;&nbsp;소</span>
-                    </div>
-                    <div class="detail-cont">구월 강당</div>
-                  </li>
-                  <li class="detail-hidden">
-                    <div class="detail-tit">
-                      <span>인&nbsp;&nbsp;&nbsp;&nbsp;원</span>
-                    </div>
-                    <div class="detail-cont">1,000명</div>
-                  </li>
-  
-                  <!-- 의견 : detail-idea 클래스 추가 -->
-                  <li class="detail-hidden detail-idea">
-                    <div class="detail-tit">
-                      <span>내&nbsp;&nbsp;&nbsp;&nbsp;용</span>
-                    </div>
-                    <div class="detail-cont">
-                      구월읍에 유명한 OOO 초청 강연회가 구월 강당에서 열립니다. 구월읍에 유명한 OOO 초청 강연회가 구월 강당에서 열립니다.<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
-                    </div>
-                  </li>
-                </ul>
-                <!-- e: detail -->
-              </div>
-              <!-- e: comBox-item__cont -->
-              <div class="comBox-item__bottom">
-                <button type="button" class="btn open-btn ico" onclick="toggleOpen(this)">열기</button>
-              </div>
-
-            </div>
-             <!-- e: 반복구문 : comBox-item -->
+           
           </div>
-          <!-- e: comBox-list -->
-         
         </div>
-
-        <div class="btn-wrap btn-fixed">
-          <button type="button" class="btn btn-floating bg-blue" title="플로팅 버튼">
-            <i class="ico-add"></i>
-          </button>
-        </div>
-
+        <!-- <div class="noList">
+          <p>검색 결과가 없습니다.</p>
+        </div> -->
+        <!-- e: comlList -->
       </div>
     </main>
     <!-- e: main -->
 
 
-    <div class="footer">
-      <div class="inner">
-        <div class="footer-wrap">
-          <!-- 해당 메뉴 : active 클래스 추가 -->
-          <a href="" class="menu-btn menu01 ">
-            <i></i>
-            <p>홈</p>
-          </a>
-          <a href="" class="menu-btn menu02 active">
-            <i></i>
-            <p>지지도</p>
-          </a>
-          <a href="" class="menu-btn menu03">
-            <i></i>
-            <p>행사</p>
-          </a>
-          <a href="" class="menu-btn menu04">
-            <i></i>
-            <p>공지</p>
-          </a>
-        </div>
-      </div>
-     
-    </div>
-    <!-- e: footer -->
 
 
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
-
-
-  <div id="searchFilterPopup" class="popup-layer popup-bottom">
-    <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">검색 필터</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('searchFilterPopup')"><i class="ico-popup_cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-
-        <div class="input-row">
-          <label class="input-tit" for="input01">유권자 검색</label>
-          <div class="input-wrap">
-            <input type="text" id="input01" name="input01" placeholder="이름, 전화번호 뒷자리" value="">
-          </div>
-        </div>
-
-        <div class="input-row">
-          <label class="input-tit" for="input02">유권자 지역</label>
-          <div class="select-wrap">
-            <select name="" id="" class="width-half">
-              <option value="">시/도</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-    
-            <select name="" id="" class="width-half">
-              <option value="" >시/군/구</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-    
-            <select name="" id="" class="width-half">
-              <option value="">읍/면/동</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-    
-            <select name="" id="" class="width-half">
-              <option value="">리</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="input-row">
-          <div class="input-tit">지지도</div>
-          <div class="checkbox-box checkbox-wrap">
-            <div class="checkbox">
-              <input type="checkbox" id="checkAll" name="check">
-              <label for="checkAll">전체</label>
-            </div>
-  
-            <div class="checkbox">
-              <input type="checkbox" id="check01" name="check" >
-              <label for="check01"><i class="ico ico-like_big"></i></label>
-            </div>
-
-            <div class="checkbox">
-              <input type="checkbox" id="check02" name="check" >
-              <label for="check02"><i class="ico ico-mid_big"></i></label>
-            </div>
-
-            <div class="checkbox">
-              <input type="checkbox" id="check03" name="check" >
-              <label for="check03"><i class="ico ico-hate_big"></i></label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- e: popup-content -->
-
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn-refresh ico">
-            <i class="ico-refresh"></i>
-            초기화
-          </button>
-          <a href="" class="btn btn-active bg-blue">검색하기</a>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-    </div>
-  </div>
-  <!-- e: 검색필터 팝업 -->
-
 
   <div id="confirmPopup" class="popup-layer popup-bottom">
     <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>
@@ -371,14 +185,13 @@
       <div class="popup-footer">
         <div class="btn-wrap f-d-c">
           <button type="button" class="btn txt-system-red" onclick="openPopup('deletePopup'); closePopup('confirmPopup')">삭제</button>
-          <button type="button" class="btn" onclick="openPopup('modifyPopup'); closePopup('confirmPopup')">수정</button>
-        </div>
+          <a href="/sg/pub/config/user/event/edit.html" class="btn">수정</a>
+          </div>
       </div>
       <!-- e: popup-footer -->
     </div>
   </div>
   <!-- 수정/삭제 팝업 -->
-
 
   <div id="deletePopup" class="popup-layer popupAlert">
     <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>
@@ -473,6 +286,7 @@
     </div>
   </div>
   <!-- e: 수정 팝업 -->
+
 
 </body>
 

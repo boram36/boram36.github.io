@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /*
- * File       : _component.scss
+ * File       : _layout.scss
  * Date       : 2025.04.
  *
  *
@@ -41,7 +41,7 @@ body{
 main{
   overflow-y: auto;
   height: 100%;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   padding-top: 15px;
 
 }
@@ -78,31 +78,24 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    i{
-      width: 54px;
-      height: 48px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: 50%;
-    }
     &.menu01{
       i{
-        background-image: url("../images/cmn/menu-home.svg");
+        @include icon-style(54px, 48px, "menu-home");
       }
     }
     &.menu02{
       i{
-        background-image: url("../images/cmn/menu-heart.svg");
+        @include icon-style(54px, 48px, "menu-heart");
       }
     }
     &.menu03{
       i{
-        background-image: url("../images/cmn/menu-event.svg");
+        @include icon-style(54px, 48px, "menu-event");
       }
     }
     &.menu04{
       i{
-        background-image: url("../images/cmn/menu-notice.svg");
+        @include icon-style(54px, 48px, "menu-notice");
       }
     }
     p{
@@ -113,16 +106,24 @@ main{
 
     &.active{
       &.menu01{
-        i{background-image: url("../images/cmn/menu-home_on.svg");}
+        i{
+          @include icon-style(54px, 48px, "menu-home_on");
+        }
       }
       &.menu02{
-        i{background-image: url("../images/cmn/menu-heart_on.svg");}
+        i{
+          @include icon-style(54px, 48px, "menu-heart_on");
+        }
       }
       &.menu03{
-        i{background-image: url("../images/cmn/menu-event_on.svg");}
+        i{
+          @include icon-style(54px, 48px, "menu-event_on");
+        }
       }
       &.menu04{
-        i{background-image: url("../images/cmn/menu-notice_on.svg");}
+        i{
+          @include icon-style(54px, 48px, "menu-notice_on");
+        }
       }
       p{
         color: var(--color-primary-100);

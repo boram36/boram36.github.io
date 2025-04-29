@@ -641,7 +641,7 @@ address {
   margin-left: 5px;
 }
 .ico-hd_refresh {
-  background-image: url("../images/cmn/ico-hd_refresh.svg");
+  background-image: url("../../images/cmn/ico-hd_refresh.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -649,7 +649,7 @@ address {
   height: 40px;
 }
 .ico-refresh {
-  background-image: url("../images/cmn/ico-refresh.svg");
+  background-image: url("../../images/cmn/ico-refresh.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -657,7 +657,7 @@ address {
   height: 24px;
 }
 .ico-enter {
-  background-image: url("../images/cmn/ico-enter.svg");
+  background-image: url("../../images/cmn/ico-enter.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -665,7 +665,7 @@ address {
   height: 30px;
 }
 .ico-enter_w {
-  background-image: url("../images/cmn/ico-enter_white.svg");
+  background-image: url("../../images/cmn/ico-enter_white.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -673,7 +673,7 @@ address {
   height: 30px;
 }
 .ico-my_heart {
-  background-image: url("../images/cmn/ico-my_heart.svg");
+  background-image: url("../../images/cmn/ico-my_heart.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -681,7 +681,7 @@ address {
   height: 26px;
 }
 .ico-my_day {
-  background-image: url("../images/cmn/ico-my_day.svg");
+  background-image: url("../../images/cmn/ico-my_day.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -689,7 +689,7 @@ address {
   height: 26px;
 }
 .ico-add_sm {
-  background-image: url("../images/cmn/ico-add_sm.svg");
+  background-image: url("../../images/cmn/ico-add_sm.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -697,7 +697,7 @@ address {
   height: 12px;
 }
 .ico-add {
-  background-image: url("../images/cmn/ico-add_sm.svg");
+  background-image: url("../../images/cmn/ico-add_sm.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -705,7 +705,7 @@ address {
   height: 20px;
 }
 .ico-search {
-  background-image: url("../images/cmn/ico-search.svg");
+  background-image: url("../../images/cmn/ico-search.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -713,7 +713,7 @@ address {
   height: 40px;
 }
 .ico-cancel {
-  background-image: url("../images/cmn/ico-cancel.svg");
+  background-image: url("../../images/cmn/ico-cancel.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -721,7 +721,7 @@ address {
   height: 40px;
 }
 .ico-popup_cancel {
-  background-image: url("../images/cmn/ico-popup_cancel.svg");
+  background-image: url("../../images/cmn/ico-popup_cancel.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -729,7 +729,7 @@ address {
   height: 48px;
 }
 .ico-tooltip {
-  background-image: url("../images/cmn/ico-tooltip.svg");
+  background-image: url("../../images/cmn/ico-tooltip.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -737,7 +737,7 @@ address {
   height: 30px;
 }
 .ico-more {
-  background-image: url("../images/cmn/ico-more.svg");
+  background-image: url("../../images/cmn/ico-more.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -745,7 +745,7 @@ address {
   height: 38px;
 }
 .ico-like_big {
-  background-image: url("../images/cmn/ico-like_big.svg");
+  background-image: url("../../images/cmn/ico-like_big.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -753,7 +753,7 @@ address {
   height: 21px;
 }
 .ico-mid_big {
-  background-image: url("../images/cmn/ico-middle_big.svg");
+  background-image: url("../../images/cmn/ico-middle_big.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -761,7 +761,7 @@ address {
   height: 21px;
 }
 .ico-like_big {
-  background-image: url("../images/cmn/ico-like_big.svg");
+  background-image: url("../../images/cmn/ico-like_big.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -769,7 +769,7 @@ address {
   height: 21px;
 }
 .ico-hate_big {
-  background-image: url("../images/cmn/ico-hate_big.svg");
+  background-image: url("../../images/cmn/ico-hate_big.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -777,7 +777,7 @@ address {
   height: 21px;
 }
 .ico-edit {
-  background-image: url("../images/cmn/ico-edit.svg");
+  background-image: url("../../images/cmn/ico-edit.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -785,7 +785,7 @@ address {
   height: 24px;
 }
 .ico-back {
-  background-image: url("../images/cmn/ico-back.svg");
+  background-image: url("../../images/cmn/ico-back.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -793,7 +793,7 @@ address {
   height: 40px;
 }
 .ico-profile {
-  background-image: url("../images/cmn/profile80.svg");
+  background-image: url("../../images/cmn/profile80.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -801,7 +801,7 @@ address {
   height: 80px;
 }
 .ico-drop {
-  background-image: url("../images/cmn/ico-drop.svg");
+  background-image: url("../../images/cmn/ico-drop.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2569,7 +2569,7 @@ address {
   display: flex;
 }
 
-.f-c-all, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .pagination, .tbl-list.status-table table td .name-wrap, .file-upload label, .input-status, .radio-wrap, .selectric .button, .btn, .btn-wrap .btn-refresh {
+.f-c-all, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .pagination, .tbl-list.status-table table td .name-wrap, .file-upload label, .input-status, .input-wrap.input-date, .radio-wrap, .selectric .button, .btn, .btn-wrap .btn-refresh {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3507,13 +3507,13 @@ table td {
   font-size: 1.75rem;
 }
 
-.text-over {
+.text-over, .notice-tit {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.text-over2, .comBox-item .detail-cont {
+.text-over2, .notice-detail__file .file-name, .comBox-item .detail-cont {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -3631,7 +3631,7 @@ textarea {
   min-width: 26px;
   height: 26px;
   border-radius: 5px;
-  background-image: url("../images/cmn/ico-chk.svg");
+  background-image: url("../../images/cmn/ico-chk.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3644,13 +3644,13 @@ textarea {
   font-weight: 700;
 }
 .checkbox input[type=checkbox]:checked + label:before {
-  background-image: url("../images/cmn/ico-chk_on.svg");
+  background-image: url("../../images/cmn/ico-chk_on.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .checkbox input[type=checkbox]:disabled + label::before {
-  background-image: url("../images/cmn/ico-chk_dis.svg");
+  background-image: url("../../images/cmn/ico-chk_dis.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3660,20 +3660,20 @@ textarea {
   min-width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-image: url("../images/cmn/ico-radio.svg");
+  background-image: url("../../images/cmn/ico-radio.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 50%;
 }
 .checkbox input[type=radio]:checked + label:before {
-  background-image: url("../images/cmn/ico-radio_on.svg");
+  background-image: url("../../images/cmn/ico-radio_on.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .checkbox input[type=radio]:disabled + label::before {
-  background-image: url("../images/cmn/ico-radio_dis.svg");
+  background-image: url("../../images/cmn/ico-radio_dis.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3695,7 +3695,7 @@ textarea {
 select {
   background-repeat: no-repeat;
   background-position-y: 50%;
-  background-image: url("../images/cmn/ico_tbl_arr_count.svg");
+  background-image: url("../../images/cmn/ico_tbl_arr_count.svg");
   background-size: 9px;
   background-position-x: calc(100% - 9px - 5px);
   padding-right: 50px !important;
@@ -3760,7 +3760,7 @@ select {
   background: var(--color-primary-50);
 }
 .input-wrap.input-search .btn .ico-search {
-  background-image: url("../images/cmn/ico-search.svg");
+  background-image: url("../../images/cmn/ico-search.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3768,12 +3768,15 @@ select {
   height: 34px;
 }
 .input-wrap.input-search .btn .ico-cancel {
-  background-image: url("../images/cmn/ico-cancel.svg");
+  background-image: url("../../images/cmn/ico-cancel.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   width: 34px;
   height: 34px;
+}
+.input-wrap.input-date {
+  gap: 3px;
 }
 .input-row {
   font-size: 0;
@@ -3812,7 +3815,7 @@ select {
 
 /* INPUT SEARCH + ICON */
 input[type=text].input-sch {
-  background-image: url("../images/cmn/ico_sch_blue.svg");
+  background-image: url("../../images/cmn/ico_sch_blue.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4103,7 +4106,7 @@ table textarea {
   min-width: 54px;
 }
 .tbl-list table .btn-tbl-more i.ico-more {
-  background-image: url("../images/cmn/ico_more_on.svg");
+  background-image: url("../../images/cmn/ico_more_on.svg");
   width: 17px;
   height: 17px;
   vertical-align: middle;
@@ -4113,7 +4116,7 @@ table textarea {
   color: var(--color-gray);
 }
 .tbl-list table .btn-tbl-more.active i.ico-more {
-  background-image: url("../images/cmn/ico_more.svg");
+  background-image: url("../../images/cmn/ico_more.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4280,61 +4283,36 @@ table textarea {
 }
 
 .paging_ul {
-  margin-top: 15px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .paging_ul .paging_li {
-  margin: 0 2.5px;
+  margin: 0 5px;
 }
 .paging_ul .paging_li .btn {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   justify-content: center;
-  font-size: 0.875rem;
-  color: #BABABA;
+  color: var(--color-primary-80);
+  background: var(--color-primary-10);
   font-weight: 700;
-  border-radius: 5px;
-  transition: 0.4s;
+  border-radius: 10px;
 }
 .paging_ul .paging_li .btn.active {
-  background-color: #1060E1;
+  background-color: var(--color-primary-90);
   color: #fff;
-  text-decoration: underline;
-}
-.paging_ul .paging_li .btn:hover {
-  background-color: #1060E1;
-  color: #fff;
-  text-decoration: underline;
-}
-.paging_ul .paging_li.paging_prev {
-  margin-right: 15px;
 }
 .paging_ul .paging_li.paging_prev .btn {
-  background-color: #F7F7F7;
-  background-image: url(../images/ico-page-prev.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-.paging_ul .paging_li.paging_prev .btn:hover {
-  background-color: #1060E1;
-  background-image: url(../images/ico-page-prev_w.svg);
-}
-.paging_ul .paging_li.paging_next {
-  margin-left: 15px;
+  background-color: var(--color-primary-0);
+  border: 1px solid var(--color-primary-30);
+  background: url("../../images/cmn/ico-page_prev.svg") no-repeat 50%/25px 25px;
 }
 .paging_ul .paging_li.paging_next .btn {
-  background-color: #F7F7F7;
-  background-image: url(../images/ico-page-next.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-.paging_ul .paging_li.paging_next .btn:hover {
-  background-color: #1060E1;
-  background-image: url(../images/ico-page-next_w.svg);
+  background-color: var(--color-primary-0);
+  border: 1px solid var(--color-primary-30);
+  background: url("../../images/cmn/ico-page_next.svg") no-repeat 50%/25px 25px;
 }
 
 /*---- 17) PAGINATION ----*/
@@ -4424,7 +4402,7 @@ table textarea {
 }
 
 /*
- * File       : _component.scss
+ * File       : _layout.scss
  * Date       : 2025.04.
  *
  *
@@ -4462,7 +4440,7 @@ body {
 main {
   overflow-y: auto;
   height: 100%;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   padding-top: 15px;
 }
 
@@ -4500,24 +4478,37 @@ main {
   align-items: center;
   justify-content: center;
 }
-.footer .menu-btn i {
-  width: 54px;
-  height: 48px;
+.footer .menu-btn.menu01 i {
+  background-image: url("../../images/cmn/menu-home.svg");
+  background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50%;
-}
-.footer .menu-btn.menu01 i {
-  background-image: url("../images/cmn/menu-home.svg");
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn.menu02 i {
-  background-image: url("../images/cmn/menu-heart.svg");
+  background-image: url("../../images/cmn/menu-heart.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn.menu03 i {
-  background-image: url("../images/cmn/menu-event.svg");
+  background-image: url("../../images/cmn/menu-event.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn.menu04 i {
-  background-image: url("../images/cmn/menu-notice.svg");
+  background-image: url("../../images/cmn/menu-notice.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn p {
   color: var(--color-primary-50);
@@ -4525,16 +4516,36 @@ main {
   font-size: 0.875rem;
 }
 .footer .menu-btn.active.menu01 i {
-  background-image: url("../images/cmn/menu-home_on.svg");
+  background-image: url("../../images/cmn/menu-home_on.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn.active.menu02 i {
-  background-image: url("../images/cmn/menu-heart_on.svg");
+  background-image: url("../../images/cmn/menu-heart_on.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn.active.menu03 i {
-  background-image: url("../images/cmn/menu-event_on.svg");
+  background-image: url("../../images/cmn/menu-event_on.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn.active.menu04 i {
-  background-image: url("../images/cmn/menu-notice_on.svg");
+  background-image: url("../../images/cmn/menu-notice_on.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 48px;
 }
 .footer .menu-btn.active p {
   color: var(--color-primary-100);
@@ -4708,7 +4719,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("../images/cmn/ico-drop_white.svg");
+  background-image: url("../../images/cmn/ico-drop_white.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4719,7 +4730,7 @@ main {
   padding: 18px 20px;
 }
 .candidate-box__bottom .rating-tit .ico-heart {
-  background-image: url("../images/cmn/ico-heart_blue.svg");
+  background-image: url("../../images/cmn/ico-heart_blue.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4804,7 +4815,7 @@ main {
  *
  *
  * SUMMARY:
- * 01) main
+ * 01) login
  * 02) 
  */
 /*---- 01) login ----*/
@@ -4916,11 +4927,14 @@ main {
   padding: 0 20px;
 }
 .comBox-item.state-disabled {
-  background: var(--color-primary-50);
+  background: var(--color-primary-30);
 }
 .comBox-item.state-disabled * {
   color: var(--color-primary-70);
   border-color: var(--color-primary-50);
+}
+.comBox-item.state-disabled .detail-idea .detail-more {
+  background: var(--color-primary-30);
 }
 .comBox-item.comBox-view {
   background: var(--color-primary-20);
@@ -5019,7 +5033,7 @@ main {
 }
 .comBox-item__bottom .btn:after {
   content: "";
-  background-image: url("../images/cmn/ico-drop.svg");
+  background-image: url("../../images/cmn/ico-drop.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5035,7 +5049,7 @@ main {
 }
 .noList::before {
   content: "";
-  background-image: url("../images/cmn/noList-profile.svg");
+  background-image: url("../../images/cmn/noList-profile.svg");
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5047,4 +5061,68 @@ main {
   font-weight: 500;
   text-align: center;
   line-height: 1.5;
-}/*# sourceMappingURL=sg.css.map */
+}
+
+/*---- 04) notice ----*/
+.notice-list {
+  border-top: 1px solid var(--color-primary-30);
+}
+.notice-list li {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--color-primary-30);
+}
+.notice-tit {
+  font-weight: 500;
+}
+.notice-info {
+  margin-top: 8px;
+  color: var(--color-primary-60);
+  font-size: 0.875rem;
+}
+.notice-info span {
+  font-size: 0.875rem;
+  color: var(--color-primary-30);
+}
+.notice-detail__top {
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--color-primary-30);
+}
+.notice-detail__top .notice-tit {
+  font-size: 18px;
+  font-weight: 700;
+  white-space: normal;
+}
+.notice-detail__top .notice-info {
+  font-size: 16px;
+  margin-top: 10px;
+}
+.notice-detail__cont {
+  margin-top: 15px;
+}
+.notice-detail__txt {
+  margin-top: 25px;
+}
+.notice-detail__txt img {
+  max-width: 100%;
+}
+.notice-detail__txt p {
+  color: #000;
+  line-height: 1.8;
+}
+.notice-detail__file {
+  border-radius: 10px;
+  padding: 11px 16px;
+  padding-left: 40px;
+  background: url("../../images/cmn/ico-file.svg") no-repeat left 10px top 10px/20px 20px;
+  background-color: var(--color-primary-10);
+}
+.notice-detail__file .file-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.notice-detail__file .file-size {
+  font-size: 0.75rem;
+  margin-top: 5px;
+  color: var(--color-primary-60);
+}/*# sourceMappingURL=user.css.map */
