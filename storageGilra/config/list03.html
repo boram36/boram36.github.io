@@ -421,6 +421,52 @@
     <script>
 
 
+        // 학습지 모음
+        $(document).on('input', 'textarea', function () {
+            const id = $(this).attr('id');
+            const val = $(this).val();
+            localStorage.setItem(id, val);
+        });
+
+        $(document).ready(function () {
+            $('textarea[id]').each(function () {
+                const id = $(this).attr('id');
+                const saved = localStorage.getItem(id);
+                if (saved !== null) {
+                $(this).val(saved);
+                }
+            });
+        });
+
+        function openWorksheet() {
+            $('#layer-worksheet').load('../modal/layerWork.html', function () {
+                $('#layer-worksheet').modal({
+                escapeClose: false,
+                clickClose: false,
+                showClose: false,
+                closeExisting: false
+                });
+
+                // 로컬스토리지 값 반영
+                $('#layer-worksheet textarea[id]').each(function () {
+                    const id = $(this).attr('id');
+                    const saved = localStorage.getItem(id);
+                    if (saved !== null) {
+                        $(this).val(saved);
+                    }
+                });
+
+                // 입력 시 양방향 동기화 + 저장
+                $(document).on('input', 'textarea', function () {
+                    const id = $(this).attr('id');
+                    const val = $(this).val();
+                    localStorage.setItem(id, val);
+
+                    $(`textarea#${id}`).not(this).val(val);
+                });
+            });
+        }
+
         // 토글 버튼 기능
         document.querySelectorAll(".toggle-btn .btn").forEach((button) => {
             button.addEventListener("click", () => {
@@ -430,10 +476,10 @@
         });
 
         // 학습지 모달창
-        function openWorksheet() {
-            $('#layer-worksheet').load('../modal/layerWork.html'); //호출
-            $('#layer-worksheet').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
-        }
+        // function openWorksheet() {
+        //     $('#layer-worksheet').load('../modal/layerWork.html'); //호출
+        //     $('#layer-worksheet').modal({ escapeClose: false, clickClose: false, showClose: false, closeExisting: false }); //모달실행
+        // }
 
         // 가이드 모달창
         function openGuide() {
