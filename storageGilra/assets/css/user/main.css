@@ -62,8 +62,8 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
 @media screen and (max-width: 750px) {
   .btn-style-yellow {max-width: calc(100% - 40px);}
   main{background: url("../../images/bg.png") no-repeat top -8vw center / cover}
-  .main-top{top: 133px;}
-  .intro02-cont{margin-top: 270px;}
+  .main-top{top: 90px;}
+  .intro02-cont{margin-top: 224px;}
 }
 
 

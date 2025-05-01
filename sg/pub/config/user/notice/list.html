@@ -105,32 +105,58 @@
               <div class="notice-info">2025.10.25 13:23 <span>ㅣ</span> 관리자</div>
             </li>
           </ul>
-
-          <ul class="paging_ul">
-            <!-- 5개씩 보이기 -->
-            <li class="paging_li paging_prev">
-              <button type="button" class="btn" tilte="이전"></button>
-            </li>
-            <li class="paging_li active">
-              <button type="button" class="btn active" title="1 페이지 이동">1</button>
-            </li>
-            <li class="paging_li active">
-              <button type="button" class="btn" title="2 페이지 이동">2</button>
-            </li>
-            <li class="paging_li active">
-              <button type="button" class="btn" title="1 페이지 이동">3</button>
-            </li>
-            <li class="paging_li active">
-              <button type="button" class="btn" title="1 페이지 이동">4</button>
-            </li>
-            <li class="paging_li active">
-              <button type="button" class="btn" title="1 페이지 이동">5</button>
-            </li>
-            <li class="paging_li paging_next">
-              <button type="button" class="btn" tilte="다음"></button>
-            </li>
-            </ul>
           <!-- e: notice-list -->
+
+
+          <script>
+            let page = 1;
+            let isLoading = false;
+            const listContainer = document.querySelector(".notice-list");
+            
+            async function fetchNotices(pageNum) {
+              if (isLoading) return;
+              isLoading = true;
+            
+              try {
+                // 여기를 실제 API 주소로 변경
+                const res = await fetch(`/api/notices?page=${pageNum}`);
+                const data = await res.json();
+            
+                if (data && data.length) {
+                  data.forEach(item => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                      <a href="${item.link}" class="notice-tit">${item.title}</a>
+                      <div class="notice-info">${item.date} <span>ㅣ</span> ${item.writer}</div>
+                    `;
+                    listContainer.appendChild(li);
+                  });
+                  isLoading = false;
+                } else {
+                  // 더 이상 데이터 없을 경우 이벤트 제거
+                  window.removeEventListener("scroll", handleScroll);
+                }
+              } catch (e) {
+                console.error("목록 불러오기 실패", e);
+              }
+            }
+            
+            function handleScroll() {
+              const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+              if (scrollTop + clientHeight >= scrollHeight - 100) {
+                page++;
+                fetchNotices(page);
+              }
+            }
+            
+            window.addEventListener("scroll", handleScroll);
+            
+            // 첫 페이지 로딩
+            fetchNotices(page);
+            </script>
+            
+
+
          
         </div>
       </div>
