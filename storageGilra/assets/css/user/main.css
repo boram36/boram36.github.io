@@ -135,6 +135,12 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
 
 }
 
+@media screen and (max-width: 393px){
+  main {max-width: 393px;width: 100%;height: calc(var(--vh, 1vh) * 100);margin: 0 auto;background: url("../../images/bg.png") no-repeat top -8vw center / cover;position: relative;}
+  .list-cont{width: 97px; height: 117px;}
+  .hover-txt {padding-bottom: 32px;}
+}
+
 @media screen and (max-width: 376px){
   .inner { padding: 0 23px; }
   main {max-width: 393px;width: 100%;height: calc(var(--vh, 1vh) * 100);margin: 0 auto;background: url("../../images/bg.png") no-repeat top -8vw center / cover;position: relative;}
@@ -149,7 +155,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .main-top .main-top__side .btn img{height: 10vw;}
   .intro-cont{height: 100%;}
   .intro02 { height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; position: relative; }
-  .intro02-cont {overflow: hidden;position: relative;height: 100%;margin-top: 210px;}
+  .intro02-cont {overflow: hidden;position: relative;height: 100%;margin-top: 200px;}
   .intro02-img { -webkit-overflow-scrolling: touch; height: 100%; width: 100%; position: relative; display: flex; justify-content: center; align-items: center; overflow-x: auto; overflow-y: hidden; justify-content: flex-start; } 
   .intro02-img img {height: 100%;width: auto;display: block;margin: 0 auto;transition: transform 1s;} 
   .intro02.active .intro02-img img {transform: scale(1.1); } 
@@ -158,7 +164,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .intro02-box {/* opacity: 0; *//* transition: opacity 1s; *//* transition-delay: 2s; *//* position: absolute; *//* z-index: 4; *//* width: 100%; *//* height: 100%; *//* bottom: 0; *//* left: 0; *//* text-align: center; *//* font-size: 0; *//* padding-bottom: 5vw; *//* padding-top: 10vw; */}
   .intro02-box.intro02_1 .inner {display: flex;flex-direction: column;justify-content: space-between;height: 100%;} 
   .intro02.active .intro02-box { opacity: 1; }
-  .intro-txt {font-family: var(--font-line);text-align: center;color: #fff;font-size: 16px;}
+  .intro-txt {font-family: var(--font-line);text-align: center;color: #fff;font-size: 16px;margin-bottom: 30px;}
   .intro02-list { width: 100%; height: 70vw;}
   .intro02-list > li {text-align: right; width: 100%; font-size: 0;}
   .intro02-list > li img {height: 30vw;}
