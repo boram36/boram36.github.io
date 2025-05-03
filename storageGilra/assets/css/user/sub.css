@@ -217,13 +217,13 @@ textarea :focus-visible { outline: none; }
 .toggle-btn.topRight .toggle-txt {right: auto; left: 100%;}
 .toggle-btn.btn01 { top: 47%; right: 19%; } 
 .toggle-btn.btn02 { top: 74%; left: 36%; } 
-.toggle-btn.btn03 { top: 50%; right: 18%; } 
+.toggle-btn.btn03 {top: 50%;right: 24%;} 
 .toggle-btn.btn04 { top: 50%; left: 18%; } 
 .toggle-btn.btn05 { top: 7px; right: 27%; } 
 .toggle-btn.btn06 {top: 54%;left: 13%;} 
 .toggle-btn.btn07 {top: 76%;right: 28%;} 
-.toggle-btn.btn08 {top: 54%;left: 13%;} 
-.toggle-btn.btn09 {top: 54%;right: 13%;} 
+.toggle-btn.btn08 {top: 51%;left: 11%;} 
+.toggle-btn.btn09 {top: 51%;right: 24%;} 
 .toggle-btn.btn10 {top: 25%;left: 15%;} 
 .toggle-btn.btn11 {top: 78%;right: 41%;} 
 .toggle-btn.btn12 {top: 54%;left: 3%;} 
