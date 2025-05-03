@@ -155,10 +155,10 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .intro02.active .intro02-img img {transform: scale(1.1); } 
   .intro02-bg {position: absolute;top: 0;left: 0;right: 0;bottom: 0;background-color: rgba(0, 0, 0, 0.75);opacity: 0;z-index: 3;transition: opacity 1s;transition-delay: 1s;width: 100%;height: 100%;}
   .intro02-bg.active { opacity: 1; }
-  .intro02-box {opacity: 0;transition: opacity 1s;transition-delay: 2s;position: absolute;z-index: 4;width: 100%;height: 100%;bottom: 0;left: 0;text-align: center;font-size: 0;padding-bottom: 5vw;padding-top: 10vw;}
-  .intro02-box .inner {display: flex;flex-direction: column;justify-content: space-between;height: 100%;} 
+  .intro02-box {/* opacity: 0; *//* transition: opacity 1s; *//* transition-delay: 2s; *//* position: absolute; *//* z-index: 4; *//* width: 100%; *//* height: 100%; *//* bottom: 0; *//* left: 0; *//* text-align: center; *//* font-size: 0; *//* padding-bottom: 5vw; *//* padding-top: 10vw; */}
+  .intro02-box.intro02_1 .inner {display: flex;flex-direction: column;justify-content: space-between;height: 100%;} 
   .intro02.active .intro02-box { opacity: 1; }
-  .intro-txt { font-family: var(--font-line); text-align: center; color: #fff; font-size: 16px; margin-bottom: 25px; }
+  .intro-txt {font-family: var(--font-line);text-align: center;color: #fff;font-size: 16px;}
   .intro02-list { width: 100%; height: 70vw;}
   .intro02-list > li {text-align: right; width: 100%; font-size: 0;}
   .intro02-list > li img {height: 30vw;}
