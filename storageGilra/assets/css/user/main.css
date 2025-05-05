@@ -141,7 +141,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .hover-txt {padding-bottom: 32px;}
 }
 
-@media screen and (max-width: 376px){
+@media screen and (max-width: 393px){
   .inner { padding: 0 23px; }
   main {max-width: 393px;width: 100%;height: calc(var(--vh, 1vh) * 100);margin: 0 auto;background: url("../../images/bg.png") no-repeat top -8vw center / cover;position: relative;}
   .main .intro01 { cursor: pointer; width: 100%; height: 100%; }

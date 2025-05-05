@@ -113,6 +113,7 @@ textarea :focus-visible { outline: none; }
 .container-list08 .contents-top img{bottom: -13px;}
 .contents-box.bg-white{padding: 40px 0 }
 .contents-box.bg-white + .contents-box.bg-white{padding-top: 0;}
+.container.container-list07{background-color: transparent;}
 
 
 /* 타이틀 */
