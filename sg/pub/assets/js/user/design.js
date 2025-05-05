@@ -141,6 +141,8 @@ function checkOverflow() {
   });
 }
 
+
+
 // 초기 실행
 window.addEventListener('load', () => {
   initTooltip();
