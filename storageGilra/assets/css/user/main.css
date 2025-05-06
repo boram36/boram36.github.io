@@ -167,9 +167,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .intro-txt {font-family: var(--font-line);text-align: center;color: #fff;font-size: 16px;margin-bottom: 30px;}
   .intro02-list {width: 100%;}
   .intro02-list > li {text-align: right;width: 100%;font-size: 0;}
-  .intro02-list > li img {
-    height: 111px;
-}
+  .intro02-list > li img {height: 97px;}
   .intro02-list > li:nth-child(2) {text-align: left;margin-top: -50px;}
   .intro02-list > li:nth-child(3) {margin-top: -38px;}
   .btn-next { width: 65px; height: 65px; background: url("../../images/btn-next.svg") no-repeat 50% / cover; }
