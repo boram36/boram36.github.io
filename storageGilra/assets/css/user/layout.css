@@ -3,7 +3,7 @@
 
 /*--------------------------------------------------------------------- LAYOUT --------------------------*/
 html{background: #fff; }
-.container{position: relative;max-width: 100%;width: 100%;/* height: 852px; */margin: 0 auto;background-color: var(--color-main);/* overflow-y: auto; */}
+.container{position: relative;max-width: 100%;width: 100%;/* height: 852px; */margin: 0 auto;/*background-color: var(--color-main);*//* overflow-y: auto; */}
 
 .container-sub{padding-top: 70px;}
 /* .container.container-list01{background-color: var(--color-list01);}
@@ -78,7 +78,3 @@ html{background: #fff; }
   .container{max-width: 100%;}
 }
 
-/* iOS only */
-@supports (-webkit-touch-callout: none) { 
-  height: -webkit-fill-available;
-}
