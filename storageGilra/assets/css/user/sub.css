@@ -23,9 +23,7 @@ textarea :focus-visible { outline: none; }
 .layer-top .btn-close{position: absolute;width: 30px;height: 30px;top: 20px;right: 20px;z-index: 9999;display: flex;align-items: center;justify-content: center;}
 .layer-top .btn-close i{width: 16px;height: 16px;background: url("../../images/btn-close.svg") no-repeat 50% / cover;}
 .layer.layer-guide {background-color: var(--color-main);}
-.layer-guide .layer-cont + .main-top{
-    margin-top: 85px;
-}
+.layer-guide .layer-cont + .main-top{margin-top: 85px;}
 .layer .main-top__bottom{ font-size: 15px; font-weight: 700; color: #000; text-align: center; margin: 20px 0 50px;}
 .layer .guide-img img {width: 100%;}
 .layer .guide-box{background-color: #fff; margin-top: 40px; border-top: 2px solid #000; border-bottom: 2px solid #000; padding: 40px 0 48px;}
@@ -446,7 +444,8 @@ br.mo-ver{display: none;}
   .guide-box__cont {max-width: 325px; width: 100%; margin: 0 auto;}
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 393px) {
+  .layer{background: url("../../images/bg.png") no-repeat top -8vw center / cover;}
   .showImg02.viewImg02{top: 170px;}
   .showImg03.viewImg03 {bottom: 20%; left: -5px;}
 }

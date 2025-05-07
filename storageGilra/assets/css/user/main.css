@@ -119,7 +119,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .intro02 .main-top img{max-width: 115px;}
   .main-cont .intro02 .main-top img{max-width: 102px}
   .main-cont .intro02 .main-top {top: 199px;}
-  .intro02-cont {margin-top: 503px;h;height: calc(100% - 503px);}
+  .intro02-cont {margin-top: 503px;height: calc(100% - 503px);}
 
 
 }
@@ -127,10 +127,8 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
 
 @media screen and (max-width: 750px) {
   .btn-style-yellow {max-width: calc(100% - 40px);}
-  .intro03{}
   .intro03 .inner{padding: 0;}
   .intro02-cont {margin-top: 270px;height: calc(100% - 270px);}
-
   .main-cont .intro02 .main-top {top: 120px;}
 
 }
@@ -202,9 +200,6 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .main-list .list09 .hover-txt{background-color: var(--color-list09); color: #000;}
   .main-cont { height: calc(var(--vh, 1vh) * 100); background: url("../../images/bg.png") no-repeat top -8vw center / cover; background-color: var(--color-main); } 
   .main-cont .inner{height: 100%;}
-
-  .main-cont .intro02 .main-top{
-    top: 90px;
-}
+  .main-cont .intro02 .main-top{top: 90px;}
 
 }
