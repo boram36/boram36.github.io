@@ -102,6 +102,7 @@ textarea :focus-visible { outline: none; }
 .container-list07 .contents-top{background-color: var(--color-list07);}
 .container-list08 .contents-top{background-color: var(--color-list08);}
 .container-list09 .contents-top{background-color: var(--color-list09);}
+.container-list09{background-color: var(--color-main);}
 
 .container-list01 .contents-top img{bottom: -26.8px}
 .container-list02 .contents-top img{bottom: -11.4px;}
