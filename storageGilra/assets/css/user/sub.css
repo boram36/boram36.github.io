@@ -328,7 +328,7 @@ table th.bg-navy{color: #fff;}
 .tab-menu__list { display: flex; position: relative;} 
 .tab-btn {padding: 6.5px 16px;background: #fdd835;font-size: 17px;font-weight: 700;width: 100%;height: 36px;/* border: 2px solid #000; */border-right: 0;display: flex;align-items: center;justify-content: center;z-index: 3;} 
 .tab-btn.active {background: #fff;position: relative;border-bottom-color: #fff;}
-.tab-btn.active::after{content: '';position: absolute;bottom: -2px;left: 0;width: 100%;height: 2px;background: #fff;z-index: 2;}
+.tab-btn.active::after{content: '';position: absolute;bottom: -3px;left: 0;width: 100%;height: 5px;background: #fff;z-index: 3;}
 .tab-cont {position: absolute;top: calc(100% - 2px);left: 0;width: 100%;z-index: 1;padding-bottom: 67px;display: none;opacity: 0;transition: opacity 0.3s ease;} 
 .tab-cont__list { border: 2px solid #000; background-color: #fff; } 
 .tab-list__tit { height: 58px; display: flex; align-items: center; justify-content: center; border-bottom: 2px solid #000; font-size: 22px; font-weight: 700; } 
