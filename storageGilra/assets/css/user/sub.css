@@ -201,7 +201,7 @@ textarea :focus-visible { outline: none; }
 .container-list04 .storage-contents__slide{background-color: var(--color-list04);}
 .container-list05 .storage-contents__slide{background-color: var(--color-list05);}
 .container-list06 .storage-contents__slide{background-color: var(--color-list06);}
-.container-list07 .storage-contents__slide{background-color: var(--color-list07);border-bottom: 0;}
+.container-list07 .storage-contents__slide{background-color: var(--color-list07);}
 .container-list08 .storage-contents__slide{background-color: var(--color-list08);}
 .container-list09 .storage-contents__slide{background-color: var(--color-list09);}
 .storage-slide{padding-bottom: 47px; position: relative;}
@@ -299,7 +299,7 @@ table th.bg-navy{color: #fff;}
 .contents-numMean .toggle-btn.btn02 {top: auto;bottom: 16%;right: 19%;left: auto;} 
 .contents-numMean .toggle-btn.btn01 .toggle-txt {right: -5px;bottom: calc(100% + 5px);} 
 .contents-numMean .toggle-btn.btn01 .img-wrap img { max-width: 100px; width: auto; } 
-.toggle-btn .toggle-txt b { font-size: 15px; } 
+.toggle-btn .toggle-txt b {font-size: inherit;} 
 .toggle-btn .toggle-txt p{font-weight: 400;font-size: 14px;}
 .numMean-list{border-top: 2px solid #000}
 .numMean-list > li{padding: 12px 0 15px; border-bottom: 2px solid #000; }

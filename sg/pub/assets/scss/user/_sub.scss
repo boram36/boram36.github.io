@@ -203,7 +203,6 @@
           color: inherit;
           font-size: inherit;
           text-decoration: underline;
-          padding-left: 5px;
           cursor: pointer;
         }
         .detail-cont{
@@ -330,3 +329,19 @@
 }
 
 
+
+
+@keyframes loading-spin {
+  100% { transform: rotate(360deg); }
+}
+@keyframes loading-circle-ani {
+  0% { stroke-dashoffset: 157; }
+  75% { stroke-dashoffset: -147; }
+  100% { stroke-dashoffset: -157; }
+}
+.loading-circle {
+  animation: loading-spin 3s infinite;
+}
+.loading-circle circle {
+  animation: loading-circle-ani 1s infinite;
+}

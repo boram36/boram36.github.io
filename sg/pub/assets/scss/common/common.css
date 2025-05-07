@@ -293,7 +293,7 @@ address {
   margin: auto;
   width: 30px;
   height: 30px;
-  background: url("../images/cmn/ico-drop_big.svg") no-repeat 50%/cover;
+  background: url("../../images/cmn/ico-drop_big.svg") no-repeat 50%/cover;
 }
 
 .selectric-focus .selectric {
@@ -321,12 +321,17 @@ address {
 }
 
 .selectric-disabled {
-  filter: alpha(opacity=50);
-  opacity: 0.5;
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.selectric-disabled .selectric {
+  background-color: var(--color-primary-20);
+  border-color: var(--color-primary-30);
+}
+.selectric-disabled .selectric .label {
+  color: var(--color-primary-80);
 }
 
 .selectric-hide-select {
@@ -535,7 +540,7 @@ address {
   width: 100%;
   gap: 10px;
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 40px;
 }
 .btn-wrap.f-d-c {
   gap: 15px;
@@ -3970,7 +3975,7 @@ input[type=text].input-sch::placeholder {
 .popup-content {
   color: #000;
   font-size: 16px;
-  margin: 0 0 25px;
+  margin: 0 0 40px;
   line-height: 1.6;
 }
 
