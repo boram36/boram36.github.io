@@ -351,7 +351,16 @@ br.mo-ver{display: none;}
 
 @media screen and (min-width: 1600px) {
   .toggle-btn.btn02{top: 76%; left: 35%;}
-
+  .toggle-btn.btn03 { top: 51%; right: 25%; } 
+  .toggle-btn.btn04 { top: 52%; left: 20%; } 
+  .toggle-btn.btn05 { top: 16px; right: 32%; } 
+  .toggle-btn.btn06 { top: 54%; left: 14%; } 
+  .toggle-btn.btn07 { right: 31%; top: 78%; } 
+  .toggle-btn.btn08 {left: 15%;}
+  .toggle-btn.btn10 { left: 19%; } 
+  .toggle-btn.btn11 { top: 80%; right: 44%; } 
+  .toggle-btn.btn12 { top: 55%; left: 4%; } 
+  .toggle-btn.btn13 { top: 78%; right: 18%; } 
 
 }
 
