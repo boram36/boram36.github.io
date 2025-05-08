@@ -153,3 +153,7 @@ window.addEventListener('load', () => {
   setViewportHeight();
 });
 
+window.addEventListener('resize', () => {
+  setViewportHeight();
+})
+
