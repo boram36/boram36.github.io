@@ -27,10 +27,6 @@ function initTooltip() {
   });
 }
 
-// select 초기화
-function initSelect() {
-  $('select').selectric();
-}
 
 $('.datepicker-here').datepicker({
   position: "bottom left",
@@ -153,7 +149,6 @@ function setViewportHeight() {
 // 초기 실행
 window.addEventListener('load', () => {
   initTooltip();
-  initSelect();
   initSearchInput();
   setViewportHeight();
 });

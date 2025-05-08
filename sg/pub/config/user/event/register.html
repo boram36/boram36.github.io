@@ -245,6 +245,15 @@
 			});
 		});
 
+
+		const isIOS = /iP(hone|od|ad)/.test(navigator.userAgent);
+		if (isIOS) {
+			// iOS는 기본 select 사용 (오히려 사용자 경험 좋음)
+		} else {
+			$('select').selectric();
+		}
+
+
 	</script>
 	
 
