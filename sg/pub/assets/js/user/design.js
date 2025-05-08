@@ -140,20 +140,16 @@ function toggleComment(btn) {
 }
 
 
-function setViewportHeight() {
-  let vh = window.innerHeight * 0.01;
+function updateHeight() {
+  const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-
+window.addEventListener('resize', updateHeight);
+window.addEventListener('load', updateHeight);
 
 // 초기 실행
 window.addEventListener('load', () => {
   initTooltip();
   initSearchInput();
-  setViewportHeight();
 });
-
-window.addEventListener('resize', () => {
-  setViewportHeight();
-})
 
