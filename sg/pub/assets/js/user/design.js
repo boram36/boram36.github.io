@@ -153,3 +153,8 @@ window.addEventListener('load', () => {
   initSearchInput();
 });
 
+
+$(document).ready(function () {
+  // selectric 초기화
+  $('.select-wrap select').selectric();
+});
