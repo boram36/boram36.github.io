@@ -27,10 +27,10 @@ function initTooltip() {
   });
 }
 
-// select 초기화
-function initSelect() {
-  $('select').selectric();
-}
+
+$('.datepicker-here').datepicker({
+  position: "bottom left",
+})
 
 // 팝업 열기/닫기
 function openPopup(id) {
@@ -38,7 +38,6 @@ function openPopup(id) {
   if (popup) {
     popup.classList.add('show');
     document.body.style.overflow = 'hidden';
-    setTimeout(checkOverflow, 100); // 팝업 열 때도 넘침 검사
   }
 }
 
@@ -96,57 +95,66 @@ function toggleOpen(button) {
   } else {
     button.textContent = '닫기';
     button.classList.add('open');
-    setTimeout(checkOverflow, 100);
   }
 }
 
 
-// 더보기 버튼
-function toggleComment(button) {
-  const container = button.closest('.detail-idea .detail-cont');
-  if (!container) return;
+// 더보기 버튼 구현
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".detail-cont").forEach(container => {
+    const textEl = container.querySelector(".detail-text");
+    const btn = container.querySelector(".detail-more");
 
-  container.classList.toggle('active');
-  const isExpanded = container.classList.contains('active');
-  button.textContent = isExpanded ? '...접기' : '...더보기';
-}
+    if (!textEl || !btn) return;
 
-// 텍스트 넘침 검사
-function checkOverflow() {
-  document.querySelectorAll('.detail-idea .detail-cont').forEach(container => {
-    const btn = container.querySelector('.detail-more');
-    if (!btn) return;
+    const fullText = textEl.textContent.trim();
+    const limit = parseInt(container.dataset.limit, 10);
 
-    const clone = container.cloneNode(true);
-    clone.style.visibility = 'hidden';
-    clone.style.position = 'absolute';
-    clone.style.height = 'auto';
-    clone.style.webkitLineClamp = 'unset';
-    clone.style.display = 'block';
-    clone.style.whiteSpace = 'normal';
+    container.dataset.fulltext = fullText;
 
-    container.appendChild(clone);
-
-    const isOverflowing = clone.offsetHeight > container.offsetHeight;
-
-    if (isOverflowing) {
-      btn.style.display = 'inline-block';
-      container.classList.add('more');
+    if (fullText.length > limit) {
+      textEl.textContent = fullText.slice(0, limit);
+      btn.style.display = "inline";
+      btn.textContent = "...더보기";
     } else {
-      btn.style.display = 'none';
-      container.classList.remove('more');
+      btn.style.display = "none";
     }
-
-    container.removeChild(clone);
   });
+});
+
+function toggleComment(btn) {
+  const container = btn.closest(".detail-cont");
+  const textEl = container.querySelector(".detail-text");
+  const fullText = container.dataset.fulltext;
+  const limit = parseInt(container.dataset.limit, 10);
+
+  const isExpanded = btn.textContent.includes("접기");
+
+  if (isExpanded) {
+    textEl.textContent = fullText.slice(0, limit);
+    btn.textContent = "...더보기";
+  } else {
+    textEl.textContent = fullText;
+    btn.textContent = "...접기";
+  }
 }
+
+
+function updateHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+window.addEventListener('resize', updateHeight);
+window.addEventListener('load', updateHeight);
 
 // 초기 실행
 window.addEventListener('load', () => {
   initTooltip();
-  initSelect();
   initSearchInput();
-  checkOverflow();
 });
 
-window.addEventListener('resize', checkOverflow);
+
+$(document).ready(function () {
+  // selectric 초기화
+  $('.select-wrap select').selectric();
+});
