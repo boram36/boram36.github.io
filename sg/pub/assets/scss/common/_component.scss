@@ -763,7 +763,11 @@ select{
     width: 100%;
     &.selectric-width-half{
       width: calc(50% - 5px);
+      .select-wrap .selectric-wrapper.selectric-width-half{
+        width: 100%;
+      }
     }
+   
   }
 }
 

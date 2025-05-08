@@ -3728,6 +3728,9 @@ select {
 .select-wrap .selectric-wrapper.selectric-width-half {
   width: calc(50% - 5px);
 }
+.select-wrap .selectric-wrapper.selectric-width-half .select-wrap .selectric-wrapper.selectric-width-half {
+  width: 100%;
+}
 
 /* INPUT */
 .input-wrap {
