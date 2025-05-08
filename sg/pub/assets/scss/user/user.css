@@ -4271,6 +4271,7 @@ body {
 .container {
   margin: 0 auto;
   position: relative;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
 }
 @media (min-width: 640px) {
@@ -4306,6 +4307,10 @@ main {
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   border-top: 1px solid var(--color-primary-10);
   background-color: var(--color-primary-0);
 }
