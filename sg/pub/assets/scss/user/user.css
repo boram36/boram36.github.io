@@ -3628,6 +3628,10 @@ textarea {
   z-index: 9;
   box-sizing: border-box;
 }
+.checkbox input[type=checkbox],
+.checkbox input[type=radio] {
+  display: none;
+}
 .checkbox input[type=radio] + label {
   font-weight: 700;
 }
@@ -3676,14 +3680,6 @@ textarea {
 }
 
 /* SELECT */
-select {
-  background-repeat: no-repeat;
-  background-position-y: 50%;
-  background-image: url("../../images/cmn/ico_tbl_arr_count.svg");
-  background-size: 9px;
-  background-position-x: calc(100% - 9px - 5px);
-  padding-right: 50px !important;
-}
 @media (max-width: 768px) {
   select {
     padding-right: 30px !important;

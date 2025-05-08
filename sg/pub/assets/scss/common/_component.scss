@@ -633,6 +633,9 @@ textarea{
     }
   }
 
+  input[type=checkbox],
+  input[type=radio]{display: none;}
+
   input[type=radio] + label{font-weight: 700;}
 
   input[type=checkbox]:checked + label:before{
@@ -673,8 +676,7 @@ textarea{
 
 /* SELECT */
 select{
-  @include select-style(9px, 50px, "ico_tbl_arr_count");
-
+  // @include select-style(9px, 50px, "ico_tbl_arr_count");
   @include mobile{
     padding-right:30px !important;
   }
