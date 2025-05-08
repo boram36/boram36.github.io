@@ -4282,9 +4282,9 @@ body {
 
 main {
   overflow-y: auto;
-  height: 100%;
   padding-bottom: 20px;
   padding-top: 15px;
+  flex: 1;
 }
 
 /*---- HEADER ----*/
@@ -4307,10 +4307,6 @@ main {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   border-top: 1px solid var(--color-primary-10);
   background-color: var(--color-primary-0);
 }
