@@ -144,10 +144,17 @@ function toggleComment(btn) {
 }
 
 
+function setViewportHeight() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+
 // 초기 실행
 window.addEventListener('load', () => {
   initTooltip();
   initSelect();
   initSearchInput();
+  setViewportHeight();
 });
 
