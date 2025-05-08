@@ -2559,12 +2559,12 @@ address {
   display: flex;
 }
 
-.f-c-all, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .file-upload label, .input-status, .input-wrap.input-date, .selectric .button, .btn, .btn-wrap .btn-refresh {
+.f-c-all, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .file-upload label, .input-status, .input-wrap.input-date, .radio-wrap, .selectric .button, .btn, .btn-wrap .btn-refresh {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.f-c-space, .comBox-item .detail li, .selectSg-top, .radio-wrap {
+.f-c-space, .comBox-item .detail li, .selectSg-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
