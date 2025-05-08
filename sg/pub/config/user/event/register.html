@@ -35,7 +35,7 @@
 
 
 	<!-- css -->
-	
+	<link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
 	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
 
 	<!-- js :: lib -->
@@ -43,7 +43,7 @@
 	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
-
+	<script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
 
 	<!-- js :: common -->
 	<script type="text/javascript" src="../../../assets/js/user/design.js"></script>
@@ -90,7 +90,7 @@
 						<div class="input-row">
 							<label class="input-tit" for="date">행사일<span class="required">*</span></label>
 							<div class="input-wrap">
-								<input type="text" id="date" name="date" placeholder="행사일" value="">
+								<input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
 							</div>
 						</div>
 						<!-- e: 행사일 -->

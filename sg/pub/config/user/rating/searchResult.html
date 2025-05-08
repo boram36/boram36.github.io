@@ -72,6 +72,7 @@
       <div class="inner f-c-l">
         <button type="button" class="back-btn ico" onclick=""><i class="ico-back"></i></button>
         <h2 class="header-tit">검색 결과</h2>
+        <button type="button" class="search-btn ico" onclick="openPopup('searchFilterPopup');"><i class="ico-search"></i></button>
       </div>
     </nav>
     <!-- e: header -->
@@ -135,8 +136,11 @@
                     <div class="detail-tit">
                       <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
                     </div>
-                    <div class="detail-cont">
-                      -<button type="button" class="detail-more" onclick="toggleComment(this)">...더보기</button>
+                    <div class="detail-cont" data-limit="35">
+                      <span class="detail-text">
+                        -
+                      </span>
+                      <button class="detail-more" onclick="toggleComment(this)">...더보기</button>
                     </div>
                   </li>
                 </ul>
@@ -194,8 +198,11 @@
                   <div class="detail-tit">
                     <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
                   </div>
-                  <div class="detail-cont">
-                    -<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+                  <div class="detail-cont" data-limit="35">
+                    <span class="detail-text">
+                      -
+                    </span>
+                    <button class="detail-more" onclick="toggleComment(this)">...더보기</button>
                   </div>
                 </li>
               </ul>
@@ -221,6 +228,97 @@
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
+  <div id="searchFilterPopup" class="popup-layer popup-bottom">
+    <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">검색 필터</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('searchFilterPopup')"><i class="ico-popup_cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+        <div class="input-row">
+          <label class="input-tit" for="input01">유권자 검색</label>
+          <div class="input-wrap">
+            <input type="text" id="input01" name="input01" placeholder="이름, 전화번호 뒷자리" value="">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <label class="input-tit" for="input02">유권자 지역</label>
+          <div class="select-wrap">
+            <select name="" id="" class="width-half">
+              <option value="">시/도</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="" >시/군/구</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="">읍/면/동</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="">리</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-tit">지지도</div>
+          <div class="checkbox-box checkbox-wrap">
+            <div class="checkbox">
+              <input type="checkbox" id="checkAll" name="check">
+              <label for="checkAll">전체</label>
+            </div>
+  
+            <div class="checkbox">
+              <input type="checkbox" id="check01" name="check" >
+              <label for="check01"><i class="ico ico-like_big"></i></label>
+            </div>
+
+            <div class="checkbox">
+              <input type="checkbox" id="check02" name="check" >
+              <label for="check02"><i class="ico ico-mid_big"></i></label>
+            </div>
+
+            <div class="checkbox">
+              <input type="checkbox" id="check03" name="check" >
+              <label for="check03"><i class="ico ico-hate_big"></i></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn-refresh ico">
+            <i class="ico-refresh"></i>
+            초기화
+          </button>
+          <a href="" class="btn btn-active bg-blue">검색하기</a>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 검색필터 팝업 -->
 
   <div id="confirmPopup" class="popup-layer popup-bottom">
     <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>

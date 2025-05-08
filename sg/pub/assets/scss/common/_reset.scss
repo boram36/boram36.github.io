@@ -8,12 +8,9 @@
     padding:0;
     border:0;
     box-sizing:border-box;
-    font-size:$fs-16;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--color-primary-100);
-    letter-spacing:-0.32px;
-    line-height:1.4;
-    //-ms-overflow-style:none; /* 스크롤 숨기기 */
-	// scrollbar-width:none;
 }   
 
 
@@ -146,7 +143,6 @@ input[type="radio"]:disabled + label{color:#ccc !important; cursor: default !imp
 	color:var(--color-primary-70);
     font-size:inherit;
     font-weight:500;
-    letter-spacing:-0.42px;
 }
 
 
