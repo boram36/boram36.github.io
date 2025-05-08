@@ -4271,7 +4271,6 @@ body {
 .container {
   margin: 0 auto;
   position: relative;
-  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
 }
 @media (min-width: 640px) {
