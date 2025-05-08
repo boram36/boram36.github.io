@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../assets/scss/sg.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/lib/jquery.modal.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../assets/js/user/design.js"></script>
+</head>
+
+
+<!-- type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<body class="type-red">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+	<div class="container" id="container">
+
+    <main>
+      <div class="inner height-full">
+        <div class="login-wrap f-c-all f-d-c height-full">
+          <div class="login-logo">
+            <img src="../../assets/images/cmn/login-logo.svg" alt="백전백승">
+          </div>
+          <!-- e: login-logo -->
+
+          <form action="javascript:;" class="width-full">
+            <div class="input-wrap">
+              <input type="text" id="name" name="name" placeholder="이름 입력" value="">
+            </div>
+  
+            <div class="input-wrap">
+              <input type="text" id="tel" name="tel" placeholder="핸드폰 번호 입력" value="010-3412-1234" readonly>
+            </div>
+  
+            <div class="btn-wrap">
+              <button type="button" class="btn btn-active" onclick="handleLogin()">로그인</button>
+            </div>
+          </form>
+         
+        </div>
+      </div>
+    </main>
+    <!-- e: main -->
+
+
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+
+
+	<!-- 로그인 불가 팝업 -->
+	<div id="loginFailPopup" class="popup-layer popupAlert" style="display: none;">
+		<div class="popup-inner">
+			<div class="popup-header">
+				<h2 class="popup-title">로그인 불가</h2>
+			</div>
+			<!-- e: popup-header -->
+			<div class="popup-content">
+				등록되지 않은 휴대전화입니다.<br>
+				자세한 내용은<br>
+				캠프 관리자에게 문의하세요.
+			</div>
+			<!-- e: popup-content -->
+			<div class="popup-footer">
+				<div class="btn-wrap">
+					<button type="button" class="btn btn-active" onclick="closePopup()">확인</button>
+				</div>
+			</div>
+			<!-- e: popup-footer -->
+			
+		</div>
+	</div>
+
+
+
+	<script>
+		// 로그인 팝업
+		function handleLogin() {
+			const name = document.getElementById('name').value.trim();
+			const tel = document.getElementById('tel').value.trim();
+
+			if (name.length < 2 || tel === '010-3412-1234') {
+				showPopup();ㄴ
+			} else {
+				alert('로그인 성공!');
+			}
+		}
+
+		function showPopup() {
+			document.getElementById('loginFailPopup').style.display = 'flex';
+			document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+		}
+
+		function closePopup() {
+			document.getElementById('loginFailPopup').style.display = 'none';
+			document.body.style.overflow = ''; // 스크롤 복원
+		}
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

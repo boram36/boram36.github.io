@@ -35,15 +35,13 @@
 
 
 	<!-- css -->
-	<link rel="stylesheet" href="./assets/scss/common/datepicker.min.css">
-	<link rel="stylesheet" href="./assets/scss/user/user.css">
+	<link rel="stylesheet" href="./assets/scss/sg.css">
 
 	<!-- js :: lib -->
 	<script type="text/javascript" src="./assets/js/lib/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="./assets/js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="./assets/js/lib/jquery.modal.min.js"></script>
 	<script type="text/javascript" src="./assets/js/lib/jquery.selectric.js"></script>
-	<script type="text/javascript" src="./assets/js/lib/datepicker.min.js"></script>
 
 
 	<!-- js :: common -->
@@ -209,13 +207,6 @@
 								<input type="text" id="input01" name="input01" placeholder="유권자 이름(2글자 이상)" value="">
 							</div>
 						</div>
-
-						<div class="input-row">
-							<label class="input-tit" for="input04">날짜</label>
-							<div class="input-wrap">
-								<input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="2025.05.07" autocomplete="off" title="" maxlength="10">
-							</div>
-						</div>
 			
 						<div class="input-row">
 							<label class="input-tit" for="input02">유권자 이름 (readonly, disabled)</label>
@@ -228,7 +219,7 @@
 							<label class="input-tit" for="input03">유권자 이름 (input 안에 button)</label>
 							<div class="input-wrap input-inner">
 								<input type="text" id="input03" name="input03" class="input-check"  placeholder="유권자 이름(2글자 이상)" value="">
-								<button type="button" class="btn btn-small btn-check">중복<br>확인<button>
+								<button type="button" class="btn btn-small btn-check">중복확인<button>
 							</div>
 						</div>
 		
@@ -398,11 +389,7 @@
 						<h2 class="txt-24">5. popup</h2>
 	
 						<div class="btn-wrap">
-							<button class="btn btn-active" onclick="openPopup('searchFilterPopup');">팝업 아래 위치</button>
-						</div>
-
-						<div class="btn-wrap">
-							<button class="btn btn-active" onclick="openPopup('deletePopup');">팝업 중간 위치</button>
+							<button class="btn btn-active" onclick="popupMiddle()">팝업 중간 위치</button>
 						</div>
 		
 						<!-- 로그인 불가 팝업 -->
@@ -423,191 +410,45 @@
 
 					<div class="tab-cont" data-index="4">
 						<div class="comBox-list">
-							<div class="comBox-item">
-								<div class="comBox-item__top f-c-space">
-									<div class="num">121</div>
-									<button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
-								</div>
-								<!-- e: comBox-item__top -->
-		
-								<div class="comBox-item__cont">
-									<div class="profile f-c-space">
-										<div class="tit">
-											<b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-											<a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
-										</div>
-										<p class="profile-tel">010-1***-4532</p>
+							<div class="comBox-list__top f-c-space">
+								<div class="num">121</div>
+								<button type="button" class="more-btn ico" title="상세"><i class="ico-more"></i></button>
+							</div>
+							<div class="comBox-list__cont">
+								<div class="profile f-c-space">
+									<div class="tit">
+										<b>이정훈</b>(남, 64세)
+										<button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
 									</div>
-									<!-- e: profile -->
-		
-									<ul class="detail">
-										<li>
-											<div class="detail-tit">
-												<span>지지도</span>
-											</div>
-											<div class="detail-cont">
-												<!-- 지지도 표기 -->
-												<div class="detail-state"><i class="ico ico-like_big"></i></div>
-											</div>
-										</li>
-										<li>
-											<div class="detail-tit">
-												<span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
-											</div>
-											<div class="detail-cont">구월면 > 이읍리</div>
-										</li>
-										<li>
-											<div class="detail-tit">
-												<span>조사일</span>
-											</div>
-											<div class="detail-cont">2025.04.12 11:40</div>
-										</li>
-		
-										<!-- 의견 : detail-idea 클래스 추가 -->
-										<li class="detail-idea">
-											<div class="detail-tit">
-												<span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
-											</div>
-											<!-- 글자 수 제한으로 더보기 : 접기 버튼 구현 -->
-											<div class="detail-cont" data-limit="35">
-												<span class="detail-text">
-													지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
-												</span>
-												<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
-											</div>
-										</li>
-									</ul>
-									<!-- e: detail -->
-		
+									<p class="profile-tel">010-1***-4532</p>
 								</div>
-								<!-- e: comBox-item__cont -->
-		
-							 </div>
-							 <div class="comBox-item">
-								<div class="comBox-item__top f-c-space">
-									<div class="num">120</div>
-									<button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
-								</div>
-								<!-- e: comBox-item__top -->
-		
-								<div class="comBox-item__cont">
-									<div class="profile f-c-space">
-										<div class="tit">
-											<b>김순미</b>(<span class="txt-14">여</span>, 64세)
-											<a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
+								<ul class="detail">
+									<li>
+										<div class="detail-tit">지지도</div>
+										<div class="detail-cont">
+											<div class="detail-state"><i class="ico ico-like_big"></i></div>
 										</div>
-										<p class="profile-tel">010-1***-4532</p>
-									</div>
-									<!-- e: profile -->
-		
-									<ul class="detail">
-										<li>
-											<div class="detail-tit">
-												<span>지지도</span>
-											</div>
-											<div class="detail-cont">
-												<!-- 지지도 표기 -->
-												<div class="detail-state">
-													<i class="ico ico-like_big"></i>
-													<i class="ico ico-mid_big"></i>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="detail-tit">
-												<span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
-											</div>
-											<div class="detail-cont">구월면 > 이읍리</div>
-										</li>
-										<li>
-											<div class="detail-tit">
-												<span>조사일</span>
-											</div>
-											<div class="detail-cont">2025.04.12 11:40</div>
-										</li>
-									 <!-- 의견 : detail-idea 클래스 추가 -->
-										<li class="detail-idea">
-											<div class="detail-tit">
-												<span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
-											</div>
-											<div class="detail-cont" data-limit="35">
-												<span class="detail-text">
-													지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
-												</span>
-												<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
-											</div>
-											
-										</li>
-									</ul>
-									<!-- e: detail -->
-		
-								</div>
-								<!-- e: comBox-item__cont -->
-		
-							 </div>
-							 <div class="comBox-item">
-								<div class="comBox-item__top f-c-space">
-									<div class="num">119</div>
-									<button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
-								</div>
-								<!-- e: comBox-item__top -->
-		
-								<div class="comBox-item__cont">
-									<div class="profile f-c-space">
-										<div class="profile-name">
-											<b>김순미</b>(<span class="txt-14">여</span>, 64세)
-											<a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
+									</li>
+									<li>
+										<div class="detail-tit">지    역</div>
+										<div class="detail-cont">구월면 > 이읍리</div>
+									</li>
+									<li>
+										<div class="detail-tit">조사일</div>
+										<div class="detail-cont">2025.04.12 11:40</div>
+									</li>
+									<li class="detail-idea">
+										<div class="detail-tit">
+											<span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
 										</div>
-										<p class="profile-tel">010-1***-4532</p>
-									</div>
-									<!-- e: profile -->
-		
-									<ul class="detail">
-										<li>
-											<div class="detail-tit">
-												<span>지지도</span>
-											</div>
-											<div class="detail-cont">
-												<!-- 지지도 표기 -->
-												<div class="detail-state">
-													<i class="ico ico-hate_big"></i>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="detail-tit">
-												<span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
-											</div>
-											<div class="detail-cont">구월면 > 이읍리</div>
-										</li>
-										<li>
-											<div class="detail-tit">
-												<span>조사일</span>
-											</div>
-											<div class="detail-cont">2025.04.12 11:40</div>
-										</li>
-										<!-- 의견 : detail-idea 클래스 추가 -->
-										<li class="detail-idea">
-											<div class="detail-tit">
-												<span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
-											</div>
-											<div class="detail-cont" data-limit="35">
-												<span class="detail-text">
-													-
-												</span>
-												<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
-											</div>
-										</li>
-									</ul>
-									<!-- e: detail -->
-		
-								</div>
-								<!-- e: comBox-item__cont -->
-		
-							 </div>
-							 <!-- e: 반복구문 : comBox-item -->
-						</div>
-						<!-- e: comBox-list -->
+										<div class="detail-cont">
+											평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.<button class="detail-more" onclick="toggleComment(this)" style="display: none;">...더보기</button>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+						 </div>
 					</div>
 					<!-- 5) comBox -->
 
@@ -621,114 +462,6 @@
 
 
 
-	<div id="searchFilterPopup" class="popup-layer popup-bottom">
-    <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">검색 필터</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('searchFilterPopup')"><i class="ico-popup_cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-
-        <div class="input-row">
-          <label class="input-tit" for="input01">행사명</label>
-          <div class="input-wrap">
-            <input type="text" id="input01" name="input01" placeholder="행사명" value="">
-          </div>
-        </div>
-
-        <div class="input-row">
-          <div class="input-tit">행사일</div>
-          <div class="input-wrap input-date">
-            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
-            <span>~</span>
-            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
-          </div>
-        </div>
-
-        <div class="input-row">
-          <label class="input-tit" for="input02">행사일</label>
-          <div class="select-wrap">
-            <select name="" id="" class="width-half">
-              <option value="">시/도</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-    
-            <select name="" id="" class="width-half">
-              <option value="" >시/군/구</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-    
-            <select name="" id="" class="width-half">
-              <option value="">읍/면/동</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-    
-            <select name="" id="" class="width-half">
-              <option value="">리</option>
-              <option value="">대구시</option>
-              <option value="">서울시</option>
-              <option value="">부산시</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="input-row">
-          <div class="input-tit">행사 장소</div>
-          <div class="input-wrap input-date">
-            <input type="text" id="" name="" placeholder="행사 장소">
-          </div>
-        </div>
-
-       
-      </div>
-      <!-- e: popup-content -->
-
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn-refresh ico">
-            <i class="ico-refresh"></i>
-            초기화
-          </button>
-          <a href="" class="btn btn-active bg-blue">검색하기</a>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-    </div>
-  </div>
-  <!-- e: 검색필터 팝업 -->
-
-	<div id="deletePopup" class="popup-layer popupAlert">
-    <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">삭제</h2>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-        <p>정말 삭제하시겠습니까?</p>
-      </div>
-      <!-- e: popup-content -->
-
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('deletePopup')">취소</button>
-          <button type="button" class="btn bg-red">삭제</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-    </div>
-  </div>
-  <!-- e: 삭제 팝업 -->
 
 
 	<script>
