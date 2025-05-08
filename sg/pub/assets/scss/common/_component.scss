@@ -662,6 +662,7 @@ textarea{
 }
 .radio{
   &-wrap{
+    gap: 25px;
     @extend .f-c-all;
   }
 }

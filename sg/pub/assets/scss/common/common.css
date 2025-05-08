@@ -3671,6 +3671,10 @@ textarea {
   background-size: cover;
 }
 
+.radio-wrap {
+  gap: 25px;
+}
+
 /* TEXTAREA */
 textarea {
   width: 100%;
