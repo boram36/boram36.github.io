@@ -3602,7 +3602,7 @@ textarea {
 }
 .checkbox-box {
   background-color: rgba(242, 244, 245, 0.5);
-  padding: 13px 11px;
+  padding: 13px 10px;
   border-radius: 20px;
 }
 .checkbox input[type=checkbox] + label,
