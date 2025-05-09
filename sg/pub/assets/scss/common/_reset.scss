@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 
+
 *{
     font-family:'Spoqa Han Sans Neo','Noto Sans KR', sans-serif;
     list-style: none;
@@ -8,12 +9,8 @@
     padding:0;
     border:0;
     box-sizing:border-box;
-    font-size:$fs-16;
+    font-size: 16px;
     color: var(--color-primary-100);
-    letter-spacing:-0.32px;
-    line-height:1.4;
-    //-ms-overflow-style:none; /* 스크롤 숨기기 */
-	// scrollbar-width:none;
 }   
 
 
@@ -45,6 +42,7 @@ body{
     -webkit-text-size-adjust:none;
     -moz-text-size-adjust:none;
     -ms-text-size-adjust:none;
+    font-synthesis: none;
 }
 
 
@@ -146,7 +144,6 @@ input[type="radio"]:disabled + label{color:#ccc !important; cursor: default !imp
 	color:var(--color-primary-70);
     font-size:inherit;
     font-weight:500;
-    letter-spacing:-0.42px;
 }
 
 

@@ -35,6 +35,7 @@
 
 
 	<!-- css -->
+  <link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
 	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
 
 	<!-- js :: lib -->
@@ -42,6 +43,7 @@
 	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
 
 
 	<!-- js :: common -->
@@ -107,56 +109,12 @@
           </ul>
           <!-- e: notice-list -->
 
-
-          <script>
-            let page = 1;
-            let isLoading = false;
-            const listContainer = document.querySelector(".notice-list");
-            
-            async function fetchNotices(pageNum) {
-              if (isLoading) return;
-              isLoading = true;
-            
-              try {
-                // 여기를 실제 API 주소로 변경
-                const res = await fetch(`/api/notices?page=${pageNum}`);
-                const data = await res.json();
-            
-                if (data && data.length) {
-                  data.forEach(item => {
-                    const li = document.createElement("li");
-                    li.innerHTML = `
-                      <a href="${item.link}" class="notice-tit">${item.title}</a>
-                      <div class="notice-info">${item.date} <span>ㅣ</span> ${item.writer}</div>
-                    `;
-                    listContainer.appendChild(li);
-                  });
-                  isLoading = false;
-                } else {
-                  // 더 이상 데이터 없을 경우 이벤트 제거
-                  window.removeEventListener("scroll", handleScroll);
-                }
-              } catch (e) {
-                console.error("목록 불러오기 실패", e);
-              }
-            }
-            
-            function handleScroll() {
-              const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-              if (scrollTop + clientHeight >= scrollHeight - 100) {
-                page++;
-                fetchNotices(page);
-              }
-            }
-            
-            window.addEventListener("scroll", handleScroll);
-            
-            // 첫 페이지 로딩
-            fetchNotices(page);
-            </script>
-            
-
-
+          <div class="loading f-c-all">
+            <svg class="loading-circle">
+              <circle cx="50%" cy="50%" r="25" stroke="#1B1F27" stroke-width="6" stroke-dasharray="157, 157" stroke-dashoffset="0" fill="transparent"></circle>
+            </svg>
+          </div>
+          <!-- e: loading -->
          
         </div>
       </div>
@@ -168,19 +126,19 @@
       <div class="inner">
         <div class="footer-wrap">
           <!-- 해당 메뉴 : active 클래스 추가 -->
-          <a href="" class="menu-btn menu01 ">
+          <a href="../index.html" class="menu-btn menu01 ">
             <i></i>
             <p>홈</p>
           </a>
-          <a href="" class="menu-btn menu02">
+          <a href="../rating/list.html" class="menu-btn menu02">
             <i></i>
             <p>지지도</p>
           </a>
-          <a href="" class="menu-btn menu03">
+          <a href="../event/list.html" class="menu-btn menu03">
             <i></i>
             <p>행사</p>
           </a>
-          <a href="" class="menu-btn menu04 active">
+          <a href="../notice/list.html" class="menu-btn menu04 active">
             <i></i>
             <p>공지</p>
           </a>
@@ -195,7 +153,7 @@
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
 
-  <div id="searchFilterPopup" class="popup-layer popup-bottom">
+  <div id="searchFilterPopup" class="popup-layer popup-bottom popup-full">
     <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
     <div class="popup-inner">
       <div class="popup-header">
@@ -216,25 +174,25 @@
         <div class="input-row">
           <div class="input-tit">행사일</div>
           <div class="input-wrap input-date">
-            <input type="text" id="" name="" placeholder="시작일">
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
             <span>~</span>
-            <input type="text" id="" name="" placeholder="종료일">
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
           </div>
         </div>
 
         <div class="input-row">
           <label class="input-tit" for="input02">행사일</label>
           <div class="select-wrap">
-            <select name="" id="" class="width-half">
+            <select name="" id="" class="width-half" disabled>
               <option value="">시/도</option>
-              <option value="">대구시</option>
+              <option value="" selected>대구시</option>
               <option value="">서울시</option>
               <option value="">부산시</option>
             </select>
     
-            <select name="" id="" class="width-half">
+            <select name="" id="" class="width-half" disabled>
               <option value="" >시/군/구</option>
-              <option value="">대구시</option>
+              <option value="" selected>대구시</option>
               <option value="">서울시</option>
               <option value="">부산시</option>
             </select>

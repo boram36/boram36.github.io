@@ -35,7 +35,7 @@
 
 
 	<!-- css -->
-	
+	<link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
 	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
 
 	<!-- js :: lib -->
@@ -43,6 +43,7 @@
 	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
 
 
 	<!-- js :: common -->
@@ -90,7 +91,7 @@
 						<div class="input-row">
 							<label class="input-tit" for="eventDate">행사일<span class="required">*</span></label>
 							<div class="input-wrap">
-								<input type="text" id="eventDate" name="eventDate" placeholder="행사일" value="2025.03.12">
+								<input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="2025.05.07" autocomplete="off" title="" maxlength="10">
 							</div>
 						</div>
 						<!-- e: 행사일 -->
@@ -106,14 +107,14 @@
 						<div class="input-row">
 							<label class="input-tit" for="input02">행사 지역<span class="required">*</span></label>
 							<div class="select-wrap">
-								<select name="" id="" class="width-half">
+								<select name="" id="" class="width-half" disabled>
 									<option value="">시/도</option>
 									<option value="" selected>경상남도</option>
 									<option value="">서울시</option>
 									<option value="">부산시</option>
 								</select>
 				
-								<select name="" id="" class="width-half">
+								<select name="" id="" class="width-half" disabled>
 									<option value="" >시/군/구</option>
 									<option value="" selected>상도군</option>
 									<option value="">서울시</option>

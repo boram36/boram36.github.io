@@ -4,68 +4,11 @@
  * Date       : 2025.04.
  *
  *
- * SUMMARY:
- * 01) main
- * 02) 
+ * 
  */
 
 
 
-/* 색상별 정리 */
- .type{
-  &-red{
-    .candidate-box__top{background: var(--point-red);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_red.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-red);}
-  }
-  &-orange{
-    .candidate-box__top{background: var(--point-orange);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_orange.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-orange);}
-  }
-  &-yellow{
-    .candidate-box__top{background: var(--point-yellow);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_yellow.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-yellow);}
-  }
-  &-green{
-    .candidate-box__top{background: var(--point-green);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_green.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-green);}
-  }
-  &-mint{
-    .candidate-box__top{background: var(--point-mint);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_mint.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-mint);}
-  }
-  &-skyblue{
-    .candidate-box__top{background: var(--point-skyblue);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_skyblue.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-skyblue);}
-  }
-  &-blue{
-    .candidate-box__top{background: var(--point-blue);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_blue.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-blue);}
-  }
-  &-violet{
-    .candidate-box__top{background: var(--point-violet);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_violet.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-violet);}
-  }
-  &-pink{
-    .candidate-box__top{background: var(--point-pink);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_pink.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-pink);}
-  }
-  &-black{
-    .candidate-box__top{background: var(--point-black);}
-    .candidate-box__bottom .rating-tit .ico-heart{background-image: url("../images/cmn/ico-heart_black.svg");}
-    .candidate-box__bottom .rating-bar p{background: var(--point-black);}
-  }
-
-
-}
 
 
 .main{
@@ -86,7 +29,7 @@
   &__top{
     border-radius: 20px;
     background: var(--point-blue);
-    padding: 20px;
+    padding: 20px 20px 30px;
     position: relative;
     .candidate-box{
       &__tit{

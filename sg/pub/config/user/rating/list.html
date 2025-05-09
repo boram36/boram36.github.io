@@ -102,7 +102,7 @@
                 <div class="profile f-c-space">
                   <div class="tit">
                     <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    <button type="button" class="edit-btn ico" title="수정" onclick="location.href='/sg/pub/config/user/editVoter.html'"><i class="ico-edit"></i></button>
+                    <a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
                   </div>
                   <p class="profile-tel">010-1***-4532</p>
                 </div>
@@ -136,8 +136,12 @@
                     <div class="detail-tit">
                       <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
                     </div>
-                    <div class="detail-cont">
-                      평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+                    <!-- 글자 수 제한으로 더보기 : 접기 버튼 구현 -->
+                    <div class="detail-cont" data-limit="35">
+                      <span class="detail-text">
+                        지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
+                      </span>
+                      <button class="detail-more" onclick="toggleComment(this)">...더보기</button>
                     </div>
                   </li>
                 </ul>
@@ -158,7 +162,7 @@
                 <div class="profile f-c-space">
                   <div class="tit">
                     <b>김순미</b>(<span class="txt-14">여</span>, 64세)
-                    <button type="button" class="edit-btn ico" title="수정" ><i class="ico-edit"></i></button>
+                    <a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
                   </div>
                   <p class="profile-tel">010-1***-4532</p>
                 </div>
@@ -194,11 +198,13 @@
                     <div class="detail-tit">
                       <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
                     </div>
-                    <div class="detail-cont">
-                        지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
-                        <button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+                    <div class="detail-cont" data-limit="35">
+                      <span class="detail-text">
+                        지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
+                      </span>
+                      <button class="detail-more" onclick="toggleComment(this)">...더보기</button>
                     </div>
-  
+                    
                   </li>
                 </ul>
                 <!-- e: detail -->
@@ -218,7 +224,7 @@
                 <div class="profile f-c-space">
                   <div class="profile-name">
                     <b>김순미</b>(<span class="txt-14">여</span>, 64세)
-                    <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+                    <a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
                   </div>
                   <p class="profile-tel">010-1***-4532</p>
                 </div>
@@ -253,8 +259,11 @@
                     <div class="detail-tit">
                       <span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
                     </div>
-                    <div class="detail-cont">
-                     -<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+                    <div class="detail-cont" data-limit="35">
+                      <span class="detail-text">
+                        -
+                      </span>
+                      <button class="detail-more" onclick="toggleComment(this)">...더보기</button>
                     </div>
                   </li>
                 </ul>
@@ -267,13 +276,21 @@
              <!-- e: 반복구문 : comBox-item -->
           </div>
           <!-- e: comBox-list -->
+
+          <div class="loading f-c-all">
+            <svg class="loading-circle">
+              <circle cx="50%" cy="50%" r="25" stroke="#1B1F27" stroke-width="6" stroke-dasharray="157, 157" stroke-dashoffset="0" fill="transparent"></circle>
+            </svg>
+          </div>
+          <!-- e: loading -->
+          
          
         </div>
 
         <div class="btn-wrap btn-fixed">
-          <button type="button" class="btn btn-floating bg-red" title="플로팅 버튼">
+          <a href="./register.html" class="btn btn-floating bg-blue" title="지지도 등록">
             <i class="ico-add"></i>
-          </button>
+          </a>
         </div>
 
       </div>
@@ -285,7 +302,7 @@
       <div class="inner">
         <div class="footer-wrap">
           <!-- 해당 메뉴 : active 클래스 추가 -->
-          <a href="" class="menu-btn menu01 ">
+          <a href="../index.html" class="menu-btn menu01 ">
             <i></i>
             <p>홈</p>
           </a>
@@ -293,11 +310,11 @@
             <i></i>
             <p>지지도</p>
           </a>
-          <a href="" class="menu-btn menu03">
+          <a href="../event/list.html" class="menu-btn menu03">
             <i></i>
             <p>행사</p>
           </a>
-          <a href="" class="menu-btn menu04">
+          <a href="../notice/list.html" class="menu-btn menu04">
             <i></i>
             <p>공지</p>
           </a>
@@ -312,7 +329,7 @@
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
 
-  <div id="searchFilterPopup" class="popup-layer popup-bottom">
+  <div id="searchFilterPopup" class="popup-layer popup-bottom popup-full">
     <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
     <div class="popup-inner">
       <div class="popup-header">
@@ -333,16 +350,16 @@
         <div class="input-row">
           <label class="input-tit" for="input02">유권자 지역</label>
           <div class="select-wrap">
-            <select name="" id="" class="width-half">
+            <select name="" id="" class="width-half" disabled>
               <option value="">시/도</option>
-              <option value="">대구시</option>
+              <option value="" selected>대구시</option>
               <option value="">서울시</option>
               <option value="">부산시</option>
             </select>
     
-            <select name="" id="" class="width-half">
+            <select name="" id="" class="width-half" disabled>
               <option value="" >시/군/구</option>
-              <option value="">대구시</option>
+              <option value="" selected>대구시</option>
               <option value="">서울시</option>
               <option value="">부산시</option>
             </select>
@@ -455,7 +472,7 @@
   </div>
   <!-- e: 삭제 팝업 -->
 
-  <div id="modifyPopup" class="popup-layer popup-bottom">
+  <div id="modifyPopup" class="popup-layer popup-bottom popup-full">
     <div class="popup-backdrop" onclick="closePopup('modifyPopup')"></div>
     <div class="popup-inner">
       <div class="popup-header">
@@ -472,7 +489,7 @@
             <div class="profile f-c-space">
               <div class="profile-name">
                 <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+                <a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
               </div>
               <p class="profile-tel">010-1***-4532</p>
             </div>
@@ -491,7 +508,7 @@
           <label class="input-tit" for="">지지도<span class="required">*</span></label>
           <div class="checkbox-box radio-wrap">
             <div class="checkbox">
-              <input type="radio" id="radio01" name="radio" >
+              <input type="radio" id="radio01" name="radio" checked>
               <label for="radio01"><i class="ico ico-like_big"></i></label>
             </div>
 

@@ -119,32 +119,32 @@
 						<div class="input-row">
 							<label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
 							<div class="select-wrap">
-								<select class="width-half">
+								<select name="" id="" class="width-half" disabled>
 									<option value="">시/도</option>
-									<option value="경상남도">경상남도</option>
-									<option value="서울시">서울시</option>
-									<option value="부산시">부산시</option>
+									<option value="" selected>경상남도</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
 								</select>
-								
-								<select class="width-half">
-									<option value="">시/군/구</option>
-									<option value="상도군">상도군</option>
-									<option value="송파구">송파구</option>
-									<option value="해운대구">해운대구</option>
+				
+								<select name="" id="" class="width-half" disabled>
+									<option value="" >시/군/구</option>
+									<option value="" selected>상도군</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
 								</select>
-								
-								<select class="width-half">
+				
+								<select name="" id="" class="width-half">
 									<option value="">읍/면/동</option>
-									<option value="구월면">구월면</option>
-									<option value="신촌동">신촌동</option>
-									<option value="남천동">남천동</option>
+									<option value="" selected>구월면</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
 								</select>
-								
-								<select class="width-half">
+				
+								<select name="" id="" class="width-half">
 									<option value="">리</option>
-									<option value="이읍리">이읍리</option>
-									<option value="신리">신리</option>
-									<option value="구리">구리</option>
+									<option value="" selected>이읍리</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
 								</select>
 							</div>
 						</div>
@@ -233,9 +233,6 @@
 		});
 
 		$(document).ready(function () {
-			// selectric 초기화
-			$('.select-wrap select').selectric();
-
 			// selectric의 커스텀 change 이벤트에 반응
 			$('.select-wrap select').on('selectric-change', function () {
 				checkVoterFormStatus();

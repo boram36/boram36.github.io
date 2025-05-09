@@ -6,8 +6,9 @@
  *
  *
  * SUMMARY:
- * 01) 
- * 02) 
+ * 01) HEADER
+ * 02) CONTAINER
+ * 03) FOOTER
  */
 
 
@@ -29,7 +30,7 @@ body{
 .container{
   margin: 0 auto;
   position: relative;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
   @extend .f-d-c;
   @include mobileSm2{
@@ -40,9 +41,9 @@ body{
 
 main{
   overflow-y: auto;
-  height: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   padding-top: 15px;
+  flex: 1;
 
 }
 

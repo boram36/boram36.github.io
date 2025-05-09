@@ -121,19 +121,19 @@
       <div class="inner">
         <div class="footer-wrap">
           <!-- 해당 메뉴 : active 클래스 추가 -->
-          <a href="" class="menu-btn menu01 ">
+          <a href="../index.html" class="menu-btn menu01 ">
             <i></i>
             <p>홈</p>
           </a>
-          <a href="" class="menu-btn menu02">
+          <a href="../rating/list.html" class="menu-btn menu02 ">
             <i></i>
             <p>지지도</p>
           </a>
-          <a href="" class="menu-btn menu03">
+          <a href="../event/list.html" class="menu-btn menu03 ">
             <i></i>
             <p>행사</p>
           </a>
-          <a href="" class="menu-btn menu04 active">
+          <a href="../notice/list.html" class="menu-btn menu04 active">
             <i></i>
             <p>공지</p>
           </a>
@@ -148,7 +148,7 @@
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
 
-  <div id="searchFilterPopup" class="popup-layer popup-bottom">
+  <div id="searchFilterPopup" class="popup-layer popup-bottom popup-full">
     <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
     <div class="popup-inner">
       <div class="popup-header">
@@ -169,25 +169,25 @@
         <div class="input-row">
           <div class="input-tit">행사일</div>
           <div class="input-wrap input-date">
-            <input type="text" id="" name="" placeholder="시작일">
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
             <span>~</span>
-            <input type="text" id="" name="" placeholder="종료일">
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
           </div>
         </div>
 
         <div class="input-row">
           <label class="input-tit" for="input02">행사일</label>
           <div class="select-wrap">
-            <select name="" id="" class="width-half">
+            <select name="" id="" class="width-half" disabled>
               <option value="">시/도</option>
-              <option value="">대구시</option>
+              <option value="" selected>대구시</option>
               <option value="">서울시</option>
               <option value="">부산시</option>
             </select>
     
-            <select name="" id="" class="width-half">
+            <select name="" id="" class="width-half" disabled>
               <option value="" >시/군/구</option>
-              <option value="">대구시</option>
+              <option value="" selected>대구시</option>
               <option value="">서울시</option>
               <option value="">부산시</option>
             </select>
