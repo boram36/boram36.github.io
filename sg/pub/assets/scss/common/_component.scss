@@ -639,8 +639,10 @@ textarea{
   padding: 5px;
   &-box{
     background-color: rgba(242,244,245,0.5);
-    padding: 13px 10px;
+    padding: 13px 8px;
+    font-size: 0;
     border-radius: 20px;
+    font-size: 0;
   }
 
   input[type=checkbox],
@@ -749,7 +751,7 @@ select{
     input[type=text][disabled],
     input[type=password][disabled],
     input[type=num][disabled]{
-      border: 1px solid var(--color-primary-30);
+      border: 1px solid var(--color-primary-40);
       background: var(--color-primary-20);
       color: var(--color-primary-80);
     }
@@ -1162,6 +1164,7 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
     background: var(--point-blue);
     padding: 20px 20px 30px;
     position: relative;
+    min-height: 190px;
     .candidate-box{
       &__tit{
         color: var(--color-primary-0);
@@ -1169,6 +1172,7 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
         display: block;
       }
       &__profile{
+        margin-top: 12px;
         .profile{
           &-tit{
             b{font-size: $fs-20;  color: var(--color-primary-0);}
@@ -1190,6 +1194,7 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
       background-color: rgba(255,255,255,0.25);
       border: 1px solid #fff;
       border-radius: 50%;
+      transition: transform .2s;
       .ico-drop_w{
         position: absolute;
         top: 50%;
@@ -1197,13 +1202,16 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
         transform: translate(-50%, -50%);
         @include icon-style(24px, 24px, "ico-drop_white");
       }
-
+      &.open { 
+        transform: rotate(180deg);
+      }
     }
   }
   &__bottom{
     padding: 18px 20px;
     .rating{
       &-tit{
+        font-weight: 500;
         .ico-heart{@include icon-style(26px, 26px, "ico-heart_blue")}
         &__num{font-size: $fs-24;}
       }
@@ -1226,6 +1234,7 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
       &-list{
         margin-top: 24px;
         li{
+          font-weight: 500;
           b{
             font-size: $fs-18;
             span{font-size: $fs-14;}
@@ -1309,8 +1318,16 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
     padding-bottom: 40px;
   }
   &-wrap{
+    position: relative;
     .input-wrap + .input-wrap{margin-top: 10px;}
     .btn-wrap{margin-top: 20px;}
+    .footer-logo{
+      position: absolute;
+      bottom: 10px;
+      color: var(--color-primary-60);
+      font-size: 12px;
+      line-height: 1.6
+    }
   }
 }
 

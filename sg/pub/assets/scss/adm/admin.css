@@ -3599,7 +3599,7 @@ select,
 textarea {
   padding: 0 18px;
   height: 54px;
-  border: 1px solid var(--color-primary-30);
+  border: 1px solid var(--color-primary-40);
   border-radius: 20px;
   font-size: 1rem;
   font-weight: 500;
@@ -3613,8 +3613,10 @@ textarea {
 }
 .checkbox-box {
   background-color: rgba(242, 244, 245, 0.5);
-  padding: 13px 10px;
+  padding: 13px 8px;
+  font-size: 0;
   border-radius: 20px;
+  font-size: 0;
 }
 .checkbox input[type=checkbox] + label,
 .checkbox input[type=radio] + label {
@@ -3737,7 +3739,7 @@ textarea {
 .input-wrap input[type=text][disabled],
 .input-wrap input[type=password][disabled],
 .input-wrap input[type=num][disabled] {
-  border: 1px solid var(--color-primary-30);
+  border: 1px solid var(--color-primary-40);
   background: var(--color-primary-20);
   color: var(--color-primary-80);
 }
@@ -4253,11 +4255,15 @@ input.datepicker-here {
   background: var(--point-blue);
   padding: 20px 20px 30px;
   position: relative;
+  min-height: 190px;
 }
 .candidate-box__top .candidate-box__tit {
   color: var(--color-primary-0);
   margin-bottom: 10px;
   display: block;
+}
+.candidate-box__top .candidate-box__profile {
+  margin-top: 12px;
 }
 .candidate-box__top .candidate-box__profile .profile-tit b {
   font-size: 1.25rem;
@@ -4286,6 +4292,7 @@ input.datepicker-here {
   background-color: rgba(255, 255, 255, 0.25);
   border: 1px solid #fff;
   border-radius: 50%;
+  transition: transform 0.2s;
 }
 .candidate-box__top .drop-btn .ico-drop_w {
   position: absolute;
@@ -4299,8 +4306,14 @@ input.datepicker-here {
   width: 24px;
   height: 24px;
 }
+.candidate-box__top .drop-btn.open {
+  transform: rotate(180deg);
+}
 .candidate-box__bottom {
   padding: 18px 20px;
+}
+.candidate-box__bottom .rating-tit {
+  font-weight: 500;
 }
 .candidate-box__bottom .rating-tit .ico-heart {
   background-image: url("../../images/cmn/ico-heart_blue.svg");
@@ -4331,6 +4344,9 @@ input.datepicker-here {
 }
 .candidate-box__bottom .rating-list {
   margin-top: 24px;
+}
+.candidate-box__bottom .rating-list li {
+  font-weight: 500;
 }
 .candidate-box__bottom .rating-list li b {
   font-size: 1.125rem;
@@ -4468,11 +4484,21 @@ input.datepicker-here {
 .login-logo {
   padding-bottom: 40px;
 }
+.login-wrap {
+  position: relative;
+}
 .login-wrap .input-wrap + .input-wrap {
   margin-top: 10px;
 }
 .login-wrap .btn-wrap {
   margin-top: 20px;
+}
+.login-wrap .footer-logo {
+  position: absolute;
+  bottom: 10px;
+  color: var(--color-primary-60);
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 /*---- 02) selectSg ----*/

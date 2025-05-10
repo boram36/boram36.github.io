@@ -72,6 +72,7 @@
       <div class="inner f-c-l">
         <button type="button" class="back-btn ico" onclick=""><i class="ico-back"></i></button>
         <h2 class="header-tit">검색 결과</h2>
+        <button type="button" class="search-btn ico" onclick="openPopup('searchFilterPopup');"><i class="ico-search"></i></button>
       </div>
     </nav>
     <!-- e: header -->
@@ -171,6 +172,92 @@
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
+  <div id="searchFilterPopup" class="popup-layer popup-bottom popup-full">
+    <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">검색 필터</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('searchFilterPopup')"><i class="ico-popup_cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+        <div class="input-row">
+          <label class="input-tit" for="input01">행사명</label>
+          <div class="input-wrap">
+            <input type="text" id="input01" name="input01" placeholder="행사명" value="">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-tit">행사일</div>
+          <div class="input-wrap input-date">
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+            <span>~</span>
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <label class="input-tit" for="input02">행사일</label>
+          <div class="select-wrap">
+            <select name="" id="" class="width-half" disabled>
+              <option value="">시/도</option>
+              <option value="" selected>대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half" disabled>
+              <option value="" >시/군/구</option>
+              <option value="" selected>대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="">읍/면/동</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="">리</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-tit">행사 장소</div>
+          <div class="input-wrap input-date">
+            <input type="text" id="" name="" placeholder="행사 장소">
+          </div>
+        </div>
+
+       
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn-refresh ico">
+            <i class="ico-refresh"></i>
+            초기화
+          </button>
+          <a href="" class="btn btn-active bg-blue">검색하기</a>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 검색필터 팝업 -->
+
+
   <div id="confirmPopup" class="popup-layer popup-bottom">
     <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>
     <div class="popup-inner">
@@ -187,8 +274,8 @@
 
       <div class="popup-footer">
         <div class="btn-wrap f-d-c">
-          <button type="button" class="btn txt-system-red" onclick="openPopup('deletePopup'); closePopup('confirmPopup')">삭제</button>
           <a href="/sg/pub/config/user/event/edit.html" class="btn">수정</a>
+          <button type="button" class="btn txt-system-red" onclick="openPopup('deletePopup'); closePopup('confirmPopup')">삭제</button>
           </div>
       </div>
       <!-- e: popup-footer -->
