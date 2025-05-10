@@ -1,36 +1,14 @@
 $(function(){
 	
-	//gnb
-	$('.gnb_li.hasChild > .gnb_li_txt > a').on('click', function(){
-		
-		var $li = $(this).closest('.gnb_li.hasChild');
-		var $ul = $(this).closest('.gnb_li_txt').siblings('.gnb_ul');
-		
-		if($li.hasClass('active')){
-			$li.removeClass('active');
-			$ul.slideUp();
-		}else{
-			$li.addClass('active');
-			$ul.slideDown();
-		}
-		
-	});
+	// gnb 반응형
+	$('.gnb-toggle').on('click', function(){
+    $('nav.gnb').toggleClass('open');
+  });
 	
 	//gnb_all
-	$('.gnb_btn').click(function(){
-	        
-	    if($(this).hasClass('gnb_btn_active')){
-	        $(this).removeClass('gnb_btn_active');
-	        
-	        $('nav.gnb').removeClass('visible');
-	        
-	    } else {
-	        $(this).addClass('gnb_btn_active');
-	        
-	        $('nav.gnb').addClass('visible');
-	    }
-
-	});
+	$('.gnb-btn, .close-btn').on('click', function(){
+    $('nav.gnb').toggleClass('visible');
+  });
 	
 	
 	//tab scroll
@@ -48,7 +26,7 @@ $(function(){
 	//custom scrollbar
 	$(window).on("load",function(){
 		
-		$(".gnb_wrap").mCustomScrollbar({
+		$(".gnb-menu__wrap").mCustomScrollbar({
 			scrollButtons:{enable:true},
 			theme:"minimal-dark",
 			scrollbarPosition:"outside"
@@ -68,6 +46,9 @@ $(function(){
 		}
 	});
 	
-	
 });
+
+
+
+	
 

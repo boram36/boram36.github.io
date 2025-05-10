@@ -35,12 +35,14 @@
 
 
 	<!-- css -->
+	<link rel="stylesheet" href="../../assets/scss/common/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" href="../../assets/scss/adm/admin.css">
 
 	<!-- js :: lib -->
 	<script type="text/javascript" src="../../assets/js/lib/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="../../assets/js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
 
 
 	<!-- js :: common -->
@@ -50,7 +52,7 @@
 
 <!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
 <!-- 2. 관리자 페이지 admin 클래스 추가 -->
-<body class="type-red admin">
+<body class="admin">
 
 	<!-- <div id="skip">
 		<a href="#container" tabindex="0">본문내용 바로가기</a>
@@ -68,6 +70,8 @@
 
   <header>
     <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
       <div class="hd-logo">
         <img src="../../assets/images/cmn/logo.svg" alt="">
         <span>바른소프트웨워</span>
@@ -101,29 +105,55 @@
   <!-- e: header -->
 
   <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
     <div class="gnb-wrap">
       <div class="gnb-top">
-        <div class="gnb-img">
-          <img src="./assets/images/cmn/profile80.svg" alt="">
-          <!-- noImg -->
-          <span>1</span>
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="gnb-img">
+            <img src="../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
         </div>
-        <div class="gnb-name">
-          <b>박동준</b>
-          <p>박동준 후보님 캠프</p>
-        </div>
-        <button type="button" class="gnb-"> </button>
       </div>
+      <!-- e: gnb-top -->
       <div class="gnb-menu__wrap">
-        <ul class="gnb-list">
-          <li>
-            <a href="" class="gnb-menu ico"><i class="ico-home"></i>홈</a>
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
           </li>
           <li>
-            <a href="" class="gnb-menu ico"><i class="ico-menu01"></i>후보자관리</a>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
           </li>
           <li>
-            <a href="" class="gnb-menu ico"><i class="ico-menu02"></i>유권자관리</a>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
           </li>
         </ul>
       </div>
@@ -133,9 +163,241 @@
 
 	<!-- 메인페이지에서 main클래스 추가 -->
 	<div class="container main" id="container">
-
     
+    <div class="main-wrapper">
 
+      <div class="main-tit f-h-c">
+        <i class="ico-camp"></i>
+          <b>박동준</b> 후보님 캠프
+      </div>
+
+      <main class="dashboard flex">
+
+        <div class="row dashboard-l">
+          
+          <section class="main-select">
+              <div>
+                <div class="selectSg-box">
+                  <div class="selectSg-cont">
+                    <div class="selectSg-cont__top">
+                      <b>2024년 제13대 지방선거</b>
+                      <p>경상북도 청도군 기초자치단체장</p>
+                    </div>
+                    <div class="selectSg-cont__bottom">
+                      <div class="selectSg-dday">D-23</div>
+                      <p>2025.04.12 월요일</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt35">
+                <h3 class="sub-tit">후보자 정보</h3>
+                <div class="candidate-box">
+                  <div class="candidate-box__top">
+                    <div class="candidate-box__wrap flex gap-25">
+                      <div class="candidate-box__img">
+                        <img src="../../assets/images/cmn/profile95.svg" alt="">
+                        <!-- no-img -->
+                      </div>
+                      <div class="candidate-box__profile flex-space">
+                        <div class="profile-tit"><b>박동준</b><span>72세 (1957년)</span></div>
+                        <div class="profile-cont">
+                          <p>
+                            · 서울대학교 행정학과 졸업<br>
+                            · 현) 국민정책연구소 이사<br>
+                            · 전) 제20대 국회의원
+                          </p>
+                        </div>
+                      </div>
+            
+                    </div>
+                    <button type="button" class="drop-btn ico"><i class="ico-drop_w"></i></button>
+                  </div>
+                  <!-- e: candidate-box__top -->
+          
+                  <div class="candidate-box__bottom">
+                    <div class="rating-tit f-c-space">
+                      <div class="rating-tit__txt ico f-h-c">내 후보 지지도<i class="ico-heart"></i></div>
+                      <b class="rating-tit__num">21.7%</b>
+                    </div>
+                    <div class="rating-bar">
+                      <p style="width: 21.7%;"></p>
+                    </div>
+                    <ul class="rating-list">
+                      <li class="f-c-space">
+                        총 유권자 수
+                        <b>11,500 <span>명</span></b>
+                      </li>
+                      <li class="f-c-space">
+                        총 지지자 수
+                        <b>2,500 <span>명</span></b>
+                      </li>
+                    </ul>
+          
+                  </div>
+                  <!-- e: candidate-box__bottom -->
+                 
+                </div>
+                <!-- e: candidate-box -->
+              </div>
+          </section>
+    
+          <section class="main-rating">
+            <div class="card">
+              <!-- 탭 -->
+              <div class="rating-tabs">
+                <button class="tab active">지지도 조사 현황</button>
+                <button class="tab">지지율</button>
+              </div>
+
+              <!-- 1) 지지도 현황 영역 -->
+              <div id="map-container" class="rating-box">
+                <div class="rating-box__wrap">
+                  <div class="map-cont">
+                    <img src="../../assets/images/adm/map.svg" alt="">
+                    <div id="submap-container" class="hidden">
+                      <svg id="submap-svg" viewBox="0 0 600 600"></svg>
+                    </div>
+                  </div>
+                  <div class="map-legend">
+                    <span class="legend-label">지지도 조사 현황(%)</span>
+                    <div class="legend-bar">
+                      <span class="legend-value value01">0%</span>
+                      <div class="bar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                      <span class="legend-value value02">100%</span>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+
+              <!-- 2) 지지율 영역 -->
+              <div id="rate-container" class="rating-box hidden">
+                <p></p>
+              </div>
+            </div>
+          </section>
+          
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+              const section       = document.querySelector('.main-rating');
+              const tabs          = section.querySelectorAll('.rating-tabs .tab');
+              const mapContainer  = section.querySelector('#map-container');
+              const legend        = section.querySelector('.map-legend');
+              const rateContainer = section.querySelector('#rate-container');
+          
+              tabs.forEach((tab, idx) => {
+                tab.addEventListener('click', () => {
+                  // 1) 탭 active 클래스 토글
+                  tabs.forEach(t => t.classList.remove('active'));
+                  tab.classList.add('active');
+          
+                  // 2) 컨텐츠 show/hide
+                  if (idx === 0) {
+                    // 지지도 조사 현황
+                    mapContainer.classList.remove('hidden');
+                    legend.classList.remove('hidden');
+                    rateContainer.classList.add('hidden');
+                  } else {
+                    // 지지율
+                    mapContainer.classList.add('hidden');
+                    legend.classList.add('hidden');
+                    rateContainer.classList.remove('hidden');
+                  }
+                });
+              });
+            });
+          </script>
+        </div>
+
+        <div class="dashboard-r">
+          <!-- 우측: 랭킹 박스 -->
+          <section class="main-ranking">
+            <div class="ranking">
+              <h3 class="sub-tit">
+                <span>지지도 등록 수</span> 랭킹
+              </h3>
+              <ul class="ranking-list">
+                <li>
+                  <!-- 1, 2, 3위 까지만 topClass 클래스 추가 -->
+                  <div class="ranking-num topClass">1</div>
+                  <div class="ranking-box flex-space">
+                    <div class="ranking-box__tit">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="ranking-box__num">
+                      <b>245</b>건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">2</div>
+                  <div class="ranking-box flex-space">
+                    <div class="ranking-box__tit">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="ranking-box__num">
+                      <b>245</b>건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">3</div>
+                  <div class="ranking-box flex-space">
+                    <div class="ranking-box__tit">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="ranking-box__num">
+                      <b>245</b>건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">4</div>
+                  <div class="ranking-box flex-space">
+                    <div class="ranking-box__tit">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="ranking-box__num">
+                      <b>245</b>건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">5</div>
+                  <div class="ranking-box flex-space">
+                    <div class="ranking-box__tit">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="ranking-box__num">
+                      <b>245</b>건
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="ranking"></div>
+          </section>
+        </div>
+
+  
+       
+      </main>
+
+      <div class="dashboard-footer">© Bareunsoftware All rights reserved.</div>
+    </div>
 
   
 
