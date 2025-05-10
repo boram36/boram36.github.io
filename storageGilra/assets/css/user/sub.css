@@ -431,6 +431,7 @@ br.mo-ver{display: none;}
 
 
 @media screen and (max-width: 750px) {
+  .layer{background: url("../../images/bg.png") no-repeat top -8vw center / cover;}
   .contents-top img{right: 0;}
   .contents-top h3 {font-size: 43px;}
   .container-list01 .contents-top img{right: -10.4px;}
@@ -460,7 +461,7 @@ br.mo-ver{display: none;}
 }
 
 @media screen and (max-width: 393px) {
-  .layer{background: url("../../images/bg.png") no-repeat top -8vw center / cover;}
+  
   .showImg02.viewImg02{top: 170px;}
   .showImg03.viewImg03 {bottom: 20%; left: -5px;}
 }

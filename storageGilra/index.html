@@ -98,11 +98,13 @@
 				<div class="intro-cont">
 					<!-- 인트로 1 -->
 					<div class="intro01">
-						<div class="main-cover">
-							<img src="./assets/images/main-cover.png" alt="개방형 수장고 길라잡이">
-						</div>
-						<div class="main-footer">
-							<img src="./assets/images/main-logo_bt.svg" alt="국립민속박물관 파주">
+						<div class="intro01-wrap">
+							<div class="main-cover">
+								<img src="./assets/images/main-cover.png" alt="개방형 수장고 길라잡이">
+							</div>
+							<div class="main-footer">
+								<img src="./assets/images/main-logo_bt.svg" alt="국립민속박물관 파주">
+							</div>
 						</div>
 					</div>
 
@@ -830,6 +832,7 @@
 			function openLoading() {
 				// 메인 숨기고 인트로 다시 보이기
 				$('.main-cont').hide();
+				$('.container-main').css('overflow','hidden');
 				$('.intro-cont').fadeIn(500);
 
 				// 인트로 상태 초기화
@@ -877,6 +880,7 @@
 				$('.btn03').click(function() {
 					$('.intro-cont').fadeOut(500);
 					$('.main-cont').show();
+					$('.container-main').css('overflow','auto');
 				});
 
 			}
