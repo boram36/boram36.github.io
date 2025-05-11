@@ -14,6 +14,7 @@
 :root{
   --gutter-y: 34px;
   --gutter-x: 24px;
+  --gutter-x2: 16px;
 }
 
 html,
@@ -37,51 +38,69 @@ body{
   height: calc(100vh - 80px);
   background-color: #EAEDEF;
   @extend .f-d-c;
-  padding: 50px;
+  padding: 50px 50px 16px;
   margin-left: 220px;
   width: calc(100% - 220px);
   overflow-y: auto;
+  &-wrap{
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   @include laptop{
     margin-left: 80px;
     width: calc(100% - 80px);
+    padding: 30px 40px;
+  }
+  @include tablet{
+
   }
   @include mobile{
     margin-left: 0;
     width: 100%;
+    height: calc(100vh - 93px);
   }
+ 
 }
 
 
 .type{
   &-red{
-    .gnb-img span{background-color: var(--point-red);}
+    .profile-img span{background-color: var(--point-red);}
   }
   &-orange{
-    .gnb-img span{background-color: var(--point-orange);}
+    .profile-img span{background-color: var(--point-orange);}
   }
   &-yellow{
-    .gnb-img span{background-color: var(--point-yellow);}
+    .profile-img span{background-color: var(--point-yellow);}
   }
   &-green{
-    .gnb-img span{background-color: var(--point-green);}
+    .profile-img span{background-color: var(--point-green);}
   }
   &-mint{
-    .gnb-img span{background-color: var(--point-mint);}
+    .profile-img span{background-color: var(--point-mint);}
   }
   &-skyblue{
-    .gnb-img span{background-color: var(--point-skyblue);}
+    .profile-img span{background-color: var(--point-skyblue);}
   }
   &-blue{
-    .gnb-img span{background-color: var(--point-blue);}
+    .profile-img span{background-color: var(--point-blue);}
   }
   &-violet{
-    .gnb-img span{background-color: var(--point-violet);}
+    .profile-img span{background-color: var(--point-violet);}
   }
   &-pink{
-    .gnb-img span{background-color: var(--point-pink);}
+    .profile-img span{background-color: var(--point-pink);}
   }
   &-black{
-    .gnb-img span{background-color: var(--point-black);}
+    .profile-img span{background-color: var(--point-black);}
   }
 }
 
@@ -144,6 +163,12 @@ body{
           box-shadow: 3px 3px 20px 0px rgba(136, 136, 136, 0.05);
           display: none;
           z-index: 1;
+          @include mobile{
+                    left: auto;
+        right: -5px;
+        top: calc(100% + 9px);
+        width: 160px;
+          }
           li{
             padding: 15px 0 ;
             &:not(:last-child){
@@ -207,9 +232,11 @@ body{
       }
       .hd-user{
         width: auto;
-        &__wrap{padding: 7px;}
-        .user-name{font-size: 0;}
-        .user-name i{margin-right: 0;}
+        &__wrap{
+          padding: 7px;
+          .user-name{font-size: 0;}
+          .user-name i{margin-right: 0;}
+        }
         .hd-user__wrap:after{display: none;}
       }
       .hd-logo span{display: none;}
@@ -234,6 +261,33 @@ body{
   }
 }
 
+.profile-img{
+  display: inline-block;
+  position: relative;
+  font-size: 0;
+  img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  span{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--point-blue);
+    border: 1px solid var(--color-primary-0);
+    width: 22px;
+    height: 22px;
+    @extend .f-c-all;
+    border-radius: 50%;
+    color: var(--color-primary-0);
+    font-size: $fs-14;
+    font-weight: 700;
+  }
+}
+
 .gnb{
   z-index: 100;
   position: fixed;
@@ -253,24 +307,7 @@ body{
     }
     padding: 0 20px;
   }
-  &-img{
-    display: inline-block;
-    position: relative;
-    span{
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background-color: var(--point-blue);
-      border: 1px solid var(--color-primary-0);
-      width: 22px;
-      height: 22px;
-      @extend .f-c-all;
-      border-radius: 50%;
-      color: var(--color-primary-0);
-      font-size: $fs-14;
-      font-weight: 700;
-    }
-  }
+
   &-name{
     margin-top: 15px;
     line-height: 1.7;
@@ -354,14 +391,14 @@ body{
   }
   .close-btn{display: none;}
   //  반응형
-  @media screen and (min-width: 769px) and (max-width: 1200px) {
+  @media screen and (min-width: $break-mobile) and (max-width: $break-laptop) {
     top: 0;
     padding-top: 20px;
     &:not(.open){
       width: 80px;
       transition: width .3s;
       .gnb-top{padding: 0 15px;}
-      .gnb-top .gnb-img,
+      .gnb-top .profile-img,
       .gnb-top .gnb-name,
       .gnb-top .gnb-refresh{
         display: none;
@@ -430,8 +467,8 @@ body{
     height: 100vh;
     opacity: 0;
     background: var(--system-navy-1);
-    overflow-y: auto;
     z-index: 100;
+    display: none;
     .close-btn{
       display: flex;
       position: absolute;
@@ -446,6 +483,11 @@ body{
         background: url("../../images/adm/ico-close.svg") no-repeat 50% / cover;
       }
     }
+    .gnb-wrap{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
     .gnb-toggle{
       display: none;
     }
@@ -454,6 +496,8 @@ body{
     }
     .gnb-menu__wrap{
       padding: 0 15px;
+      flex: 1;
+      height: 50vh;
     }
     .gnb-menu__list li.active .gnb-menu__btn{
       border-right: 0;
@@ -461,11 +505,36 @@ body{
     }
     &.visible{
       opacity: 1;
+      display: block;
     }
   }
-
 }
 
+.main{
+  .footer{
+    padding-left: 50px;
+    position: absolute;
+    bottom: 16px;
+    @include laptop{
+      position: static;
+      padding-left: 0;
+    }
+  }
+}
+.footer{
+  color: var(--color-primary-60);
+  font-size: 14px;
+  margin-top: 16px;
+  
+  @include laptop{
+    position: static;
+    margin-top: 16px;
+    text-align: center;
+    @include mobile{
+      font-size: 12px;
+    }
+  }
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // row
@@ -476,6 +545,10 @@ body{
   background: var(--color-primary-0, #FFF);
   box-shadow: 0px 0px 25px 0px rgba(199, 206, 213, 0.50);
   overflow: hidden;
+}
+
+.row{
+  .input-row + .input-row{margin-top: 0;}
 }
 
 .row { display: flex; flex-wrap: wrap;  margin-right: calc(-.5 * var(--gutter-x)); margin-left: calc(-.5 * var(--gutter-x))}
@@ -693,4 +766,20 @@ body{
  .offset-xxl-9 { margin-left: 75%}
  .offset-xxl-10 { margin-left: 83.33333333%}
  .offset-xxl-11 { margin-left: 91.66666667%}
+}
+
+form .row{margin-right: calc(-.5 * var(--gutter-x2)); margin-left: calc(-.5 * var(--gutter-x2))}
+form .row>* { padding-right: calc(var(--gutter-x2) * .5); padding-left: calc(var(--gutter-x2) * .5); }
+
+@include mobile{
+  form .row {
+    display: block;
+    margin: 0;
+  }
+
+  form .row > * {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 25px;
+  }
 }

@@ -11,21 +11,359 @@
  * 04) 
  */
 
+// icon
+
+
+
 .main-tit{
-  font-size: 24px;
+  font-size: $fs-24;
   margin-bottom: 15px;
   gap: 5px;
   i{
     margin-right: 2px;
+    &.ico{
+      &-home{@include icon-style(30px, 30px, "gnb-home");}
+      &-candidater{@include icon-style(30px, 30px, "gnb-candidater");}
+      &-camppeople{@include icon-style(30px, 30px, "gnb-camppeople");}
+      &-voter{@include icon-style(30px, 30px, "gnb-voter");}
+      &-heart{@include icon-style(30px, 30px, "gnb-heart");}
+      &-date{@include icon-style(30px, 30px, "gnb-date");}
+      &-message{@include icon-style(30px, 30px, "gnb-message");}
+      &-notice{@include icon-style(30px, 30px, "gnb-notice");}
+      &-chart{@include icon-style(30px, 30px, "gnb-chart");}
+    }
+    @include mobile{
+      margin-right: 0;
+    }
+  }
+  span{
+    font-weight: 400;
+  }
+  @include tablet{
+    font-size: $fs-20;
+  }
+  @include mobile{
+    font-size: $fs-18;
   }
  
 }
 .sub-tit{
-  font-size: 20px;
+  font-size: $fs-20;
   margin-bottom: 15px;
   span{
     font-weight: 400;
     font-size: inherit;
   }
+  @include mobile{
+    font-size: $fs-16;
+    margin-bottom: 8px;
+  }
 }
+
+//login
+.container-login{
+  margin-left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  padding-bottom: 80px;
+  @include laptop{
+    padding-bottom: 50px;
+  }
+  @include mobile{
+    padding-bottom: 28px;
+  }
+  main{
+    height: 100%;
+  }
+  .login-wrap{
+    max-width: 324px;
+    width: 100%;
+    margin: 0 auto;
+    .input-wrap input[type=text], 
+    .input-wrap input[type=password], 
+    .input-wrap input[type=date], 
+    .input-wrap input[type=num]{
+      font-size: $fs-14;
+    }
+  }
+}
+
+// cadidater
+.candidater-wrap{
+  width: 100%;
+  height: 100%;
+  .btn-register{
+    border-radius: 20px;
+    border: 2px dashed var(--color-primary-30);
+    background: var(--color-primary-0);
+    box-shadow: 0px 0px 25px 0px rgba(199, 206, 213, 0.50);
+    width: 320px;
+    height: 140px;
+    flex-shrink: 0;
+    @include mobile{
+      width: 100%;
+    }
+    @extend .f-c-all;
+    gap: 20px;
+    font-size: $fs-24;
+    font-weight: 700;
+  }
+  .candidater-list{
+    width: 600px;
+    height: 100%;
+    .selectSg-box{
+      height: 100%;
+    }
+    .selectSg-cont{
+      padding: 0 50px;
+    }
+    .candidater-info{
+      padding: 30px 40px;
+      border-radius: 20px;
+      margin-top: 10px;
+      background: var(--color-primary-10);
+      &__top{
+        gap: 20px;
+        padding-bottom: 19px;
+        border-bottom: 1px solid var(--color-primary-30);
+      }
+      .profile-img{
+        span{border: 0;}
+      }
+      .profile-info{
+        font-size: 24px;
+        color: var(--color-primary-80);
+        b{
+          color: var(--color-primary-100);
+        }
+        span{
+          font-size: 20px;
+        }
+      }
+      .detail{
+        margin-top: 20px;
+        li{
+          @extend .flex;
+          gap: 10px;
+          + li{margin-top: 20px;}
+          &.detail-idea{
+            align-items: flex-start;
+          }
+          &.detail-hidden{
+            display: none;
+          }
+        }
+        &-tit{
+          width: 90px;
+          flex: none;
+          line-height: 1.6;
+          span{
+            font-size: $fs-18;
+            font-weight: 400;
+            color: var(--color-primary-80);
+            &.text-justify{
+              text-align: justify;
+              width: 80px;
+              display: block;
+              &:after{
+                content: '';
+                display: inline-block;
+                width: 100%;
+              }
+            }
+          }
+        }
+        &-cont{
+          font-size: $fs-18;
+          font-weight: 500;
+          word-break: keep-all;
+          line-height: 1.6;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+.small-info{
+  font-size: $fs-14;
+  color: var(--color-primary-60);
+  line-height: 1.4;
+}
+
+.border-top-6{border-top: 6px solid #F2F4F5;}
+
+// picture
+.picture_wrap{
+  .ico-picture_add{
+    position: absolute;
+    bottom: -4px;
+    right: -9px;
+  }
+  .picture-tit{
+    font-size: $fs-14;
+    margin-bottom: 8px;
+  }
+  .small-info{
+    font-size: 10px;
+  }
+}
+
+// btn 공통
+.btn{
+  &-wrap{
+    margin-top: 25px;
+    .btn{
+      width: 140px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: $fs-16;
+      font-weight: 500;
+    }
+  }
+}
+
+// popup
+.admin{
+  .popup{
+    &-inner{
+      max-width: 700px;
+    }
+    &-header{
+      padding: 35px 0 25px;
+      @include mobile{
+        padding: 25px 0;
+      }
+      .btn-close{
+        top: 20px;
+        @include mobile{
+          top: 15px;
+          .ico-cancel{
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+    }
+    &-title{
+      font-size: $fs-24;
+      @include mobile{
+        font-size: $fs-16;
+      }
+    }
+    &-content{
+      margin-bottom: 0;
+      height: min(calc(100vh - 300px), 642px);
+      overflow-y: auto;
+      margin-right: -10px;
+      padding-right: 10px;
+      @include mobile{
+        height: calc(100vh - 300px);
+        margin-right: -10px;
+        padding-right: 10px;
+      }
+    }
+    &-footer{
+      .btn-wrap{
+        justify-content: center;
+        margin-top: 25px;
+        .btn{
+          font-size: $fs-16;
+          width: 137px;
+          height: 54px;
+          border-radius: 20px;
+
+        }
+      }
+    }
+  }
+}
+
+// list
+.search{
+  &-option{
+    border-radius: 20px;
+    border: 1px solid var(--color-primary-40);
+    background: var(--color-primary-20);
+    padding: 0 30px;
+    .check-wrap {
+      font-size: 0;
+      gap: 25px;
+      @extend .f-h-c;
+    }
+    .checkbox{
+      padding: 0;
+    }
+    .checkbox input[type=checkbox] + label, 
+    .checkbox input[type=radio] + label{font-weight: 700;}
+    .checkbox input[type=checkbox] + label:before, 
+    .checkbox input[type=radio] + label:before{width: 22px; min-width: 22px; height: 22px;}
+    .select-wrap{
+      width: 120px;
+    }
+    .selectric{
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--color-primary-20);
+      .button{
+        width: 40px;
+        height: 40px;
+        &:after{
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+    .selectric .label{
+      height: 40px;
+      line-height: 40px;
+      font-size: $fs-14;
+      margin: 0 30px 0 10px;
+    }
+    .selectric-items{
+      padding-top: 50px;
+      li{
+        height: 40px;
+        min-height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+  &-row{
+    gap: 40px;
+    min-height: 66px;
+    padding: 13px 0;
+    &__tit{
+      font-weight: 700;
+    }
+    &__cont{gap: 50px;}
+   
+  }
+  &-col{
+    gap: 10px;
+    @extend .f-h-c;
+    &__tit{
+      font-size: 12px;
+    }
+  }
+  &+.search-row{
+    border-top: 1px solid #D7DDE4;
+  }
+}
+
+
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+.table th { background: #f8f8f8; }
+
+.switch.on::before { content: 'ON'; color: green; }
+.switch.off::before { content: 'OFF'; color: gray; }
+
+.dropdown-menu { display: none; position: absolute; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu li { padding: 5px 10px; }
+.dropdown-menu .danger { color: red; }
+
+.page-btn { padding: 5px 10px; }
+.page-btn.active { background: #000; color: #fff; }
 

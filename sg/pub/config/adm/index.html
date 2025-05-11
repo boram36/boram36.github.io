@@ -112,7 +112,7 @@
           <i class="ico-toggle"></i>
         </button>
         <div class="gnb-top__wrap">
-          <div class="gnb-img">
+          <div class="profile-img">
             <img src="../../assets/images/cmn/profile80.svg" alt="">
             <!-- noImg -->
             <span>1</span>
@@ -163,19 +163,15 @@
 
 	<!-- 메인페이지에서 main클래스 추가 -->
 	<div class="container main" id="container">
-    
-    <div class="main-wrapper">
-
-      <div class="main-tit f-h-c">
-        <i class="ico-camp"></i>
-          <b>박동준</b> 후보님 캠프
-      </div>
-
+    <div class="container-wrap">
       <main class="dashboard flex">
-
-        <div class="row dashboard-l">
-          
-          <section class="main-select">
+        <div class="dashboard-l">
+          <h2 class="main-tit f-h-c">
+            <i class="ico-camp"></i>
+              박동준 <span>후보님 캠프</span>
+          </h2>
+          <div class="row">
+            <section class="main-select">
               <div>
                 <div class="selectSg-box">
                   <div class="selectSg-cont">
@@ -190,11 +186,11 @@
                   </div>
                 </div>
               </div>
-              <div class="mt35">
+              <div>
                 <h3 class="sub-tit">후보자 정보</h3>
                 <div class="candidate-box">
                   <div class="candidate-box__top">
-                    <div class="candidate-box__wrap flex gap-25">
+                    <div class="candidate-box__wrap gap-10 flex">
                       <div class="candidate-box__img">
                         <img src="../../assets/images/cmn/profile95.svg" alt="">
                         <!-- no-img -->
@@ -205,7 +201,13 @@
                           <p>
                             · 서울대학교 행정학과 졸업<br>
                             · 현) 국민정책연구소 이사<br>
-                            · 전) 제20대 국회의원
+                            · 전) 제20대 국회의원<br>
+                            · 서울대학교 행정학과 졸업<br>
+                            · 현) 국민정책연구소 이사<br>
+                            · 전) 제20대 국회의원<br>
+                            · 서울대학교 행정학과 졸업<br>
+                            · 현) 국민정책연구소 이사<br>
+                            · 전) 제20대 국회의원<br>
                           </p>
                         </div>
                       </div>
@@ -236,7 +238,7 @@
           
                   </div>
                   <!-- e: candidate-box__bottom -->
-                 
+                  
                 </div>
                 <!-- e: candidate-box -->
               </div>
@@ -253,11 +255,15 @@
               <!-- 1) 지지도 현황 영역 -->
               <div id="map-container" class="rating-box">
                 <div class="rating-box__wrap">
+                  <div class="scroll-info">
+                    <p><img src="../../assets/images/adm/ico-scroll.svg" alt=""></p>
+                    좌우 스크롤
+                  </div>
                   <div class="map-cont">
                     <img src="../../assets/images/adm/map.svg" alt="">
-                    <div id="submap-container" class="hidden">
+                    <!-- <div id="submap-container" class="hidden">
                       <svg id="submap-svg" viewBox="0 0 600 600"></svg>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="map-legend">
                     <span class="legend-label">지지도 조사 현황(%)</span>
@@ -274,133 +280,183 @@
                     </div>
                   </div>
                 </div>
-                
               </div>
-
-
               <!-- 2) 지지율 영역 -->
               <div id="rate-container" class="rating-box hidden">
                 <p></p>
               </div>
             </div>
           </section>
-          
-          <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              const section       = document.querySelector('.main-rating');
-              const tabs          = section.querySelectorAll('.rating-tabs .tab');
-              const mapContainer  = section.querySelector('#map-container');
-              const legend        = section.querySelector('.map-legend');
-              const rateContainer = section.querySelector('#rate-container');
-          
-              tabs.forEach((tab, idx) => {
-                tab.addEventListener('click', () => {
-                  // 1) 탭 active 클래스 토글
-                  tabs.forEach(t => t.classList.remove('active'));
-                  tab.classList.add('active');
-          
-                  // 2) 컨텐츠 show/hide
-                  if (idx === 0) {
-                    // 지지도 조사 현황
-                    mapContainer.classList.remove('hidden');
-                    legend.classList.remove('hidden');
-                    rateContainer.classList.add('hidden');
-                  } else {
-                    // 지지율
-                    mapContainer.classList.add('hidden');
-                    legend.classList.add('hidden');
-                    rateContainer.classList.remove('hidden');
-                  }
-                });
-              });
-            });
-          </script>
+          </div>
+
         </div>
 
         <div class="dashboard-r">
           <!-- 우측: 랭킹 박스 -->
           <section class="main-ranking">
-            <div class="ranking">
+            <div class="ranking-cards">
               <h3 class="sub-tit">
                 <span>지지도 등록 수</span> 랭킹
               </h3>
               <ul class="ranking-list">
                 <li>
-                  <!-- 1, 2, 3위 까지만 topClass 클래스 추가 -->
-                  <div class="ranking-num topClass">1</div>
-                  <div class="ranking-box flex-space">
-                    <div class="ranking-box__tit">
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank01.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
                       <strong>이시훈</strong>
                       <p>010-1234-5938</p>
                     </div>
-                    <div class="ranking-box__num">
-                      <b>245</b>건
+                    <div class="rank-value">
+                      <b>245</b> 건
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="ranking-num">2</div>
-                  <div class="ranking-box flex-space">
-                    <div class="ranking-box__tit">
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank02.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
                       <strong>이시훈</strong>
                       <p>010-1234-5938</p>
                     </div>
-                    <div class="ranking-box__num">
-                      <b>245</b>건
+                    <div class="rank-value">
+                      <b>245</b> 건
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="ranking-num">3</div>
-                  <div class="ranking-box flex-space">
-                    <div class="ranking-box__tit">
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank03.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
                       <strong>이시훈</strong>
                       <p>010-1234-5938</p>
                     </div>
-                    <div class="ranking-box__num">
-                      <b>245</b>건
+                    <div class="rank-value">
+                      <b>245</b> 건
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="ranking-num">4</div>
-                  <div class="ranking-box flex-space">
-                    <div class="ranking-box__tit">
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank04.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
                       <strong>이시훈</strong>
                       <p>010-1234-5938</p>
                     </div>
-                    <div class="ranking-box__num">
-                      <b>245</b>건
+                    <div class="rank-value">
+                      <b>245</b> 건
                     </div>
                   </div>
                 </li>
                 <li>
-                  <div class="ranking-num">5</div>
-                  <div class="ranking-box flex-space">
-                    <div class="ranking-box__tit">
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank05.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
                       <strong>이시훈</strong>
                       <p>010-1234-5938</p>
                     </div>
-                    <div class="ranking-box__num">
-                      <b>245</b>건
+                    <div class="rank-value">
+                      <b>245</b> 건
                     </div>
                   </div>
                 </li>
               </ul>
+              <a href="" class="btn-more">+더보기</a>
             </div>
-            <div class="ranking"></div>
+            <div class="ranking-cards">
+              <h3 class="sub-tit">
+                <span>행사 등록 수</span> 랭킹
+              </h3>
+              <ul class="ranking-list">
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank01.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank02.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank03.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank04.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank05.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <a href="" class="btn-more">+더보기</a>
+            </div>
           </section>
         </div>
-
-  
-       
       </main>
-
-      <div class="dashboard-footer">© Bareunsoftware All rights reserved.</div>
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
     </div>
-
-  
-
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
@@ -410,8 +466,37 @@
 
 
 
-
-
+          
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const section       = document.querySelector('.main-rating');
+      const tabs          = section.querySelectorAll('.rating-tabs .tab');
+      const mapContainer  = section.querySelector('#map-container');
+      const legend        = section.querySelector('.map-legend');
+      const rateContainer = section.querySelector('#rate-container');
+  
+      tabs.forEach((tab, idx) => {
+        tab.addEventListener('click', () => {
+          // 1) 탭 active 클래스 토글
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+  
+          // 2) 컨텐츠 show/hide
+          if (idx === 0) {
+            // 지지도 조사 현황
+            mapContainer.classList.remove('hidden');
+            legend.classList.remove('hidden');
+            rateContainer.classList.add('hidden');
+          } else {
+            // 지지율
+            mapContainer.classList.add('hidden');
+            legend.classList.add('hidden');
+            rateContainer.classList.remove('hidden');
+          }
+        });
+      });
+    });
+  </script>
 
 
 

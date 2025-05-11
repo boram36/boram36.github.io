@@ -187,6 +187,17 @@
     &-profile{@include icon-style(80px, 80px, "profile80");}
     &-drop{@include icon-style(16px, 16px, "ico-drop");}
     &-profile_sm{@include icon-style(24px, 24px, "ico-profile");}
+    &-floating_red{@include icon-style(54px, 54px, "ico-floating_red")}
+    &-floating_orange{@include icon-style(54px, 54px, "ico-floating_orange")}
+    &-floating_yellow{@include icon-style(54px, 54px, "ico-floating_yellow")}
+    &-floating_green{@include icon-style(54px, 54px, "ico-floating_green")}
+    &-floating_mint{@include icon-style(54px, 54px, "ico-floating_mint")}
+    &-floating_skyblue{@include icon-style(54px, 54px, "ico-floating_skyblue")}
+    &-floating_blue{@include icon-style(54px, 54px, "ico-floating_blue")}
+    &-floating_violet{@include icon-style(54px, 54px, "ico-floating_violet")}
+    &-floating_pink{@include icon-style(54px, 54px, "ico-floating_pink")}
+    &-floating_black{@include icon-style(54px, 54px, "ico-floating_black")}
+    &-picture_add{@include icon-style(28px, 28px, "ico-picture_add")}
 }
 
 /*---- 04) TIT ----*/
@@ -704,6 +715,9 @@ textarea{
   resize:none;
   height: 120px;
   padding: 15px 18px;
+  white-space: pre-line; 
+  resize: none;
+  text-align: left;
 }
 
 /* SELECT */
@@ -1166,11 +1180,19 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
     position: relative;
     min-height: 190px;
     .candidate-box{
+      &__img{
+        font-size: 0;
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
       &__tit{
         color: var(--color-primary-0);
         margin-bottom: 10px;
         display: block;
       }
+    
       &__profile{
         margin-top: 12px;
         .profile{

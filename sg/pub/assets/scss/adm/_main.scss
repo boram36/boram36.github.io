@@ -11,69 +11,130 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // MAIN
 // ─────────────────────────────────────────────────────────────────────────────
-.main{
-  .main-tit{
-   .ico-camp{
-      width: 30px;
-      height: 30px;
-      background: url("../../images/cmn/ico-camp_b.svg") no-repeat 50% / cover;
+.container{
+  &.main{
+    padding: 0;
+    @include laptop{
+      padding: 30px 40px 16px;
+    }
+    @include mobile{
+      padding: 18px 18px 16px;
+    }
+    .main-tit{
+     .ico-camp{
+        width: 30px;
+        height: 30px;
+        background: url("../../images/cmn/ico-camp_b.svg") no-repeat 50% / cover;
+      }
+    }
+    .container-wrap{
+      display: block;
+      @include laptop{
+        height: auto;
+      }
+    }
+    .dashboard{
+      height: 100%;
+      flex-direction: row;
+      @include laptop{
+        flex-direction: column;
+        gap: 30px;
+        height: auto;
+      }
+      &-l{
+        flex: 1;
+        padding: 50px;
+        @include laptop{
+          padding: 0;
+          flex: none;
+        }
+      }
+      &-r{
+        width: calc(375px + var(--gutter-x));
+        flex: none;
+        position: relative;
+        padding: 60px 50px 50px;
+        &:before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1px;
+          height: 100%;
+          border-left: 1px solid var(--color-primary-30);
+          @include laptop{
+            display: none;
+          }
+        }
+        @include tablet{
+          width: 100%;
+          padding: 0;
+        }
+      }
+    
     }
   }
 }
-.dashboard{
-  &-l{
-    flex: 1;
-    padding-right: 50px;
-  }
-  &-r{
-    width: calc(375px + var(--gutter-x));
-    flex: none;
-    position: relative;
-    padding: 10px 0 50px 50px;
-    &:before{
-      content: '';
-      position: absolute;
-      top: -50px;
-      left: 0;
-      width: 1px;
-      height: 100%;
-      border-left: 1px solid var(--color-primary-30);
-    }
-  }
-  &-footer{
-    color: var(--color-primary-60);
-    font-size: 14px;
-    position: absolute;
-    bottom: 16px;
-  }
+
+
+
+@media screen and (min-width: 769px) {
   .selectSg-cont{
     padding: 0 30px;
+    
     &__top{
       padding: 42px 0 32px;
-      b{font-size: 24px;}
-      p{font-size: 16px; margin-top: 6px;}
+      b{
+        font-size: $fs-24; 
+      }
+      p{
+        font-size: $fs-16; margin-top: 6px;
+        
+      }
+     
     }
     &__bottom{
-      padding: 20px 0;
+      padding: 19px 0 20px;
       .selectSg-dday{
-        font-size: 28px;
-        width: 160px;
+        font-size: $fs-28;
+        flex: 1;
         height: 50px;
       }
       p{
-        font-size: 16px;
+        font-size: $fs-16;
+        flex: 1;
+        text-align: center;
+        @include mobile{
+          font-size: $fs-14;
+        }
       }
     }
   }
   .candidate-box{
+    position: relative;
     &__top{
       padding: 30px 30px 37px;
+      min-height: 180px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    
+    }
+    &__wrap{
+     gap: 25px;
     }
     &__profile{
       margin-top: 15px;
+      
     }
     &__bottom{
-      padding: 33px 30px 30px;
+      padding: 32px 30px 30px;
+      padding-top: calc(180px + 32px);
+      @include mobile{
+        padding: calc(180px + 15px) 20px 20px;
+      }
       .rating-tit__num{
         font-size: 32px;
       }
@@ -93,17 +154,39 @@
         }
         margin-top: 55px;
       }
+      .rating-tit__txt{
+        font-size: $fs-20;
+      }
     }
     .drop-btn{display: none;}
+  }
+}
+
+.candidate-box__top{
+  @include mobile{
+    min-height: auto;
+    padding: 30px 20px 32px;
   }
 }
 
 .main-select{
   width: calc(400px + (var(--gutter-x)));
   flex: none;
+  > div + div{
+    margin-top: 35px;
+    @include tablet{
+      margin-top: 30px;
+    }
+  }
+  @include tablet{
+    width: 100%;
+  }
 }
 .main-rating {
   flex: 1;
+  @include tablet{
+    margin-top: 30px;
+  }
   .rating-tabs {
     display: flex;
     border-bottom: 1px solid #D7DDE4;
@@ -120,6 +203,10 @@
       cursor: pointer;
       background: var(--color-primary-10);
       color: var(--color-primary-60);
+      @include mobile{
+        font-size: $fs-16;
+        padding: 16px 0;
+      }
       &.active {
         background: var(--color-primary-0);
         color: var(--color-primary-100);
@@ -130,31 +217,71 @@
   .rating-box {
     margin-top: 16px;
     padding: 30px;
+    @include mobile{
+      padding: 18px 17px;
+      margin-top: 0;
+    }
+   
     &__wrap{
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
-    }
-    img {
+      position: relative;
+      .scroll-info{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        color: var(--color-primary-80);
+        text-align: center;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 2;
+        p{
+          font-size: 0;
+        }
+        @include mobile{
+          display: block;
+        }
+      }
+      .map-cont{
+        @include mobile{
+          width: 100%;
+          overflow-x: auto;
+        }
+        img{}
+      }
     }
   }
 
   .map-legend {
     margin-top: 16px;
     width: 100%;
+    @include mobile{
+      margin-top: 30px;
+    }
     .legend-label{
       font-weight: 500;
       margin-bottom: 5px;
       display: block;
+      @include mobile{
+        font-size: $fs-12;
+      }
     }
     .legend-bar {
       position: relative;
       padding-top: 22px;
+      @include mobile{
+        padding-top: 20px;
+      }
       .legend-value{
         position: absolute;
         top: 0;
         font-size: $fs-12;
+        @include mobile{
+          font-size: 10px;
+        }
         &.value01{
           left: 0;
         }
@@ -169,6 +296,9 @@
         border-radius: 10px;
         display: flex;
         overflow: hidden;
+        @include mobile{
+          font-size: 15px;
+        }
         span{
           flex: 1;
           background-color: var(--point-blue);
@@ -187,77 +317,90 @@
 }
 
 .main-ranking {
-  .ranking-cards {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include laptop{
+    flex-direction: row;
+    gap: 44px;
   }
-
+  @include mobile{
+    flex-direction: column;
+    gap: 33px;
+  }
+  .sub-tit{
+    @include mobile{
+      margin-bottom: 18px;
+    }
+  }
+  .ranking-cards{
+    @include laptop{
+      flex: 1;
+    }
+  }
+  .ranking-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    @include laptop{
+      margin-left: 14px;
+    }
+    li{
+      position: relative;
+    }
+  }
+  .ranking-num{
+    position: absolute;
+    top: -8px;
+    left: -14px;
+  }
   .ranking-card {
-    flex: 1;
     background: var(--color-primary-0);
-    border-radius: 20px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    padding: 20px;
-
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px 0px rgba(199, 206, 213, 0.25);
+    padding: 12px 20px 9px;
+    @extend .f-space;
+    align-items: flex-end;
+    height: 55px;
     .card-title {
       font-size: 16px;
       font-weight: 500;
       margin-bottom: 12px;
       color: var(--color-primary-80);
     }
-
-    .ranking-list {
-      li {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 12px;
-
-        .rank-icon {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 26px;
-          height: 26px;
-          font-size: 14px;
-          font-weight: 700;
-          color: var(--color-primary-0);
-          background: var(--color-primary-20);
-          border-radius: 50%;
-          margin-right: 8px;
-        }
-        .rank-info {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          b {
-            font-size: 14px;
-            color: var(--color-primary-100);
-          }
-          small {
-            font-size: 12px;
-            color: var(--color-primary-60);
-          }
-        }
-        .rank-value {
-          font-size: 14px;
-          color: var(--color-primary-100);
-          margin-left: 12px;
-        }
+    .rank-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      b {
+        font-size: $fs-14;
+      }
+      p {
+        font-size: $fs-12;
+        color: var(--color-primary-60);
       }
     }
-
-    .btn-more {
-      display: block;
-      width: 100%;
-      padding: 8px 0;
-      margin-top: 8px;
-      font-size: 14px;
-      color: var(--color-primary-60);
-      background: var(--color-primary-10);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+    .rank-value {
+      b{
+        font-size: $fs-20;
+      }
+      font-size: $fs-14;
+      margin-left: 12px;
+    } 
+  }
+  .btn-more {
+    @extend .f-c-all;
+    width: 100%;
+    height: 25px;
+    margin-top: 10px;
+    font-size: $fs-12;
+    font-weight: 500;
+    border-radius: 20px;
+    background: var(--color-primary-30);
+    color: rgba(27, 31, 39, 0.5);
+    @include laptop{
+      margin-left: 14px;
+      width: auto;
     }
   }
 }

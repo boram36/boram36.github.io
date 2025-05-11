@@ -221,7 +221,7 @@ address {
   background-color: #F7F7F7;
   border-radius: 4px;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -808,6 +808,94 @@ address {
   background-size: cover;
   width: 24px;
   height: 24px;
+}
+.ico-floating_red {
+  background-image: url("../../images/cmn/ico-floating_red.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_orange {
+  background-image: url("../../images/cmn/ico-floating_orange.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_yellow {
+  background-image: url("../../images/cmn/ico-floating_yellow.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_green {
+  background-image: url("../../images/cmn/ico-floating_green.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_mint {
+  background-image: url("../../images/cmn/ico-floating_mint.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_skyblue {
+  background-image: url("../../images/cmn/ico-floating_skyblue.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_blue {
+  background-image: url("../../images/cmn/ico-floating_blue.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_violet {
+  background-image: url("../../images/cmn/ico-floating_violet.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_pink {
+  background-image: url("../../images/cmn/ico-floating_pink.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-floating_black {
+  background-image: url("../../images/cmn/ico-floating_black.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 54px;
+  height: 54px;
+}
+.ico-picture_add {
+  background-image: url("../../images/cmn/ico-picture_add.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 28px;
+  height: 28px;
 }
 
 /*---- 04) TIT ----*/
@@ -2645,7 +2733,7 @@ address {
 .pd-all {
   padding: 20px;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .pd-area {
     padding-left: 10px;
     padding-right: 10px;
@@ -3694,10 +3782,13 @@ textarea {
   resize: none;
   height: 120px;
   padding: 15px 18px;
+  white-space: pre-line;
+  resize: none;
+  text-align: left;
 }
 
 /* SELECT */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   select {
     padding-right: 30px !important;
   }
@@ -3874,13 +3965,13 @@ input[type=text].input-sch::placeholder {
   margin-left: -4px;
   border-radius: 0 4px 4px 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .file-upload label {
     min-width: 70px !important;
     height: 35px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .file-upload {
     flex-direction: row !important;
   }
@@ -4256,6 +4347,13 @@ input.datepicker-here {
   padding: 20px 20px 30px;
   position: relative;
   min-height: 190px;
+}
+.candidate-box__top .candidate-box__img {
+  font-size: 0;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .candidate-box__top .candidate-box__tit {
   color: var(--color-primary-0);
