@@ -139,6 +139,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .main-cover img { height: 45vh; } 
   .main-footer { position: static; transform: none; } 
   .main-top img { max-width: 60px;}
+  .intro02{padding-bottom: 50px;}
   .intro02-list {height: 100%;}
   .intro02-list > li img {height: 15vh;}
 
