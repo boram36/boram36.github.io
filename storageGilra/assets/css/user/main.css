@@ -127,6 +127,7 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
 
 
 @media screen and (max-width: 750px) {
+  main{height: calc(var(--vh, 1vh) * 100);}
   .btn-style-yellow {max-width: calc(100% - 40px);}
   .intro03 .inner{padding: 0;}
   .intro02-cont {margin-top: 210px;height: calc(100% - 210px);}
