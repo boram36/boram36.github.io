@@ -1186,6 +1186,7 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
         height: 95px;
         border-radius: 50%;
         overflow: hidden;
+        flex: none;
       }
       &__tit{
         color: var(--color-primary-0);

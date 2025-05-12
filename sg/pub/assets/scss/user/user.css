@@ -4354,6 +4354,7 @@ input.datepicker-here {
   height: 95px;
   border-radius: 50%;
   overflow: hidden;
+  flex: none;
 }
 .candidate-box__top .candidate-box__tit {
   color: var(--color-primary-0);
