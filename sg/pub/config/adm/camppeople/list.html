@@ -172,11 +172,11 @@
       
         <!-- 검색 필터 -->
         <div class="search-option">
-          <div class="search-row f-h-c">
+          <div class="search-row flex">
             <div class="search-row__tit">검색옵션</div>
             <div class="search-row__cont f-h-c">
               <div class="search-col">
-                <div class="search-col__tit">여부 선택</div>
+                <label class="search-col__tit">여부 선택</label>
                 <div class="check-wrap">
                   <div class="checkbox">
                     <input type="checkbox" id="select01" name="select" checked>
@@ -189,7 +189,7 @@
                 </div>
               </div>
               <div class="search-col">
-                <div class="search-col__tit">조직원 성별</div>
+                <label class="search-col__tit">조직원 성별</label>
                 <div class="radio-wrap">
                   <div class="checkbox">
                     <input type="radio" id="gender01" name="gender" checked>
@@ -202,23 +202,58 @@
                 </div>
               </div>
               <div class="search-col">
-                <div class="search-col__tit">조직원 나이</div>
-                <div class="select-wrap">
-                  <select name="" id="">
-                    <option value="">0</option>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                  </select>
+                <label class="search-col__tit">조직원 나이</label>
+                <div class="f-h-c gap-15">
+                  <div class="select-wrap">
+                    <select name="" id="">
+                      <option value="">0</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select>
+                  </div>
+                  <span>~</span>
+                  <div class="select-wrap">
+                    <select name="" id="">
+                      <option value="">0</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select>
+                  </div>
                 </div>
+                
               </div>
 
             </div>
           </div>
-
+          <div class="search-row search-row__input flex">
+            <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">조직원 이름</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">조직원 휴대폰번호</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
+                </div>
+              </div>
+            </div>
+            <div class="search-row__button">
+              <div class="btn-wrap">
+                <button type="button" class="btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+                <button type="button" class="btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+              </div>
+            </div>
+          </div>
           
         </div>
 
         <!-- 조직원 목록 테이블 -->
+
+        
         <div class="table-wrap">
           <table class="table">
             <thead>

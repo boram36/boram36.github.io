@@ -219,9 +219,18 @@
       border-radius: 10px;
       font-size: $fs-16;
       font-weight: 500;
+      &.btn-basic01{
+        background-color: var(--color-primary-0);
+        border: 1px solid var(--color-primary-100);
+      }
     }
   }
 }
+
+.ico{
+  &-search_w{@include icon-style(24px, 24px, "ico-search_w");}
+}
+
 
 // popup
 .admin{
@@ -286,6 +295,7 @@
     border: 1px solid var(--color-primary-40);
     background: var(--color-primary-20);
     padding: 0 30px;
+    position: relative;
     .check-wrap {
       font-size: 0;
       gap: 25px;
@@ -321,23 +331,52 @@
       margin: 0 30px 0 10px;
     }
     .selectric-items{
-      padding-top: 50px;
+      padding-top: 40px;
       li{
         height: 40px;
         min-height: 40px;
         line-height: 40px;
+        font-size: $fs-14;
       }
+    }
+    input{
+      border: 1px solid var(--color-primary-20);
+      width: 260px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: $fs-14;
+      padding: 0 10px;
     }
   }
   &-row{
     gap: 40px;
     min-height: 66px;
     padding: 13px 0;
+    &__input{
+      .search-row__cont{
+        gap: 10px 40px;
+      }
+    }
     &__tit{
       font-weight: 700;
+      width: 60px;
+      margin-top: 11px;
     }
-    &__cont{gap: 50px;}
-   
+    &__cont{
+      gap: 10px 50px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    & + .search-row{
+      border-top: 1px solid #D7DDE4;
+    }
+    &__button{
+      display: flex;
+      align-items: end;
+      .btn-wrap{
+        margin-top: 0;
+      }
+    }
   }
   &-col{
     gap: 10px;
@@ -346,9 +385,8 @@
       font-size: 12px;
     }
   }
-  &+.search-row{
-    border-top: 1px solid #D7DDE4;
-  }
+
+
 }
 
 

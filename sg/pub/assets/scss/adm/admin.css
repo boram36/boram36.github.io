@@ -7051,6 +7051,19 @@ form .row > * {
   font-size: 1rem;
   font-weight: 500;
 }
+.btn-wrap .btn.btn-basic01 {
+  background-color: var(--color-primary-0);
+  border: 1px solid var(--color-primary-100);
+}
+
+.ico-search_w {
+  background-image: url("../../images/cmn/ico-search_w.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+}
 
 .admin .popup-inner {
   max-width: 700px;
@@ -7113,6 +7126,7 @@ form .row > * {
   border: 1px solid var(--color-primary-40);
   background: var(--color-primary-20);
   padding: 0 30px;
+  position: relative;
 }
 .search-option .check-wrap {
   font-size: 0;
@@ -7154,32 +7168,55 @@ form .row > * {
   margin: 0 30px 0 10px;
 }
 .search-option .selectric-items {
-  padding-top: 50px;
+  padding-top: 40px;
 }
 .search-option .selectric-items li {
   height: 40px;
   min-height: 40px;
   line-height: 40px;
+  font-size: 0.875rem;
+}
+.search-option input {
+  border: 1px solid var(--color-primary-20);
+  width: 260px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  padding: 0 10px;
 }
 .search-row {
   gap: 40px;
   min-height: 66px;
   padding: 13px 0;
 }
+.search-row__input .search-row__cont {
+  gap: 10px 40px;
+}
 .search-row__tit {
   font-weight: 700;
+  width: 60px;
+  margin-top: 11px;
 }
 .search-row__cont {
-  gap: 50px;
+  gap: 10px 50px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.search-row + .search-row {
+  border-top: 1px solid #D7DDE4;
+}
+.search-row__button {
+  display: flex;
+  align-items: end;
+}
+.search-row__button .btn-wrap {
+  margin-top: 0;
 }
 .search-col {
   gap: 10px;
 }
 .search-col__tit {
   font-size: 12px;
-}
-.search + .search-row {
-  border-top: 1px solid #D7DDE4;
 }
 
 .table {
