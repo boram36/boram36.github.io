@@ -10,7 +10,7 @@
 :root {
   --color-primary-0: #fff;
   --color-primary-10: #F2F4F5;
-  --color-primary-20: var(--border-color);
+  --color-primary-20: #EAEDEF;
   --color-primary-30: #D7DDE4;
   --color-primary-40: #C7CED5;
   --color-primary-50: #B5BEC7;
@@ -39,7 +39,7 @@
   --system-blue-10: rgba(43, 80, 194, 0.1);
   --system-yellow-10: rgba(210, 151, 26, 0.1);
   --system-green-10: rgba(58, 165, 73, 0.1);
-  --border-color: #EAEDEF;
+  --border-color: var(--color-primary-20);
   --inner: 18px;
 }
 
