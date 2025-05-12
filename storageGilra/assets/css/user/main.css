@@ -134,9 +134,9 @@ main {max-width: 100%;width: 100%;height: 100vh;margin: 0 auto;background: url("
   .main-cont {padding-bottom: 60px;}
   main{ background: url("../../images/bg.png") no-repeat top -8vw center / cover;}
   .container-main{overflow-y: auto;}
-  .intro01-wrap { display: flex; flex-direction: column; align-items: center; justify-content: end; height: 100%; width: 100%; gap: min(10%, 90px); padding-bottom: 60px; } 
+  .intro01-wrap { display: flex; flex-direction: column; align-items: center; justify-content: end; height: 100%; width: 100%; gap: min(10%, 40px); padding-bottom: 60px; } 
   .main-cover { position: static; transform: none; font-size: 0; } 
-  .main-cover img { height: 45vh; } 
+  .main-cover img { height: 43vh; } 
   .main-footer { position: static; transform: none; } 
   .main-top img { max-width: 60px;}
   /* .main-cont .intro02{padding-bottom: 30px;} */

@@ -7220,18 +7220,24 @@ form .row > * {
 }
 
 .table {
-  width: 100%;
-  border-collapse: collapse;
+  border: 0;
 }
-
-.table th, .table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
+.table-wrap {
+  overflow: hidden;
 }
-
+.table .checkbox {
+  padding: 0;
+}
+.table .checkbox input[type=checkbox] + label:before {
+  margin-right: 0;
+}
 .table th {
-  background: #f8f8f8;
+  height: 50px;
+  border-bottom: 1px solid var(--color-primary-30);
+}
+.table td {
+  height: 60px;
+  border-bottom: 1px solid var(--color-primary-20);
 }
 
 .switch.on::before {

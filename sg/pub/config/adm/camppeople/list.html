@@ -253,77 +253,92 @@
 
         <!-- 조직원 목록 테이블 -->
 
-        
-        <div class="table-wrap">
-          <table class="table">
-            <thead>
-              <tr>
-                <th><input type="checkbox"></th>
-                <th>번호</th>
-                <th>아이디</th>
-                <th>이름</th>
-                <th>성별</th>
-                <th>나이</th>
-                <th>휴대폰번호</th>
-                <th>지역</th>
-                <th>지지도 조사수</th>
-                <th>행사 등록수</th>
-                <th>상태</th>
-                <th>마스터여부</th>
-                <th>비고</th>
-                <th>상세보기</th>
-                <th>관리</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox" checked></td>
-                <td>34</td>
-                <td>324542</td>
-                <td>김정윤</td>
-                <td>남</td>
-                <td>65</td>
-                <td>010-1234-5678</td>
-                <td>김가면 > 유수리</td>
-                <td>83</td>
-                <td>23</td>
-                <td><div class="switch on"></div></td>
-                <td><div class="switch off"></div></td>
-                <td></td>
-                <td><button class="btn-small">보기</button></td>
-                <td>
-                  <div class="dropdown">
-                    <button class="btn-icon gear"></button>
-                    <ul class="dropdown-menu">
-                      <li><button>수정</button></li>
-                      <li><button class="danger">삭제</button></li>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-              <!-- 더 많은 tr... -->
-            </tbody>
-          </table>
+        <div class="board-list">
+          <div class="header">
+            전체(34) 
+          </div>
+          <div class="card table-wrap">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    <div class="checkbox">
+                      <input type="checkbox" id="" name="">
+                      <label for=""></label>
+                    </div>
+                  </th>
+                  <th>번호</th>
+                  <th>아이디</th>
+                  <th>이름</th>
+                  <th>성별</th>
+                  <th>나이</th>
+                  <th>휴대폰번호</th>
+                  <th>지역</th>
+                  <th>지지도 조사수</th>
+                  <th>행사 등록수</th>
+                  <th>상태</th>
+                  <th>마스터여부</th>
+                  <th>비고</th>
+                  <th>상세보기</th>
+                  <th>관리</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="checkbox">
+                      <input type="checkbox" id="" name="">
+                      <label for=""></label>
+                    </div>
+                  </td>
+                  <td>34</td>
+                  <td>324542</td>
+                  <td>김정윤</td>
+                  <td>남</td>
+                  <td>65</td>
+                  <td>010-1234-5678</td>
+                  <td>김가면 > 유수리</td>
+                  <td>83</td>
+                  <td>23</td>
+                  <td><div class="switch on"></div></td>
+                  <td><div class="switch off"></div></td>
+                  <td></td>
+                  <td><button class="btn-small">보기</button></td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="btn-icon gear"></button>
+                      <ul class="dropdown-menu">
+                        <li><button>수정</button></li>
+                        <li><button class="danger">삭제</button></li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 더 많은 tr... -->
+              </tbody>
+            </table>
+             <!-- 하단 컨트롤 -->
+            <div class="table-footer f-h-c space-between mt20">
+              <div class="left-controls">
+                <label><input type="checkbox"> 선택</label>
+                <button type="button" class="btn">문자전송</button>
+              </div>
+              <div class="pagination">
+                <button class="page-btn">〈</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">〉</button>
+              </div>
+              <div class="right-controls f-h-c gap-10">
+                <button class="btn btn-excel">엑셀 일괄 등록</button>
+                <button class="btn btn-active">개별 등록</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- 하단 컨트롤 -->
-        <div class="table-footer f-h-c space-between mt20">
-          <div class="left-controls">
-            <label><input type="checkbox"> 선택</label>
-            <button type="button" class="btn">문자전송</button>
-          </div>
-          <div class="pagination">
-            <button class="page-btn">〈</button>
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">〉</button>
-          </div>
-          <div class="right-controls f-h-c gap-10">
-            <button class="btn btn-excel">엑셀 일괄 등록</button>
-            <button class="btn btn-active">개별 등록</button>
-          </div>
-        </div>
+       
 
       </main>
     

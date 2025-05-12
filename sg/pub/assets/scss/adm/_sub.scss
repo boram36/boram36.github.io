@@ -389,10 +389,25 @@
 
 }
 
+.table{
+  &-wrap{
+    overflow: hidden;
+  }
+  border: 0;
+  .checkbox{
+    padding: 0;
+    input[type=checkbox] + label:before{margin-right: 0;}
+  }
+  th{
+    height: 50px;
+    border-bottom: 1px solid var(--color-primary-30);
+  }
+  td{
+    height: 60px;
+    border-bottom: 1px solid var(--color-primary-20);
+  }
+}
 
-.table { width: 100%; border-collapse: collapse; }
-.table th, .table td { border: 1px solid #ddd; padding: 10px; text-align: center; }
-.table th { background: #f8f8f8; }
 
 .switch.on::before { content: 'ON'; color: green; }
 .switch.off::before { content: 'OFF'; color: gray; }
