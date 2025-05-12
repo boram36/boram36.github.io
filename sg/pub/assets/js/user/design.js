@@ -162,45 +162,44 @@ window.addEventListener('load', () => {
 // 메인 열기/닫기 버튼
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.candidate-box__top').forEach(topEl => {
-    const pEl = topEl.querySelector('.profile-cont p');
+    const contEl = topEl.querySelector('.profile-cont'); // <ul>
     const btn = topEl.querySelector('.drop-btn');
-    if (!pEl || !btn) return;
+    if (!contEl || !btn) return;
 
     // 버튼 초기 숨김
     btn.style.display = 'none';
 
-    const style = window.getComputedStyle(pEl);
-    const lineHeight = parseFloat(style.lineHeight);
+    // li 하나의 line-height 기준으로 3줄 높이 계산
+    const firstLi = contEl.querySelector('li');
+    if (!firstLi) return;
+
+    const lineHeight = parseFloat(window.getComputedStyle(firstLi).lineHeight);
     const maxH = lineHeight * 3;
 
-    // 3줄 넘으면 초기 collapse 및 버튼 보임
-    if (pEl.scrollHeight > maxH) {
-      pEl.style.maxHeight = maxH + 'px';
-      pEl.style.overflow = 'hidden';
+    // 실제 높이가 3줄 이상일 경우만 접기 기능 적용
+    if (contEl.scrollHeight > maxH) {
+      contEl.style.maxHeight = maxH + 'px';
+      contEl.style.overflow = 'hidden';
+      contEl.style.transition = 'max-height 0.3s ease';
       btn.style.display = 'block';
 
       btn.addEventListener('click', () => {
-        const isCollapsed = !!pEl.style.maxHeight;
+        const isCollapsed = contEl.style.maxHeight !== '';
         if (isCollapsed) {
           // 펼치기
-          pEl.style.maxHeight = '';
-          pEl.style.overflow = '';
+          contEl.style.maxHeight = '';
+          contEl.style.overflow = '';
           btn.classList.add('open');
         } else {
           // 접기
-          pEl.style.maxHeight = maxH + 'px';
-          pEl.style.overflow = 'hidden';
+          contEl.style.maxHeight = maxH + 'px';
+          contEl.style.overflow = 'hidden';
           btn.classList.remove('open');
         }
       });
-    } else {
-      // 3줄 이하면 확실히 숨김
-      btn.style.display = 'none';
     }
   });
 });
-
-
 
 
 $(document).ready(function () {

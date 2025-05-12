@@ -9,7 +9,7 @@ $selectric-spacing:         18px !default;                                      
 $selectric-border-width:    1px !default;                                               // Outer border width
 $selectric-border-radius:   20px !default;                                               // Border radius
 $selectric-inner-height:    $selectric-height - ($selectric-border-width * 2) !default; // Inner height
-$selectric-font-size:       16px !default;                                              // Font size
+$selectric-font-size:       17px !default;                                              // Font size
 
 .selectric-wrapper {
   position: relative;

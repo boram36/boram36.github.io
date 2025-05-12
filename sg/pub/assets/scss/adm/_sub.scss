@@ -389,6 +389,14 @@
 
 }
 
+.board-list{
+  .header{
+    margin: 20px 0 15px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
 .table{
   &-wrap{
     overflow: hidden;
@@ -401,10 +409,29 @@
   th{
     height: 50px;
     border-bottom: 1px solid var(--color-primary-30);
+    font-weight: 500;
+    position: relative;
+    &:last-child{
+      &:after{display: none;}
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      width: 1px;
+      height: 16px;
+      background: var(--color-primary-20);
+    }
   }
   td{
     height: 60px;
     border-bottom: 1px solid var(--color-primary-20);
+  }
+  th, td{
+    font-size: $fs-14;
+    text-align: center;
   }
 }
 

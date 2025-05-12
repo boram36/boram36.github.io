@@ -1180,13 +1180,27 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
     position: relative;
     min-height: 190px;
     .candidate-box{
+      &__wrap{
+        gap: 8px;
+      }
       &__img{
         font-size: 0;
-        width: 95px;
-        height: 95px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         overflow: hidden;
         flex: none;
+        @extend .f-c-all;
+        .noImg{
+          background-color: var(--color-primary-10);
+          width: 100%;
+          height: 100%;
+          @extend .f-c-all;
+          img{
+            width: 55px;
+            height: 55px;
+          }
+        }
       }
       &__tit{
         color: var(--color-primary-0);
@@ -1203,7 +1217,14 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
           }
           &-cont{
             margin-top: 10px;
-            p{color: var(--color-primary-0); line-height: 1.5; font-size: $fs-14;  opacity: .8;}
+            li{
+              &:before{
+                content: '·';
+                margin-right: 3px;
+              }
+              display: flex;
+              color: var(--color-primary-0); line-height: 1.5; font-size: $fs-14;  opacity: .8;
+            }
           }
         }
       }
@@ -1511,7 +1532,8 @@ input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat
       margin: 11px 0 0;
       padding-bottom: 15px;
       li{
-        @extend .f-c-space;
+        display: flex;
+        justify-content: space-between;
         + li{margin-top: 8px;}
         &.detail-idea{
           align-items: flex-start;

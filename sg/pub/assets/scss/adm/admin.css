@@ -270,7 +270,7 @@ address {
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0 52px 0 18px;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 52px;
   color: #444;
   height: 52px;
@@ -410,7 +410,7 @@ address {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 54px;
   min-height: 54px;
 }
@@ -2658,12 +2658,12 @@ address {
   display: flex;
 }
 
-.f-c-all, .candidater-wrap .btn-register, .main-ranking .btn-more, .gnb-refresh, .profile-img span, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .file-upload label, .input-status, .input-wrap.input-date, .radio-wrap, .selectric .button, .btn, .btn-wrap .btn-refresh {
+.f-c-all, .candidater-wrap .btn-register, .main-ranking .btn-more, .gnb-refresh, .profile-img span, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .candidate-box__top .candidate-box__img .noImg, .candidate-box__top .candidate-box__img, .file-upload label, .input-status, .input-wrap.input-date, .radio-wrap, .selectric .button, .btn, .btn-wrap .btn-refresh {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.f-c-space, .comBox-item .detail li, .selectSg-top {
+.f-c-space, .selectSg-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3689,7 +3689,7 @@ textarea {
   height: 54px;
   border: 1px solid var(--color-primary-40);
   border-radius: 20px;
-  font-size: 1rem;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -4348,13 +4348,25 @@ input.datepicker-here {
   position: relative;
   min-height: 190px;
 }
+.candidate-box__top .candidate-box__wrap {
+  gap: 8px;
+}
 .candidate-box__top .candidate-box__img {
   font-size: 0;
-  width: 95px;
-  height: 95px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
   flex: none;
+}
+.candidate-box__top .candidate-box__img .noImg {
+  background-color: var(--color-primary-10);
+  width: 100%;
+  height: 100%;
+}
+.candidate-box__top .candidate-box__img .noImg img {
+  width: 55px;
+  height: 55px;
 }
 .candidate-box__top .candidate-box__tit {
   color: var(--color-primary-0);
@@ -4376,11 +4388,16 @@ input.datepicker-here {
 .candidate-box__top .candidate-box__profile .profile-cont {
   margin-top: 10px;
 }
-.candidate-box__top .candidate-box__profile .profile-cont p {
+.candidate-box__top .candidate-box__profile .profile-cont li {
+  display: flex;
   color: var(--color-primary-0);
   line-height: 1.5;
   font-size: 0.875rem;
   opacity: 0.8;
+}
+.candidate-box__top .candidate-box__profile .profile-cont li:before {
+  content: "·";
+  margin-right: 3px;
 }
 .candidate-box__top .drop-btn {
   position: absolute;
@@ -4743,6 +4760,10 @@ input.datepicker-here {
 .comBox-item .detail {
   margin: 11px 0 0;
   padding-bottom: 15px;
+}
+.comBox-item .detail li {
+  display: flex;
+  justify-content: space-between;
 }
 .comBox-item .detail li + li {
   margin-top: 8px;
@@ -7220,6 +7241,12 @@ form .row > * {
   font-size: 12px;
 }
 
+.board-list .header {
+  margin: 20px 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .table {
   border: 0;
 }
@@ -7235,10 +7262,29 @@ form .row > * {
 .table th {
   height: 50px;
   border-bottom: 1px solid var(--color-primary-30);
+  font-weight: 500;
+  position: relative;
+}
+.table th:last-child:after {
+  display: none;
+}
+.table th:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 1px;
+  height: 16px;
+  background: var(--color-primary-20);
 }
 .table td {
   height: 60px;
   border-bottom: 1px solid var(--color-primary-20);
+}
+.table th, .table td {
+  font-size: 0.875rem;
+  text-align: center;
 }
 
 .switch.on::before {
