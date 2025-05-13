@@ -131,7 +131,7 @@
     }
     &__bottom{
       padding: 32px 30px 30px;
-      padding-top: calc(180px + 32px);
+      padding-top: calc(180px + 25px);
       @include mobile{
         padding: calc(180px + 15px) 20px 20px;
       }
@@ -152,7 +152,7 @@
             margin-top: 20px;
           }
         }
-        margin-top: 55px;
+        margin-top: 50px;
       }
       .rating-tit__txt{
         font-size: $fs-20;

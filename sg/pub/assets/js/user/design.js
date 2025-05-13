@@ -162,7 +162,7 @@ window.addEventListener('load', () => {
 // 메인 열기/닫기 버튼
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.candidate-box__top').forEach(topEl => {
-    const contEl = topEl.querySelector('.profile-cont'); // <ul>
+    const contEl = topEl.querySelector('.profile-cont'); 
     const btn = topEl.querySelector('.drop-btn');
     if (!contEl || !btn) return;
 

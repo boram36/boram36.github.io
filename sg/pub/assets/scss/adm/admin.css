@@ -6472,7 +6472,7 @@ form .row > * {
   }
   .candidate-box__bottom {
     padding: 32px 30px 30px;
-    padding-top: 212px;
+    padding-top: 205px;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 767px) {
@@ -6488,7 +6488,7 @@ form .row > * {
     margin-top: 22px;
   }
   .candidate-box__bottom .rating-list {
-    margin-top: 55px;
+    margin-top: 50px;
   }
   .candidate-box__bottom .rating-list li {
     font-size: 18px;
@@ -6927,14 +6927,33 @@ input[type=date].input-small {
 }
 
 /** select **/
-.select-wrap .selectric {
+.select-wrap.nowrap {
+  flex-wrap: nowrap;
+}
+
+.selectric {
   height: 40px;
   border-radius: 10px;
   border: 1px solid var(--color-primary-20);
   background: var(--color-primary-0);
 }
-.select-wrap.nowrap {
-  flex-wrap: nowrap;
+.selectric .label {
+  font-size: 15px;
+  margin: 0 30px 0 10px;
+  height: 38px;
+  line-height: 38px;
+}
+.selectric .button {
+  width: 40px;
+  height: 40px;
+}
+.selectric .selectric-items {
+  padding-top: 40px;
+}
+.selectric .selectric-items ul, .selectric .selectric-items li {
+  font-size: 15px;
+  line-height: 40px;
+  min-height: 40px;
 }
 
 /** tit 공통 **/
@@ -7224,6 +7243,18 @@ input[type=date].input-small {
 
 .admin .popup-big .popup-inner {
   max-width: 1400px;
+}
+.admin .popup-big input[type=text], .admin .popup-big input[type=password], .admin .popup-big input[type=number], .admin .popup-big input[type=date], .admin .popup-big select, .admin .popup-big textarea {
+  font-size: 14px;
+}
+.admin .popup-big .table td {
+  padding: 0 5px;
+}
+.admin .popup-big .table th:after {
+  display: none;
+}
+.admin .popup-big .select-wrap {
+  gap: 0 5px;
 }
 .admin .popup-inner {
   max-width: 700px;
@@ -7517,16 +7548,14 @@ input[type=date].input-small {
 }
 
 .status-tag {
-  width: 60px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
+  width: 100%;
+  height: auto;
   border-radius: 30px;
   font-size: 14px;
   font-weight: 500;
   margin: 0 auto;
+  padding: 7px 0;
+  line-height: 1.1;
 }
 .status-normal {
   background-color: var(--system-blue-10);
@@ -7668,6 +7697,7 @@ input[type=date].input-small {
 .card.bg-primary-10 {
   background-color: var(--color-primary-10);
   box-shadow: none;
+  overflow: unset;
 }
 .card.bg-primary-10 .table th {
   background-color: var(--color-primary-10);

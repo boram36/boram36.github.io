@@ -104,17 +104,36 @@ input[type=date]{
 }
 
 /** select **/
-.select-wrap{
-  .selectric{
-    height: 40px;
-    border-radius: 10px;
+.select-wrap.nowrap{
+  flex-wrap: nowrap;
+}
+.selectric{
+  height: 40px;
+  border-radius: 10px;
     border: 1px solid var(--color-primary-20);
-    background: var(--color-primary-0);
+  background: var(--color-primary-0);
+  .label{
+    font-size: 15px;
+    margin: 0 30px 0 10px;
+    height: 38px;
+    line-height: 38px;
   }
-  &.nowrap{
-    flex-wrap: nowrap;
+  .button{
+    width: 40px;
+    height: 40px;
+  }
+  .selectric-items{
+    padding-top: 40px;
+  }
+  .selectric-items ul, .selectric-items li{
+    font-size: 15px;
+    line-height: 40px;
+    min-height: 40px
   }
 }
+  
+
+
 
 
 /** tit 공통 **/
@@ -340,6 +359,10 @@ input[type=date]{
       .popup-inner{
         max-width: 1400px;
       }
+      input[type=text], input[type=password], input[type=number], input[type=date], select, textarea{font-size: 14px;}
+      .table td{padding: 0 5px;}
+      .table th:after{display: none;}
+      .select-wrap{gap: 0 5px;}
     }
     &-inner{
       max-width: 700px;
@@ -635,16 +658,14 @@ input[type=date]{
 
 .status{
   &-tag{
-    width: 60px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+    width: 100%;
+    height: auto;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 500;
     margin: 0 auto;
+    padding: 7px 0;
+    line-height: 1.1;
   }
   &-normal{
     background-color: var(--system-blue-10);
@@ -801,6 +822,7 @@ input[type=date]{
   &.bg-primary-10{
     background-color: var(--color-primary-10);
     box-shadow: none;
+    overflow: unset;
     .table th{
       background-color: var(--color-primary-10);
       border-color: #D7DDE4;

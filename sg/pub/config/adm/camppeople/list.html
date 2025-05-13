@@ -888,7 +888,7 @@
 
                 <!-- 리스트가 있을 경우 -->
                 <tr>
-                  <td>132</td>
+                  <td class="width-60">132</td>
                   <td class="width-90">
                     <input type="text" value="박종식" class="width-full input-small">
                   </td>
@@ -909,14 +909,14 @@
                   
                   <td>
                     <div class="select-wrap nowrap">
-                      <select name="" id="" class="width-110">
-                        <option value="" disabled>경상남도</option>
+                      <select name="" id="" class="width-110" disabled>
+                        <option value="" >경상남도</option>
                         <option value="">서울시</option>
                         <option value="">부산시</option>
                       </select>
               
-                      <select name="" id="" class="width-110">
-                        <option value="" disabled>호고군</option>
+                      <select name="" id="" class="width-110" disabled>
+                        <option value="" >호고군</option>
                         <option value="">서울시</option>
                         <option value="">부산시</option>
                       </select>
@@ -934,22 +934,20 @@
                       </select>
                     </div>
                   </td>
-                  <td>
+                  <td class="width-80">
                     <label class="toggle-switch">
                       <input type="checkbox" checked />
                       <span class="slider"></span>
                     </label>
                   </td>
-                  <td>
+                  <td class="width-160">
                     <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
                   </td>
-                  <td>
-                    <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
-                    <div class="status-tag status-normal">정상</div>
+                  <td class="width-80">
+                    <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
+                    <div class="status-tag status-normal">등록<br>가능</div>
                   </td>
-               
-                 
-                  <td class="td-delete width-80">
+                  <td class="td-delete width-40">
                     <button type="button" class="btn btn-delete btn-center ico">
                       <i class="ico-list_delete"></i>
                     </button>
