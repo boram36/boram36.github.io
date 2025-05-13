@@ -3593,7 +3593,7 @@ address {
   font-size: 1.75rem;
 }
 
-.text-over, .table td, .notice-tit {
+.text-over, .table td .tbl-cut, .notice-tit {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -7467,15 +7467,23 @@ input[type=date].input-small {
   height: 16px;
   background: var(--color-primary-20);
 }
+.table tr:last-child td {
+  border-bottom: 0;
+}
 .table td {
   height: 60px;
   border-bottom: 1px solid var(--color-primary-20);
   padding: 0 10px;
-  max-width: 140px;
 }
 .table td .td-txt {
   font-size: inherit;
   font-weight: inherit;
+}
+.table td .tbl-cut {
+  font-size: inherit;
+  font-weight: inherit;
+  max-width: 140px;
+  margin: 0 auto;
 }
 .table td.td-setting {
   overflow: unset;
@@ -7702,4 +7710,10 @@ input[type=date].input-small {
 .card.bg-primary-10 .table th {
   background-color: var(--color-primary-10);
   border-color: #D7DDE4;
+}
+.card.bg-primary-10 .table th:first-child {
+  border-radius: 10px 0 0 0;
+}
+.card.bg-primary-10 .table th:last-child {
+  border-radius: 0 10px 0 0;
 }/*# sourceMappingURL=admin.css.map */

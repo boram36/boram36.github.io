@@ -584,6 +584,7 @@ input[type=date]{
       background: var(--color-primary-20);
     }
   }
+  tr:last-child td{border-bottom: 0;}
   td{
     height: 60px;
     border-bottom: 1px solid var(--color-primary-20);
@@ -592,8 +593,13 @@ input[type=date]{
       font-size: inherit;
       font-weight: inherit;
     }
-    max-width: 140px;
-    @extend .text-over;
+    .tbl-cut{
+      font-size: inherit;
+      font-weight: inherit;
+      @extend .text-over;
+      max-width: 140px;
+      margin: 0 auto;
+    }
     &.td-setting{
       overflow: unset;
     }
@@ -826,6 +832,8 @@ input[type=date]{
     .table th{
       background-color: var(--color-primary-10);
       border-color: #D7DDE4;
+      &:first-child{border-radius: 10px 0 0 0;}
+      &:last-child{border-radius: 0 10px 0 0;}
     }
   }
 }

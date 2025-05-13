@@ -112,7 +112,11 @@ function closePopup(id) {
 
 $(document).ready(function () {
   // selectric 초기화
-  $('.select-wrap select').selectric();
+
+  $('select').selectric({
+    appendTo: 'body',
+  });
+
 });
 
 
