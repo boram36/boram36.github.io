@@ -99,6 +99,7 @@ function openPopup(id) {
     popup.classList.add('show');
     document.body.style.overflow = 'hidden';
   }
+
 }
 
 function closePopup(id) {
@@ -120,6 +121,20 @@ $(document).ready(function () {
 });
 
 
+function checkTableHeight() {
+  const tableScrollWrap = document.querySelector('.table-scroll2');
+  if (!tableScrollWrap) return;
+
+  const table = tableScrollWrap.querySelector('table');
+  if (!table) return;
+
+  // 높이 조건 체크
+  if (table.offsetHeight > window.innerHeight * 0.43) {
+    tableScrollWrap.classList.add('scroll-enabled');
+  } else {
+    tableScrollWrap.classList.remove('scroll-enabled');
+  }
+}
 
 
 

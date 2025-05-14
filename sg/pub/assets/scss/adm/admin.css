@@ -374,7 +374,6 @@ address {
   height: 1px !important;
   outline: none !important;
   border: none !important;
-  *font: 0/0 a !important;
   background: none !important;
 }
 
@@ -6931,26 +6930,37 @@ input[type=date].input-small {
   flex-wrap: nowrap;
 }
 
-.selectric {
+.select-wrap.row {
+  margin-right: calc(-0.5 * var(--gutter-x2));
+  margin-left: calc(-0.5 * var(--gutter-x2));
+  gap: 0;
+}
+.select-wrap.row.row-cols-4 .selectric-wrapper {
+  width: 25%;
+}
+.select-wrap.row.row-cols-4 .selectric-items {
+  left: calc(var(--gutter-x2) * 0.5);
+}
+.select-wrap.type02 .selectric {
   height: 40px;
   border-radius: 10px;
   border: 1px solid var(--color-primary-20);
   background: var(--color-primary-0);
 }
-.selectric .label {
+.select-wrap.type02 .selectric .label {
   font-size: 15px;
   margin: 0 30px 0 10px;
   height: 38px;
   line-height: 38px;
 }
-.selectric .button {
+.select-wrap.type02 .selectric .button {
   width: 40px;
   height: 40px;
 }
-.selectric .selectric-items {
+.select-wrap.type02 .selectric .selectric-items {
   padding-top: 40px;
 }
-.selectric .selectric-items ul, .selectric .selectric-items li {
+.select-wrap.type02 .selectric .selectric-items ul, .select-wrap.type02 .selectric .selectric-items li {
   font-size: 15px;
   line-height: 40px;
   min-height: 40px;
@@ -7427,6 +7437,18 @@ input[type=date].input-small {
 .table-scroll thead th {
   background-color: var(--color-primary-0);
 }
+.table-scroll2.scroll-enabled {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+.table-scroll2.scroll-enabled thead {
+  position: sticky;
+  top: 0;
+  z-index: 22;
+}
+.table-scroll2.scroll-enabled thead th {
+  background-color: var(--color-primary-0);
+}
 .table .checkbox {
   padding: 0;
 }
@@ -7485,7 +7507,7 @@ input[type=date].input-small {
   max-width: 140px;
   margin: 0 auto;
 }
-.table td.td-setting {
+.table td.td_setting {
   overflow: unset;
 }
 .table td:hover a {
@@ -7576,6 +7598,14 @@ input[type=date].input-small {
 .status-move, .status-dead {
   background-color: rgba(157, 164, 173, 0.1);
   color: var(--color-primary-60);
+}
+
+.error-region .selectric-disabled .selectric,
+.error-region .selectric {
+  border-color: var(--system-red);
+}
+.error-phone .td_tel input {
+  border-color: var(--system-red);
 }
 
 .toggle-switch {
@@ -7712,7 +7742,7 @@ input[type=date].input-small {
   border-color: #D7DDE4;
 }
 .card.bg-primary-10 .table th:first-child {
-  border-radius: 10px 0 0 0;
+  border-radius: 20px 0 0 0;
 }
 .card.bg-primary-10 .table th:last-child {
   border-radius: 0 10px 0 0;

@@ -107,30 +107,54 @@ input[type=date]{
 .select-wrap.nowrap{
   flex-wrap: nowrap;
 }
-.selectric{
-  height: 40px;
-  border-radius: 10px;
-    border: 1px solid var(--color-primary-20);
-  background: var(--color-primary-0);
-  .label{
-    font-size: 15px;
-    margin: 0 30px 0 10px;
-    height: 38px;
-    line-height: 38px;
+
+
+.select-wrap{
+  &.row{
+    margin-right: calc(-0.5 * var(--gutter-x2));
+    margin-left: calc(-0.5 * var(--gutter-x2));
+    gap: 0;
+    &.row-cols-4{
+      .selectric-wrapper{
+        width: 25%;
+      }
+      .selectric-items{
+       left: calc(var(--gutter-x2) * 0.5);
+      }
+    }
+
   }
-  .button{
-    width: 40px;
-    height: 40px;
-  }
-  .selectric-items{
-    padding-top: 40px;
-  }
-  .selectric-items ul, .selectric-items li{
-    font-size: 15px;
-    line-height: 40px;
-    min-height: 40px
+  &.type02{
+    .selectric{
+      height: 40px;
+      border-radius: 10px;
+        border: 1px solid var(--color-primary-20);
+      background: var(--color-primary-0);
+      .label{
+        font-size: 15px;
+        margin: 0 30px 0 10px;
+        height: 38px;
+        line-height: 38px;
+      }
+      .button{
+        width: 40px;
+        height: 40px;
+      }
+      .selectric-items{
+        padding-top: 40px;
+      }
+      .selectric-items ul, .selectric-items li{
+        font-size: 15px;
+        line-height: 40px;
+        min-height: 40px
+      }
+
+    }
   }
 }
+
+
+
   
 
 
@@ -537,6 +561,22 @@ input[type=date]{
       }
     }
   }
+  &-scroll2{
+    &.scroll-enabled{
+    max-height: 40vh;
+    overflow-y: auto;
+    thead{
+      position: sticky;
+      top: 0;
+      z-index: 22;
+      th{
+        background-color: var(--color-primary-0);
+      }
+    }
+    }
+  
+   
+  }
   border: 0;
   .checkbox{
     padding: 0;
@@ -600,7 +640,7 @@ input[type=date]{
       max-width: 140px;
       margin: 0 auto;
     }
-    &.td-setting{
+    &.td_setting{
       overflow: unset;
     }
     &:hover{
@@ -687,6 +727,18 @@ input[type=date]{
     color: var(--color-primary-60);
   }
 }
+.error{
+  &-region{
+    .selectric-disabled .selectric,
+    .selectric{border-color: var(--system-red);}
+  }
+  &-phone{
+    .td_tel {
+      input{border-color: var(--system-red);}
+    }
+  }
+}
+
 
 .toggle-switch {
   position: relative;
@@ -832,7 +884,7 @@ input[type=date]{
     .table th{
       background-color: var(--color-primary-10);
       border-color: #D7DDE4;
-      &:first-child{border-radius: 10px 0 0 0;}
+      &:first-child{border-radius: 20px 0 0 0;}
       &:last-child{border-radius: 0 10px 0 0;}
     }
   }
