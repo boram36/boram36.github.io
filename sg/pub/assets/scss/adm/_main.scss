@@ -187,72 +187,38 @@
   @include tablet{
     margin-top: 30px;
   }
-  .rating-tabs {
-    display: flex;
-    border-bottom: 1px solid #D7DDE4;
-    background: var(--color-primary-0);
-    box-shadow: 3px 3px 20px 0px rgba(199, 206, 213, 0.25);
-    .tab {
-      flex: 1;
-      padding: 21px 0 18px;
-      text-align: center;
-      font-size: $fs-20;
-      font-weight: 700;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      background: var(--color-primary-10);
-      color: var(--color-primary-60);
-      @include mobile{
-        font-size: $fs-16;
-        padding: 16px 0;
-      }
-      &.active {
-        background: var(--color-primary-0);
-        color: var(--color-primary-100);
-      }
-    }
-  }
-
-  .rating-box {
+  .tab-cont{
     margin-top: 16px;
     padding: 30px;
     @include mobile{
       padding: 18px 17px;
       margin-top: 0;
     }
-   
-    &__wrap{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      position: relative;
-      .scroll-info{
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: none;
-        color: var(--color-primary-80);
-        text-align: center;
-        font-size: 10px;
-        font-weight: 500;
-        line-height: 2;
-        p{
-          font-size: 0;
-        }
-        @include mobile{
-          display: block;
-        }
-      }
-      .map-cont{
-        @include mobile{
-          width: 100%;
-          overflow-x: auto;
-        }
-        img{}
-      }
+  }
+  .scroll-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color: var(--color-primary-80);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 2;
+    p{
+      font-size: 0;
     }
+    @include mobile{
+      display: block;
+    }
+  }
+  .map-cont{
+    text-align: center;
+    @include mobile{
+      width: 100%;
+      overflow-x: auto;
+    }
+       
   }
 
   .map-legend {

@@ -17,6 +17,19 @@
   --gutter-x2: 16px;
 }
 
+.pc-ver{
+  display: block;
+  @include pc2{
+    display: none;
+  }
+}
+.mo-ver{
+  display: none;
+  @include pc2{
+    display: block;
+  }
+}
+
 html,
 body,
 .container{

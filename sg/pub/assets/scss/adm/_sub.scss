@@ -30,12 +30,14 @@ $url-bg2:"../../images/adm/";
 .ico{
   &-search_w{@include icon-style(24px, 24px, "ico-search_w");}
   &-message{@include icon-style(16px, 16px, "ico-message");}
-  &-setting{@include icon-style-adm(34px, 34px, "ico-setting");}
+  &-setting{@include icon-style-adm(28px, 28px, "ico-setting");}
   &-delete{@include icon-style-adm(30px, 30px , "ico-delete")}
   &-excel{@include icon-style-adm(20px, 20px , "ico-excel")}
   &-down{@include icon-style-adm(20px, 20px , "ico-down")}
   &-apply{@include icon-style-adm(20px, 20px , "ico-apply")}
   &-list_delete{@include icon-style-adm(34px, 34px, "ico-list_delete")}
+  &-btn_back{@include icon-style-adm(40px, 40px, "ico-back_black")}
+
 }
 
 /** button 공통 **/
@@ -87,6 +89,10 @@ $url-bg2:"../../images/adm/";
     background-color: var(--system-navy-1);
     color: #fff;
   }
+  &.btn-red{
+    background-color: var(--system-red);
+    color: #fff;
+  }
 }
 
 /** input 공통 **/
@@ -125,10 +131,14 @@ input[type=date]{
 
   }
   &.type02{
+    .selectric-disabled .selectric {
+      background-color: var(--color-primary-20);
+      border-color: var(--color-primary-30);
+    }
     .selectric{
       height: 40px;
       border-radius: 10px;
-        border: 1px solid var(--color-primary-20);
+      border: 1px solid var(--color-primary-20);
       background: var(--color-primary-0);
       .label{
         font-size: 15px;
@@ -152,11 +162,6 @@ input[type=date]{
     }
   }
 }
-
-
-
-  
-
 
 
 
@@ -308,7 +313,7 @@ input[type=date]{
       }
       .detail{
         margin-top: 20px;
-        li{
+        > li{
           @extend .flex;
           gap: 10px;
           + li{margin-top: 20px;}
@@ -320,7 +325,7 @@ input[type=date]{
           }
         }
         &-tit{
-          width: 90px;
+          width: 110px;
           flex: none;
           line-height: 1.6;
           span{
@@ -328,14 +333,9 @@ input[type=date]{
             font-weight: 400;
             color: var(--color-primary-80);
             &.text-justify{
-              text-align: justify;
-              width: 80px;
+              white-space: pre;
+              width: calc(100% - 10px);
               display: block;
-              &:after{
-                content: '';
-                display: inline-block;
-                width: 100%;
-              }
             }
           }
         }
@@ -345,6 +345,15 @@ input[type=date]{
           word-break: keep-all;
           line-height: 1.6;
           position: relative;
+          &.history{
+            li{
+              &:before{
+                content: '·';
+                margin-right: 3px;
+              }
+              display: flex;
+            }
+          }
         }
       }
     }
@@ -377,67 +386,73 @@ input[type=date]{
 
 
 // popup
-.admin{
-  .popup{
-    &-big{
-      .popup-inner{
-        max-width: 1400px;
-      }
-      input[type=text], input[type=password], input[type=number], input[type=date], select, textarea{font-size: 14px;}
-      .table td{padding: 0 5px;}
-      .table th:after{display: none;}
-      .select-wrap{gap: 0 5px;}
+.popup{
+  &-admin{
+    &.popup{
+      &-big{
+          .popup-inner{
+            max-width: 1400px;
+          }
+          input[type=text], input[type=password], input[type=number], input[type=date], select, textarea{font-size: 14px;}
+          .table td{padding: 0 5px;}
+          .table th:after{display: none;}
+          .select-wrap{gap: 0 5px;}
+        }
+        
     }
-    &-inner{
-      max-width: 700px;
-    }
-    &-header{
-      padding: 35px 0 25px;
-      @include mobile{
-        padding: 25px 0;
+    .popup{
+      &-inner{
+        max-width: 700px;
       }
-      .btn-close{
-        top: 20px;
+      &-header{
+        padding: 35px 0 25px;
         @include mobile{
-          top: 15px;
-          .ico-cancel{
-            width: 35px;
-            height: 35px;
+          padding: 25px 0;
+        }
+        .btn-close{
+          top: 20px;
+          @include mobile{
+            top: 15px;
+            .ico-cancel{
+              width: 35px;
+              height: 35px;
+            }
+          }
+        }
+      }
+      &-title{
+        font-size: $fs-24;
+        @include mobile{
+          font-size: $fs-16;
+        }
+      }
+      &-content{
+        margin-bottom: 0;
+        height: min(calc(100vh - 300px), 642px);
+        overflow-y: auto;
+        margin-right: -10px;
+        padding-right: 10px;
+        @include mobile{
+          height: calc(100vh - 300px);
+          margin-right: -10px;
+          padding-right: 10px;
+        }
+      }
+      &-footer{
+        .btn-wrap{
+          justify-content: center;
+          margin-top: 25px;
+          .btn{
+            font-size: $fs-16;
+            width: 137px;
+            height: 54px;
+            border-radius: 20px;
+
           }
         }
       }
     }
-    &-title{
-      font-size: $fs-24;
-      @include mobile{
-        font-size: $fs-16;
-      }
-    }
-    &-content{
-      margin-bottom: 0;
-      height: min(calc(100vh - 300px), 642px);
-      overflow-y: auto;
-      margin-right: -10px;
-      padding-right: 10px;
-      @include mobile{
-        height: calc(100vh - 300px);
-        margin-right: -10px;
-        padding-right: 10px;
-      }
-    }
-    &-footer{
-      .btn-wrap{
-        justify-content: center;
-        margin-top: 25px;
-        .btn{
-          font-size: $fs-16;
-          width: 137px;
-          height: 54px;
-          border-radius: 20px;
 
-        }
-      }
-    }
   }
 }
 
@@ -659,6 +674,24 @@ input[type=date]{
   &-footer{
     padding: 0 30px;
     height: 81px;
+    position: relative;
+    @extend .f-h-c;
+    &__wrap{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      @include pc2{
+        position: fixed;
+        left: 80px;
+        width: calc(100% - 80px);
+        height: 80px;
+        bottom: 0;
+        background-color: var(--color-primary-0);
+        border-radius: 10px 10px 0 0;
+        padding: 20px;
+      }
+    }
     .left-controls{
       gap: 20px;
       .checkbox{padding: 0;}
@@ -668,6 +701,11 @@ input[type=date]{
       flex: 1;
       @extend .f-c-all;
       gap: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
       .page-btn{
         width: 35px;
         height: 35px;
@@ -699,19 +737,52 @@ input[type=date]{
     .btn-wrap{
       width: auto;
     }
+   
+    
   }
+
+  @include pc2{
+    padding: 0 30px;
+    .table-list{
+      padding: 24px 0;
+      &.comBox-item{
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        .detail-tit{
+          width: 100px;
+          span{
+            display: block;
+            width: 100%;
+            white-space: pre;
+          }
+        }
+      }
+    }
+  }
+
+
+
 }
 
 .status{
   &-tag{
-    width: 100%;
-    height: auto;
+    width: 60px;
+    height: 24px;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 500;
     margin: 0 auto;
     padding: 7px 0;
     line-height: 1.1;
+    @include pc2{
+      margin: 0;
+    }
+    @extend .f-c-all;
+    &.status-big{
+      width: 80px;
+      height: 38px;
+    }
   }
   &-normal{
     background-color: var(--system-blue-10);
@@ -730,11 +801,11 @@ input[type=date]{
 .error{
   &-region{
     .selectric-disabled .selectric,
-    .selectric{border-color: var(--system-red);}
+    .selectric{border-color: var(--system-red) !important;}
   }
   &-phone{
     .td_tel {
-      input{border-color: var(--system-red);}
+      input{border-color: var(--system-red) !important;}
     }
   }
 }
@@ -888,4 +959,18 @@ input[type=date]{
       &:last-child{border-radius: 0 10px 0 0;}
     }
   }
+}
+
+
+// bbsView-btn
+.btn.bbsView-btn{
+  justify-content: left;
+  margin: 30px 0;
+  font-size: $fs-18;
+  font-weight: 700;
+  gap: 15px;
+  i{
+    flex: none;
+  }
+
 }

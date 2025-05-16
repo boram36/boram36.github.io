@@ -240,44 +240,47 @@
           <section class="main-rating">
             <div class="card">
               <!-- 탭 -->
-              <div class="rating-tabs">
-                <button class="tab active">지지도 조사 현황</button>
-                <button class="tab">지지율</button>
+              <div class="tab-menu">
+                <button class="tab-btn active" data-index="0">지지도 조사 현황</button>
+                <button class="tab-btn" data-index="1">지지율</button>
               </div>
 
-              <!-- 1) 지지도 현황 영역 -->
-              <div id="map-container" class="rating-box">
-                <div class="rating-box__wrap">
-                  <div class="scroll-info">
-                    <p><img src="../../assets/images/adm/ico-scroll.svg" alt=""></p>
-                    좌우 스크롤
-                  </div>
-                  <div class="map-cont">
-                    <img src="../../assets/images/adm/map.svg" alt="">
-                    <!-- <div id="submap-container" class="hidden">
-                      <svg id="submap-svg" viewBox="0 0 600 600"></svg>
-                    </div> -->
-                  </div>
-                  <div class="map-legend">
-                    <span class="legend-label">지지도 조사 현황(%)</span>
-                    <div class="legend-bar">
-                      <span class="legend-value value01">0%</span>
-                      <div class="bar">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+              <div class="tab-cont__wrap">
+                <!-- 1) 지지도 현황 영역 -->
+                <div id="map-container" class="tab-cont active" data-index="0">
+                  <div class="rating-box__wrap">
+                    <div class="scroll-info">
+                      <p><img src="../../assets/images/adm/ico-scroll.svg" alt=""></p>
+                      좌우 스크롤
+                    </div>
+                    <div class="map-cont">
+                      <img src="../../assets/images/adm/map.svg" alt="">
+                      <!-- <div id="submap-container" class="hidden">
+                        <svg id="submap-svg" viewBox="0 0 600 600"></svg>
+                      </div> -->
+                    </div>
+                    <div class="map-legend">
+                      <span class="legend-label">지지도 조사 현황(%)</span>
+                      <div class="legend-bar">
+                        <span class="legend-value value01">0%</span>
+                        <div class="bar">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                        <span class="legend-value value02">100%</span>
                       </div>
-                      <span class="legend-value value02">100%</span>
                     </div>
                   </div>
                 </div>
+                <!-- 2) 지지율 영역 -->
+                <div id="rate-container" class="tab-cont" data-index="1">
+                  <p></p>
+                </div>
               </div>
-              <!-- 2) 지지율 영역 -->
-              <div id="rate-container" class="rating-box hidden">
-                <p></p>
-              </div>
+             
             </div>
           </section>
           </div>
@@ -455,47 +458,33 @@
 
 
 
-
-
-
-
-          
   <script>
+    // 탭 메뉴
     document.addEventListener('DOMContentLoaded', () => {
-      const section       = document.querySelector('.main-rating');
-      const tabs          = section.querySelectorAll('.rating-tabs .tab');
-      const mapContainer  = section.querySelector('#map-container');
-      const legend        = section.querySelector('.map-legend');
-      const rateContainer = section.querySelector('#rate-container');
-  
-      tabs.forEach((tab, idx) => {
-        tab.addEventListener('click', () => {
-          // 1) 탭 active 클래스 토글
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-  
-          // 2) 컨텐츠 show/hide
-          if (idx === 0) {
-            // 지지도 조사 현황
-            mapContainer.classList.remove('hidden');
-            legend.classList.remove('hidden');
-            rateContainer.classList.add('hidden');
-          } else {
-            // 지지율
-            mapContainer.classList.add('hidden');
-            legend.classList.add('hidden');
-            rateContainer.classList.remove('hidden');
-          }
-        });
-      });
-    });
+			const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+		});
+
   </script>
-
-
-
-
-
-
 
 
 </body>
