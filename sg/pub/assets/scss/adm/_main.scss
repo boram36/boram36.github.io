@@ -27,19 +27,18 @@
         background: url("../../images/cmn/ico-camp_b.svg") no-repeat 50% / cover;
       }
     }
-    .container-wrap{
-      display: block;
-      @include laptop{
-        height: auto;
-      }
-    }
+    
     .dashboard{
-      height: 100%;
+      height: auto;
       flex-direction: row;
+      flex-wrap: wrap;
       @include laptop{
         flex-direction: column;
         gap: 30px;
         height: auto;
+      }
+      @include laptop{
+        flex-wrap: nowrap;
       }
       &-l{
         flex: 1;
@@ -47,6 +46,12 @@
         @include laptop{
           padding: 0;
           flex: none;
+        }
+        .row{
+          flex-wrap: nowrap;
+          @include laptop{
+            flex-wrap: wrap;
+          }
         }
       }
       &-r{
@@ -66,7 +71,7 @@
             display: none;
           }
         }
-        @include tablet{
+        @include laptop{
           width: 100%;
           padding: 0;
         }
@@ -131,10 +136,11 @@
     }
     &__bottom{
       padding: 32px 30px 30px;
-      padding-top: calc(180px + 25px);
+      padding-top: calc(180px + 20px);
       @include mobile{
         padding: calc(180px + 15px) 20px 20px;
       }
+     
       .rating-tit__num{
         font-size: 32px;
       }
@@ -174,26 +180,28 @@
   flex: none;
   > div + div{
     margin-top: 35px;
-    @include tablet{
+    @include laptop{
       margin-top: 30px;
     }
   }
-  @include tablet{
+  @include laptop{
     width: 100%;
   }
 }
 .main-rating {
   flex: 1;
-  @include tablet{
+  @include laptop{
     margin-top: 30px;
   }
   .tab-cont{
-    margin-top: 16px;
     padding: 30px;
     @include mobile{
       padding: 18px 17px;
       margin-top: 0;
     }
+  }
+  .rating-box__wrap{
+    position: relative;
   }
   .scroll-info{
     position: absolute;

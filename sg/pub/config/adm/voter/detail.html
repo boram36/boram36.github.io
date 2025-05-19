@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-voter"></i>
+            유권자관리
+        </h2>
+        <div class="candidater-wrap f-space gap-25">
+          <div class="candidater-list flex-none">
+            <div class="selectSg-box">
+              <div class="selectSg-cont">
+
+                <a href="./list.html" class="btn bbsView-btn ico"><i class="ico-btn_back"></i>목록으로</a>
+              
+                <div class="candidater-info">
+                  <div class="candidater-info__top f-h-c">
+                    <div class="profile-info f-c-space">
+                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    </div>
+                  </div>
+                  <!-- e: candidater-info__top -->
+  
+                  <ul class="detail">
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">휴 대 폰 번 호</span>
+                      </div>
+                      <div class="detail-cont">
+                        010-1234-5678
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">지               역</span>
+                      </div>
+                      <div class="detail-cont">
+                        구월면 > 이읍리
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">등      록      일</span>
+                      </div>
+                      <div class="detail-cont">
+                        2025.04.12 11:40
+                      </div>
+                    </li>
+                      <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">상                태</span>
+                      </div>
+                      <div class="detail-cont">
+                        정상
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- e: detail -->
+                </div>
+                <div class="btn-wrap f-v-r">
+                  <button type="button" class="btn list-btn btn-red" onclick="openPopup('deletePopup')">삭제</button>
+                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('peopleEdit')">유권자 수정</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card f-1">
+            <div class="tab-layout">
+              <div class="tab-menu">
+                <button type="button" class="tab-btn active" data-index="0">지지도 조사 내용</button>
+              </div>
+              <div class="tab-cont__wrap">
+                <div class="tab-cont active" data-index="0">
+                  <div class="list-box_wrap">
+                    <div class="list-box__scroll">
+                      <div class="list-box">
+                        <div class="list-box__top f-c-space">
+                          <b>1</b>
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- e: list-box__top -->
+                        <div class="list-box__cont">
+                          <ul class="detail">
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    원</span>
+                                </div>
+                                <div class="detail-cont">
+                                  김동일
+                                </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    일</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                    2025.04.12 11:40
+                                 </div>
+                              </div>
+                            </li>
+                           
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">지    지    도</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                  <i class="ico ico-like_big"></i>
+                                 </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">상            태</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                   정상
+                                 </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="flex width-full">
+                                <div class="detail-tit">
+                                  <span class="text-justify">의            견</span>
+                                 </div>
+                                 <div class="detail-cont text-over2">
+                                  평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.
+                                 </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="list-box">
+                        <div class="list-box__top f-c-space">
+                          <b>2</b>
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- e: list-box__top -->
+                        <div class="list-box__cont">
+                          <ul class="detail">
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    원</span>
+                                </div>
+                                <div class="detail-cont">
+                                  김동일
+                                </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    일</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                    2025.04.12 11:40
+                                 </div>
+                              </div>
+                            </li>
+                           
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">지    지    도</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                  <i class="ico ico-like_big"></i>
+                                 </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">상            태</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                   정상
+                                 </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="flex width-full">
+                                <div class="detail-tit">
+                                  <span class="text-justify">의            견</span>
+                                 </div>
+                                 <div class="detail-cont text-over2">
+                                  평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.
+                                 </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="list-box">
+                        <div class="list-box__top f-c-space">
+                          <b>3</b>
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- e: list-box__top -->
+                        <div class="list-box__cont">
+                          <ul class="detail">
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    원</span>
+                                </div>
+                                <div class="detail-cont">
+                                  김동일
+                                </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    일</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                    2025.04.12 11:40
+                                 </div>
+                              </div>
+                            </li>
+                           
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">지    지    도</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                  <i class="ico ico-like_big"></i>
+                                 </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">상            태</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                   정상
+                                 </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="flex width-full">
+                                <div class="detail-tit">
+                                  <span class="text-justify">의            견</span>
+                                 </div>
+                                 <div class="detail-cont text-over2">
+                                  평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.평소 공약을 성실히 지키는 후보라 신뢰가 갑니다.
+                                 </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="list-box">
+                        <div class="list-box__top f-c-space">
+                          <b>4</b>
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <!-- e: list-box__top -->
+                        <div class="list-box__cont">
+                          <ul class="detail">
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    원</span>
+                                </div>
+                                <div class="detail-cont">
+                                  김동일
+                                </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">조    사    일</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                    2025.04.12 11:40
+                                 </div>
+                              </div>
+                            </li>
+                           
+                            <li class="row row-cols-2">
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">지    지    도</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                  <i class="ico ico-hate_big"></i>
+                                 </div>
+                              </div>
+                              <div class="flex">
+                                <div class="detail-tit">
+                                  <span class="text-justify">상            태</span>
+                                 </div>
+                                 <div class="detail-cont">
+                                   중지
+                                 </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="flex width-full">
+                                <div class="detail-tit">
+                                  <span class="text-justify">의            견</span>
+                                 </div>
+                                 <div class="detail-cont text-over2">
+                                  -
+                                 </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                
+                </div>
+              </div>
+          </div>
+        </div>
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+  <div id="peopleEdit" class="popup-layer popup-admin">
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">유권자 정보 수정</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('peopleEdit')"><i class="ico-cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <form action="">
+          <div class="form-input">
+            <div class="input-row row row-cols-2">
+              <div>
+                <label class="input-tit" for="name">유권자 이름<span class="required">*</span></label>
+                <div class="input-wrap">
+                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
+                </div>
+              </div>
+              <div>
+                <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
+                <div class="input-wrap input-inner">
+                  <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
+                  <button type="button" class="btn btn-small btn-check btn-disabled">중복<br>확인</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-row row row-cols-2">
+              <div>
+                <div class="input-tit">유권자 성별<span class="required">*</span></div>
+                <div class="checkbox-box radio-wrap">
+                  <div class="checkbox">
+                    <input type="radio" id="gender01" name="gender">
+                    <label for="gender01">남</label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="radio" id="gender02" name="gender">
+                    <label for="gender02">여</label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
+                <div class="input-wrap">
+                  <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
+                </div>
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="input-row">
+                <label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
+                <div class="select-wrap row row-cols-4">
+                  <select name="" id="" class="width-quart" disabled>
+                    <option value="">시/도</option>
+                    <option value="" selected>경상남도</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart" disabled>
+                    <option value="" >시/군/구</option>
+                    <option value="" selected>상도군</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">읍/면/동</option>
+                    <option value="" selected>구월면</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">리</option>
+                    <option value="" selected>이읍리</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-row row row-cols-2">
+              <div>
+                <label class="input-tit" for="name">상태</label>
+                <div class="select-wrap">
+                   <select name="" id="" class="width-quart">
+                    <option value="" selected>정상</option>
+                    <option value="">중지</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <label class="input-tit" for="name">비고</label>
+              <textarea id="candidateBio" placeholder="내용 입력">4월 이후 이사 예정</textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- e: popup-content -->
+     
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('peopleEdit')">취소</button>
+          <button type="button" class="btn btn-active">수정</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+
+    </div>
+  </div>
+  <!-- e: 조직원 정보 수정 -->
+
+  <div id="deletePopup" class="popup-layer popupAlert">
+    <div class="popup-backdrop" onclick="closePopup('deletePopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">삭제</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <p>정말 삭제하시겠습니까?</p>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('deletePopup')">취소</button>
+          <button type="button" class="btn bg-red">삭제</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 삭제 팝업 -->
+
+
+
+  <script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+      initSettingMenu();
+    });
+
+    // 관리 버튼 드롭다운
+    function initSettingMenu() {
+      const menus = document.querySelectorAll('.setting-menu');
+
+      menus.forEach(menu => {
+        const btn = menu.querySelector('.btn-setting');
+        const dropdown = menu.querySelector('.setting-drop');
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // 모든 드롭다운 닫기
+          menus.forEach(m => {
+            const d = m.querySelector('.setting-drop');
+            if (d !== dropdown) d.classList.remove('active');
+          });
+
+          // 현재 드롭다운 토글
+          dropdown.classList.toggle('active');
+        });
+      });
+
+      // 바깥 클릭 시 닫기
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.setting-drop.active').forEach(drop => {
+          drop.classList.remove('active');
+        });
+      });
+    }
+
+    // 탭 메뉴
+    document.addEventListener('DOMContentLoaded', () => {
+			const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+		});
+
+  </script>
+
+</body>
+
+</html>

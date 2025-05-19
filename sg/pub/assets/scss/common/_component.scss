@@ -1146,7 +1146,7 @@ input[type="text"]{
 
 
 // datepicker
-input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat right var(--inner) center / 24px 24px ;}
+input.datepicker-here{background: url("../../images/cmn/ico-date.svg") no-repeat right var(--inner) center / 24px 24px ; background-color: #fff;}
 .datepickers-container{z-index: 9999;}
 .datepicker {width: 325px;padding: 25px;}
 .datepicker--cell-day {width: 42px;height: 42px;margin: 2px;color: var(--color-primary-100);font-weight: 700;font-size: 16px;border-radius: 10px;}

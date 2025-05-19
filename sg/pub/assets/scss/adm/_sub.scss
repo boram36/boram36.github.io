@@ -54,11 +54,17 @@ $url-bg2:"../../images/adm/";
     .btn-wrap{
       width: auto;
       margin: 0;
+      .btn.list-btn{
+        @include mobile{
+          flex: 1;
+        }
+      }
     }
     margin-top: 25px;
   }
   &.list-btn {
     @include btn-basic-style;
+   
   }
   &.btn-basic01 {
     @include btn-basic-style;
@@ -117,23 +123,21 @@ input[type=date]{
 
 .select-wrap{
   &.row{
+    display: flex;
     margin-right: calc(-0.5 * var(--gutter-x2));
     margin-left: calc(-0.5 * var(--gutter-x2));
-    @include pc2{
-      margin-right: calc(-0.5 * var(--gutter-x2));
-      margin-left: calc(-0.5 * var(--gutter-x2));
+    @include mobile{
+      margin: calc(-0.5 * var(--gutter-x2));
     }
     gap: 0;
     &.row-cols-4{
       .selectric-wrapper{
         width: 25%;
-        padding: calc(var(--gutter-x2) * 0.5);
-        margin-bottom: 0;
-        @include pc2{
-          width: 50%;
-        }
+        padding: 0 calc(var(--gutter-x2) * 0.5);
         @include mobile{
-          width: 100%;
+          width: 50%;
+          padding: calc(var(--gutter-x2) * 0.5);
+          margin-bottom: 0;
         }
       }
       .selectric-items{
@@ -211,7 +215,7 @@ input[type=date]{
   }
   .btn-search{
     display: none;
-    @include pc2{
+    @include laptop{
       display: flex;
       position: absolute;
       top: 50%;
@@ -266,7 +270,7 @@ input[type=date]{
 }
 
 .container-list{
-  @include pc2{
+  @include laptop{
     padding: 30px 40px;
   }
   @include mobile{
@@ -292,6 +296,9 @@ input[type=date]{
 .candidater-wrap{
   width: 100%;
   height: 100%;
+  @include pc2{
+    flex-wrap: wrap;
+  }
   .btn-register{
     border-radius: 20px;
     border: 2px dashed var(--color-primary-30);
@@ -307,21 +314,47 @@ input[type=date]{
     gap: 20px;
     font-size: $fs-24;
     font-weight: 700;
+    @include mobile{
+      font-size: $fs-20;
+      .ico-floating_black{
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
   .candidater-list{
-    width: 600px;
+    width: min(38%, 600px);
     height: 100%;
+    @include pc2{
+      width: 100%;
+      height: auto;
+    }
     .selectSg-box{
       height: 100%;
+      @include pc2{
+        height: auto;
+      }
     }
     .selectSg-cont{
-      padding: 0 50px;
+      padding: 0 50px 50px;
+      @include pc2{
+        padding: 0 40px 40px;
+      }
+      @include laptop{
+        padding: 0 30px 30px;
+      }
+      @include mobile{
+        padding: 0 18px 18px;
+      }
     }
     .candidater-info{
       padding: 30px 40px;
       border-radius: 20px;
       margin-top: 10px;
       background: var(--color-primary-10);
+      @include mobile{
+        padding: 20px;
+      }
       &__top{
         gap: 20px;
         padding-bottom: 19px;
@@ -333,61 +366,79 @@ input[type=date]{
       .profile-info{
         font-size: 24px;
         color: var(--color-primary-80);
+        @include mobile{
+          font-size: $fs-20;
+        }
         b{
           color: var(--color-primary-100);
         }
         span{
           font-size: 20px;
+          @include mobile{
+            font-size: 16px;
+          }
         }
       }
-      .detail{
-        margin-top: 20px;
-        > li{
-          @extend .flex;
-          gap: 10px;
-          + li{margin-top: 20px;}
-          &.detail-idea{
-            align-items: flex-start;
-          }
-          &.detail-hidden{
-            display: none;
-          }
+    
+    }
+  }
+}
+
+.detail{
+  margin-top: 20px;
+  > li{
+    @extend .flex;
+    gap: 10px;
+    + li{margin-top: 20px;}
+    &.detail-idea{
+      align-items: flex-start;
+    }
+    &.detail-hidden{
+      display: none;
+    }
+  }
+  &-tit{
+    width: 110px;
+    flex: none;
+    line-height: 1.6;
+    @include mobile{
+      width: 100px;
+    }
+    span{
+      font-size: $fs-18;
+      font-weight: 400;
+      color: var(--color-primary-80);
+      &.text-justify{
+        white-space: pre;
+        width: calc(100% - 10px);
+        display: block;
+      }
+      @include mobile{
+        font-size: $fs-16;
+      }
+    }
+  }
+  &-cont{
+    font-size: $fs-18;
+    font-weight: 500;
+    word-break: keep-all;
+    line-height: 1.6;
+    position: relative;
+    @include mobile{
+      font-size: $fs-16;
+    }
+    &.history{
+      li{
+        &:before{
+          content: '·';
+          margin-right: 3px;
         }
-        &-tit{
-          width: 110px;
-          flex: none;
-          line-height: 1.6;
-          span{
-            font-size: $fs-18;
-            font-weight: 400;
-            color: var(--color-primary-80);
-            &.text-justify{
-              white-space: pre;
-              width: calc(100% - 10px);
-              display: block;
-            }
-          }
-        }
-        &-cont{
-          font-size: $fs-18;
-          font-weight: 500;
-          word-break: keep-all;
-          line-height: 1.6;
-          position: relative;
-          &.history{
-            li{
-              &:before{
-                content: '·';
-                margin-right: 3px;
-              }
-              display: flex;
-            }
-          }
-        }
+        display: flex;
       }
     }
   }
 }
+
 .small-info{
   font-size: $fs-14;
   color: var(--color-primary-60);
@@ -458,6 +509,7 @@ input[type=date]{
       &-content{
         margin-bottom: 0;
         height: min(calc(100vh - 300px), 642px);
+        overflow-x: hidden;
         overflow-y: auto;
         margin-right: -10px;
         padding-right: 10px;
@@ -476,6 +528,9 @@ input[type=date]{
             width: 137px;
             height: 54px;
             border-radius: 20px;
+            @include mobile{
+              width: 100%;
+            }
 
           }
         }
@@ -494,20 +549,33 @@ input[type=date]{
     background: var(--color-primary-20);
     padding: 0 30px;
     position: relative;
+    @include mobile{
+     padding: 0 18px;
+
+    }
     .check-wrap {
       font-size: 0;
       gap: 25px;
       @extend .f-h-c;
+      margin: 0 -10px;
     }
     .checkbox{
-      padding: 0;
+      padding: 0 10px;
     }
     .checkbox input[type=checkbox] + label, 
     .checkbox input[type=radio] + label{font-weight: 700;}
     .checkbox input[type=checkbox] + label:before, 
     .checkbox input[type=radio] + label:before{width: 22px; min-width: 22px; height: 22px;}
     .select-wrap{
-      width: 120px;
+      @include mobile{
+        flex: 1;
+      }
+      .selectric{
+        width: 120px;
+        @include mobile{
+          width: 100%;
+        }
+      }
     }
     .selectric{
       height: 40px;
@@ -537,6 +605,14 @@ input[type=date]{
         font-size: $fs-14;
       }
     }
+    input{
+      border: 1px solid var(--color-primary-20);
+      width: 240px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: $fs-14;
+      padding: 0 10px;
+    }
    
   }
   &-row{
@@ -544,19 +620,25 @@ input[type=date]{
     min-height: 66px;
     padding: 13px 0;
     flex-wrap: wrap;
-    @include pc2{
+    @include laptop{
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
     }
     &__input{
       .search-row__cont{
-        gap: 10px 40px;
+        gap: 10px 25px;
       }
     }
     &__tit{
       font-weight: 700;
       width: 60px;
       margin-top: 11px;
+      @include laptop{
+        margin-top: 0;
+      }
+      @include mobile{
+        font-size: $fs-14;
+      }
     }
     &__cont{
       gap: 10px 50px;
@@ -571,24 +653,46 @@ input[type=date]{
       align-items: end;
       .btn-wrap{
         margin-top: 0;
+        @include laptop{
+          justify-content: right;
+          margin-top: 10px;
+        }
       }
+     
+     
+    }
+    .input-wrap.input-date{
+      height: 40px;
     }
   }
   &-col{
     gap: 10px;
     @extend .f-h-c;
-    @include pc2{
+    @include laptop{
       width: 100%;
+      .input-row{
+        width: 100%;
+      }
       input{
         width: 100%;
       }
     }
+    @include mobile{
+      display: block;
+    }
     &__tit{
       font-size: 12px;
+      flex: none;
+      min-width: 100px;
+      + div{
+        @include mobile{
+          width: auto;
+          justify-content: left;
+        }
+      }
     }
   }
-
-
+ 
 }
 
 .board-list{
@@ -596,13 +700,16 @@ input[type=date]{
     margin: 20px 0 15px;
     font-size: 16px;
     font-weight: 500;
+    @include mobile{
+      margin: 0 0 15px;
+    }
   }
 }
 
 .table{
   &-wrap{
     overflow: hidden;
-    @include pc2{
+    @include laptop{
       overflow: unset;
       margin-bottom: 130px;
       position: relative;
@@ -613,6 +720,7 @@ input[type=date]{
   }
   &-scroll {
     max-height: 48vh;
+    overflow-x: hidden;
     overflow-y: auto;
     thead{
       position: sticky;
@@ -648,7 +756,11 @@ input[type=date]{
     &.tr-disabled{
       td, td *:not(.status-tag, .btn){
         color: var(--color-primary-60);
+        a{
+          pointer-events: none;
+        }
       }
+
       .ico-message{
         background-image: url("../../images/cmn/ico-message_gray.svg");
       }
@@ -672,6 +784,7 @@ input[type=date]{
     border-bottom: 1px solid var(--color-primary-30);
     font-weight: 500;
     position: relative;
+    word-break: keep-all;
     &:last-child{
       &:after{display: none;}
     }
@@ -724,7 +837,7 @@ input[type=date]{
     height: 81px;
     position: relative;
     @extend .f-h-c;
-    @include pc2{
+    @include laptop{
       position: absolute;
       bottom: -100px;
       left: 0;
@@ -735,7 +848,7 @@ input[type=date]{
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      @include pc2{
+      @include laptop{
         position: fixed;
         left: 82px;
         width: calc(100% - 82px);
@@ -747,12 +860,12 @@ input[type=date]{
         z-index: 11;
       }
       @include mobile{
+        display: none;
         left: 0;
         width: 100%;
         padding: 15px 18px 10px;
         height: auto;
         flex-direction: column;
-        justify-content: baseline;
         gap: 15px;
         > div{
           flex: 1;
@@ -761,6 +874,7 @@ input[type=date]{
         .left-controls{
           justify-content: space-between;
           .btn{
+            flex: none;
             width: 100px;
             height: 30px;
           }
@@ -817,19 +931,25 @@ input[type=date]{
     }
   }
 
-  @include pc2{
+  @include laptop{
     padding: 0 30px;
     > li:not(:last-child){
       border-bottom: 1px solid var(--color-primary-20);
     }
     .table-list{
-      padding: 24px 0;
+      padding: 20px 0;
       &.comBox-item{
+        &.tr-disabled *:not(.status-tag){
+          color: var(--color-primary-60);
+          a{
+            pointer-events: none;
+          }
+        }
         + .comBox-item{
           margin-top: 0;
         }
         .profile{
-          margin-top: 20px;
+          margin-top: 10px;
         }
         .detail{
           margin: 16px 0 0;
@@ -958,7 +1078,7 @@ input[type=date]{
   }
   &-drop{
     position: absolute;
-    right: 10px;
+    right: -5px;
     top: 100%;
     border-radius: 20px;
     border: 1px solid var(--color-primary-20);
@@ -984,6 +1104,31 @@ input[type=date]{
 }
 
 // excel upload
+.popup-admin{
+  @include laptop{
+    .status-tag{
+      width: 120px;
+    }
+    .input-row{
+      .status-tag{
+        width: 100%;
+        height: 50px;
+        border-radius: 20px;
+      }
+    }
+    .txt-hide{
+      display: none;
+    }
+    .excel-upload-area + .btn-wrap .btn{
+      width: 85px;
+    }
+    .table-wrap{
+      margin-bottom: 0;
+    }
+  }
+}
+
+
 .excel-upload-area {
   border-radius: 20px;
   border: 2px dashed var(--color-primary-30);
@@ -993,6 +1138,15 @@ input[type=date]{
   height: 120px;
   padding: 20px;
   transition: background 0.2s ease;
+  @include mobile{
+    border-radius: 10px;
+    padding: 23px 10px 17px;
+    height: auto;
+    min-height: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
   .upload{
     &-before{
       width: 100%;
@@ -1026,9 +1180,16 @@ input[type=date]{
     i{
       width: 28px;
       height: 28px;
+      @include mobile{
+        width: 24px;
+        height: 24px;
+      }
     }
     font-size: 18px;
     font-weight: 700;
+    @include mobile{
+      font-size: 16px;
+    }
   }
 
   &.dragover {
@@ -1096,5 +1257,81 @@ input[type=date]{
     font-size: $fs-16;
     line-height: 1.5;
     color: #fff;
+  }
+}
+
+.card{
+  .tab-menu{
+    border-bottom: 0;
+  }
+}
+.tab-cont__wrap{
+  table th{
+    border-top: 1px solid #D7DDE4;
+    background: var(--color-primary-10);
+  }
+}
+.list-box{
+  border-radius: 20px;
+  border: 1px solid var(--color-primary-30);
+  padding: 20px 40px;
+  + .list-box{
+    margin-top: 20px;
+  }
+  @include laptop{
+    padding: 20px 30px;
+  }
+  @include mobile{
+    padding: 18px;
+  }
+  &_wrap{
+    padding: 50px;
+    .list-box__scroll{
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 580px;
+
+    }
+  
+    @include laptop{
+      padding: 30px;
+    }
+    @include mobile{
+      padding: 18px;
+    }
+    .detail > li{
+      gap: 0;
+      &.row{
+        @include mobile{
+          display: block;
+          > div{
+            width: 100%;
+            + div{
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__top{
+    padding-bottom: 6px;
+    border-bottom: 1px solid #EAEDEF;
+    b{font-size: $fs-20; @include mobile{font-size: 18px;}}
+    .ico-setting{
+      background-image: url("../../images/adm/ico-setting_w.svg");
+      width: 38px;
+      height: 38px;
+      @include mobile{
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  #searchPopup{
+    display: none !important;
   }
 }

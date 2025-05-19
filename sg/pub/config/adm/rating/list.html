@@ -35,6 +35,7 @@
 
 
 	<!-- css -->
+  <link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
 	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
 
@@ -42,8 +43,10 @@
 	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
   <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
 	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  
 
 
 	<!-- js :: common -->
@@ -166,8 +169,8 @@
     <div class="container-wrap">
       <main>
         <h2 class="main-tit f-h-c">
-          <i class="ico-camppeople"></i>
-          조직원관리
+          <i class="ico-heart"></i>
+          지지도조사관리
           <button type="button" class="btn btn-search ico" onclick="openPopup('searchPopup')"><i class="ico-search"></i></button>
         </h2>
       
@@ -177,20 +180,7 @@
             <div class="search-row__tit">검색옵션</div>
             <div class="search-row__cont f-h-c">
               <div class="search-col">
-                <label class="search-col__tit">여부 선택</label>
-                <div class="check-wrap">
-                  <div class="checkbox">
-                    <input type="checkbox" id="select01" name="select" checked>
-                    <label for="select01">마스터여부</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="checkbox" id="select02" name="select">
-                    <label for="select02">사용중지</label>
-                  </div>
-                </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">조직원 성별</label>
+                <label class="search-col__tit">유권자 성별</label>
                 <div class="radio-wrap">
                   <div class="checkbox">
                     <input type="radio" id="gender01" name="gender" checked>
@@ -203,7 +193,7 @@
                 </div>
               </div>
               <div class="search-col">
-                <label class="search-col__tit">조직원 나이</label>
+                <label class="search-col__tit">유권자 나이</label>
                 <div class="f-h-c gap-15">
                   <div class="select-wrap type02">
                     <select name="" id="">
@@ -223,22 +213,92 @@
                 </div>
                 
               </div>
-
+              <div class="search-col">
+                <label class="search-col__tit">유권자 지역</label>
+                <div class="select-wrap row row-cols-4">
+                  <select name="" id="" class="width-quart" >
+                    <option value="">시/도</option>
+                    <option value="" selected>경상남도</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart" >
+                    <option value="" >시/군/구</option>
+                    <option value="" selected>상도군</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">읍/면/동</option>
+                    <option value="" selected>구월면</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">리</option>
+                    <option value="" selected>이읍리</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+                </div>
+                
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">지지도 조사</label>
+                <div class="checkbox-wrap">
+                  <div class="checkbox">
+                    <input type="checkbox" id="checkAll" name="check">
+                    <label for="checkAll">전체</label>
+                  </div>
+        
+                  <div class="checkbox">
+                    <input type="checkbox" id="check01" name="check" >
+                    <label for="check01"><i class="ico ico-like_big"></i></label>
+                  </div>
+      
+                  <div class="checkbox">
+                    <input type="checkbox" id="check02" name="check" >
+                    <label for="check02"><i class="ico ico-mid_big"></i></label>
+                  </div>
+      
+                  <div class="checkbox">
+                    <input type="checkbox" id="check03" name="check" >
+                    <label for="check03"><i class="ico ico-hate_big"></i></label>
+                  </div>
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">조사기간</label>
+                <div class="input-wrap input-date">
+                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                  <span>~</span>
+                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                </div>
+              </div>
             </div>
           </div>
           <div class="search-row search-row__input flex">
             <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
             <div class="search-row__cont f-h-c">
               <div class="search-col">
-                <label class="search-col__tit">조직원 이름</label>
+                <label class="search-col__tit">유권자 이름</label>
                 <div class="input-row">
                   <input type="text" id="" name="" placeholder="이름(2자 이상)">
                 </div>
               </div>
               <div class="search-col">
-                <label class="search-col__tit">조직원 휴대폰번호</label>
+                <label class="search-col__tit">유권자 휴대폰번호</label>
                 <div class="input-row">
                   <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">조사원 이름</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
                 </div>
               </div>
             </div>

@@ -136,5 +136,14 @@ function checkTableHeight() {
   }
 }
 
+$(document).ready(function () {
+  $('.datepicker-here').datepicker({
+      autoClose: true,
+			onSelect: function (formattedDate, date, inst) {
+        inst.hide();
+      }
+  });
+})
+
 
 

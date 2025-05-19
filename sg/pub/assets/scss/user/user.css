@@ -4217,6 +4217,7 @@ input[type=text].input-sch::placeholder {
 
 input.datepicker-here {
   background: url("../../images/cmn/ico-date.svg") no-repeat right var(--inner) center/24px 24px;
+  background-color: #fff;
 }
 
 .datepickers-container {

@@ -29,7 +29,7 @@ function initTooltip() {
 
 $(document).ready(function () {
   $('.datepicker-here').datepicker({
-      autoclose: true,
+      autoClose: true,
 			onSelect: function (formattedDate, date, inst) {
         inst.hide();
       }
