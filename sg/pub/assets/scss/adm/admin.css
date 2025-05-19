@@ -6949,8 +6949,26 @@ input[type=date].input-small {
   margin-left: calc(-0.5 * var(--gutter-x2));
   gap: 0;
 }
+@media (max-width: 1512px) {
+  .select-wrap.row {
+    margin-right: calc(-0.5 * var(--gutter-x2));
+    margin-left: calc(-0.5 * var(--gutter-x2));
+  }
+}
 .select-wrap.row.row-cols-4 .selectric-wrapper {
   width: 25%;
+  padding: calc(var(--gutter-x2) * 0.5);
+  margin-bottom: 0;
+}
+@media (max-width: 1512px) {
+  .select-wrap.row.row-cols-4 .selectric-wrapper {
+    width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .select-wrap.row.row-cols-4 .selectric-wrapper {
+    width: 100%;
+  }
 }
 .select-wrap.row.row-cols-4 .selectric-items {
   left: calc(var(--gutter-x2) * 0.5);
@@ -6989,6 +7007,7 @@ input[type=date].input-small {
   font-size: 1.5rem;
   margin-bottom: 15px;
   gap: 5px;
+  position: relative;
 }
 .main-tit i {
   margin-right: 2px;
@@ -7083,6 +7102,18 @@ input[type=date].input-small {
     font-size: 1.125rem;
   }
 }
+.main-tit .btn-search {
+  display: none;
+}
+@media (max-width: 1512px) {
+  .main-tit .btn-search {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+}
 
 .sub-tit {
   font-size: 1.25rem;
@@ -7133,6 +7164,16 @@ input[type=date].input-small {
   font-size: 0.875rem;
 }
 
+@media (max-width: 1512px) {
+  .container-list {
+    padding: 30px 40px;
+  }
+}
+@media (max-width: 767px) {
+  .container-list {
+    padding: 20px 18px;
+  }
+}
 .container-list main {
   height: auto;
 }
@@ -7403,6 +7444,12 @@ input[type=date].input-small {
   padding: 13px 0;
   flex-wrap: wrap;
 }
+@media (max-width: 1512px) {
+  .search-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 .search-row__input .search-row__cont {
   gap: 10px 40px;
 }
@@ -7429,6 +7476,14 @@ input[type=date].input-small {
 .search-col {
   gap: 10px;
 }
+@media (max-width: 1512px) {
+  .search-col {
+    width: 100%;
+  }
+  .search-col input {
+    width: 100%;
+  }
+}
 .search-col__tit {
   font-size: 12px;
 }
@@ -7444,6 +7499,18 @@ input[type=date].input-small {
 }
 .table-wrap {
   overflow: hidden;
+}
+@media (max-width: 1512px) {
+  .table-wrap {
+    overflow: unset;
+    margin-bottom: 130px;
+    position: relative;
+  }
+}
+@media (max-width: 767px) {
+  .table-wrap {
+    margin-bottom: 180px;
+  }
 }
 .table-scroll {
   max-height: 48vh;
@@ -7545,6 +7612,14 @@ input[type=date].input-small {
   height: 81px;
   position: relative;
 }
+@media (max-width: 1512px) {
+  .table-footer {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+  }
+}
 .table-footer__wrap {
   display: flex;
   justify-content: space-between;
@@ -7554,13 +7629,39 @@ input[type=date].input-small {
 @media (max-width: 1512px) {
   .table-footer__wrap {
     position: fixed;
-    left: 80px;
-    width: calc(100% - 80px);
+    left: 82px;
+    width: calc(100% - 82px);
     height: 80px;
     bottom: 0;
     background-color: var(--color-primary-0);
     border-radius: 10px 10px 0 0;
     padding: 20px;
+    z-index: 11;
+  }
+}
+@media (max-width: 767px) {
+  .table-footer__wrap {
+    left: 0;
+    width: 100%;
+    padding: 15px 18px 10px;
+    height: auto;
+    flex-direction: column;
+    justify-content: baseline;
+    gap: 15px;
+  }
+  .table-footer__wrap > div {
+    flex: 1;
+    width: 100%;
+  }
+  .table-footer__wrap .left-controls {
+    justify-content: space-between;
+  }
+  .table-footer__wrap .left-controls .btn {
+    width: 100px;
+    height: 30px;
+  }
+  .table-footer__wrap .btn.btn-basic {
+    width: 100%;
   }
 }
 .table-footer .left-controls {
@@ -7624,6 +7725,9 @@ input[type=date].input-small {
   .table {
     padding: 0 30px;
   }
+  .table > li:not(:last-child) {
+    border-bottom: 1px solid var(--color-primary-20);
+  }
   .table .table-list {
     padding: 24px 0;
   }
@@ -7632,6 +7736,26 @@ input[type=date].input-small {
     background: transparent;
     box-shadow: none;
   }
+  .table .table-list.comBox-item + .comBox-item {
+    margin-top: 0;
+  }
+  .table .table-list.comBox-item .profile {
+    margin-top: 20px;
+  }
+  .table .table-list.comBox-item .detail {
+    margin: 16px 0 0;
+    padding-bottom: 0;
+  }
+  .table .table-list.comBox-item .detail li + li {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 1512px) and (max-width: 767px) {
+  .table .table-list.comBox-item .detail li + li {
+    margin-top: 8px;
+  }
+}
+@media (max-width: 1512px) {
   .table .table-list.comBox-item .detail-tit {
     width: 100px;
   }
@@ -7639,6 +7763,11 @@ input[type=date].input-small {
     display: block;
     width: 100%;
     white-space: pre;
+  }
+}
+@media (max-width: 767px) {
+  .table {
+    padding: 0 20px;
   }
 }
 
@@ -7831,4 +7960,27 @@ input[type=date].input-small {
 }
 .btn.bbsView-btn i {
   flex: none;
+}
+
+.loading-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-inner {
+  text-align: center;
+  color: #fff;
+}
+.loading-msg {
+  margin-top: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
 }/*# sourceMappingURL=admin.css.map */

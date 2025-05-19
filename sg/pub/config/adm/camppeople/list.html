@@ -168,10 +168,11 @@
         <h2 class="main-tit f-h-c">
           <i class="ico-camppeople"></i>
           조직원관리
+          <button type="button" class="btn btn-search ico" onclick="openPopup('searchPopup')"><i class="ico-search"></i></button>
         </h2>
       
         <!-- 검색 필터 -->
-        <div class="search-option">
+        <div class="search-option pc-ver">
           <div class="search-row flex">
             <div class="search-row__tit">검색옵션</div>
             <div class="search-row__cont f-h-c">
@@ -697,11 +698,11 @@
             <ul class="table mo-ver">
               <li class="table-list comBox-item">
                 <div class="comBox-item__cont">
-                  <div class="table-list__detail f-c-space">
+                  <div class="f-c-space">
                     <div class="f-h-c gap-5">
                       <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck">
-                        <label for="campChec01"></label>
+                        <input type="checkbox" id="campChec01_m" name="campCheck" checked>
+                        <label for="campChec01_m"></label>
                       </div>
                       <span class="td_num">34</span>
                     </div>
@@ -718,7 +719,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="table-list__detail profile f-c-space">
+                  <div class="profile f-c-space">
                     <div class="tit">
                       <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
                     </div>
@@ -757,12 +758,182 @@
                         </label>
                       </div>
                     </li>
-                      <li>
+                    <li>
                       <div class="detail-tit">
-                        <span>비고</span>
+                        <span>비                고</span>
                       </div>
                       <div class="detail-cont">
                         비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 
+                      </div>
+                    </li>
+                    <li>
+                       <div class="detail-tit">
+                        <span>상   세   보   기</span>
+                      </div>
+                      <div class="detail-cont">
+                        <a href="./detail.html" class="btn btn-view btn-small01 btn-center">보기</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="table-list comBox-item">
+                <div class="comBox-item__cont">
+                  <div class="f-c-space">
+                    <div class="f-h-c gap-5">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01" name="campCheck">
+                        <label for="campChec01"></label>
+                      </div>
+                      <span class="td_num">33</span>
+                    </div>
+                    <div class="f-h-c gap-10">
+                      <div class="status-tag status-normal">정상</div>
+                      <div class="setting-menu">
+                        <button class="btn btn-setting btn-center">
+                          <i class="ico-setting"></i>
+                        </button>
+                        <ul class="setting-drop">
+                          <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="profile f-c-space">
+                    <div class="tit">
+                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    </div>
+                    <div class="td-txt f-c-all">
+                      010-1234-5678
+                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
+                    </div>
+                  </div>
+                  <ul class="detail">
+                    <li>
+                      <div class="detail-tit">
+                        <span>지                역</span>
+                      </div>
+                      <div class="detail-cont">구월면 &gt; 이읍리</div>
+                    </li>
+                     <li>
+                      <div class="detail-tit">
+                        <span>지지도조사수</span>
+                      </div>
+                      <div class="detail-cont">83</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>행 사 등 록 수</span>
+                      </div>
+                      <div class="detail-cont">23</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>마 스 터 권 한</span>
+                      </div>
+                      <div class="detail-cont">
+                        <label class="toggle-switch">
+                          <input type="checkbox" checked />
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>비                고</span>
+                      </div>
+                      <div class="detail-cont">
+                        비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 비고입니다. 
+                      </div>
+                    </li>
+                    <li>
+                       <div class="detail-tit">
+                        <span>상   세   보   기</span>
+                      </div>
+                      <div class="detail-cont">
+                        <a href="./detail.html" class="btn btn-view btn-small01 btn-center">보기</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="table-list comBox-item">
+                <div class="comBox-item__cont">
+                  <div class="f-c-space">
+                    <div class="f-h-c gap-5">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01_m" name="campCheck" checked>
+                        <label for="campChec01_m"></label>
+                      </div>
+                      <span class="td_num">32</span>
+                    </div>
+                    <div class="f-h-c gap-10">
+                      <div class="status-tag status-stop">중지</div>
+                      <div class="setting-menu">
+                        <button class="btn btn-setting btn-center">
+                          <i class="ico-setting"></i>
+                        </button>
+                        <ul class="setting-drop">
+                          <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="profile f-c-space">
+                    <div class="tit">
+                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    </div>
+                    <div class="td-txt f-c-all">
+                      010-1234-5678
+                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
+                    </div>
+                  </div>
+                  <ul class="detail">
+                    <li>
+                      <div class="detail-tit">
+                        <span>지                역</span>
+                      </div>
+                      <div class="detail-cont">구월면 &gt; 이읍리</div>
+                    </li>
+                     <li>
+                      <div class="detail-tit">
+                        <span>지지도조사수</span>
+                      </div>
+                      <div class="detail-cont">83</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>행 사 등 록 수</span>
+                      </div>
+                      <div class="detail-cont">23</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>마 스 터 권 한</span>
+                      </div>
+                      <div class="detail-cont">
+                        <label class="toggle-switch">
+                          <input type="checkbox" checked />
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>비                고</span>
+                      </div>
+                      <div class="detail-cont">
+                        비고입니다. 비고입니다. 
+                      </div>
+                    </li>
+                    <li>
+                       <div class="detail-tit">
+                        <span>상   세   보   기</span>
+                      </div>
+                      <div class="detail-cont">
+                        <a href="./detail.html" class="btn btn-view btn-small01 btn-center">보기</a>
                       </div>
                     </li>
                   </ul>
@@ -836,7 +1007,7 @@
           </div>
           <div class="upload-result" style="display: none;">
             <div class="file-name"></div>
-            <button type="button" class="btn btn-delete ico"><i class="ico-deletes"></i></button>
+            <button type="button" class="btn btn-delete ico"><i class="ico-delete"></i></button>
           </div>
         </div>
 
@@ -1159,7 +1330,6 @@
 
     </div>
 
-    
   </div>
   <!-- e: 엑셀 일괄 등록 -->
 
@@ -1437,11 +1607,126 @@
   </div>
   <!-- e: 삭제 팝업 -->
 
+  <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+    <div class="loading-inner">
+      <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+      <dotlottie-player src="https://lottie.host/cc029930-234d-4bb7-9ef4-5ea116a58d3f/yuKMnwE605.json" background="transparent" speed="1"  loop autoplay></dotlottie-player>
+      <p class="loading-msg">엑셀파일을 업로드중입니다.<br>긴 시간이 소요되니 기다려주세요.</p>
+    </div>
+  </div>
+  <!-- e: 로딩화면 -->
 
+  <div id="searchPopup" class="popup-layer popup-admin popup-bottom popup-full">
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">검색옵션</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('searchPopup')"><i class="ico-popup_cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+         <div class="search-option mo-ver">
+          <div class="search-row flex">
+            <div class="search-row__tit">검색옵션</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">여부 선택</label>
+                <div class="check-wrap">
+                  <div class="checkbox">
+                    <input type="checkbox" id="select01" name="select" checked>
+                    <label for="select01">마스터여부</label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="checkbox" id="select02" name="select">
+                    <label for="select02">사용중지</label>
+                  </div>
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">조직원 성별</label>
+                <div class="radio-wrap">
+                  <div class="checkbox">
+                    <input type="radio" id="gender01" name="gender" checked>
+                    <label for="gender01">남</label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="radio" id="gender02" name="gender">
+                    <label for="gender02">여</label>
+                  </div>
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">조직원 나이</label>
+                <div class="f-h-c gap-15">
+                  <div class="select-wrap type02">
+                    <select name="" id="">
+                      <option value="">0</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select>
+                  </div>
+                  <span>~</span>
+                  <div class="select-wrap type02">
+                    <select name="" id="">
+                      <option value="">0</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                    </select>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+          </div>
+          <div class="search-row search-row__input flex">
+            <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">조직원 이름</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">조직원 휴대폰번호</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
+                </div>
+              </div>
+            </div>
+            <div class="search-row__button">
+              <div class="btn-wrap">
+                <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+                <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <a href="javascript:;" class="btn btn-active" onclick="openPopup('searchPopup')">검색하기</a>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
 
   <script>
-    // 관리 버튼
     document.addEventListener('DOMContentLoaded', () => {
+      initSettingMenu();
+      initCheckboxHighlight();
+      initExcelDragAndUpload();
+    });
+
+    // 관리 버튼 드롭다운
+    function initSettingMenu() {
       const menus = document.querySelectorAll('.setting-menu');
 
       menus.forEach(menu => {
@@ -1462,94 +1747,98 @@
         });
       });
 
-      // 바깥 클릭 시 모든 드롭다운 닫기
+      // 바깥 클릭 시 닫기
       document.addEventListener('click', () => {
         document.querySelectorAll('.setting-drop.active').forEach(drop => {
           drop.classList.remove('active');
         });
       });
-    }); 
+    }
 
-  </script>
+    // 체크박스 행 강조
+    function initCheckboxHighlight() {
+      document.querySelectorAll('input[type="checkbox"][name="campCheck"]').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          const tr = checkbox.closest('tr');
+          tr.classList.toggle('active', checkbox.checked);
+        });
+      });
+    }
 
+    // 엑셀 업로드 & 드래그 처리
+    function initExcelDragAndUpload() {
+      const dropArea = document.getElementById("excelDropArea");
+      const fileInput = document.getElementById("excelFile");
+      const beforeBox = dropArea.querySelector(".upload-before");
+      const fileName = dropArea.querySelector(".file-name");
+      const resultBox = dropArea.querySelector(".upload-result");
+      const deleteBtn = dropArea.querySelector(".btn-delete");
+      const loadingOverlay = document.getElementById("loadingOverlay");
 
+      const showLoading = () => loadingOverlay.style.display = "flex";
+      const hideLoading = () => loadingOverlay.style.display = "none";
 
-<script>
-  // checkbox 클릭 시 색상 변화
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('input[type="checkbox"][name="campCheck"]').forEach(function (checkbox) {
-      checkbox.addEventListener('change', function () {
-        const tr = checkbox.closest('tr');
-        if (checkbox.checked) {
-          tr.classList.add('active');
-        } else {
-          tr.classList.remove('active');
+      const handleFile = (file) => {
+        if (!file.name.match(/\.(xls|xlsx)$/)) {
+          alert("엑셀 파일(.xls, .xlsx)만 가능합니다.");
+          return;
+        }
+
+        showLoading();
+
+        const kb = (file.size / 1024).toFixed(1);
+        fileName.innerHTML = `
+          <i class="ico ico-excel"></i>
+          ${file.name}
+          <span>${kb}KB</span>
+        `;
+        resultBox.style.display = "inline-flex";
+        beforeBox.style.display = "none";
+        dropArea.classList.add('dragover');
+
+        setTimeout(() => {
+          hideLoading(); // 실제 업로드 완료 시점에 바꿔야 함
+        }, 3000);
+      };
+
+      // 클릭
+      dropArea.addEventListener("click", () => fileInput.click());
+
+      // 파일 선택
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files[0]) handleFile(e.target.files[0]);
+      });
+
+      // 드래그 영역 처리
+      dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("dragover");
+      });
+
+      dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("dragover");
+      });
+
+      dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("dragover");
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          fileInput.files = e.dataTransfer.files;
+          handleFile(file);
         }
       });
-    });
-  });
 
-  // 엑셀 드래그
-  document.addEventListener("DOMContentLoaded", () => {
-    const dropArea = document.getElementById("excelDropArea");
-    const fileInput = document.getElementById("excelFile");
-    const beforeBox = dropArea.querySelector(".upload-before");
-    const fileName = dropArea.querySelector(".file-name");
-    const resultBox = dropArea.querySelector(".upload-result");
-    const deleteBtn = dropArea.querySelector(".btn-delete"); 
+      // 삭제 버튼
+      deleteBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        fileInput.value = "";
+        resultBox.style.display = "none";
+        beforeBox.style.display = "flex";
+      });
+    }
 
-    const handleFile = (file) => {
-      if (!file.name.match(/\.(xls|xlsx)$/)) {
-        alert("엑셀 파일(.xls, .xlsx)만 가능합니다.");
-        return;
-      }
-      const kb = (file.size / 1024).toFixed(1);
-      fileName.innerHTML = `
-        <i class="ico ico-excel"></i>
-        ${file.name}
-        <span>${kb}KB</span>
-      `;
-      resultBox.style.display = "inline-flex";
-      beforeBox.style.display = "none";
-      dropArea.classList.add('dragover')
-    };
-
-    dropArea.addEventListener("click", () => fileInput.click());
-
-    fileInput.addEventListener("change", (e) => {
-      if (e.target.files[0]) handleFile(e.target.files[0]);
-    });
-
-    dropArea.addEventListener("dragover", (e) => {
-      e.preventDefault();
-      dropArea.classList.add("dragover");
-    });
-
-    dropArea.addEventListener("dragleave", () => {
-      dropArea.classList.remove("dragover");
-    });
-
-    dropArea.addEventListener("drop", (e) => {
-      e.preventDefault();
-      dropArea.classList.remove("dragover");
-      const file = e.dataTransfer.files[0];
-      if (file) {
-        fileInput.files = e.dataTransfer.files;
-        handleFile(file);
-      }
-    });
-
-    deleteBtn.addEventListener("click", (e) => {
-      e.stopPropagation(); // 부모 클릭 막기
-      fileInput.value = "";
-      resultBox.style.display = "none";
-      beforeBox.style.display = "flex";
-    });
-  });
-
-
-
-</script>
+  </script>
 
 
 </body>

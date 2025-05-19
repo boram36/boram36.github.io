@@ -119,10 +119,22 @@ input[type=date]{
   &.row{
     margin-right: calc(-0.5 * var(--gutter-x2));
     margin-left: calc(-0.5 * var(--gutter-x2));
+    @include pc2{
+      margin-right: calc(-0.5 * var(--gutter-x2));
+      margin-left: calc(-0.5 * var(--gutter-x2));
+    }
     gap: 0;
     &.row-cols-4{
       .selectric-wrapper{
         width: 25%;
+        padding: calc(var(--gutter-x2) * 0.5);
+        margin-bottom: 0;
+        @include pc2{
+          width: 50%;
+        }
+        @include mobile{
+          width: 100%;
+        }
       }
       .selectric-items{
        left: calc(var(--gutter-x2) * 0.5);
@@ -170,6 +182,7 @@ input[type=date]{
   font-size: $fs-24;
   margin-bottom: 15px;
   gap: 5px;
+  position: relative;
   i{
     margin-right: 2px;
     &.ico{
@@ -195,6 +208,16 @@ input[type=date]{
   }
   @include mobile{
     font-size: $fs-18;
+  }
+  .btn-search{
+    display: none;
+    @include pc2{
+      display: flex;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+    }
   }
  
 }
@@ -243,6 +266,12 @@ input[type=date]{
 }
 
 .container-list{
+  @include pc2{
+    padding: 30px 40px;
+  }
+  @include mobile{
+    padding: 20px 18px;
+  }
   main{
     height: auto;
   }
@@ -515,6 +544,10 @@ input[type=date]{
     min-height: 66px;
     padding: 13px 0;
     flex-wrap: wrap;
+    @include pc2{
+      flex-direction: column;
+      gap: 20px;
+    }
     &__input{
       .search-row__cont{
         gap: 10px 40px;
@@ -544,6 +577,12 @@ input[type=date]{
   &-col{
     gap: 10px;
     @extend .f-h-c;
+    @include pc2{
+      width: 100%;
+      input{
+        width: 100%;
+      }
+    }
     &__tit{
       font-size: 12px;
     }
@@ -563,6 +602,14 @@ input[type=date]{
 .table{
   &-wrap{
     overflow: hidden;
+    @include pc2{
+      overflow: unset;
+      margin-bottom: 130px;
+      position: relative;
+    }
+    @include mobile{
+      margin-bottom: 180px;
+    }
   }
   &-scroll {
     max-height: 48vh;
@@ -671,11 +718,18 @@ input[type=date]{
   .btn-center{
     margin: 0 auto;
   }
+
   &-footer{
     padding: 0 30px;
     height: 81px;
     position: relative;
     @extend .f-h-c;
+    @include pc2{
+      position: absolute;
+      bottom: -100px;
+      left: 0;
+      width: 100%;
+    }
     &__wrap{
       display: flex;
       justify-content: space-between;
@@ -683,13 +737,37 @@ input[type=date]{
       width: 100%;
       @include pc2{
         position: fixed;
-        left: 80px;
-        width: calc(100% - 80px);
+        left: 82px;
+        width: calc(100% - 82px);
         height: 80px;
         bottom: 0;
         background-color: var(--color-primary-0);
         border-radius: 10px 10px 0 0;
         padding: 20px;
+        z-index: 11;
+      }
+      @include mobile{
+        left: 0;
+        width: 100%;
+        padding: 15px 18px 10px;
+        height: auto;
+        flex-direction: column;
+        justify-content: baseline;
+        gap: 15px;
+        > div{
+          flex: 1;
+          width: 100%;
+        }
+        .left-controls{
+          justify-content: space-between;
+          .btn{
+            width: 100px;
+            height: 30px;
+          }
+        }
+        .btn.btn-basic{
+          width: 100%;
+        }
       }
     }
     .left-controls{
@@ -737,15 +815,32 @@ input[type=date]{
     .btn-wrap{
       width: auto;
     }
-   
-    
   }
 
   @include pc2{
     padding: 0 30px;
+    > li:not(:last-child){
+      border-bottom: 1px solid var(--color-primary-20);
+    }
     .table-list{
       padding: 24px 0;
       &.comBox-item{
+        + .comBox-item{
+          margin-top: 0;
+        }
+        .profile{
+          margin-top: 20px;
+        }
+        .detail{
+          margin: 16px 0 0;
+          padding-bottom: 0;
+        }
+        .detail li + li{
+          margin-top: 16px;
+          @include mobile{
+            margin-top: 8px;
+          }
+        }
         border-radius: 0;
         background: transparent;
         box-shadow: none;
@@ -759,10 +854,14 @@ input[type=date]{
         }
       }
     }
+    
+    .btn-view{
+    
+    }
   }
-
-
-
+  @include mobile{
+    padding: 0 20px;
+  }
 }
 
 .status{
@@ -973,4 +1072,29 @@ input[type=date]{
     flex: none;
   }
 
+}
+
+// 로딩화면
+.loading{
+  &-overlay{
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-inner{
+    text-align: center;
+    color: #fff;
+  }
+  &-msg{
+    margin-top: 12px;
+    font-size: $fs-16;
+    line-height: 1.5;
+    color: #fff;
+  }
 }
