@@ -683,7 +683,7 @@ input[type=date]{
     &__tit{
       font-size: 12px;
       flex: none;
-      min-width: 100px;
+      min-width: 85px;
       + div{
         @include mobile{
           width: auto;
@@ -836,6 +836,7 @@ input[type=date]{
     padding: 0 30px;
     height: 81px;
     position: relative;
+    border-top: 1px solid #EAEDEF;
     @extend .f-h-c;
     @include laptop{
       position: absolute;

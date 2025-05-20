@@ -2694,6 +2694,11 @@ address {
 .f-1 {
   flex: 1;
 }
+.f-c-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
 /*---- 08) GAP ----*/
 .gap-5 {
@@ -5028,7 +5033,6 @@ body {
   }
 }
 .container main {
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -7648,7 +7652,7 @@ input[type=date].input-small {
 .search-col__tit {
   font-size: 12px;
   flex: none;
-  min-width: 100px;
+  min-width: 85px;
 }
 @media (max-width: 767px) {
   .search-col__tit + div {
@@ -7790,6 +7794,7 @@ input[type=date].input-small {
   padding: 0 30px;
   height: 81px;
   position: relative;
+  border-top: 1px solid #EAEDEF;
 }
 @media (max-width: 1280px) {
   .table-footer {

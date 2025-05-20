@@ -2694,6 +2694,11 @@ address {
 .f-1 {
   flex: 1;
 }
+.f-c-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
 /*---- 08) GAP ----*/
 .gap-5 {

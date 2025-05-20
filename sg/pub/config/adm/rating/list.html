@@ -138,13 +138,13 @@
           <li>
             <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
           </li>
-          <li class="active">
+          <li>
             <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
           </li>
           <li>
             <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
           </li>
-          <li>
+          <li class="active">
             <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
           </li>
           <li>
@@ -273,7 +273,7 @@
               <div class="search-col">
                 <label class="search-col__tit">조사기간</label>
                 <div class="input-wrap input-date">
-                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
                   <span>~</span>
                   <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
                 </div>
@@ -287,12 +287,6 @@
                 <label class="search-col__tit">유권자 이름</label>
                 <div class="input-row">
                   <input type="text" id="" name="" placeholder="이름(2자 이상)">
-                </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">유권자 휴대폰번호</label>
-                <div class="input-row">
-                  <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
                 </div>
               </div>
               <div class="search-col">
@@ -323,38 +317,24 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>
-                      <div class="checkbox">
-                        <input type="checkbox" id="campCheckAll" name="campCheck">
-                        <label for="campCheckAll"></label>
-                      </div>
-                    </th>
                     <th>번호</th>
-                    <th>아이디</th>
                     <th>이름</th>
                     <th>성별</th>
                     <th>나이</th>
                     <th>휴대폰번호</th>
                     <th>지역</th>
-                    <th>지지도 조사수</th>
-                    <th>행사 등록수</th>
+                    <th>조사일</th>
+                    <th>조사원</th>
+                    <th>지지도</th>
                     <th>상태</th>
-                    <th>마스터여부</th>
-                    <th>비고</th>
                     <th>상세보기</th>
+                    <th>의견</th>
                     <th>관리</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck">
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
+                    <td class="td_num">324542</td>
                     <td class="td_name width-80">
                       <a href="./detail.html" class="td-txt">김정윤</a>
                     </td>
@@ -363,149 +343,76 @@
                     <td class="td_tel  width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                       </div>
                     </td>
                     <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
+                    <td class="td_date">2025.04.11 17:21</td>
+                    <td class="td_researcher">이시훈</td>
+                    <td class="td_rating">
+                      <i class="ico ico-like_big"></i>
+                    </td>
                     <td class="td_state">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-normal">정상</div>
                     </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
-                    </td>
-                    <td class="td_etc width-200"><div class="tbl-cut">비고입니다.비고입니다.비고입니다.비고입니다. </div></td>
                     <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
+                      <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
+                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
                     <td class="td_setting width-80">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td_num">324542</td>
+                    <td class="td_name width-80">
+                      <a href="./detail.html" class="td-txt">김정윤</a>
+                    </td>
+                    <td class="td_gender">남</td>
+                    <td class="td_age">65</td>
+                    <td class="td_tel  width-160">
+                      <div class="td-txt f-c-all">
+                        010-1234-5678
+                      </div>
+                    </td>
+                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                    <td class="td_date">2025.04.11 17:21</td>
+                    <td class="td_researcher">이시훈</td>
+                    <td class="td_rating">
+                      <i class="ico ico-like_big"></i>
+                    </td>
+                    <td class="td_state">
+                      <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                      <div class="status-tag status-normal">정상</div>
+                    </td>
+                     <td class="td_detail">
+                      <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
+                    </td>
+                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다. 의견입니다. 의견입니다. </div></td>
+                    <td class="td_setting width-80">
+                      <div class="setting-menu">
+                        <button class="btn btn-setting btn-center">
+                          <i class="ico-setting"></i>
+                        </button>
+                        <ul class="setting-drop">
+                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
                           <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
                   </tr>
 
-                  <tr>
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck">
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
-                    <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
-                    </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
-                      <div class="td-txt f-c-all">
-                        010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                      </div>
-                    </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
-                      <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
-                      <div class="status-tag status-normal">정상</div>
-                    </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
-                    </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
-                    </td>
-                    <td class="td_setting width-80">
-                      <div class="setting-menu">
-                        <button class="btn btn-setting btn-center">
-                          <i class="ico-setting"></i>
-                        </button>
-                        <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  
-                  <tr>
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck">
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
-                    <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
-                    </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
-                      <div class="td-txt f-c-all">
-                        010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                      </div>
-                    </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
-                      <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
-                      <div class="status-tag status-normal">정상</div>
-                    </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
-                    </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
-                    </td>
-                    <td class="td_setting width-80">
-                      <div class="setting-menu">
-                        <button class="btn btn-setting btn-center">
-                          <i class="ico-setting"></i>
-                        </button>
-                        <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-
                   <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
                   <tr class="tr-disabled">
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck" disabled>
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
+                    <td class="td_num">324542</td>
                     <td class="td_name width-80">
                       <a href="./detail.html" class="td-txt">김정윤</a>
                     </td>
@@ -514,49 +421,37 @@
                     <td class="td_tel  width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                       </div>
                     </td>
                     <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
+                    <td class="td_date">2025.04.11 17:21</td>
+                    <td class="td_researcher">이시훈</td>
+                    <td class="td_rating">
+                      <i class="ico ico-like_big"></i>
+                    </td>
                     <td class="td_state">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-stop">중지</div>
                     </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
+                     <td class="td_detail">
+                      <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
-                    </td>
+                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
                     <td class="td_setting width-80">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
+                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
                   </tr>
-
                   <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
                   <tr class="tr-disabled">
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck" disabled>
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
+                    <td class="td_num">324542</td>
                     <td class="td_name width-80">
                       <a href="./detail.html" class="td-txt">김정윤</a>
                     </td>
@@ -565,187 +460,30 @@
                     <td class="td_tel  width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                       </div>
                     </td>
                     <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
+                    <td class="td_date">2025.04.11 17:21</td>
+                    <td class="td_researcher">이시훈</td>
+                    <td class="td_rating">
+                      <i class="ico ico-like_big"></i>
+                    </td>
                     <td class="td_state">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-stop">중지</div>
                     </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
+                     <td class="td_detail">
+                      <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
-                    </td>
+                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
                     <td class="td_setting width-80">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
-                  <tr class="tr-disabled">
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck" disabled>
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
-                    <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
-                    </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
-                      <div class="td-txt f-c-all">
-                        010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                      </div>
-                    </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
-                      <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
-                      <div class="status-tag status-stop">중지</div>
-                    </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
-                    </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
-                    </td>
-                    <td class="td_setting width-80">
-                      <div class="setting-menu">
-                        <button class="btn btn-setting btn-center">
-                          <i class="ico-setting"></i>
-                        </button>
-                        <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
-                  <tr class="tr-disabled">
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck" disabled>
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
-                    <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
-                    </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
-                      <div class="td-txt f-c-all">
-                        010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                      </div>
-                    </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
-                      <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
-                      <div class="status-tag status-stop">중지</div>
-                    </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
-                    </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
-                    </td>
-                    <td class="td_setting width-80">
-                      <div class="setting-menu">
-                        <button class="btn btn-setting btn-center">
-                          <i class="ico-setting"></i>
-                        </button>
-                        <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
-                  <tr class="tr-disabled">
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck" disabled>
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
-                    <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
-                    </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
-                      <div class="td-txt f-c-all">
-                        010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                      </div>
-                    </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
-                      <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
-                      <div class="status-tag status-stop">중지</div>
-                    </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
-                    </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="" class="btn btn-small01 btn-center">보기</a>
-                    </td>
-                    <td class="td_setting width-80">
-                      <div class="setting-menu">
-                        <button class="btn btn-setting btn-center">
-                          <i class="ico-setting"></i>
-                        </button>
-                        <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
+                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
@@ -760,23 +498,18 @@
                 <div class="comBox-item__cont">
                   <div class="f-c-space">
                     <div class="f-h-c gap-5">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01_m" name="campCheck" checked>
-                        <label for="campChec01_m"></label>
-                      </div>
-                      <span class="td_num">34</span>
+                      <span class="td_num">324542</span>
                     </div>
                     <div class="f-h-c gap-10">
                       <div class="status-tag status-normal">정상</div>
                     </div>
                   </div>
                   <div class="profile f-c-space">
-                    <div class="tit">
+                    <a href="./detail.html" class="tit">
                       <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </div>
+                    </a>
                     <div class="td-txt f-c-all">
                       010-1234-5678
-                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                     </div>
                   </div>
                   <ul class="detail">
@@ -788,25 +521,30 @@
                     </li>
                      <li>
                       <div class="detail-tit">
-                        <span>지지도조사수</span>
+                        <span>조     사      일</span>
                       </div>
-                      <div class="detail-cont">83</div>
+                      <div class="detail-cont">2025.04.11 17:21</div>
                     </li>
                     <li>
                       <div class="detail-tit">
-                        <span>행 사 등 록 수</span>
+                        <span>조     사      원</span>
                       </div>
-                      <div class="detail-cont">23</div>
+                      <div class="detail-cont">이시훈</div>
                     </li>
                     <li>
                       <div class="detail-tit">
-                        <span>마 스 터 권 한</span>
+                        <span>지     지      도</span>
                       </div>
                       <div class="detail-cont">
-                        <label class="toggle-switch">
-                          <input type="checkbox" checked />
-                          <span class="slider"></span>
-                        </label>
+                        <i class="ico ico-like_big"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>의                견</span>
+                      </div>
+                      <div class="detail-cont text-over2">
+                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
                       </div>
                     </li>
                   </ul>
@@ -816,23 +554,18 @@
                 <div class="comBox-item__cont">
                   <div class="f-c-space">
                     <div class="f-h-c gap-5">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01_m" name="campCheck" checked>
-                        <label for="campChec01_m"></label>
-                      </div>
-                      <span class="td_num">34</span>
+                      <span class="td_num">324542</span>
                     </div>
                     <div class="f-h-c gap-10">
                       <div class="status-tag status-normal">정상</div>
                     </div>
                   </div>
                   <div class="profile f-c-space">
-                    <div class="tit">
+                   <a href="./detail.html" class="tit">
                       <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </div>
+                    </a>
                     <div class="td-txt f-c-all">
                       010-1234-5678
-                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                     </div>
                   </div>
                   <ul class="detail">
@@ -844,25 +577,30 @@
                     </li>
                      <li>
                       <div class="detail-tit">
-                        <span>지지도조사수</span>
+                        <span>조     사      일</span>
                       </div>
-                      <div class="detail-cont">83</div>
+                      <div class="detail-cont">2025.04.11 17:21</div>
                     </li>
                     <li>
                       <div class="detail-tit">
-                        <span>행 사 등 록 수</span>
+                        <span>조     사      원</span>
                       </div>
-                      <div class="detail-cont">23</div>
+                      <div class="detail-cont">이시훈</div>
                     </li>
                     <li>
                       <div class="detail-tit">
-                        <span>마 스 터 권 한</span>
+                        <span>지     지      도</span>
                       </div>
                       <div class="detail-cont">
-                        <label class="toggle-switch">
-                          <input type="checkbox" checked />
-                          <span class="slider"></span>
-                        </label>
+                        <i class="ico ico-like_big"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>의                견</span>
+                      </div>
+                      <div class="detail-cont text-over2">
+                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
                       </div>
                     </li>
                   </ul>
@@ -874,23 +612,18 @@
                 <div class="comBox-item__cont">
                   <div class="f-c-space">
                     <div class="f-h-c gap-5">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01_m" name="campCheck" disabled>
-                        <label for="campChec01_m"></label>
-                      </div>
-                      <span class="td_num">34</span>
+                      <span class="td_num">324542</span>
                     </div>
                     <div class="f-h-c gap-10">
                       <div class="status-tag status-normal">정상</div>
                     </div>
                   </div>
                   <div class="profile f-c-space">
-                    <div class="tit">
+                   <a href="./detail.html" class="tit">
                       <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </div>
+                    </a>
                     <div class="td-txt f-c-all">
                       010-1234-5678
-                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                     </div>
                   </div>
                   <ul class="detail">
@@ -902,25 +635,87 @@
                     </li>
                      <li>
                       <div class="detail-tit">
-                        <span>지지도조사수</span>
+                        <span>조     사      일</span>
                       </div>
-                      <div class="detail-cont">83</div>
+                      <div class="detail-cont">2025.04.11 17:21</div>
                     </li>
                     <li>
                       <div class="detail-tit">
-                        <span>행 사 등 록 수</span>
+                        <span>조     사      원</span>
                       </div>
-                      <div class="detail-cont">23</div>
+                      <div class="detail-cont">이시훈</div>
                     </li>
                     <li>
                       <div class="detail-tit">
-                        <span>마 스 터 권 한</span>
+                        <span>지     지      도</span>
                       </div>
                       <div class="detail-cont">
-                        <label class="toggle-switch">
-                          <input type="checkbox" checked />
-                          <span class="slider"></span>
-                        </label>
+                        <i class="ico ico-like_big"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>의                견</span>
+                      </div>
+                      <div class="detail-cont text-over2">
+                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
+              <li class="table-list comBox-item tr-disabled">
+                <div class="comBox-item__cont">
+                  <div class="f-c-space">
+                    <div class="f-h-c gap-5">
+                      <span class="td_num">324542</span>
+                    </div>
+                    <div class="f-h-c gap-10">
+                      <div class="status-tag status-normal">정상</div>
+                    </div>
+                  </div>
+                  <div class="profile f-c-space">
+                    <a href="./detail.html" class="tit">
+                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    </a>
+                    <div class="td-txt f-c-all">
+                      010-1234-5678
+                    </div>
+                  </div>
+                  <ul class="detail">
+                    <li>
+                      <div class="detail-tit">
+                        <span>지                역</span>
+                      </div>
+                      <div class="detail-cont">구월면 &gt; 이읍리</div>
+                    </li>
+                     <li>
+                      <div class="detail-tit">
+                        <span>조     사      일</span>
+                      </div>
+                      <div class="detail-cont">2025.04.11 17:21</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>조     사      원</span>
+                      </div>
+                      <div class="detail-cont">이시훈</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>지     지      도</span>
+                      </div>
+                      <div class="detail-cont">
+                        <i class="ico ico-like_big"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span>의                견</span>
+                      </div>
+                      <div class="detail-cont text-over2">
+                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
                       </div>
                     </li>
                   </ul>
@@ -934,25 +729,6 @@
             <!-- 하단 컨트롤 -->
             <div class="table-footer">
               <div class="table-footer__wrap">
-                <div class="left-controls f-h-c">
-                  <div class="radio-wrap">
-                    <div class="checkbox">
-                      <input type="radio" id="" name="">
-                      <label for="">선택(<span>1</span>)</label>
-                    </div>
-                    <div class="checkbox">
-                      <input type="radio" id="" name="">
-                      <label for="">검색전체</label>
-                    </div>
-                  </div>
-                  <button type="button" class="btn list-btn btn-basic02">문자전송</button>
-                </div>
-                <!-- e: 선택 -->
-                <div class="f-h-c gap-10">
-                  <button class="btn btn-basic list-btn btn-excel" onclick="openPopup('excelRegister'); setTimeout(() => {checkTableHeight();}, 100);">엑셀 일괄 등록</button>
-                  <button class="btn btn-basic list-btn btn-navy" onclick="openPopup('eachRegister')">개별 등록</button>
-                </div>
-              </div>
               <div class="pagination">
                 <button class="page-btn page-first" onclick=""><i></i></button>
                 <button class="page-btn page-prev" onclick=""><i></i></button>
@@ -975,489 +751,11 @@
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
-
-  <div id="excelRegister" class="popup-layer popup-admin popup-big">
+  <div id="ratingEdit" class="popup-layer popup-admin">
     <div class="popup-inner">
       <div class="popup-header">
-        <h2 class="popup-title">조직원 엑셀 일괄 등록</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('excelRegister')"><i class="ico-cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-
-        <div class="excel-upload-area" id="excelDropArea">
-          <div class="upload-before">
-            <div class="file-txt f-c-all"><i class="ico-floating_green"></i>엑셀 파일 찾기</div>
-            <input type="file" id="excelFile" accept=".xlsx, .xls" hidden />
-            <p class="upload-info">휴대폰번호가 중복될 경우 상태란에 중복으로 표기 되며,<br class="mo-ver"> 핸드폰 중복일 경우 등록이 불가합니다.</p>
-          </div>
-          <div class="upload-result" style="display: none;">
-            <div class="file-name"></div>
-            <button type="button" class="btn btn-delete ico"><i class="ico-delete"></i></button>
-          </div>
-        </div>
-
-        
-        <div class="btn-wrap f-c-space mt20 mb35">
-          <button type="button" class="btn list-btn btn-basic02 ico"><i class="ico-down ico-mr"></i>양식 <span class="txt-hide">다운로드</span></button>
-          <div class="f-h-c gap-10">
-            <button type="button" class="btn list-btn btn-basic02 ico"><i class="ico-refresh ico-mr"></i>초기화</button>
-            <button type="button" class="btn list-btn bg-green ico"><i class="ico-apply ico-mr"></i>적용</button>
-          </div>
-        </div>
-       
-
-        <div class="card table-wrap bg-primary-10">
-          <div class="table-scroll2 pc-ver">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>이름</th>
-                  <th>성별</th>
-                  <th>나이</th>
-                  <th>휴대폰번호</th>
-                  <th>지역</th>
-                  <th>마스터여부</th>
-                  <th>비고</th>
-                  <th>등록상태</th>
-                  <th>제외</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- TODO 리스트가 없을 경우 -->
-                <!-- <tr class="no-list">
-                  <td colspan="10">엑셀 파일을 등록해 주세요.</td>
-                </tr> -->
-
-                <!-- 리스트가 있을 경우 -->
-                <!-- 지역 재설정일 경우 : tr클래스에 error-region, 휴대폰번호 중복일 경우: tr클래스에 error-phone -->
-                <tr>
-                  <td class="td_num width-60">132</td>
-                  <td class="td_name width-80 width-90">
-                    <input type="text" value="박종식" class="width-full input-small">
-                  </td>
-                  <td class="td_gender width-130">
-                    <div class="radio-wrap">
-                      <div class="checkbox">
-                        <input type="radio" id="gender01_1" name="gender01" checked>
-                        <label for="gender01_1">남</label>
-                      </div>
-                      <div class="checkbox">
-                        <input type="radio" id="gender01_2" name="gender01">
-                        <label for="gender01_2">여</label>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="td_age width-70"><input type="text" value="64" class="width-full input-small"></td>
-                  <td class="td_tel width-150"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
-                  
-                  <td class="td_region">
-                    <div class="select-wrap type02 nowrap">
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >경상남도</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >호고군</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>이호읍</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>시읍리</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td class="td_master width-80">
-                    <label class="toggle-switch">
-                      <input type="checkbox" checked />
-                      <span class="slider"></span>
-                    </label>
-                  </td>
-                  <td class="td_etc width-160">
-                    <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
-                  </td>
-                  <td class="td_state width-100">
-                    <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
-                    <div class="status-tag status-normal status-big">등록<br>가능</div>
-                  </td>
-                  <td class="td_delete width-40">
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="td_num width-60">132</td>
-                  <td class="td_name width-80 width-90">
-                    <input type="text" value="박종식" class="width-full input-small">
-                  </td>
-                  <td class="td_gender width-130">
-                    <div class="radio-wrap">
-                      <div class="checkbox">
-                        <input type="radio" id="gender02_1" name="gender02" checked>
-                        <label for="gender02_1">남</label>
-                      </div>
-                      <div class="checkbox">
-                        <input type="radio" id="gender02_2" name="gender02">
-                        <label for="gender02_2">여</label>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="td_age width-70"><input type="text" value="64" class="width-full input-small"></td>
-                  <td class="td_tel width-150"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
-                  
-                  <td class="td_region">
-                    <div class="select-wrap type02 nowrap">
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >경상남도</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >호고군</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>이호읍</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>시읍리</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td class="td_master width-80">
-                    <label class="toggle-switch">
-                      <input type="checkbox" checked />
-                      <span class="slider"></span>
-                    </label>
-                  </td>
-                  <td class="td_etc width-160">
-                    <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
-                  </td>
-                  <td class="td_state width-100">
-                    <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
-                    <div class="status-tag status-normal status-big">등록<br>가능</div>
-                  </td>
-                  <td class="td_delete width-40">
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr class="error-phone">
-                  <td class="td_num width-60">132</td>
-                  <td class="td_name width-80 width-90">
-                    <input type="text" value="박종식" class="width-full input-small">
-                  </td>
-                  <td class="td_gender width-130">
-                    <div class="radio-wrap">
-                      <div class="checkbox">
-                        <input type="radio" id="gender03_1" name="gender03" checked>
-                        <label for="gender03_1">남</label>
-                      </div>
-                      <div class="checkbox">
-                        <input type="radio" id="gender03_2" name="gender03">
-                        <label for="gender03_2">여</label>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="td_age width-70"><input type="text" value="64" class="width-full input-small"></td>
-                  <td class="td_tel width-150"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
-                  
-                  <td class="td_region">
-                    <div class="select-wrap type02 nowrap">
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >경상남도</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >호고군</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>이호읍</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>시읍리</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td class="td_master width-80">
-                    <label class="toggle-switch">
-                      <input type="checkbox" checked />
-                      <span class="slider"></span>
-                    </label>
-                  </td>
-                  <td class="td_etc width-160">
-                    <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
-                  </td>
-                  <td class="td_state width-100">
-                    <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
-                    <div class="status-tag status-stop status-big">지역<br>재설정</div>
-                  </td>
-                  <td class="td_delete width-40">
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-                  </td>
-                </tr>
-                 <tr class="error-region">
-                  <td class="td_num width-60">132</td>
-                  <td class="td_name width-80 width-90">
-                    <input type="text" value="박종식" class="width-full input-small">
-                  </td>
-                  <td class="td_gender width-130">
-                    <div class="radio-wrap">
-                      <div class="checkbox">
-                        <input type="radio" id="gender04_1" name="gender04" checked>
-                        <label for="gender04_1">남</label>
-                      </div>
-                      <div class="checkbox">
-                        <input type="radio" id="gender04_2" name="gender04">
-                        <label for="gender04_2">여</label>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="td_age width-70"><input type="text" value="64" class="width-full input-small"></td>
-                  <td class="td_tel width-150"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
-                  
-                  <td class="td_region">
-                    <div class="select-wrap type02 nowrap">
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >경상남도</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110" disabled>
-                        <option value="" >호고군</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>이호읍</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-              
-                      <select name="" id="" class="width-110">
-                        <option value="" selected>시읍리</option>
-                        <option value="">서울시</option>
-                        <option value="">부산시</option>
-                      </select>
-                    </div>
-                  </td>
-                  <td class="td_master width-80">
-                    <label class="toggle-switch">
-                      <input type="checkbox" checked />
-                      <span class="slider"></span>
-                    </label>
-                  </td>
-                  <td class="td_etc width-160">
-                    <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
-                  </td>
-                  <td class="td_state width-100">
-                    <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
-                    <div class="status-tag status-stop status-big">지역<br>재설정</div>
-                  </td>
-                  <td class="td_delete width-40">
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-           
-            </table>
-          </div>
-          <!-- e: pc용 테이블 -->
-
-          <ul class="table mo-ver">
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-normal">등록 가능</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <div class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </div>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-normal">등록 가능</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <div class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </div>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-stop">지역 재설정</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <div class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </div>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-stop">지역 재설정</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <div class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </div>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-          </ul>
-          <!-- e: mobile용 테이블 -->
-        
-        </div>
-        
-      </div>
-      <!-- e: popup-content -->
-     
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('excelRegister')">취소</button>
-          <button type="button" class="btn btn-active">등록</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-
-    </div>
-
-  </div>
-  <!-- e: 엑셀 일괄 등록 -->
-
-  <div id="eachRegister" class="popup-layer popup-admin">
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">조직원 개별 등록</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('eachRegister')"><i class="ico-cancel"></i></button>
+        <h2 class="popup-title">지지도조사 수정</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('ratingEdit')"><i class="ico-cancel"></i></button>
       </div>
       <!-- e: popup-header -->
 
@@ -1466,132 +764,7 @@
           <div class="form-input">
             <div class="input-row row row-cols-2">
               <div>
-                <label class="input-tit" for="name">조직원 이름<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="name" name="name" placeholder="이름" value="" >
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
-                <div class="input-wrap input-inner">
-                  <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="">
-                  <button type="button" class="btn btn-small btn-check">중복<br>확인</button><button>
-                </button></div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <div class="input-tit">조직원 성별<span class="required">*</span></div>
-                <div class="checkbox-box radio-wrap">
-                  <div class="checkbox">
-                    <input type="radio" id="gender01" name="gender">
-                    <label for="gender01">남</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="radio" id="gender02" name="gender">
-                    <label for="gender02">여</label>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="age">조직원 나이<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="age" name="age" placeholder="나이(숫자)" value="">
-                </div>
-              </div>
-            </div>
-            <div class="input-row">
-              <div class="input-row">
-                <label class="input-tit" for="input02">조직원 지역<span class="required">*</span></label>
-                <div class="select-wrap row row-cols-4">
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="">시/도</option>
-                    <option value="" selected>경상남도</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="" >시/군/구</option>
-                    <option value="" selected>상도군</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">읍/면/동</option>
-                    <option value="" selected>구월면</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">리</option>
-                    <option value="" selected>이읍리</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">마스터 권한</label>
-                <div class="checkbox-box f-c-all">
-                  <label class="toggle-switch">
-                      <input type="checkbox" checked="">
-                      <span class="slider"></span>
-                    </label>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="name">상태</label>
-                <div class="select-wrap">
-                   <select name="" id="" class="width-quart">
-                    <option value="">정상</option>
-                    <option value="">중지</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row">
-              <label class="input-tit" for="name">비고</label>
-              <textarea id="candidateBio" placeholder="내용 입력"></textarea>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- e: popup-content -->
-     
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('eachRegister')">취소</button>
-          <button type="button" class="btn btn-active">수정</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-
-    </div>
-  </div>
-  <!-- e: 개별 등록 -->
-
-  <div id="peopleEdit" class="popup-layer popup-admin">
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">조직원 정보 수정</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('peopleEdit')"><i class="ico-cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-        <form action="">
-          <div class="form-input">
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">조직원 이름<span class="required">*</span></label>
+                <label class="input-tit" for="name">유권자 이름<span class="required">*</span></label>
                 <div class="input-wrap">
                   <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
                 </div>
@@ -1607,7 +780,7 @@
 
             <div class="input-row row row-cols-2">
               <div>
-                <div class="input-tit">조직원 성별<span class="required">*</span></div>
+                <div class="input-tit">유권자 성별<span class="required">*</span></div>
                 <div class="checkbox-box radio-wrap">
                   <div class="checkbox">
                     <input type="radio" id="gender01" name="gender">
@@ -1620,7 +793,7 @@
                 </div>
               </div>
               <div>
-                <label class="input-tit" for="age">조직원 나이<span class="required">*</span></label>
+                <label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
                 <div class="input-wrap">
                   <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
                 </div>
@@ -1628,7 +801,7 @@
             </div>
             <div class="input-row">
               <div class="input-row">
-                <label class="input-tit" for="input02">조직원 지역<span class="required">*</span></label>
+                <label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
                 <div class="select-wrap row row-cols-4">
                   <select name="" id="" class="width-quart" disabled>
                     <option value="">시/도</option>
@@ -1663,12 +836,9 @@
 
             <div class="input-row row row-cols-2">
               <div>
-                <label class="input-tit" for="name">마스터 권한</label>
-                <div class="checkbox-box f-c-all">
-                  <label class="toggle-switch">
-                      <input type="checkbox" checked>
-                      <span class="slider"></span>
-                    </label>
+                <label class="input-tit" for="name">조사원 이름</label>
+                <div class="input-wrap">
+                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
                 </div>
               </div>
               <div>
@@ -1681,10 +851,38 @@
                 </div>
               </div>
             </div>
+            <div class="input-row row row-cols-2">
+              <div>
+                <label class="input-tit" for="date">조사일</label>
+                <div class="input-wrap">
+                  <input type="text" id="date" name="date" placeholder="조사일" value="2025.03.12 14:23" readonly>
+                </div>
+              </div>
+              <div>
+                <label class="input-tit" for="name">지지도<span class="required">*</span></label>
+                <div class="checkbox-wrap checkbox-box f-c-around">
+                  
+                  <div class="checkbox">
+                    <input type="checkbox" id="check01" name="check" >
+                    <label for="check01"><i class="ico ico-like_big"></i></label>
+                  </div>
+      
+                  <div class="checkbox">
+                    <input type="checkbox" id="check02" name="check" >
+                    <label for="check02"><i class="ico ico-mid_big"></i></label>
+                  </div>
+      
+                  <div class="checkbox">
+                    <input type="checkbox" id="check03" name="check" >
+                    <label for="check03"><i class="ico ico-hate_big"></i></label>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="input-row">
-              <label class="input-tit" for="name">비고</label>
-              <textarea id="candidateBio" placeholder="내용 입력">4월 이후 이사 예정</textarea>
+              <label class="input-tit" for="name">의견</label>
+              <textarea id="candidateBio" placeholder="의견 입력">의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.</textarea>
             </div>
           </div>
         </form>
@@ -1693,7 +891,8 @@
      
       <div class="popup-footer">
         <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('peopleEdit')">취소</button>
+          <button type="button" class="btn" onclick="closePopup('ratingEdit')">취소</button>
+          <button type="button" class="btn btn-delete bg-red" onclick="openPopup('deletePopup')">삭제</button>
           <button type="button" class="btn btn-active">수정</button>
         </div>
       </div>
@@ -1701,128 +900,8 @@
 
     </div>
   </div>
-  <!-- e: 조직원 정보 수정 -->
+  <!-- e: 지지도조사 수정 -->
 
-  <div id="peopleEdit2" class="popup-layer popup-admin">
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">조직원 정보 수정</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('peopleEdit2')"><i class="ico-cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-        <form action="">
-          <!-- 지역 재설정 시 : error-region, 핸드폰 재설정 시 : error-phone -->
-          <div class="form-input">
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">조직원 이름<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
-                <div class="input-wrap input-inner td_tel">
-                  <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
-                  <button type="button" class="btn btn-small btn-check btn-disabled">중복<br>확인</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <div class="input-tit">조직원 성별<span class="required">*</span></div>
-                <div class="checkbox-box radio-wrap">
-                  <div class="checkbox">
-                    <input type="radio" id="gender01" name="gender">
-                    <label for="gender01">남</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="radio" id="gender02" name="gender">
-                    <label for="gender02">여</label>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="age">조직원 나이<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
-                </div>
-              </div>
-            </div>
-            <div class="input-row">
-              <div class="input-row">
-                <label class="input-tit" for="input02">조직원 지역<span class="required">*</span></label>
-                <div class="select-wrap row row-cols-4">
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="">시/도</option>
-                    <option value="" selected>경상남도</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="" >시/군/구</option>
-                    <option value="" selected>상도군</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">읍/면/동</option>
-                    <option value="" selected>구월면</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">리</option>
-                    <option value="" selected>이읍리</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">마스터 권한</label>
-                <div class="checkbox-box f-c-all">
-                  <label class="toggle-switch">
-                      <input type="checkbox" checked>
-                      <span class="slider"></span>
-                    </label>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="name">상태</label>
-                <div class="status-tag status-normal">등록가능</div>
-              </div>
-            </div>
-
-            <div class="input-row">
-              <label class="input-tit" for="name">비고</label>
-              <textarea id="candidateBio" placeholder="내용 입력">4월 이후 이사 예정</textarea>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- e: popup-content -->
-     
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('peopleEdit2')">취소</button>
-          <button type="button" class="btn btn-active">수정</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-
-    </div>
-  </div>
-  <!-- e: 엑셀용 조직원 정보 수정 -->
 
   <div id="deletePopup" class="popup-layer popupAlert">
     <div class="popup-backdrop" onclick="closePopup('deletePopup')"></div>
@@ -1848,15 +927,6 @@
   </div>
   <!-- e: 삭제 팝업 -->
 
-  <div id="loadingOverlay" class="loading-overlay" style="display: none;">
-    <div class="loading-inner">
-      <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-      <dotlottie-player src="https://lottie.host/cc029930-234d-4bb7-9ef4-5ea116a58d3f/yuKMnwE605.json" background="transparent" speed="1"  loop autoplay></dotlottie-player>
-      <p class="loading-msg">엑셀파일을 업로드중입니다.<br>긴 시간이 소요되니 기다려주세요.</p>
-    </div>
-  </div>
-  <!-- e: 로딩화면 -->
-
   <div id="searchPopup" class="popup-layer popup-admin popup-bottom popup-full">
     <div class="popup-inner">
       <div class="popup-header">
@@ -1867,25 +937,12 @@
 
       <div class="popup-content">
 
-         <div class="search-option mo-ver">
+        <div class="search-option mo-ver">
           <div class="search-row flex">
             <div class="search-row__tit">검색옵션</div>
             <div class="search-row__cont f-h-c">
               <div class="search-col">
-                <label class="search-col__tit">여부 선택</label>
-                <div class="check-wrap">
-                  <div class="checkbox">
-                    <input type="checkbox" id="select01" name="select" checked>
-                    <label for="select01">마스터여부</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="checkbox" id="select02" name="select">
-                    <label for="select02">사용중지</label>
-                  </div>
-                </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">조직원 성별</label>
+                <label class="search-col__tit">유권자 성별</label>
                 <div class="radio-wrap">
                   <div class="checkbox">
                     <input type="radio" id="gender01" name="gender" checked>
@@ -1898,7 +955,7 @@
                 </div>
               </div>
               <div class="search-col">
-                <label class="search-col__tit">조직원 나이</label>
+                <label class="search-col__tit">유권자 나이</label>
                 <div class="f-h-c gap-15">
                   <div class="select-wrap type02">
                     <select name="" id="">
@@ -1918,26 +975,95 @@
                 </div>
                 
               </div>
-
+              <div class="search-col">
+                <label class="search-col__tit">유권자 지역</label>
+                <div class="select-wrap row row-cols-4">
+                  <select name="" id="" class="width-quart" >
+                    <option value="">시/도</option>
+                    <option value="" selected>경상남도</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart" >
+                    <option value="" >시/군/구</option>
+                    <option value="" selected>상도군</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">읍/면/동</option>
+                    <option value="" selected>구월면</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">리</option>
+                    <option value="" selected>이읍리</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+                </div>
+                
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">지지도 조사</label>
+                <div class="checkbox-wrap">
+                  <div class="checkbox">
+                    <input type="checkbox" id="checkAll" name="check">
+                    <label for="checkAll">전체</label>
+                  </div>
+        
+                  <div class="checkbox">
+                    <input type="checkbox" id="check01" name="check" >
+                    <label for="check01"><i class="ico ico-like_big"></i></label>
+                  </div>
+      
+                  <div class="checkbox">
+                    <input type="checkbox" id="check02" name="check" >
+                    <label for="check02"><i class="ico ico-mid_big"></i></label>
+                  </div>
+      
+                  <div class="checkbox">
+                    <input type="checkbox" id="check03" name="check" >
+                    <label for="check03"><i class="ico ico-hate_big"></i></label>
+                  </div>
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">조사기간</label>
+                <div class="input-wrap input-date">
+                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                  <span>~</span>
+                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                </div>
+              </div>
             </div>
           </div>
           <div class="search-row search-row__input flex">
             <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
             <div class="search-row__cont f-h-c">
               <div class="search-col">
-                <label class="search-col__tit">조직원 이름</label>
+                <label class="search-col__tit">유권자 이름</label>
                 <div class="input-row">
                   <input type="text" id="" name="" placeholder="이름(2자 이상)">
                 </div>
               </div>
               <div class="search-col">
-                <label class="search-col__tit">조직원 휴대폰번호</label>
+                <label class="search-col__tit">조사원 이름</label>
                 <div class="input-row">
-                  <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
+                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
                 </div>
               </div>
             </div>
-            
+            <div class="search-row__button">
+              <div class="btn-wrap">
+                <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+                <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+              </div>
+            </div>
           </div>
           
         </div>
@@ -1960,8 +1086,6 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initSettingMenu();
-      initCheckboxHighlight();
-      initExcelDragAndUpload();
     });
 
     // 관리 버튼 드롭다운
@@ -1991,108 +1115,6 @@
         document.querySelectorAll('.setting-drop.active').forEach(drop => {
           drop.classList.remove('active');
         });
-      });
-    }
-
-    // 체크박스
-    function initCheckboxHighlight() {
-      const checkboxes = document.querySelectorAll('input[type="checkbox"][name="campCheck"]');
-      const footer = document.querySelector('.table-footer__wrap');
-
-      function updateFooterVisibility() {
-        // 모바일에서만 동작
-        if (window.innerWidth <= 768) {
-          const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
-          if (footer) {
-            footer.style.display = anyChecked ? 'flex' : 'none';
-          }
-        }
-      }
-
-      checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-          const tr = checkbox.closest('tr');
-          tr.classList.toggle('active', checkbox.checked);
-          updateFooterVisibility();
-        });
-      });
-
-      // 초기 상태 반영
-      updateFooterVisibility();
-    }
-
-
-
-    // 엑셀 업로드 & 드래그 처리
-    function initExcelDragAndUpload() {
-      const dropArea = document.getElementById("excelDropArea");
-      const fileInput = document.getElementById("excelFile");
-      const beforeBox = dropArea.querySelector(".upload-before");
-      const fileName = dropArea.querySelector(".file-name");
-      const resultBox = dropArea.querySelector(".upload-result");
-      const deleteBtn = dropArea.querySelector(".btn-delete");
-      const loadingOverlay = document.getElementById("loadingOverlay");
-
-      const showLoading = () => loadingOverlay.style.display = "flex";
-      const hideLoading = () => loadingOverlay.style.display = "none";
-
-      const handleFile = (file) => {
-        if (!file.name.match(/\.(xls|xlsx)$/)) {
-          alert("엑셀 파일(.xls, .xlsx)만 가능합니다.");
-          return;
-        }
-
-        showLoading();
-
-        const kb = (file.size / 1024).toFixed(1);
-        fileName.innerHTML = `
-          <i class="ico ico-excel"></i>
-          ${file.name}
-          <span>${kb}KB</span>
-        `;
-        resultBox.style.display = "inline-flex";
-        beforeBox.style.display = "none";
-        dropArea.classList.add('dragover');
-
-        setTimeout(() => {
-          hideLoading(); // 실제 업로드 완료 시점에 바꿔야 함
-        }, 3000);
-      };
-
-      // 클릭
-      dropArea.addEventListener("click", () => fileInput.click());
-
-      // 파일 선택
-      fileInput.addEventListener("change", (e) => {
-        if (e.target.files[0]) handleFile(e.target.files[0]);
-      });
-
-      // 드래그 영역 처리
-      dropArea.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        dropArea.classList.add("dragover");
-      });
-
-      dropArea.addEventListener("dragleave", () => {
-        dropArea.classList.remove("dragover");
-      });
-
-      dropArea.addEventListener("drop", (e) => {
-        e.preventDefault();
-        dropArea.classList.remove("dragover");
-        const file = e.dataTransfer.files[0];
-        if (file) {
-          fileInput.files = e.dataTransfer.files;
-          handleFile(file);
-        }
-      });
-
-      // 삭제 버튼
-      deleteBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        fileInput.value = "";
-        resultBox.style.display = "none";
-        beforeBox.style.display = "flex";
       });
     }
 
