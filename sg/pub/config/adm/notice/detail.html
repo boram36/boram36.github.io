@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-date"></i>
+            행사관리
+        </h2>
+        <div class="candidater-wrap f-space gap-25">
+          <div class="candidater-list flex-none">
+            <div class="selectSg-box">
+              <div class="selectSg-cont">
+
+                <a href="./list.html" class="btn bbsView-btn ico"><i class="ico-btn_back"></i>목록으로</a>
+              
+                <div class="candidater-info">
+                  <div class="candidater-info__top f-h-c">
+                    <div class="profile-info">
+                      <b>구월 동네 잔치</b>
+                    </div>
+                  </div>
+                  <!-- e: candidater-info__top -->
+  
+                  <ul class="detail">
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">행      사      일</span>
+                      </div>
+                      <div class="detail-cont">2025.04.12</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">행   사   시  간</span>
+                      </div>
+                      <div class="detail-cont">15:39</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">행   사   지  역</span>
+                      </div>
+                      <div class="detail-cont">경상남도 > 오연군 > 가산면 > 이읍리</div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">행   사   장  소</span>
+                      </div>
+                      <div class="detail-cont">
+                        구월 강당
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">예   상   인   원</span>
+                      </div>
+                      <div class="detail-cont">
+                        300
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">등 록 조 직 원</span>
+                      </div>
+                      <div class="detail-cont">
+                        김지훈
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">등      록      일</span>
+                      </div>
+                      <div class="detail-cont">
+                        2025.04.01
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">내                용</span>
+                      </div>
+                      <div class="detail-cont text-over2">
+                        수월 강당에서 동네 잔치가 열립니다. 수월 강당에서 동네 잔치가 열립니다. 수월 강당에서 동네 잔치가 열립니다. 수월 강당에서 동네 잔치가 열립니다.
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- e: detail -->
+                
+                </div>
+                <div class="btn-wrap f-v-r">
+                  <button type="button" class="btn list-btn btn-red" onclick="openPopup('deletePopup')">삭제</button>
+                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('eventEdit')">행사 수정</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+  <div id="eventEdit" class="popup-layer popup-admin">
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">조직원 정보 수정</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('eventEdit')"><i class="ico-cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <form action="">
+          <div class="form-input">
+            <div class="input-row row row-cols-2">
+              <div>
+                <label class="input-tit" for="name">조직원 이름<span class="required">*</span></label>
+                <div class="input-wrap">
+                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
+                </div>
+              </div>
+              <div>
+                <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
+                <div class="input-wrap input-inner">
+                  <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
+                  <button type="button" class="btn btn-small btn-check btn-disabled">중복<br>확인</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-row row row-cols-2">
+              <div>
+                <div class="input-tit">조직원 성별<span class="required">*</span></div>
+                <div class="checkbox-box radio-wrap">
+                  <div class="checkbox">
+                    <input type="radio" id="gender01" name="gender">
+                    <label for="gender01">남</label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="radio" id="gender02" name="gender">
+                    <label for="gender02">여</label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="input-tit" for="age">조직원 나이<span class="required">*</span></label>
+                <div class="input-wrap">
+                  <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
+                </div>
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="input-row">
+                <label class="input-tit" for="input02">조직원 지역<span class="required">*</span></label>
+                <div class="select-wrap row row-cols-4">
+                  <select name="" id="" class="width-quart" disabled>
+                    <option value="">시/도</option>
+                    <option value="" selected>경상남도</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart" disabled>
+                    <option value="" >시/군/구</option>
+                    <option value="" selected>상도군</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">읍/면/동</option>
+                    <option value="" selected>구월면</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">리</option>
+                    <option value="" selected>이읍리</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-row row row-cols-2">
+              <div>
+                <label class="input-tit" for="name">마스터 권한</label>
+                <div class="checkbox-box f-c-all">
+                  <label class="toggle-switch">
+                      <input type="checkbox" checked>
+                      <span class="slider"></span>
+                    </label>
+                </div>
+              </div>
+              <div>
+                <label class="input-tit" for="name">상태</label>
+                <div class="select-wrap">
+                   <select name="" id="" class="width-quart">
+                    <option value="" selected>정상</option>
+                    <option value="">중지</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-row">
+              <label class="input-tit" for="name">비고</label>
+              <textarea id="candidateBio" placeholder="내용 입력">4월 이후 이사 예정</textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- e: popup-content -->
+     
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('eventEdit')">취소</button>
+          <button type="button" class="btn btn-active">수정</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+
+    </div>
+  </div>
+  <!-- e: 조직원 정보 수정 -->
+
+  <div id="deletePopup" class="popup-layer popupAlert">
+    <div class="popup-backdrop" onclick="closePopup('deletePopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">삭제</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <p>정말 삭제하시겠습니까?</p>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('deletePopup')">취소</button>
+          <button type="button" class="btn bg-red">삭제</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 삭제 팝업 -->
+
+
+
+  <script>
+    // 탭 메뉴
+    document.addEventListener('DOMContentLoaded', () => {
+			const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+		});
+
+  </script>
+
+</body>
+
+</html>
