@@ -37,6 +37,7 @@ $url-bg2:"../../images/adm/";
   &-apply{@include icon-style-adm(20px, 20px , "ico-apply")}
   &-list_delete{@include icon-style-adm(34px, 34px, "ico-list_delete")}
   &-btn_back{@include icon-style-adm(40px, 40px, "ico-back_black")}
+  &-file{@include icon-style-adm(20px, 20px, "ico-file")}
 
 }
 
@@ -570,6 +571,11 @@ input[type=date]{
       @include mobile{
         flex: 1;
       }
+      .selectric-width-big{
+        .selectric{
+          width: 260px;
+        }
+      }
       .selectric{
         width: 120px;
         @include mobile{
@@ -813,7 +819,6 @@ input[type=date]{
       font-weight: inherit;
       @extend .text-over;
       max-width: 140px;
-      margin: 0 auto;
     }
     &.td_setting{
       overflow: unset;
@@ -833,16 +838,13 @@ input[type=date]{
   }
 
   &-footer{
-    padding: 0 30px;
-    height: 81px;
+    padding: 20px 30px;
     position: relative;
     border-top: 1px solid #EAEDEF;
-    @extend .f-h-c;
+    display: flex;
+    flex-direction: column-reverse;
     @include laptop{
-      position: absolute;
-      bottom: -100px;
-      left: 0;
-      width: 100%;
+      
     }
     &__wrap{
       display: flex;
@@ -894,10 +896,6 @@ input[type=date]{
       flex: 1;
       @extend .f-c-all;
       gap: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       z-index: 1;
       .page-btn{
         width: 35px;
@@ -982,6 +980,12 @@ input[type=date]{
   }
   @include mobile{
     padding: 0 20px;
+  }
+  &.table-notice{
+    table-layout: fixed;
+    .tbl-cut{
+      max-width: 100%;
+    }
   }
 }
 
@@ -1156,11 +1160,19 @@ input[type=date]{
       flex-direction: column;
     }
     &-result {
+      &__wrap{
+        gap: 20px;
+        flex-wrap: wrap;
+        overflow-y: auto;
+        height: 100%;
+        align-items: flex-start;
+      }
       border-radius: 10px;
       background: var(--color-primary-0);
       padding: 5px 10px;
       align-items: center;
       gap: 20px;
+      @extend .f-h-c;
       .file-name{
         @extend .f-h-c;
         gap: 10px;
@@ -1334,5 +1346,192 @@ input[type=date]{
 @media screen and (min-width: 1281px) {
   #searchPopup{
     display: none !important;
+  }
+}
+
+// 공지사항 디테일
+.comBox{
+  &-full{
+    .candidater-list{
+      width: 100%;
+    }
+  }
+}
+.com{
+  &-detail{
+    &__top{
+      margin-top: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--color-primary-20);
+      text-align: center;
+      @include mobile{
+        margin-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+    &__tit{
+      font-size: $fs-28;
+      font-weight: 700;
+      line-height: 1.6;
+      @extend .text-over2;
+      @include mobile{
+        font-size: $fs-20;
+      }
+    }
+    &__subTit{
+      margin-top: 10px;
+      font-size: $fs-18;
+      font-weight: 500;
+      color: var(--color-primary-30);
+      @include mobile{
+        font-size: $fs-14;
+      }
+      span{
+        font-size: $fs-18;
+        font-weight: 500;
+        color: var(--color-primary-60);
+        @include mobile{
+          font-size: $fs-14;
+        }
+  
+      }
+    }
+    &__cont{
+      padding: 30px 25px;
+      @include mobile{
+        padding: 20px 15px;
+      }
+      p{
+        font-size: $fs-18;
+        line-height: 2;
+        img{
+          width: auto;
+          max-width: 100%;
+          height: auto !important;
+        }
+        @include mobile{
+          font-size: $fs-16;
+        }
+      }
+    }
+    &__file{
+      > li + li {margin-top: 10px;}
+      .btn-file{
+        border-radius: 10px;
+        background: var(--color-primary-10);
+        height: 40px;
+        padding: 10px;
+        gap: 10px;
+      }
+      .file-tit{
+        gap: 10px;
+        max-width: 95%;
+        span{
+          text-decoration: underline; font-size: $fs-14;
+          @extend .text-over;
+          display: block;
+          width: 100%;
+        }
+      }
+      .file-size{
+        font-size: $fs-14;
+        color: var(--color-primary-60);
+      }
+    }
+  }
+  &-input{
+    .input-row{
+      gap: 20px;
+      padding: 30px;
+      border-radius: 20px;
+      background: var(--color-primary-10);
+      @include mobile{
+        padding: 20px;
+        display: block;
+      }
+    }
+    .input-tit{
+      width: 50px; flex: none;
+      + div{
+        flex: 1;
+      }
+      @include mobile{
+        width: 100%;
+        br{
+          display: none;
+        }
+      }
+    }
+    .excel-upload-area{
+      background-color: #fff;
+      &.dragover {
+        border: 1px solid var(--system-navy-1);
+        background: rgba(30, 37, 75, 0.1);
+      }
+    }
+  }
+}
+
+#map-container{
+  padding: 30px;
+}
+
+.border-box{
+  min-height: 100px;
+  border-radius: 20px;
+  border: 1px solid var(--color-primary-40);
+  padding: 24px 30px;
+}
+
+// 통계
+.stats{
+  &-wrap{
+    .card-top{
+      margin-bottom: 30px;
+      .candidate-box__bottom .rating-tit{
+        flex-wrap: wrap;
+      }
+     
+    }
+    @include pc2{
+      .tab-cont{
+        > .row.row-cols-2{
+          gap: 20px;
+          @include laptop{
+            gap: 0;
+          }
+          > *{
+            width: 100%;
+            flex: none;
+          }
+        }
+      }
+      
+    }
+   
+    .candidate-box__bottom{
+      padding: 0;
+      .rating-bar{
+        height: 20px;
+      }
+    }
+  }
+ 
+}
+// 여백
+.card-space{
+  padding: 30px;
+}
+.tab-menu{
+  &.type02{
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    border-bottom: 0;
+    .tab-btn{
+      &:not(:last-child){
+        border-right: 1px solid var(--color-primary-30);
+      }
+    }
   }
 }
