@@ -8499,4 +8499,8 @@ input[type=date].input-small {
 }
 .tab-menu.type02 .tab-btn:not(:last-child) {
   border-right: 1px solid var(--color-primary-30);
+}
+.tab-menu.title-bar {
+  padding: 20px;
+  text-align: left;
 }/*# sourceMappingURL=admin.css.map */
