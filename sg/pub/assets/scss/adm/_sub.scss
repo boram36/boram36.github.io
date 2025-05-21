@@ -38,6 +38,8 @@ $url-bg2:"../../images/adm/";
   &-list_delete{@include icon-style-adm(34px, 34px, "ico-list_delete")}
   &-btn_back{@include icon-style-adm(40px, 40px, "ico-back_black")}
   &-file{@include icon-style-adm(20px, 20px, "ico-file")}
+  &-floating_gray{@include icon-style(37px, 37px, "ico-floating_gray")}
+  &-file_del{@include icon-style-adm(34px, 34px, "ico-file_del")}
 
 }
 
@@ -348,43 +350,41 @@ input[type=date]{
         padding: 0 18px 18px;
       }
     }
-    .candidater-info{
-      padding: 30px 40px;
-      border-radius: 20px;
-      margin-top: 10px;
-      background: var(--color-primary-10);
+  }
+}
+.candidater-info{
+  padding: 30px 40px;
+  border-radius: 20px;
+  margin-top: 10px;
+  background: var(--color-primary-10);
+  @include mobile{
+    padding: 20px;
+  }
+  &__top{
+    gap: 20px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--color-primary-30);
+  }
+  .profile-img{
+    span{border: 0;}
+  }
+  .profile-info{
+    font-size: 24px;
+    color: var(--color-primary-80);
+    @include mobile{
+      font-size: $fs-20;
+    }
+    b{
+      color: var(--color-primary-100);
+    }
+    span{
+      font-size: 20px;
       @include mobile{
-        padding: 20px;
+        font-size: 16px;
       }
-      &__top{
-        gap: 20px;
-        padding-bottom: 19px;
-        border-bottom: 1px solid var(--color-primary-30);
-      }
-      .profile-img{
-        span{border: 0;}
-      }
-      .profile-info{
-        font-size: 24px;
-        color: var(--color-primary-80);
-        @include mobile{
-          font-size: $fs-20;
-        }
-        b{
-          color: var(--color-primary-100);
-        }
-        span{
-          font-size: 20px;
-          @include mobile{
-            font-size: 16px;
-          }
-        }
-      }
-    
     }
   }
 }
-
 .detail{
   margin-top: 20px;
   > li{
@@ -981,7 +981,7 @@ input[type=date]{
   @include mobile{
     padding: 0 20px;
   }
-  &.table-notice{
+  &.table-full{
     table-layout: fixed;
     .tbl-cut{
       max-width: 100%;
@@ -1130,6 +1130,15 @@ input[type=date]{
     .table-wrap{
       margin-bottom: 0;
     }
+    .popup-cont_wrap{
+      &.row{
+        gap: 20px;
+        .col-4,
+        .col-8{
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -1221,16 +1230,44 @@ input[type=date]{
 
 // card
 .card{
+  .table {
+    width: 100%;
+  }
   &.bg-primary-10{
     background-color: var(--color-primary-10);
     box-shadow: none;
     overflow: unset;
+    
     .table th{
       background-color: var(--color-primary-10);
       border-color: #D7DDE4;
       &:first-child{border-radius: 20px 0 0 0;}
       &:last-child{border-radius: 0 10px 0 0;}
     }
+  }
+  &.card-space{
+    padding: 30px;
+    #map-container{
+      position: relative;
+      padding: 0;
+    }
+    @include mobile{
+      padding: 20px;
+    }
+  }
+ .tab-menu{
+    border-bottom: 0;
+    &.f-c-space{
+      padding-right: 20px;
+    }
+    .btn-wrap{
+      width: auto;
+      margin-top: 0;
+    }
+  }
+  #map-container{
+    position: relative;
+    padding: 30px;
   }
 }
 
@@ -1273,11 +1310,6 @@ input[type=date]{
   }
 }
 
-.card{
-  .tab-menu{
-    border-bottom: 0;
-  }
-}
 .tab-cont__wrap{
   table th{
     border-top: 1px solid #D7DDE4;
@@ -1472,15 +1504,22 @@ input[type=date]{
   }
 }
 
-#map-container{
-  padding: 30px;
-}
 
 .border-box{
   min-height: 100px;
   border-radius: 20px;
   border: 1px solid var(--color-primary-40);
   padding: 24px 30px;
+  @include mobile{
+    min-height: 80px;
+    padding: 15px 20px;
+    .rating-tit__txt{
+      font-size: $fs-14;
+    }
+    .candidate-box__bottom .rating-tit__num{
+      font-size: $fs-20;
+    }
+  }
 }
 
 // 통계
@@ -1491,15 +1530,19 @@ input[type=date]{
       .candidate-box__bottom .rating-tit{
         flex-wrap: wrap;
       }
+      @include mobile{
+        margin-bottom: 20px;
+      }
      
     }
     @include pc2{
       .tab-cont{
-        > .row.row-cols-2{
+        > .row{
           gap: 20px;
-          @include laptop{
-            gap: 0;
-          }
+          .col-7{width: 100%;}
+        }
+        .row.row-cols-2{
+          gap: 20px;
           > *{
             width: 100%;
             flex: none;
@@ -1518,10 +1561,7 @@ input[type=date]{
   }
  
 }
-// 여백
-.card-space{
-  padding: 30px;
-}
+
 .tab-menu{
   &.type02{
     margin-bottom: 20px;
@@ -1532,10 +1572,165 @@ input[type=date]{
       &:not(:last-child){
         border-right: 1px solid var(--color-primary-30);
       }
+      @include mobile{
+        padding: 16px 10px;
+        font-size: $fs-14;
+      }
     }
   }
   &.title-bar{
     padding: 20px;
     text-align: left;
+  }
+}
+
+// 문자
+.message-box{
+  padding: 16px 18px;
+  &__tit{
+    margin-bottom: 10px;
+    .btn.btn-small01{
+      width: 80px;
+    }
+    h3{
+      font-size: 14px;
+    }
+    .checkbox{padding: 0;}
+  }
+  &__cont{
+    padding: 18px 18px;
+    background-color: var(--color-primary-100);
+    border-radius: 10px;
+    height: 307px;
+    display: flex;
+    flex-direction: column;
+    textarea{
+      border: 0;
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
+      font-weight: 400;
+      font-size: $fs-16;
+      height: 100%;
+      overflow-y: auto;
+      color: var(--color-primary-0);
+      &::placeholder{
+        color: var(--color-primary-0);
+        font-weight: 400;
+      }
+    }
+    .byte-count{
+      opacity: .5;
+      margin-top: 10px;
+      color: var(--color-primary-0);
+      text-align: right;
+      b{color: var(--color-primary-0);}
+    }
+  }
+  &__image{
+    margin-top: 25px;
+  }
+  &__info{
+    border-radius: 20px;
+    background: var(--color-primary-10);
+    color: var(--color-primary-80);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px;
+    margin-top: 50px;
+  }
+  &__check{
+    margin-top: 14px;
+    .checkbox{padding: 0;}
+    .checkbox input[type=checkbox] + label:before, 
+    .checkbox input[type=radio] + label:before{width: 22px; min-width: 22px; height: 22px;}
+  }
+}
+
+.message-send__wrap{
+  .card .tab-cont__wrap{
+    padding: 25px 35px;
+  }
+}
+// 메세지 템플릿
+.template{
+  &-grid{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 26px;
+    height: 330px;
+    overflow-y: auto;
+    .btn-addFile{
+      width: 260px;
+      height: 246px;
+      span{
+        display: none;
+      }
+      i{
+        width: 121px;
+        height: 121px;
+      }
+    }
+  }
+  &-item{
+    &.template-add{
+      .message-box__tit{
+        margin-top: 5px;
+        margin-bottom: 13px;
+      }
+    }
+    .message-box__tit{
+      margin-bottom: 3px;
+    }
+    .message-box__cont{
+      width: 260px;
+      height: 246px;
+      background-color: var(--color-primary-90);
+      textarea{
+        font-size: $fs-14;
+      }
+      .byte-count{
+        font-size: $fs-14;
+      }
+    }
+  }
+}
+
+
+
+
+
+// 이미지 파일
+.btn-addFile{
+  border-radius: 10px;
+  border: 1px solid var(--color-primary-20);
+  background: #FFF;
+  width: 80px;
+  height: 80px;
+}
+.add-image{
+  display: flex; flex-wrap: wrap;
+  gap: 10px;
+}
+.file-list{
+  li{
+    position: relative;
+    .img-delBtn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      padding: 0;
+    }
+    img{
+      width: 80px;
+      height: 80px;
+     border-radius: 10px;
+    }
   }
 }

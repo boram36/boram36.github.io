@@ -1102,6 +1102,7 @@ input[type="text"]{
     cursor: pointer;
     background: var(--color-primary-10);
     color: var(--color-primary-60);
+    word-break: keep-all;
     @include mobile{
       font-size: $fs-16;
       padding: 16px 0;
@@ -1109,6 +1110,27 @@ input[type="text"]{
     &.active {
       background: var(--color-primary-0);
       color: var(--color-primary-100);
+    }
+  }
+  &-title{
+    flex: 1;
+    padding: 21px 18px 18px;
+    text-align: center;
+    font-size: $fs-20;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    background: var(--color-primary-0);
+    color: var(--color-primary-100);
+    @include mobile{
+      font-size: $fs-16;
+      padding: 16px 15px;
+    }
+    &.txt-small{
+      font-size: $fs-18;
+      @include mobile{
+        font-size: $fs-16;
+      }
     }
   }
   &-cont{

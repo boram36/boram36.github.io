@@ -200,10 +200,75 @@
       margin-top: 0;
     }
   }
-  .rating-box__wrap{
-    position: relative;
+}
+.rating-box__wrap{
+  position: relative;
+}
+.map-cont{
+    text-align: center;
+    @include mobile{
+      width: 100%;
+      overflow-x: auto;
+    }
   }
-  .scroll-info{
+
+.map-legend {
+  margin-top: 16px;
+  width: 100%;
+  @include mobile{
+    margin-top: 30px;
+  }
+  .legend-label{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    @include mobile{
+      font-size: $fs-12;
+    }
+  }
+  .legend-bar {
+    position: relative;
+    padding-top: 22px;
+    @include mobile{
+      padding-top: 20px;
+    }
+    .legend-value{
+      position: absolute;
+      top: 0;
+      font-size: $fs-12;
+      @include mobile{
+        font-size: 10px;
+      }
+      &.value01{
+        left: 0;
+      }
+      &.value02{
+        right: 0;
+      }
+    }
+    .bar{
+      flex: 1;
+      width: 100%;
+      height: 20px;
+      border-radius: 10px;
+      display: flex;
+      overflow: hidden;
+      @include mobile{
+        font-size: 15px;
+      }
+      span{
+        flex: 1;
+        background-color: var(--point-blue);
+        &:nth-child(1){opacity: .2;}
+        &:nth-child(2){opacity: .4;}
+        &:nth-child(3){opacity: .6;}
+        &:nth-child(4){opacity: .8;}
+      }
+    }
+    
+  }
+}
+.scroll-info{
     position: absolute;
     top: 0;
     left: 0;
@@ -220,72 +285,7 @@
       display: block;
     }
   }
-  .map-cont{
-    text-align: center;
-    @include mobile{
-      width: 100%;
-      overflow-x: auto;
-    }
-       
-  }
 
-  .map-legend {
-    margin-top: 16px;
-    width: 100%;
-    @include mobile{
-      margin-top: 30px;
-    }
-    .legend-label{
-      font-weight: 500;
-      margin-bottom: 5px;
-      display: block;
-      @include mobile{
-        font-size: $fs-12;
-      }
-    }
-    .legend-bar {
-      position: relative;
-      padding-top: 22px;
-      @include mobile{
-        padding-top: 20px;
-      }
-      .legend-value{
-        position: absolute;
-        top: 0;
-        font-size: $fs-12;
-        @include mobile{
-          font-size: 10px;
-        }
-        &.value01{
-          left: 0;
-        }
-        &.value02{
-          right: 0;
-        }
-      }
-      .bar{
-        flex: 1;
-        width: 100%;
-        height: 20px;
-        border-radius: 10px;
-        display: flex;
-        overflow: hidden;
-        @include mobile{
-          font-size: 15px;
-        }
-        span{
-          flex: 1;
-          background-color: var(--point-blue);
-          &:nth-child(1){opacity: .2;}
-          &:nth-child(2){opacity: .4;}
-          &:nth-child(3){opacity: .6;}
-          &:nth-child(4){opacity: .8;}
-        }
-      }
-     
-    }
-  }
-}
 .hidden{
   display: none;
 }

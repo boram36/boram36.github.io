@@ -581,6 +581,8 @@ body{
 
 .row { display: flex; flex-wrap: wrap;  margin-right: calc(-.5 * var(--gutter-x)); margin-left: calc(-.5 * var(--gutter-x))}
 .row>* { flex-shrink: 0; width: 100%; max-width: 100%; padding-right: calc(var(--gutter-x) * .5); padding-left: calc(var(--gutter-x) * .5); }
+.cols-2 { display: flex; flex-direction: column;  margin-top: calc(-.5 * var(--gutter-x)); margin-bottom: calc(-.5 * var(--gutter-x))}
+.cols-2>* { flex-shrink: 0; width: 100%; max-width: 100%; padding-top: calc(var(--gutter-x) * .5); padding-bottom: calc(var(--gutter-x) * .5); }
 .col { flex: 1 0 0%}
 .row-cols-auto>* { flex: 0 0 auto; width: auto}
 .row-cols-1>* { flex: 0 0 auto; width: 100%}
@@ -798,6 +800,24 @@ body{
 
 form .row{margin-right: calc(-.5 * var(--gutter-x2)); margin-left: calc(-.5 * var(--gutter-x2))}
 form .row>* { padding-right: calc(var(--gutter-x2) * .5); padding-left: calc(var(--gutter-x2) * .5); }
+
+@include laptop{
+  .tab-cont{
+    .col-1 { flex: 0 0 auto; width: 100%}
+    .col-2 { flex: 0 0 auto; width: 100%}
+    .col-3 { flex: 0 0 auto; width: 100%}
+    .col-4 { flex: 0 0 auto; width: 100%}
+    .col-5 { flex: 0 0 auto; width: 100%}
+    .col-6 { flex: 0 0 auto; width: 100%}
+    .col-7 { flex: 0 0 auto; width: 100%}
+    .col-8 { flex: 0 0 auto; width: 100%}
+    .col-9 { flex: 0 0 auto; width: 100%}
+    .col-10 { flex: 0 0 auto; width: 100%}
+    .col-11 { flex: 0 0 auto; width: 100%}
+    .col-12 { flex: 0 0 auto; width: 100%}
+    .row-cols-2 > *{width: 100%;}
+  }
+}
 
 @include mobile{
   form .row {
