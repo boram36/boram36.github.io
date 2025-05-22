@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+ 
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+  <link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li >
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-message"></i>
+          문자발송
+        </h2>
+
+        <!-- 문자 발송 템플릿 UI -->
+        <div class="message-send__wrap">
+          <div class="tab-menu type02">
+            <button type="button" class="tab-btn active" data-index="0">문자 발송</button>
+            <button type="button" class="tab-btn" data-index="1">문자 발송내역</button>
+            <button type="button" class="tab-btn" data-index="2">문자 충전</button>
+          </div>
+          <div class="tab-cont__wrap">
+            <div class="tab-cont active" data-index="0">
+              <div class="row row-cols-2">
+                <div class="col-3">
+                  <div class="card message-box">
+                    <div class="message-box__tit f-c-space">
+                     <h3>미리보기</h3>
+                      <button type="button" class="btn btn-small01 btn-center btn-special">특수문자</button>
+                      <div class="char-popup" id="charPopup">
+                        <div class="popup-header">
+                          <h2 class="popup-title">특수문자 선택</h2>
+                          <button type="button" class="btn-close ico" onclick="closeCharPopup('')"><i class="ico-popup_cancel"></i></button>
+                        </div>
+                        <div class="char-grid">
+                          <button class="char">★</button>
+                          <button class="char">☆</button>
+                          <button class="char">☎</button>
+                          <button class="char">☏</button>
+                          <button class="char">☜</button>
+                          <button class="char">☞</button>
+                          <button class="char">※</button>
+                          <button class="char">♥</button>
+                          <button class="char">♡</button>
+                          <button class="char">♣</button>
+                          <button class="char">♠</button>
+                          <button class="char">♤</button>
+                          <button class="char">♧</button>
+                          <button class="char">♨</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="message-box__cont">
+                      <textarea placeholder="내용 입력" maxlength="2000"></textarea>
+                      <div class="byte-count"><b>0</b> / 2000 Bytes</div>
+                    </div>
+                    <div class="message-box__check">
+                      <div class="checkbox">
+                        <input type="checkbox" id="addTxt" name="addTxt">
+                        <label for="addTxt">[추가] 무료거부 080-1234-5678</label>
+                      </div>
+                    </div>
+
+                    <div class="message-box__image">
+                      <div class="message-box__tit">
+                        <h3>이미지 추가</h3>
+                      </div>
+                      <div class="add-image">
+                        <button type="button" class="btn btn-addFile ico" title="" onclick='$("#ATFILE0_").click();'><i class="ico-floating_gray"></i></button>   
+                        <input type="file"  id="ATFILE0_" name="ATFILE0_" style="display:none;"  accept="image/*"/>
+                        <ul id="fileList" class="file-list">
+                          <li id="" style="">
+                            <input type="file" id="" name="" style="display:none;" multiple="" accept=".jpg, .png, .bmp, .jpeg">
+                            <input type="text" id="" name="" readonly="" disbaled="" style="display: none;">
+                            <input type="hidden" id="" value="1">
+                            <button type="button" class="img-delBtn ico" title="삭제" onclick="fnDelSelectorFile()">
+                              <i class="ico-file_del"></i>
+                            </button> 
+                            <img src="../../../assets/images/test/message-test.png" alt="">
+                          </li>
+                        </ul>                   
+                      </div>
+                    </div>
+                    <div class="message-box__info">
+                      발신번호 : 070-1234-5678<br>
+                      발신번호 변경 시, 관리자에게 꼭 문의주세요.
+                    </div>
+                  
+                  </div>
+                </div>
+
+                <div class="col-9 col-group">
+                  <div class="card">
+                    <div class="tab-layout">
+                      <div class="tab-menu tab-menu__control f-c-space">
+                        <div class="tab-title txt-l">문구 템플릿</div>
+                      </div>
+                      <div class="tab-cont__wrap">
+                        <div class="tab-control">
+                          <button type="button" class="btn list-btn btn-active">템플릿 저장</button>
+                        </div>
+                        <div class="template-grid">
+
+                          <div class="template-item template-add">
+                            <div class="message-box__tit">
+                              <h3>템플릿 추가</h3>
+                            </div>
+                            <button type="button" class="btn btn-addFile ico" title="" onclick='openPopup("addTemplate")'>
+                              <i class="ico-floating_gray"></i>
+                              <span>+ 템플릿 추가</span>
+                            </button>   
+                          </div>
+                          <!-- 템플릿 추가 -->
+
+                          <!-- 템플릿 항목 반복 -->
+                          <div class="template-item">
+                              <div class="message-box__tit f-c-space">
+                                <div class="checkbox">
+                                  <input type="radio" id="TEMP_MESS01" name="TEMP_MESS">
+                                  <label for="TEMP_MESS01">템플릿1</label>
+                                </div>
+                                <div class="f-h-c gap-5">
+                                  <button type="button" class="btn btn-small01 btn-center">특수문자</button>
+                                  <button type="button" class="btn btn-delete ico">
+                                    <i class="ico-list_delete"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="message-box__cont">
+<textarea placeholder="내용 입력" maxlength="2000">후보 캠프1,
+안녕하세요, 주민 여러분.
+○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]을 약속드립니다.
+실천하는 후보 ○○○에게 소중한 한 표를 부탁드립니다.
+감사합니다!
+</textarea>
+                                <div class="byte-count"><b>0</b> / 2000 Bytes</div>
+                              </div>
+                          </div>
+                          <div class="template-item">
+                              <div class="message-box__tit f-c-space">
+                                <div class="checkbox">
+                                  <input type="radio" id="TEMP_MESS02" name="TEMP_MESS">
+                                  <label for="TEMP_MESS02">템플릿2</label>
+                                </div>
+                                <div class="f-h-c gap-5">
+                                  <button type="button" class="btn btn-small01 btn-center">특수문자</button>
+                                  <button type="button" class="btn btn-delete ico">
+                                    <i class="ico-list_delete"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="message-box__cont">
+                                <textarea placeholder="내용 입력" maxlength="2000">후보 캠프1,
+안녕하세요, 주민 여러분.
+○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]을 약속드립니다.
+실천하는 후보 ○○○에게 소중한 한 표를 부탁드립니다.
+감사합니다!</textarea>
+                                <div class="byte-count"><b>0</b> / 2000 Bytes</div>
+                              </div>
+                          </div>
+                          <div class="template-item">
+                              <div class="message-box__tit f-c-space">
+                                <div class="checkbox">
+                                  <input type="radio" id="TEMP_MESS03" name="TEMP_MESS">
+                                  <label for="TEMP_MESS03">템플릿3</label>
+                                </div>
+                                <div class="f-h-c gap-5">
+                                  <button type="button" class="btn btn-small01 btn-center">특수문자</button>
+                                  <button type="button" class="btn btn-delete ico">
+                                    <i class="ico-list_delete"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="message-box__cont">
+                                <textarea placeholder="내용 입력" maxlength="2000"></textarea>
+                                <div class="byte-count"><b>0</b> / 2000 Bytes</div>
+                              </div>
+                          </div>
+                          <div class="template-item">
+                              <div class="message-box__tit f-c-space">
+                                <div class="checkbox">
+                                  <input type="radio" id="TEMP_MESS04" name="TEMP_MESS">
+                                  <label for="TEMP_MESS04">템플릿4</label>
+                                </div>
+                                <div class="f-h-c gap-5">
+                                  <button type="button" class="btn btn-small01 btn-center">특수문자</button>
+                                  <button type="button" class="btn btn-delete ico">
+                                    <i class="ico-list_delete"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="message-box__cont">
+                                <textarea placeholder="내용 입력" maxlength="2000"></textarea>
+                                <div class="byte-count"><b>0</b> / 2000 Bytes</div>
+                              </div>
+                          </div>
+                          <div class="template-item">
+                              <div class="message-box__tit f-c-space">
+                                <div class="checkbox">
+                                  <input type="radio" id="TEMP_MESS05" name="TEMP_MESS">
+                                  <label for="TEMP_MESS05">템플릿5</label>
+                                </div>
+                                <div class="f-h-c gap-5">
+                                  <button type="button" class="btn btn-small01 btn-center">특수문자</button>
+                                  <button type="button" class="btn btn-delete ico">
+                                    <i class="ico-list_delete"></i>
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="message-box__cont">
+                                <textarea placeholder="내용 입력" maxlength="2000"></textarea>
+                                <div class="byte-count"><b>0</b> / 2000 Bytes</div>
+                              </div>
+                          </div>
+                          <!-- 템플릿 항목 반복 끝 -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="tab-layout">
+                      <div class="tab-menu tab-menu__control f-c-space">
+                        <div class="tab-title txt-l">수신번호(43)</div>
+                      </div>
+                      <div class="tab-cont__wrap">
+                        <div class="tab-control f-h-c gap-20">
+                          <div class="checkbox-wrap flex gap-10">
+                            <div class="checkbox">
+                              <input type="checkbox" id="sendVoter" name="sendVoter" class="sendCheck">
+                              <label for="sendVoter">전체 유권자 발송</label>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" id="sendCamp" name="sendCamp" class="sendCheck">
+                              <label for="sendCamp">전체 조직원 발송</label>
+                            </div>
+                          </div>
+                          <button type="button" class="btn list-btn btn-active" onclick="openPopup('addReciveNm')">+ 수신번호 추가</button>
+                        </div>
+                       
+                        <div class="table-wrap bg-primary-10 radius-20">
+                          <div class="table-scroll2 pc-ver">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>번호</th>
+                                  <th>구분</th>
+                                  <th>이름</th>
+                                  <th>성별</th>
+                                  <th>나이</th>
+                                  <th>수신번호</th>
+                                  <th>지역</th>
+                                  <th>삭제</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td class="td_num width-100">43</td>
+                                  <td class="td_category width-80">유권자</td>
+                                  <td class="td_name width-100">
+                                    <input type="text" value="박종식" class="width-full input-small">
+                                  </td>
+                                  <td class="td_gender">남</td>
+                                  <td class="td_age">67</td>
+                                  <td class="td_tel width-180"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                                  <td class="td_region width-450">
+                                    경상남도 > 호고군 > 이호읍 > 시읍리
+                                  </td>
+                                  <td class="td_delete width-80">
+                                    <button type="button" class="btn btn-delete btn-center ico">
+                                      <i class="ico-list_delete"></i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="td_num width-100">43</td>
+                                  <td class="td_category width-80">유권자</td>
+                                  <td class="td_name width-100">
+                                    <input type="text" value="박종식" class="width-full input-small">
+                                  </td>
+                                  <td class="td_gender">남</td>
+                                  <td class="td_age">67</td>
+                                  <td class="td_tel width-180"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                                  <td class="td_region width-450">
+                                    경상남도 > 호고군 > 이호읍 > 시읍리
+                                  </td>
+                                  <td class="td_delete width-80">
+                                    <button type="button" class="btn btn-delete btn-center ico">
+                                      <i class="ico-list_delete"></i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                           
+                            </table>
+                          </div>
+                          <!-- e: pc용 테이블 -->
+                
+                          <ul class="table mo-ver">
+                            <li class="table-list comBox-item">
+                              <div class="comBox-item__cont">
+                                <div class="f-c-space">
+                                  <span class="td_num">132</span>
+                                  <div class="f-h-c gap-10">
+                                    <div class="status-tag status-normal">등록 가능</div>
+                                    <div class="setting-menu">
+                                      <button class="btn btn-setting btn-center">
+                                        <i class="ico-setting"></i>
+                                      </button>
+                                      <ul class="setting-drop">
+                                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
+                                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                                      </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-delete btn-center ico">
+                                      <i class="ico-list_delete"></i>
+                                    </button>
+                
+                                  </div>
+                                </div>
+                                <div class="profile f-c-space">
+                                  <a href="./detail.html" class="tit">
+                                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                                  </a>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </li>
+                            <li class="table-list comBox-item">
+                              <div class="comBox-item__cont">
+                                <div class="f-c-space">
+                                  <span class="td_num">132</span>
+                                  <div class="f-h-c gap-10">
+                                    <div class="status-tag status-normal">등록 가능</div>
+                                    <div class="setting-menu">
+                                      <button class="btn btn-setting btn-center">
+                                        <i class="ico-setting"></i>
+                                      </button>
+                                      <ul class="setting-drop">
+                                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
+                                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                                      </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-delete btn-center ico">
+                                      <i class="ico-list_delete"></i>
+                                    </button>
+                
+                                  </div>
+                                </div>
+                                <div class="profile f-c-space">
+                                  <a href="./detail.html" class="tit">
+                                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                                  </a>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </li>
+                            <li class="table-list comBox-item">
+                              <div class="comBox-item__cont">
+                                <div class="f-c-space">
+                                  <span class="td_num">132</span>
+                                  <div class="f-h-c gap-10">
+                                    <div class="status-tag status-stop">지역 재설정</div>
+                                    <div class="setting-menu">
+                                      <button class="btn btn-setting btn-center">
+                                        <i class="ico-setting"></i>
+                                      </button>
+                                      <ul class="setting-drop">
+                                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
+                                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                                      </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-delete btn-center ico">
+                                      <i class="ico-list_delete"></i>
+                                    </button>
+                
+                                  </div>
+                                </div>
+                                <div class="profile f-c-space">
+                                  <a href="./detail.html" class="tit">
+                                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                                  </a>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </li>
+                            <li class="table-list comBox-item">
+                              <div class="comBox-item__cont">
+                                <div class="f-c-space">
+                                  <span class="td_num">132</span>
+                                  <div class="f-h-c gap-10">
+                                    <div class="status-tag status-stop">지역 재설정</div>
+                                    <div class="setting-menu">
+                                      <button class="btn btn-setting btn-center">
+                                        <i class="ico-setting"></i>
+                                      </button>
+                                      <ul class="setting-drop">
+                                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
+                                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                                      </ul>
+                                    </div>
+                                    <button type="button" class="btn btn-delete btn-center ico">
+                                      <i class="ico-list_delete"></i>
+                                    </button>
+                
+                                  </div>
+                                </div>
+                                <div class="profile f-c-space">
+                                  <a href="./detail.html" class="tit">
+                                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                                  </a>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </li>
+                          </ul>
+                          <!-- e: mobile용 테이블 -->
+                        
+                        </div>
+
+                        <div class="tab-footer f-c-space">
+                          <div class="tab-footer__l f-h-c gap-10">
+                            <div class="checkbox">
+                              <input type="checkbox" id="reserveSend" name="reserveSend">
+                              <label for="reserveSend">예약발송</label>
+                            </div>
+                            <div class="date-wrap">
+                              <input class="datepicker-here input-small" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="2025.05.07" autocomplete="off" title="" maxlength="10">
+                            </div>
+                            <div class="select-wrap type02">
+                              <select name="" id="" class="">
+                                <option value="">시</option>
+                                <option value="" selected>오전 12시</option>
+                              </select>
+                      
+                              <select name="" id="" class="">
+                                <option value="">분</option>
+                                <option value="" selected>30분</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="tab-footer__r f-h-c gap-15">
+                            <div class="send-txt">남은 문자 수 <b>3건</b></div>
+                            <div class="btn-wrap f-v-r">
+                              <button type="button" class="btn list-btn btn-basic02" onclick="moveToTab(2)">문자 충전</button>
+                              <button type="button" class="btn list-btn btn-navy" onclick="openPopup('sendMsg')">문자 발송</button>
+                              <!-- 눌렀을때 바로 안내 팝업뜸. 전체 인원수가 많으면 예 3천명이 넘는다면 다 로딩하기에는 너무 길어서 리스트 부르지 않고 바로 발송 -->
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+  <div id="addReciveNm" class="popup-layer popup-admin popup-big">
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">수신번호 추가</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('addReciveNm')"><i class="ico-cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+         <!-- 검색 필터 -->
+         <div class="search-option">
+          <div class="search-row flex">
+            <div class="search-row__tit">검색옵션</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">분류</label>
+                <div class="radio-wrap">
+                  <div class="checkbox">
+                    <input type="radio" id="cate01" name="category">
+                    <label for="cate01">조직원</label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="radio" id="cate02" name="category">
+                    <label for="cate02">유권자</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-row search-row__input flex">
+            <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">이름</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">휴대폰번호</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
+                </div>
+              </div>
+            </div>
+            <div class="search-row__button">
+              <div class="btn-wrap">
+                <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+                <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+       
+        <div class="board-list">
+          <div class="header">
+            전체(34) 
+          </div>
+          <div class="card table-wrap bg-primary-10">
+            <div class="table-scroll2 pc-ver">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="checkbox">
+                        <input type="checkbox" id="campCheckAll" name="campCheck">
+                        <label for="campCheckAll"></label>
+                      </div>
+                    </th>
+                    <th>번호</th>
+                    <th>구분</th>
+                    <th>이름</th>
+                    <th>성별</th>
+                    <th>나이</th>
+                    <th>수신번호</th>
+                    <th>지역</th>
+                    <th>삭제</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- TODO 리스트가 없을 경우 -->
+                  <!-- <tr class="no-list">
+                    <td colspan="10">엑셀 파일을 등록해 주세요.</td>
+                  </tr> -->
+  
+                  <!-- 리스트가 있을 경우 -->
+                  <!-- 지역 재설정일 경우 : tr클래스에 error-region, 휴대폰번호 중복일 경우: tr클래스에 error-phone -->
+                  <tr>
+                    <td class="td_chk width-80">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01" name="campCheck">
+                        <label for="campChec01"></label>
+                      </div>
+                    </td>
+                    <td class="td_num width-100">43</td>
+                    <td class="td_category width-80">유권자</td>
+                    <td class="td_name width-100">
+                      <input type="text" value="박종식" class="width-full input-small">
+                    </td>
+                    <td class="td_gender">남</td>
+                    <td class="td_age">67</td>
+                    <td class="td_tel width-180"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                    <td class="td_region width-450">
+                      경상남도 > 호고군 > 이호읍 > 시읍리
+                    </td>
+                    <td class="td_delete width-80">
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td_chk width-80">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01" name="campCheck">
+                        <label for="campChec01"></label>
+                      </div>
+                    </td>
+                    <td class="td_num width-100">43</td>
+                    <td class="td_category width-80">유권자</td>
+                    <td class="td_name width-100">
+                      <input type="text" value="박종식" class="width-full input-small">
+                    </td>
+                    <td class="td_gender">남</td>
+                    <td class="td_age">67</td>
+                    <td class="td_tel width-180"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                    <td class="td_region width-450">
+                      경상남도 > 호고군 > 이호읍 > 시읍리
+                    </td>
+                    <td class="td_delete width-80">
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td_chk width-80">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01" name="campCheck">
+                        <label for="campChec01"></label>
+                      </div>
+                    </td>
+                    <td class="td_num width-100">43</td>
+                    <td class="td_category width-80">유권자</td>
+                    <td class="td_name width-100">
+                      <input type="text" value="박종식" class="width-full input-small">
+                    </td>
+                    <td class="td_gender">남</td>
+                    <td class="td_age">67</td>
+                    <td class="td_tel width-180"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                    <td class="td_region width-450">
+                      경상남도 > 호고군 > 이호읍 > 시읍리
+                    </td>
+                    <td class="td_delete width-80">
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+             
+              </table>
+            </div>
+            <!-- e: pc용 테이블 -->
+  
+            <ul class="table mo-ver">
+              <li class="table-list comBox-item">
+                <div class="comBox-item__cont">
+                  <div class="f-c-space">
+                    <span class="td_num">132</span>
+                    <div class="f-h-c gap-10">
+                      <div class="status-tag status-normal">등록 가능</div>
+                      <div class="setting-menu">
+                        <button class="btn btn-setting btn-center">
+                          <i class="ico-setting"></i>
+                        </button>
+                        <ul class="setting-drop">
+                          <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                        </ul>
+                      </div>
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+  
+                    </div>
+                  </div>
+                  <div class="profile f-c-space">
+                    <div class="tit">
+                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    </div>
+                    <div class="td-txt f-c-all">
+                      010-1234-5678
+                    </div>
+                  </div>
+                  
+                </div>
+              </li>
+              <li class="table-list comBox-item">
+                <div class="comBox-item__cont">
+                  <div class="f-c-space">
+                    <span class="td_num">132</span>
+                    <div class="f-h-c gap-10">
+                      <div class="status-tag status-normal">등록 가능</div>
+                      <div class="setting-menu">
+                        <button class="btn btn-setting btn-center">
+                          <i class="ico-setting"></i>
+                        </button>
+                        <ul class="setting-drop">
+                          <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                        </ul>
+                      </div>
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+  
+                    </div>
+                  </div>
+                  <div class="profile f-c-space">
+                    <div class="tit">
+                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    </div>
+                    <div class="td-txt f-c-all">
+                      010-1234-5678
+                    </div>
+                  </div>
+                  
+                </div>
+              </li>
+              <li class="table-list comBox-item">
+                <div class="comBox-item__cont">
+                  <div class="f-c-space">
+                    <span class="td_num">132</span>
+                    <div class="f-h-c gap-10">
+                      <div class="status-tag status-normal">등록 가능</div>
+                      <div class="setting-menu">
+                        <button class="btn btn-setting btn-center">
+                          <i class="ico-setting"></i>
+                        </button>
+                        <ul class="setting-drop">
+                          <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                        </ul>
+                      </div>
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+  
+                    </div>
+                  </div>
+                  <div class="profile f-c-space">
+                    <div class="tit">
+                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    </div>
+                    <div class="td-txt f-c-all">
+                      010-1234-5678
+                    </div>
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+            <!-- e: mobile용 테이블 -->
+          
+          </div>
+        </div>
+     
+        
+      </div>
+      <!-- e: popup-content -->
+     
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('addReciveNm')">취소</button>
+          <button type="button" class="btn btn-active">추가</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+
+    </div>
+
+  </div>
+  <!-- e: 수신번호 추가 -->
+
+  <div id="sendMsg" class="popup-layer popupAlert">
+    <div class="popup-backdrop" onclick="closePopup('sendMsg')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">문자 발송</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <p><b>전체 유권자(234명)</b> 문자를 발송합니다.</p>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('sendMsg')">취소</button>
+          <button type="button" class="btn bg-black">발송</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 삭제 팝업 -->
+
+
+  <div id="deletePopup" class="popup-layer popupAlert">
+    <div class="popup-backdrop" onclick="closePopup('deletePopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">삭제</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <p>정말 삭제하시겠습니까?</p>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('deletePopup')">취소</button>
+          <button type="button" class="btn bg-red">삭제</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 삭제 팝업 -->
+
+
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    initSettingMenu();
+    tabMenu();
+    messageByte();
+    tabActive();
+    sendCheck();
+  });
+
+  document.querySelectorAll('.btn-special').forEach(button => {
+  button.addEventListener('click', function () {
+    const popup = document.getElementById('charPopup');
+
+    const rect = this.getBoundingClientRect();
+    popup.style.display = 'block';
+  });
+});
+
+function closeCharPopup() {
+  document.getElementById('charPopup').style.display = 'none';
+}
+
+document.addEventListener('click', function (e) {
+  const popup = document.getElementById('charPopup');
+  if (!popup.contains(e.target) && !e.target.classList.contains('btn-special')) {
+    popup.style.display = 'none';
+  }
+});
+
+
+  function initSettingMenu() {
+    const menus = document.querySelectorAll('.setting-menu');
+    menus.forEach(menu => {
+      const btn = menu.querySelector('.btn-setting');
+      const dropdown = menu.querySelector('.setting-drop');
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menus.forEach(m => {
+          const d = m.querySelector('.setting-drop');
+          if (d !== dropdown) d.classList.remove('active');
+        });
+        dropdown.classList.toggle('active');
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.setting-drop.active').forEach(drop => {
+        drop.classList.remove('active');
+      });
+    });
+  }
+
+  function tabMenu() {
+    const buttons = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-cont');
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const index = button.getAttribute('data-index');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        contents.forEach(content => {
+          if (content.getAttribute('data-index') === index) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+        });
+      });
+    });
+  }
+
+  function moveToTab(index) {
+    const buttons = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-cont');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    contents.forEach(cont => cont.classList.remove('active'));
+
+    const targetBtn = document.querySelector(`.tab-btn[data-index="${index}"]`);
+    const targetCont = document.querySelector(`.tab-cont[data-index="${index}"]`);
+
+    if (targetBtn && targetCont) {
+      targetBtn.classList.add('active');
+      targetCont.classList.add('active');
+    }
+  }
+
+
+function messageByte() {
+  const messageBoxes = document.querySelectorAll('.message-box__cont');
+
+  messageBoxes.forEach(box => {
+    const textarea = box.querySelector('textarea');
+    const byteCount = box.querySelector('.byte-count b');
+
+    if (!textarea || !byteCount) return;
+
+    // 입력 시 바이트 수 갱신
+    textarea.addEventListener('input', function () {
+      updateByteCount(textarea, byteCount);
+    });
+
+    // 초기값 바이트 수 계산
+    updateByteCount(textarea, byteCount);
+  });
+
+  function updateByteCount(textarea, byteCount) {
+    const text = textarea.value;
+    const bytes = getByteLength(text);
+    byteCount.textContent = `${bytes}`;
+  }
+
+  function getByteLength(str) {
+    let byte = 0;
+    for (let i = 0; i < str.length; i++) {
+      const ch = str.charCodeAt(i);
+      byte += (ch > 0x7f) ? 2 : 1;
+    }
+    return byte;
+  }
+}
+
+function tabActive() {
+  const tabMenus = document.querySelectorAll('.tab-menu__control');
+
+  tabMenus.forEach(menu => {
+    menu.addEventListener('click', function () {
+      const cont = menu.nextElementSibling;
+      cont.classList.toggle('open');
+      menu.classList.toggle('active'); // ← 여기를 menu로 바꿔야 클래스 잘 붙어요
+    });
+  });
+}
+
+
+
+function sendCheck(){
+  const checkboxes = document.querySelectorAll('.checkbox .sendCheck');
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      const wrapper = checkbox.closest('.checkbox');
+      wrapper.classList.toggle('on', checkbox.checked);
+    });
+
+    // 페이지 로드 시 초기 상태도 반영 (체크된 상태로 시작할 경우)
+    const wrapper = checkbox.closest('.checkbox');
+    wrapper.classList.toggle('on', checkbox.checked);
+  });
+}
+
+
+$('.datepicker-here').datepicker({
+    autoClose: true,
+    position: 'top left', 
+    onSelect: function (formattedDate, date, inst) {
+      inst.hide();
+    }
+  });
+
+</script>
+
+
+
+</body>
+
+</html>

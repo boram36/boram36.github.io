@@ -115,6 +115,7 @@ input[type=date]{
     border-radius: 10px;
     border: 1px solid var(--color-primary-20);
     background: var(--color-primary-0);
+    font-size: $fs-14;
   }
 }
 
@@ -638,7 +639,7 @@ input[type=date]{
     &__tit{
       font-weight: 700;
       width: 60px;
-      margin-top: 11px;
+      margin-top: 8px;
       @include laptop{
         margin-top: 0;
       }
@@ -728,6 +729,7 @@ input[type=date]{
     max-height: 48vh;
     overflow-x: hidden;
     overflow-y: auto;
+    width: 100%;
     thead{
       position: sticky;
       top: 0;
@@ -1264,6 +1266,36 @@ input[type=date]{
       width: auto;
       margin-top: 0;
     }
+    &__control{
+      @include laptop{
+        cursor: pointer;
+        position: relative;
+        &::before,
+        &::after{
+          content: '';
+          width: 14px;
+          height: 2px;
+          background: var(--color-primary-100);
+          transform: rotate(-45deg);
+          position: absolute;
+          right: 30px;
+          top: 50%;
+          transition: transform .4s;
+        }
+        &::after{
+          transform: rotate(45deg);
+          margin-right: 9px;
+        }
+        &.active{
+          &::before{
+            transform: rotate(45deg);
+          }
+          &::after{
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
   }
   #map-container{
     position: relative;
@@ -1582,6 +1614,23 @@ input[type=date]{
     padding: 20px;
     text-align: left;
   }
+  &.f-c-space{
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  
+      .checkbox-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+  
+      .btn {
+        width: 100%; // 버튼을 전체 너비로
+      }
+    }
+  }
 }
 
 // 문자
@@ -1589,6 +1638,7 @@ input[type=date]{
   padding: 16px 18px;
   &__tit{
     margin-bottom: 10px;
+    position: relative;
     .btn.btn-small01{
       width: 80px;
     }
@@ -1614,6 +1664,7 @@ input[type=date]{
       height: 100%;
       overflow-y: auto;
       color: var(--color-primary-0);
+      line-height: 1.4;
       &::placeholder{
         color: var(--color-primary-0);
         font-weight: 400;
@@ -1650,9 +1701,68 @@ input[type=date]{
 
 .message-send__wrap{
   .card .tab-cont__wrap{
+    position: static;
     padding: 25px 35px;
+    display: block;
+    @include laptop(){
+      display: none;
+
+      &.open {
+        display: block;
+      }
+    }
+    .table th{
+      border-top: 0;
+    }
+  }
+  .tab-title{
+    padding: 21px 35px 18px;
+    width: 100%;
+  }
+  .tab-layout{
+    position: relative;
+  }
+  .tab-control{
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    .checkbox{
+      border-radius: 10px;
+      border: 1px solid var(--color-primary-40);
+      background: var(--color-primary-10);
+      padding: 6px 14px;
+      &.on{
+        border-color: var(--color-100);
+      }
+    }
+    @include laptop{
+      position: static;
+    }
+  }
+  .tab-footer{
+    margin-top: 20px;
+    input,
+    .select-wrap .selectric-wrapper{width: 120px;}
+    .btn-wrap{
+      margin-top: 0;
+    }
+    .send-txt{
+      white-space: nowrap;
+      font-size: $fs-14;
+      color: var(--color-primary-80);
+      b{color: inherit;}
+    }
+  }
+  .table{
+    input{
+      font-size: 14px;
+    }
+    &-radius-20{
+      border-radius: 20px;
+    }
   }
 }
+
 // 메세지 템플릿
 .template{
   &-grid{
@@ -1700,6 +1810,37 @@ input[type=date]{
 }
 
 
+
+.char {
+  &-popup{
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 10px;
+    padding: 25px 18px;
+    width: 280px;
+    border-radius: 20px;
+    border: 1px solid var(--color-primary-20);
+    background: var(--color-primary-0);
+    box-shadow: 3px 3px 20px 0px rgba(136, 136, 136, 0.05);
+    display: none;
+    z-index: 1000;
+    .popup-header{
+      padding: 0;
+      border-bottom: 0;
+      .popup-title{text-align: left; font-size: 16px;}
+      .btn-close{top: -20px;}
+    }
+  }
+  &-grid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+  font-size: 22px;
+  font-weight: 700;
+ 
+}
 
 
 

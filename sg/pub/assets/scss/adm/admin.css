@@ -6429,6 +6429,21 @@ form .row > * {
   padding-left: calc(var(--gutter-x2) * 0.5);
 }
 
+.col-group {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.radius-20 {
+  border-radius: 20px;
+}
+
+@media (max-width: 1512px) {
+  .tab-cont .col-5 {
+    width: 100%;
+  }
+}
 @media (max-width: 1280px) {
   .tab-cont .col-1 {
     flex: 0 0 auto;
@@ -6477,6 +6492,9 @@ form .row > * {
   .tab-cont .col-12 {
     flex: 0 0 auto;
     width: 100%;
+  }
+  .tab-cont .row.row-cols-2 {
+    gap: 20px;
   }
   .tab-cont .row-cols-2 > * {
     width: 100%;
@@ -7101,6 +7119,7 @@ input[type=date].input-small {
   border-radius: 10px;
   border: 1px solid var(--color-primary-20);
   background: var(--color-primary-0);
+  font-size: 0.875rem;
 }
 
 /** select **/
@@ -7721,7 +7740,7 @@ input[type=date].input-small {
 .search-row__tit {
   font-weight: 700;
   width: 60px;
-  margin-top: 11px;
+  margin-top: 8px;
 }
 @media (max-width: 1280px) {
   .search-row__tit {
@@ -7821,6 +7840,7 @@ input[type=date].input-small {
   max-height: 48vh;
   overflow-x: hidden;
   overflow-y: auto;
+  width: 100%;
 }
 .table-scroll thead {
   position: sticky;
@@ -8343,6 +8363,33 @@ input[type=date].input-small {
   width: auto;
   margin-top: 0;
 }
+@media (max-width: 1280px) {
+  .card .tab-menu__control {
+    cursor: pointer;
+    position: relative;
+  }
+  .card .tab-menu__control::before, .card .tab-menu__control::after {
+    content: "";
+    width: 14px;
+    height: 2px;
+    background: var(--color-primary-100);
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transition: transform 0.4s;
+  }
+  .card .tab-menu__control::after {
+    transform: rotate(45deg);
+    margin-right: 9px;
+  }
+  .card .tab-menu__control.active::before {
+    transform: rotate(45deg);
+  }
+  .card .tab-menu__control.active::after {
+    transform: rotate(-45deg);
+  }
+}
 .card #map-container {
   position: relative;
   padding: 30px;
@@ -8665,12 +8712,28 @@ input[type=date].input-small {
   padding: 20px;
   text-align: left;
 }
+@media (max-width: 1024px) {
+  .tab-menu.f-c-space, .tab-menu.selectSg-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .tab-menu.f-c-space .checkbox-wrap, .tab-menu.selectSg-top .checkbox-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .tab-menu.f-c-space .btn, .tab-menu.selectSg-top .btn {
+    width: 100%;
+  }
+}
 
 .message-box {
   padding: 16px 18px;
 }
 .message-box__tit {
   margin-bottom: 10px;
+  position: relative;
 }
 .message-box__tit .btn.btn-small01 {
   width: 80px;
@@ -8699,6 +8762,7 @@ input[type=date].input-small {
   height: 100%;
   overflow-y: auto;
   color: var(--color-primary-0);
+  line-height: 1.4;
 }
 .message-box__cont textarea::-moz-placeholder {
   color: var(--color-primary-0);
@@ -8744,7 +8808,70 @@ input[type=date].input-small {
 }
 
 .message-send__wrap .card .tab-cont__wrap {
+  position: static;
   padding: 25px 35px;
+  display: block;
+}
+@media (max-width: 1280px) {
+  .message-send__wrap .card .tab-cont__wrap {
+    display: none;
+  }
+  .message-send__wrap .card .tab-cont__wrap.open {
+    display: block;
+  }
+}
+.message-send__wrap .card .tab-cont__wrap .table th {
+  border-top: 0;
+}
+.message-send__wrap .tab-title {
+  padding: 21px 35px 18px;
+  width: 100%;
+}
+.message-send__wrap .tab-layout {
+  position: relative;
+}
+.message-send__wrap .tab-control {
+  position: absolute;
+  top: 12px;
+  right: 30px;
+}
+.message-send__wrap .tab-control .checkbox {
+  border-radius: 10px;
+  border: 1px solid var(--color-primary-40);
+  background: var(--color-primary-10);
+  padding: 6px 14px;
+}
+.message-send__wrap .tab-control .checkbox.on {
+  border-color: var(--color-100);
+}
+@media (max-width: 1280px) {
+  .message-send__wrap .tab-control {
+    position: static;
+  }
+}
+.message-send__wrap .tab-footer {
+  margin-top: 20px;
+}
+.message-send__wrap .tab-footer input,
+.message-send__wrap .tab-footer .select-wrap .selectric-wrapper {
+  width: 120px;
+}
+.message-send__wrap .tab-footer .btn-wrap {
+  margin-top: 0;
+}
+.message-send__wrap .tab-footer .send-txt {
+  white-space: nowrap;
+  font-size: 0.875rem;
+  color: var(--color-primary-80);
+}
+.message-send__wrap .tab-footer .send-txt b {
+  color: inherit;
+}
+.message-send__wrap .table input {
+  font-size: 14px;
+}
+.message-send__wrap .table-radius-20 {
+  border-radius: 20px;
 }
 
 .template-grid {
@@ -8784,6 +8911,41 @@ input[type=date].input-small {
 }
 .template-item .message-box__cont .byte-count {
   font-size: 0.875rem;
+}
+
+.char {
+  font-size: 22px;
+  font-weight: 700;
+}
+.char-popup {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 10px;
+  padding: 25px 18px;
+  width: 280px;
+  border-radius: 20px;
+  border: 1px solid var(--color-primary-20);
+  background: var(--color-primary-0);
+  box-shadow: 3px 3px 20px 0px rgba(136, 136, 136, 0.05);
+  display: none;
+  z-index: 1000;
+}
+.char-popup .popup-header {
+  padding: 0;
+  border-bottom: 0;
+}
+.char-popup .popup-header .popup-title {
+  text-align: left;
+  font-size: 16px;
+}
+.char-popup .popup-header .btn-close {
+  top: -20px;
+}
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
 }
 
 .btn-addFile {
