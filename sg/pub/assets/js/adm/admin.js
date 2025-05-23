@@ -146,4 +146,20 @@ $(document).ready(function () {
 })
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  const tdCont = document.querySelector('.td_cont');
+  const tblCut = document.querySelectorAll('.table td .tbl-cut');
 
+  if (tdCont && tblCut.length > 0) {
+    // 클래스 이름에서 'width-'로 시작하는 부분 찾기
+    const widthClass = Array.from(tdCont.classList).find(cls => cls.startsWith('width-'));
+    
+    if (widthClass) {
+      const widthValue = widthClass.replace('width-', ''); // 예: 'width-650' → '650'
+
+      tblCut.forEach(el => {
+        el.style.maxWidth = widthValue + 'px';
+      });
+    }
+  }
+});

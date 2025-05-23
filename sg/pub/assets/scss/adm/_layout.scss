@@ -801,16 +801,16 @@ body{
 form .row{margin-right: calc(-.5 * var(--gutter-x2)); margin-left: calc(-.5 * var(--gutter-x2))}
 form .row>* { padding-right: calc(var(--gutter-x2) * .5); padding-left: calc(var(--gutter-x2) * .5); }
 
-.col-group{display: flex; flex-direction: column; gap: 25px;}
+.col-group{
+  display: flex; flex-direction: column; gap: 25px;
+  @include laptop{
+    gap: 20px;
+  }
+}
 
 .radius-20{border-radius: 20px;}
 
 @include pc2{
-  .tab-cont{
-    .col-5{
-      width: 100%;
-    }
-  }
 }
 @include laptop{
   .tab-cont{
