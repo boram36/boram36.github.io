@@ -6434,16 +6434,16 @@ form .row > * {
   flex-direction: column;
   gap: 25px;
 }
+@media (max-width: 1280px) {
+  .col-group {
+    gap: 20px;
+  }
+}
 
 .radius-20 {
   border-radius: 20px;
 }
 
-@media (max-width: 1512px) {
-  .tab-cont .col-5 {
-    width: 100%;
-  }
-}
 @media (max-width: 1280px) {
   .tab-cont .col-1 {
     flex: 0 0 auto;
@@ -7801,6 +7801,12 @@ input[type=date].input-small {
   min-width: 85px;
 }
 @media (max-width: 767px) {
+  .search-col__tit {
+    margin-bottom: 10px;
+    display: block;
+  }
+}
+@media (max-width: 767px) {
   .search-col__tit + div {
     width: auto;
     justify-content: left;
@@ -7827,13 +7833,8 @@ input[type=date].input-small {
 @media (max-width: 1280px) {
   .table-wrap {
     overflow: unset;
-    margin-bottom: 130px;
+    margin-bottom: 10px;
     position: relative;
-  }
-}
-@media (max-width: 767px) {
-  .table-wrap {
-    margin-bottom: 180px;
   }
 }
 .table-scroll {
@@ -8118,6 +8119,12 @@ input[type=date].input-small {
     margin: 0;
   }
 }
+@media (max-width: 1280px) {
+  .status-tag {
+    width: auto;
+    padding: 7px 10px;
+  }
+}
 .status-tag.status-big {
   width: 80px;
   height: 38px;
@@ -8371,7 +8378,8 @@ input[type=date].input-small {
   .card .tab-menu__control::before, .card .tab-menu__control::after {
     content: "";
     width: 14px;
-    height: 2px;
+    height: 3px;
+    border-radius: 3px;
     background: var(--color-primary-100);
     transform: rotate(-45deg);
     position: absolute;
@@ -8381,7 +8389,7 @@ input[type=date].input-small {
   }
   .card .tab-menu__control::after {
     transform: rotate(45deg);
-    margin-right: 9px;
+    margin-right: 8px;
   }
   .card .tab-menu__control.active::before {
     transform: rotate(45deg);
@@ -8752,6 +8760,11 @@ input[type=date].input-small {
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 767px) {
+  .message-box__cont {
+    height: 288px;
+  }
+}
 .message-box__cont textarea {
   border: 0;
   background-color: transparent;
@@ -8794,6 +8807,11 @@ input[type=date].input-small {
   padding: 10px;
   margin-top: 50px;
 }
+@media (max-width: 767px) {
+  .message-box__info {
+    margin-top: 28px;
+  }
+}
 .message-box__check {
   margin-top: 14px;
 }
@@ -8807,6 +8825,19 @@ input[type=date].input-small {
   height: 22px;
 }
 
+.message-send__wrap .tab-cont {
+  display: block;
+}
+.message-send__wrap .mo-none {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+@media (max-width: 767px) {
+  .message-send__wrap .mo-none {
+    display: none;
+  }
+}
 .message-send__wrap .card .tab-cont__wrap {
   position: static;
   padding: 25px 35px;
@@ -8814,18 +8845,29 @@ input[type=date].input-small {
 }
 @media (max-width: 1280px) {
   .message-send__wrap .card .tab-cont__wrap {
-    display: none;
-  }
-  .message-send__wrap .card .tab-cont__wrap.open {
-    display: block;
+    padding: 25px 27px;
   }
 }
 .message-send__wrap .card .tab-cont__wrap .table th {
   border-top: 0;
 }
+@media (max-width: 1280px) {
+  .message-send__wrap .tab-menu__control + .tab-cont__wrap {
+    display: none;
+  }
+  .message-send__wrap .tab-menu__control + .tab-cont__wrap.open {
+    display: block;
+  }
+}
 .message-send__wrap .tab-title {
   padding: 21px 35px 18px;
   width: 100%;
+}
+@media (max-width: 1280px) {
+  .message-send__wrap .tab-title {
+    padding-left: 27px;
+    padding-right: 27px;
+  }
 }
 .message-send__wrap .tab-layout {
   position: relative;
@@ -8835,11 +8877,33 @@ input[type=date].input-small {
   top: 12px;
   right: 30px;
 }
+@media (max-width: 767px) {
+  .message-send__wrap .tab-control {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
 .message-send__wrap .tab-control .checkbox {
   border-radius: 10px;
   border: 1px solid var(--color-primary-40);
   background: var(--color-primary-10);
   padding: 6px 14px;
+}
+@media (max-width: 767px) {
+  .message-send__wrap .tab-control .checkbox {
+    flex: 1;
+  }
+}
+@media (max-width: 767px) {
+  .message-send__wrap .tab-control .checkbox-wrap {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .message-send__wrap .tab-control .checkbox-wrap + .btn.list-btn {
+    width: 100%;
+  }
 }
 .message-send__wrap .tab-control .checkbox.on {
   border-color: var(--color-100);
@@ -8847,17 +8911,84 @@ input[type=date].input-small {
 @media (max-width: 1280px) {
   .message-send__wrap .tab-control {
     position: static;
+    border-bottom: 1px solid var(--color-primary-30);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: -25px -35px 20px;
+    padding: 10px 27px;
+  }
+  .message-send__wrap .tab-control .btn-addFile i {
+    display: none;
   }
 }
 .message-send__wrap .tab-footer {
   margin-top: 20px;
 }
+@media (max-width: 1280px) {
+  .message-send__wrap .tab-footer {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+.message-send__wrap .tab-footer .date-wrap .datepicker-here {
+  margin-right: 10px;
+}
+@media (max-width: 767px) {
+  .message-send__wrap .tab-footer .date-wrap .datepicker-here {
+    position: absolute;
+    margin-right: 0;
+    top: 0;
+    right: 0;
+  }
+}
+@media (max-width: 767px) {
+  .message-send__wrap .tab-footer .date-wrap {
+    margin-top: 15px;
+  }
+}
 .message-send__wrap .tab-footer input,
 .message-send__wrap .tab-footer .select-wrap .selectric-wrapper {
   width: 120px;
 }
+@media (max-width: 767px) {
+  .message-send__wrap .tab-footer .select-wrap {
+    width: 100%;
+  }
+  .message-send__wrap .tab-footer .select-wrap .selectric-wrapper {
+    flex: 1;
+  }
+}
 .message-send__wrap .tab-footer .btn-wrap {
   margin-top: 0;
+}
+.message-send__wrap .tab-footer__l {
+  flex-wrap: wrap;
+}
+@media (max-width: 1280px) {
+  .message-send__wrap .tab-footer__l {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .message-send__wrap .tab-footer__l {
+    display: block;
+    position: relative;
+  }
+}
+@media (max-width: 1280px) {
+  .message-send__wrap .tab-footer__r {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 767px) {
+  .message-send__wrap .tab-footer__r {
+    flex-direction: column-reverse;
+  }
 }
 .message-send__wrap .tab-footer .send-txt {
   white-space: nowrap;
@@ -8894,6 +9025,11 @@ input[type=date].input-small {
   width: 121px;
   height: 121px;
 }
+@media (max-width: 767px) {
+  .template-item {
+    width: 100%;
+  }
+}
 .template-item.template-add .message-box__tit {
   margin-top: 5px;
   margin-bottom: 13px;
@@ -8905,6 +9041,11 @@ input[type=date].input-small {
   width: 260px;
   height: 246px;
   background-color: var(--color-primary-90);
+}
+@media (max-width: 767px) {
+  .template-item .message-box__cont {
+    width: 100%;
+  }
 }
 .template-item .message-box__cont textarea {
   font-size: 0.875rem;

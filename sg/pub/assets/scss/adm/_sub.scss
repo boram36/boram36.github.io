@@ -691,6 +691,10 @@ input[type=date]{
       font-size: 12px;
       flex: none;
       min-width: 85px;
+      @include mobile{
+        margin-bottom: 10px;
+        display: block;
+      }
       + div{
         @include mobile{
           width: auto;
@@ -718,11 +722,8 @@ input[type=date]{
     overflow: hidden;
     @include laptop{
       overflow: unset;
-      margin-bottom: 130px;
+      margin-bottom: 10px;
       position: relative;
-    }
-    @include mobile{
-      margin-bottom: 180px;
     }
   }
   &-scroll {
@@ -816,6 +817,7 @@ input[type=date]{
       font-size: inherit;
       font-weight: inherit;
     }
+
     .tbl-cut{
       font-size: inherit;
       font-weight: inherit;
@@ -1003,6 +1005,10 @@ input[type=date]{
     line-height: 1.1;
     @include pc2{
       margin: 0;
+    }
+    @include laptop{
+      width: auto;
+      padding: 7px 10px;
     }
     @extend .f-c-all;
     &.status-big{
@@ -1274,7 +1280,8 @@ input[type=date]{
         &::after{
           content: '';
           width: 14px;
-          height: 2px;
+          height: 3px;
+          border-radius: 3px;
           background: var(--color-primary-100);
           transform: rotate(-45deg);
           position: absolute;
@@ -1284,7 +1291,7 @@ input[type=date]{
         }
         &::after{
           transform: rotate(45deg);
-          margin-right: 9px;
+          margin-right: 8px;
         }
         &.active{
           &::before{
@@ -1295,6 +1302,8 @@ input[type=date]{
           }
         }
       }
+    
+       
     }
   }
   #map-container{
@@ -1654,6 +1663,9 @@ input[type=date]{
     height: 307px;
     display: flex;
     flex-direction: column;
+    @include mobile{
+       height: 288px;
+    }
     textarea{
       border: 0;
       background-color: transparent;
@@ -1690,6 +1702,9 @@ input[type=date]{
     font-weight: 400;
     padding: 10px;
     margin-top: 50px;
+    @include mobile{
+      margin-top: 28px;
+    }
   }
   &__check{
     margin-top: 14px;
@@ -1699,25 +1714,47 @@ input[type=date]{
   }
 }
 
+
+
+
 .message-send__wrap{
+  .tab-cont{
+    display: block;
+  }
+  .mo-none{
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    @include mobile{
+      display: none;
+    }
+  }
   .card .tab-cont__wrap{
     position: static;
     padding: 25px 35px;
     display: block;
-    @include laptop(){
-      display: none;
-
-      &.open {
-        display: block;
-      }
+    @include laptop{
+      padding: 25px 27px;
     }
     .table th{
       border-top: 0;
     }
   }
+  .tab-menu__control + .tab-cont__wrap{
+    @include laptop(){
+      display: none;
+      &.open {
+        display: block;
+      }
+    }
+  }
   .tab-title{
     padding: 21px 35px 18px;
     width: 100%;
+    @include laptop{
+      padding-left: 27px;
+      padding-right: 27px;
+    }
   }
   .tab-layout{
     position: relative;
@@ -1726,25 +1763,102 @@ input[type=date]{
     position: absolute;
     top: 12px;
     right: 30px;
+    @include mobile{
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
     .checkbox{
       border-radius: 10px;
       border: 1px solid var(--color-primary-40);
       background: var(--color-primary-10);
       padding: 6px 14px;
+      @include mobile{
+        flex: 1;
+      }
+      &-wrap{
+        @include mobile{
+          justify-content: space-between;
+          width: 100%;
+        }
+        + .btn.list-btn{
+          @include mobile{
+            width: 100%;
+          }
+        }
+      }
       &.on{
         border-color: var(--color-100);
       }
     }
     @include laptop{
       position: static;
+      border-bottom: 1px solid var(--color-primary-30);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: -25px -35px 20px;
+      padding: 10px 27px;
+      .btn-addFile{
+        i{display: none;}
+      }
     }
   }
   .tab-footer{
     margin-top: 20px;
+    @include laptop{
+      margin-top: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .date-wrap{
+      .datepicker-here{
+        margin-right: 10px;
+        @include mobile{
+          position: absolute;
+          margin-right: 0;
+          top: 0;
+          right: 0;  
+        }
+      }
+      @include mobile{
+        margin-top: 15px;
+      }
+    }
     input,
     .select-wrap .selectric-wrapper{width: 120px;}
+    .select-wrap{
+      @include mobile{
+        width: 100%;
+        .selectric-wrapper{
+          flex: 1;
+        }
+      }
+    }
     .btn-wrap{
       margin-top: 0;
+    }
+    &__l{
+      flex-wrap: wrap;
+      @include laptop{
+        justify-content: space-between;
+        width: 100%;
+      }
+      @include mobile{
+        display: block;
+        position: relative;
+      }
+      
+    }
+    &__r{
+      @include laptop{
+        width: 100%;
+        justify-content: space-between;
+      }
+      @include mobile{
+        flex-direction: column-reverse;
+      }
     }
     .send-txt{
       white-space: nowrap;
@@ -1786,6 +1900,9 @@ input[type=date]{
     }
   }
   &-item{
+    @include mobile{
+       width: 100%;
+    }
     &.template-add{
       .message-box__tit{
         margin-top: 5px;
@@ -1799,6 +1916,9 @@ input[type=date]{
       width: 260px;
       height: 246px;
       background-color: var(--color-primary-90);
+      @include mobile{
+        width: 100%;
+      }
       textarea{
         font-size: $fs-14;
       }

@@ -1,0 +1,394 @@
+ 
+ <div class="tab-cont">
+  <!-- 검색 필터 -->
+  <div class="search-option">
+    <div class="search-row flex">
+      <div class="search-row__tit">검색옵션</div>
+      <div class="search-row__cont f-h-c">
+        <div class="search-col">
+          <label class="search-col__tit">기간</label>
+          <div class="input-wrap input-date">
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+            <span>~</span>
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+          </div>
+        </div>
+        <div class="search-col">
+          <label class="search-col__tit">상태</label>
+          <div class="radio-wrap">
+            <div class="checkbox">
+              <input type="radio" id="state01" name="state" checked>
+              <label for="state01">발송된문자</label>
+            </div>
+            <div class="checkbox">
+              <input type="radio" id="state02" name="state">
+              <label for="state02">예약된문자</label>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="search-row__button">
+        <div class="btn-wrap">
+          <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+          <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 문자 내역 -->
+  <div class="board-list">
+    <div class="header">
+      전체(34) 
+    </div>
+    <div class="card table-wrap">
+
+      <div class="table-scroll pc-ver">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                <div class="checkbox">
+                  <input type="checkbox" id="campCheckAll" name="campCheck">
+                  <label for="campCheckAll"></label>
+                </div>
+              </th>
+              <th>번호</th>
+              <th>구분</th>
+              <th>예약일</th>
+              <th>발송일</th>
+              <th>대상자</th>
+              <th>대상자수</th>
+              <th>문자내용</th>
+              <th>상세보기</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td_chk width-80">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01" name="campCheck">
+                  <label for="campChec01"></label>
+                </div>
+              </td>
+              <td class="td_num width-100">119091</td>
+              <td class="td_state width-80">SMS</td>
+              <td class="td_rsvDate width-160">2025.04.11 17:21</td>
+              <td class="td_sendDate width-160">2025.04.11 17:21</td>
+              <td class="td_target width-120">조직원 </td>
+              <td class="td_targetNm width-80">3,213</td>
+              <td class="td_cont width-470"><div class="tbl-cut width-full">후보 캠프1, 안녕하세요, 주민 여러분. ○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]</div></td>
+              <td class="td_detail width-80">
+                <button type="button" class="btn btn-small01 btn-center" onclick="">보기</button>
+              </td>
+            </tr>
+              <tr>
+              <td class="td_chk">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01" name="campCheck">
+                  <label for="campChec01"></label>
+                </div>
+              </td>
+              <td class="td_num">119091</td>
+              <td class="td_state">SMS</td>
+              <td class="td_rsvDate">2025.04.11 17:21</td>
+              <td class="td_sendDate">-</td>
+              <td class="td_target">조직원 </td>
+              <td class="td_targetNm">3,213</td>
+              <td class="td_cont"><div class="tbl-cut width-full">후보 캠프1, 안녕하세요, 주민 여러분. ○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]</div></td>
+              <td class="td_detail">
+                <button type="button" class="btn btn-small01 btn-center" onclick="">보기</button>
+              </td>
+            </tr>
+              <tr>
+              <td class="td_chk">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01" name="campCheck">
+                  <label for="campChec01"></label>
+                </div>
+              </td>
+              <td class="td_num">119091</td>
+              <td class="td_state">SMS</td>
+              <td class="td_rsvDate">2025.04.11 17:21</td>
+              <td class="td_sendDate">-</td>
+              <td class="td_target">조직원 </td>
+              <td class="td_targetNm">3,213</td>
+              <td class="td_cont"><div class="tbl-cut width-full">후보 캠프1, 안녕하세요, 주민 여러분. ○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]</div></td>
+              <td class="td_detail">
+                <button type="button" class="btn btn-small01 btn-center" onclick="">보기</button>
+              </td>
+            </tr>
+              <tr>
+              <td class="td_chk">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01" name="campCheck">
+                  <label for="campChec01"></label>
+                </div>
+              </td>
+              <td class="td_num">119091</td>
+              <td class="td_state">SMS</td>
+              <td class="td_rsvDate">2025.04.11 17:21</td>
+              <td class="td_sendDate">-</td>
+              <td class="td_target">조직원 </td>
+              <td class="td_targetNm">3,213</td>
+              <td class="td_cont"><div class="tbl-cut width-full">후보 캠프1, 안녕하세요, 주민 여러분. ○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]</div></td>
+              <td class="td_detail">
+                <button type="button" class="btn btn-small01 btn-center" onclick="">보기</button>
+              </td>
+            </tr>
+              <tr>
+              <td class="td_chk">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01" name="campCheck">
+                  <label for="campChec01"></label>
+                </div>
+              </td>
+              <td class="td_num">119091</td>
+              <td class="td_state">SMS</td>
+              <td class="td_rsvDate">2025.04.11 17:21</td>
+              <td class="td_sendDate">-</td>
+              <td class="td_target">조직원 </td>
+              <td class="td_targetNm">3,213</td>
+              <td class="td_cont"><div class="tbl-cut width-full">후보 캠프1, 안녕하세요, 주민 여러분. ○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]</div></td>
+              <td class="td_detail">
+                <button type="button" class="btn btn-small01 btn-center" onclick="">보기</button>
+              </td>
+            </tr>
+              <tr>
+              <td class="td_chk">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01" name="campCheck">
+                  <label for="campChec01"></label>
+                </div>
+              </td>
+              <td class="td_num">119091</td>
+              <td class="td_state">SMS</td>
+              <td class="td_rsvDate">2025.04.11 17:21</td>
+              <td class="td_sendDate">-</td>
+              <td class="td_target">조직원 </td>
+              <td class="td_targetNm">3,213</td>
+              <td class="td_cont"><div class="tbl-cut width-full">후보 캠프1, 안녕하세요, 주민 여러분. ○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]</div></td>
+              <td class="td_detail">
+                <button type="button" class="btn btn-small01 btn-center" onclick="">보기</button>
+              </td>
+            </tr>
+              <tr>
+              <td class="td_chk">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01" name="campCheck">
+                  <label for="campChec01"></label>
+                </div>
+              </td>
+              <td class="td_num">119091</td>
+              <td class="td_state">SMS</td>
+              <td class="td_rsvDate">2025.04.11 17:21</td>
+              <td class="td_sendDate">-</td>
+              <td class="td_target">조직원 </td>
+              <td class="td_targetNm">3,213</td>
+              <td class="td_cont"><div class="tbl-cut width-full">후보 캠프1, 안녕하세요, 주민 여러분. ○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]</div></td>
+              <td class="td_detail">
+                <button type="button" class="btn btn-small01 btn-center" onclick="">보기</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- e: pc용 테이블 -->
+
+      <ul class="table mo-ver">
+        <li class="table-list comBox-item">
+          <div class="comBox-item__cont">
+            <div class="f-c-space">
+              <div class="f-h-c gap-5">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01_m" name="campCheck" checked>
+                  <label for="campChec01_m"></label>
+                </div>
+                <span class="td_num">34</span>
+              </div>
+              <div class="f-h-c gap-10">
+                <div class="status-tag status-normal">정상</div>
+              </div>
+            </div>
+            <div class="profile f-c-space">
+              <div class="tit">
+                <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+              </div>
+              <div class="td-txt f-c-all">
+                010-1234-5678
+                <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
+              </div>
+            </div>
+            <ul class="detail">
+              <li>
+                <div class="detail-tit">
+                  <span>지                역</span>
+                </div>
+                <div class="detail-cont">구월면 &gt; 이읍리</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>지지도조사수</span>
+                </div>
+                <div class="detail-cont">83</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>행 사 등 록 수</span>
+                </div>
+                <div class="detail-cont">23</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>마 스 터 권 한</span>
+                </div>
+                <div class="detail-cont">
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="table-list comBox-item">
+          <div class="comBox-item__cont">
+            <div class="f-c-space">
+              <div class="f-h-c gap-5">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01_m" name="campCheck" checked>
+                  <label for="campChec01_m"></label>
+                </div>
+                <span class="td_num">34</span>
+              </div>
+              <div class="f-h-c gap-10">
+                <div class="status-tag status-normal">정상</div>
+              </div>
+            </div>
+            <div class="profile f-c-space">
+              <div class="tit">
+                <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+              </div>
+              <div class="td-txt f-c-all">
+                010-1234-5678
+                <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
+              </div>
+            </div>
+            <ul class="detail">
+              <li>
+                <div class="detail-tit">
+                  <span>지                역</span>
+                </div>
+                <div class="detail-cont">구월면 &gt; 이읍리</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>지지도조사수</span>
+                </div>
+                <div class="detail-cont">83</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>행 사 등 록 수</span>
+                </div>
+                <div class="detail-cont">23</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>마 스 터 권 한</span>
+                </div>
+                <div class="detail-cont">
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
+        <li class="table-list comBox-item tr-disabled">
+          <div class="comBox-item__cont">
+            <div class="f-c-space">
+              <div class="f-h-c gap-5">
+                <div class="checkbox">
+                  <input type="checkbox" id="campChec01_m" name="campCheck" disabled>
+                  <label for="campChec01_m"></label>
+                </div>
+                <span class="td_num">34</span>
+              </div>
+              <div class="f-h-c gap-10">
+                <div class="status-tag status-normal">정상</div>
+              </div>
+            </div>
+            <div class="profile f-c-space">
+              <div class="tit">
+                <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+              </div>
+              <div class="td-txt f-c-all">
+                010-1234-5678
+                <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
+              </div>
+            </div>
+            <ul class="detail">
+              <li>
+                <div class="detail-tit">
+                  <span>지                역</span>
+                </div>
+                <div class="detail-cont">구월면 &gt; 이읍리</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>지지도조사수</span>
+                </div>
+                <div class="detail-cont">83</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>행 사 등 록 수</span>
+                </div>
+                <div class="detail-cont">23</div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span>마 스 터 권 한</span>
+                </div>
+                <div class="detail-cont">
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <!-- e: mobile용 테이블 -->
+
+    
+
+      <!-- 하단 컨트롤 -->
+      <div class="table-footer">
+        <div class="table-footer__wrap">
+          <!-- e: 선택 -->
+          <div class="f-v-r width-full gap-10 ">
+            <button class="btn btn-basic list-btn btn-navy" onclick="">선택 발송취소</button>
+          </div>
+        </div>
+        <div class="pagination">
+          <button class="page-btn page-first" onclick=""><i></i></button>
+          <button class="page-btn page-prev" onclick=""><i></i></button>
+          <button class="page-btn active" onclick="">1</button>
+          <button class="page-btn" onclick="">2</button>
+          <button class="page-btn" onclick="">3</button>
+          <button class="page-btn page-next" onclick=""><i></i></button>
+          <button class="page-btn page-end" onclick=""><i></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
