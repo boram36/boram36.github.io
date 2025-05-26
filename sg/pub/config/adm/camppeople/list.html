@@ -254,12 +254,18 @@
 
         <!-- 조직원 목록 테이블 -->
         <div class="board-list">
-          <div class="header">
+          <div class="header f-h-c">
+            <div class="mo-ver">
+              <div class="checkbox">
+                <input type="checkbox" id="campCheckAll" name="campCheck">
+                <label for="campCheckAll"></label>
+              </div>
+            </div>
             전체(34) 
           </div>
           <div class="card table-wrap">
 
-            <div class="table-scroll pc-ver">
+            <div class="table-scroll">
               <table class="table">
                 <thead>
                   <tr>
@@ -294,36 +300,48 @@
                       </div>
                     </td>
                     <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
+                    <td class="td_id td-pc">324542</td>
                     <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
+                      <a href="./detail.html" class="td-txt pc-ver">김정윤</a>
+                      <div class="mo-ver width-full">
+                        <div class="profile f-c-space">
+                          <a href="./detail.html" class="tit">
+                            <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                          </a>
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                            <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
+                          </div>
+                        </div>
+                      </div>
                     </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
+                    <td class="td_gender td-pc">남</td>
+                    <td class="td_age td-pc">65</td>
+                    <td class="td_tel  td-pc width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
                         <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                       </div>
                     </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
+                    <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut text-over">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                    <td class="td_ratingNum txt-r"><span class="td-tit">지지도조사수</span>83</td>
+                    <td class="td_eventNum txt-r"><span class="td-tit">행 사 등 록 수</span>23</td>
+                    <td class="td_state td_right">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-normal">정상</div>
                     </td>
                     <td class="td_master">
+                      <span class="td-tit">마 스 터 권 한</span>
                       <label class="toggle-switch">
                         <input type="checkbox" checked />
                         <span class="slider"></span>
                       </label>
                     </td>
-                    <td class="td_etc width-200"><div class="tbl-cut">비고입니다.비고입니다.비고입니다.비고입니다. </div></td>
-                    <td class="td_detail">
+                    <td class="td_etc width-200 td-pc"><div class="tbl-cut">비고입니다.비고입니다.비고입니다.비고입니다. </div></td>
+                    <td class="td_detail td-pc">
                       <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_setting width-80">
+                    <td class="td_setting width-80 td-pc">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
@@ -335,102 +353,63 @@
                       </div>
                     </td>
                   </tr>
-
                   <tr>
                     <td class="td_chk width-80">
                       <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck">
-                        <label for="campChec01"></label>
+                        <input type="checkbox" id="campChec02" name="campCheck">
+                        <label for="campChec02"></label>
                       </div>
                     </td>
                     <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
+                    <td class="td_id td-pc">324542</td>
                     <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
+                      <a href="./detail.html" class="td-txt pc-ver">김정윤</a>
+                      <div class="mo-ver width-full">
+                        <div class="profile f-c-space">
+                          <a href="./detail.html" class="tit">
+                            <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                          </a>
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                            <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
+                          </div>
+                        </div>
+                      </div>
                     </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
+                    <td class="td_gender td-pc">남</td>
+                    <td class="td_age td-pc">65</td>
+                    <td class="td_tel  td-pc width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
                         <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
                       </div>
                     </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
+                    <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut text-over">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                    <td class="td_ratingNum txt-r"><span class="td-tit">지지도조사수</span>83</td>
+                    <td class="td_eventNum txt-r"><span class="td-tit">행 사 등 록 수</span>23</td>
+                    <td class="td_state td_right">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-normal">정상</div>
                     </td>
                     <td class="td_master">
+                      <span class="td-tit">마 스 터 권 한</span>
                       <label class="toggle-switch">
                         <input type="checkbox" checked />
                         <span class="slider"></span>
                       </label>
                     </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
+                    <td class="td_etc width-200 td-pc"><div class="tbl-cut">비고입니다.비고입니다.비고입니다.비고입니다. </div></td>
+                    <td class="td_detail td-pc">
                       <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_setting width-80">
+                    <td class="td_setting width-80 td-pc">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  
-                  <tr>
-                    <td class="td_chk width-80">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01" name="campCheck">
-                        <label for="campChec01"></label>
-                      </div>
-                    </td>
-                    <td class="td_num">34</td>
-                    <td class="td_id">324542</td>
-                    <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
-                    </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
-                      <div class="td-txt f-c-all">
-                        010-1234-5678
-                        <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                      </div>
-                    </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_ratingNum txt-r">83</td>
-                    <td class="td_eventNum txt-r">23</td>
-                    <td class="td_state">
-                      <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
-                      <div class="status-tag status-normal">정상</div>
-                    </td>
-                    <td class="td_master">
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="slider"></span>
-                      </label>
-                    </td>
-                    <td class="td_etc width-200"></td>
-                    <td class="td_detail">
-                      <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
-                    </td>
-                    <td class="td_setting width-80">
-                      <div class="setting-menu">
-                        <button class="btn btn-setting btn-center">
-                          <i class="ico-setting"></i>
-                        </button>
-                        <ul class="setting-drop">
-                          <li><button class="btn">수정</button></li>
-                          <li><button class="btn txt-system-red">삭제</button></li>
+                          <li><button class="btn" onclick="openPopup('peopleEdit')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
@@ -693,183 +672,8 @@
                 </tbody>
               </table>
             </div>
-            <!-- e: pc용 테이블 -->
 
-            <ul class="table mo-ver">
-              <li class="table-list comBox-item">
-                <div class="comBox-item__cont">
-                  <div class="f-c-space">
-                    <div class="f-h-c gap-5">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01_m" name="campCheck" checked>
-                        <label for="campChec01_m"></label>
-                      </div>
-                      <span class="td_num">34</span>
-                    </div>
-                    <div class="f-h-c gap-10">
-                      <div class="status-tag status-normal">정상</div>
-                    </div>
-                  </div>
-                  <div class="profile f-c-space">
-                    <div class="tit">
-                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </div>
-                    <div class="td-txt f-c-all">
-                      010-1234-5678
-                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                    </div>
-                  </div>
-                  <ul class="detail">
-                    <li>
-                      <div class="detail-tit">
-                        <span>지                역</span>
-                      </div>
-                      <div class="detail-cont">구월면 &gt; 이읍리</div>
-                    </li>
-                     <li>
-                      <div class="detail-tit">
-                        <span>지지도조사수</span>
-                      </div>
-                      <div class="detail-cont">83</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>행 사 등 록 수</span>
-                      </div>
-                      <div class="detail-cont">23</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>마 스 터 권 한</span>
-                      </div>
-                      <div class="detail-cont">
-                        <label class="toggle-switch">
-                          <input type="checkbox" checked />
-                          <span class="slider"></span>
-                        </label>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="table-list comBox-item">
-                <div class="comBox-item__cont">
-                  <div class="f-c-space">
-                    <div class="f-h-c gap-5">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01_m" name="campCheck" checked>
-                        <label for="campChec01_m"></label>
-                      </div>
-                      <span class="td_num">34</span>
-                    </div>
-                    <div class="f-h-c gap-10">
-                      <div class="status-tag status-normal">정상</div>
-                    </div>
-                  </div>
-                  <div class="profile f-c-space">
-                    <div class="tit">
-                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </div>
-                    <div class="td-txt f-c-all">
-                      010-1234-5678
-                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                    </div>
-                  </div>
-                  <ul class="detail">
-                    <li>
-                      <div class="detail-tit">
-                        <span>지                역</span>
-                      </div>
-                      <div class="detail-cont">구월면 &gt; 이읍리</div>
-                    </li>
-                     <li>
-                      <div class="detail-tit">
-                        <span>지지도조사수</span>
-                      </div>
-                      <div class="detail-cont">83</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>행 사 등 록 수</span>
-                      </div>
-                      <div class="detail-cont">23</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>마 스 터 권 한</span>
-                      </div>
-                      <div class="detail-cont">
-                        <label class="toggle-switch">
-                          <input type="checkbox" checked />
-                          <span class="slider"></span>
-                        </label>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
-              <li class="table-list comBox-item tr-disabled">
-                <div class="comBox-item__cont">
-                  <div class="f-c-space">
-                    <div class="f-h-c gap-5">
-                      <div class="checkbox">
-                        <input type="checkbox" id="campChec01_m" name="campCheck" disabled>
-                        <label for="campChec01_m"></label>
-                      </div>
-                      <span class="td_num">34</span>
-                    </div>
-                    <div class="f-h-c gap-10">
-                      <div class="status-tag status-normal">정상</div>
-                    </div>
-                  </div>
-                  <div class="profile f-c-space">
-                    <div class="tit">
-                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </div>
-                    <div class="td-txt f-c-all">
-                      010-1234-5678
-                      <button type="button" class="btn btn-message" onclick=""><i class="ico-ml ico-message"></i></button>
-                    </div>
-                  </div>
-                  <ul class="detail">
-                    <li>
-                      <div class="detail-tit">
-                        <span>지                역</span>
-                      </div>
-                      <div class="detail-cont">구월면 &gt; 이읍리</div>
-                    </li>
-                     <li>
-                      <div class="detail-tit">
-                        <span>지지도조사수</span>
-                      </div>
-                      <div class="detail-cont">83</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>행 사 등 록 수</span>
-                      </div>
-                      <div class="detail-cont">23</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>마 스 터 권 한</span>
-                      </div>
-                      <div class="detail-cont">
-                        <label class="toggle-switch">
-                          <input type="checkbox" checked />
-                          <span class="slider"></span>
-                        </label>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-            <!-- e: mobile용 테이블 -->
-
-           
+        
 
             <!-- 하단 컨트롤 -->
             <div class="table-footer">
@@ -949,7 +753,7 @@
        
 
         <div class="card table-wrap bg-primary-10">
-          <div class="table-scroll2 pc-ver">
+          <div class="table-scroll2">
             <table class="table">
               <thead>
                 <tr>
@@ -1242,139 +1046,6 @@
             </table>
           </div>
           <!-- e: pc용 테이블 -->
-
-          <ul class="table mo-ver">
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-normal">등록 가능</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <a href="./detail.html" class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </a>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-normal">등록 가능</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <a href="./detail.html" class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </a>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-stop">지역 재설정</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <a href="./detail.html" class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </a>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-            <li class="table-list comBox-item">
-              <div class="comBox-item__cont">
-                <div class="f-c-space">
-                  <span class="td_num">132</span>
-                  <div class="f-h-c gap-10">
-                    <div class="status-tag status-stop">지역 재설정</div>
-                    <div class="setting-menu">
-                      <button class="btn btn-setting btn-center">
-                        <i class="ico-setting"></i>
-                      </button>
-                      <ul class="setting-drop">
-                        <li><button class="btn" onclick="openPopup('peopleEdit2')">수정</button></li>
-                        <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
-                      </ul>
-                    </div>
-                    <button type="button" class="btn btn-delete btn-center ico">
-                      <i class="ico-list_delete"></i>
-                    </button>
-
-                  </div>
-                </div>
-                <div class="profile f-c-space">
-                  <a href="./detail.html" class="tit">
-                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                  </a>
-                  <div class="td-txt f-c-all">
-                    010-1234-5678
-                  </div>
-                </div>
-                
-              </div>
-            </li>
-          </ul>
-          <!-- e: mobile용 테이블 -->
-        
         </div>
         
       </div>

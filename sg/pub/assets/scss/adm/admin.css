@@ -2653,11 +2653,11 @@ address {
 }
 
 /*---- 07) FELX ----*/
-.flex, .detail > li {
+.flex {
   display: flex;
 }
 
-.f-c-all, .excel-upload-area .upload-before, .status-tag, .table-footer .pagination .page-btn.page-first, .table-footer .pagination .page-btn.page-prev, .table-footer .pagination .page-btn.page-next, .table-footer .pagination .page-btn.page-end, .table-footer .pagination, .candidater-wrap .btn-register, .main-ranking .btn-more, .gnb-refresh, .profile-img span, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .candidate-box__top .candidate-box__img .noImg, .candidate-box__top .candidate-box__img, .file-upload label, .input-status, .input-wrap.input-date, .radio-wrap, .selectric .button, .btn, .btn-wrap .btn-refresh {
+.f-c-all, .main-ranking .btn-more, .gnb-refresh, .profile-img span, .noList, .selectSg-cont__bottom .selectSg-dday, .selectSg-cont__bottom, .candidate-box__top .candidate-box__img .noImg, .candidate-box__top .candidate-box__img, .file-upload label, .input-status, .input-wrap.input-date, .radio-wrap, .selectric .button, .btn, .btn-wrap .btn-refresh {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2667,7 +2667,7 @@ address {
   align-items: center;
   justify-content: space-between;
 }
-.f-h-c, .excel-upload-area .upload-result .file-name, .excel-upload-area .upload-result, .search-col, .search-option .check-wrap, .gnb-menu__btn, .header-top .hd-logo, .file-upload, .btn-wrap {
+.f-h-c, .gnb-menu__btn, .header-top .hd-logo, .file-upload, .btn-wrap {
   display: flex;
   align-items: center;
 }
@@ -3603,13 +3603,13 @@ address {
   font-size: 1.75rem;
 }
 
-.text-over, .com-detail__file .file-tit span, .table td .tbl-cut, .notice-tit {
+.text-over, .notice-tit {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.text-over2, .com-detail__tit, .notice-detail__file .file-name, .comBox-item .detail-cont {
+.text-over2, .notice-detail__file .file-name, .comBox-item .detail-cont {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
