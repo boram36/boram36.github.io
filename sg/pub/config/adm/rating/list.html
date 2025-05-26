@@ -308,12 +308,18 @@
 
         <!-- 조직원 목록 테이블 -->
         <div class="board-list">
-          <div class="header">
+          <div class="header f-h-c">
+            <div class="mo-ver">
+              <div class="checkbox">
+                <input type="checkbox" id="campCheckAll" name="campCheck">
+                <label for="campCheckAll"></label>
+              </div>
+            </div>
             전체(34) 
           </div>
           <div class="card table-wrap">
 
-            <div class="table-scroll pc-ver">
+            <div class="table-scroll">
               <table class="table">
                 <thead>
                   <tr>
@@ -336,30 +342,45 @@
                   <tr>
                     <td class="td_num">324542</td>
                     <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
+                      <a href="./detail.html" class="td-txt pc-ver">김정윤</a>
+                      <div class="mo-ver width-full">
+                        <div class="profile f-c-space">
+                          <a href="./detail.html" class="tit">
+                            <b>김정윤</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                          </a>
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </div>
+                      </div>
                     </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
+                    <td class="td_gender td-pc">남</td>
+                    <td class="td_age td-pc">65</td>
+                    <td class="td_tel td-pc  width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
                       </div>
                     </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_date">2025.04.11 17:21</td>
-                    <td class="td_researcher">이시훈</td>
+                    <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                    <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                    <td class="td_researcher"><span class="td-tit text-justify">조      사      원</span>이시훈</td>
                     <td class="td_rating">
-                      <i class="ico ico-like_big"></i>
+                      <span class="td-tit text-justify">지      지      도</span>
+                      <div class="f-c-all gap-5">
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                      </div>
                     </td>
-                    <td class="td_state">
+                    <td class="td_state td_right">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-normal">정상</div>
                     </td>
-                    <td class="td_detail">
+                    <td class="td_detail td-pc">
                       <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
-                    <td class="td_setting width-80">
+                    <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                    <td class="td_setting td-pc width-80">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
@@ -374,30 +395,45 @@
                   <tr>
                     <td class="td_num">324542</td>
                     <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
+                      <a href="./detail.html" class="td-txt pc-ver">김정윤</a>
+                      <div class="mo-ver width-full">
+                        <div class="profile f-c-space">
+                          <a href="./detail.html" class="tit">
+                            <b>김정윤</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                          </a>
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </div>
+                      </div>
                     </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
+                    <td class="td_gender td-pc">남</td>
+                    <td class="td_age td-pc">65</td>
+                    <td class="td_tel td-pc  width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
                       </div>
                     </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_date">2025.04.11 17:21</td>
-                    <td class="td_researcher">이시훈</td>
+                    <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                    <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                    <td class="td_researcher"><span class="td-tit text-justify">조      사      원</span>이시훈</td>
                     <td class="td_rating">
-                      <i class="ico ico-like_big"></i>
+                      <span class="td-tit text-justify">지      지      도</span>
+                      <div class="f-c-all gap-5">
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                      </div>
                     </td>
-                    <td class="td_state">
+                    <td class="td_state td_right">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-normal">정상</div>
                     </td>
-                     <td class="td_detail">
+                    <td class="td_detail td-pc">
                       <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다. 의견입니다. 의견입니다. </div></td>
-                    <td class="td_setting width-80">
+                    <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                    <td class="td_setting td-pc width-80">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
@@ -414,30 +450,45 @@
                   <tr class="tr-disabled">
                     <td class="td_num">324542</td>
                     <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
+                      <a href="./detail.html" class="td-txt pc-ver">김정윤</a>
+                      <div class="mo-ver width-full">
+                        <div class="profile f-c-space">
+                          <a href="./detail.html" class="tit">
+                            <b>김정윤</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                          </a>
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </div>
+                      </div>
                     </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
+                    <td class="td_gender td-pc">남</td>
+                    <td class="td_age td-pc">65</td>
+                    <td class="td_tel td-pc  width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
                       </div>
                     </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_date">2025.04.11 17:21</td>
-                    <td class="td_researcher">이시훈</td>
+                    <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                    <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                    <td class="td_researcher"><span class="td-tit text-justify">조      사      원</span>이시훈</td>
                     <td class="td_rating">
-                      <i class="ico ico-like_big"></i>
+                      <span class="td-tit text-justify">지      지      도</span>
+                      <div class="f-c-all gap-5">
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                      </div>
                     </td>
-                    <td class="td_state">
+                    <td class="td_state td_right">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-stop">중지</div>
                     </td>
-                     <td class="td_detail">
+                    <td class="td_detail td-pc">
                       <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
-                    <td class="td_setting width-80">
+                    <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                    <td class="td_setting td-pc width-80">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
@@ -453,30 +504,45 @@
                   <tr class="tr-disabled">
                     <td class="td_num">324542</td>
                     <td class="td_name width-80">
-                      <a href="./detail.html" class="td-txt">김정윤</a>
+                      <a href="./detail.html" class="td-txt pc-ver">김정윤</a>
+                      <div class="mo-ver width-full">
+                        <div class="profile f-c-space">
+                          <a href="./detail.html" class="tit">
+                            <b>김정윤</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                          </a>
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </div>
+                      </div>
                     </td>
-                    <td class="td_gender">남</td>
-                    <td class="td_age">65</td>
-                    <td class="td_tel  width-160">
+                    <td class="td_gender td-pc">남</td>
+                    <td class="td_age td-pc">65</td>
+                    <td class="td_tel td-pc  width-160">
                       <div class="td-txt f-c-all">
                         010-1234-5678
                       </div>
                     </td>
-                    <td class="td_region"><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
-                    <td class="td_date">2025.04.11 17:21</td>
-                    <td class="td_researcher">이시훈</td>
+                    <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                    <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                    <td class="td_researcher"><span class="td-tit text-justify">조      사      원</span>이시훈</td>
                     <td class="td_rating">
-                      <i class="ico ico-like_big"></i>
+                      <span class="td-tit text-justify">지      지      도</span>
+                      <div class="f-c-all gap-5">
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                        <i class="ico ico-like_big"></i>
+                      </div>
                     </td>
-                    <td class="td_state">
+                    <td class="td_state td_right">
                       <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
                       <div class="status-tag status-stop">중지</div>
                     </td>
-                     <td class="td_detail">
+                    <td class="td_detail td-pc">
                       <a href="./detail.html" class="btn btn-small01 btn-center">보기</a>
                     </td>
-                    <td class="td_etc width-200"><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
-                    <td class="td_setting width-80">
+                    <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                    <td class="td_setting td-pc width-80">
                       <div class="setting-menu">
                         <button class="btn btn-setting btn-center">
                           <i class="ico-setting"></i>
@@ -491,244 +557,16 @@
                 </tbody>
               </table>
             </div>
-            <!-- e: pc용 테이블 -->
-
-            <ul class="table mo-ver">
-              <li class="table-list comBox-item">
-                <div class="comBox-item__cont">
-                  <div class="f-c-space">
-                    <div class="f-h-c gap-5">
-                      <span class="td_num">324542</span>
-                    </div>
-                    <div class="f-h-c gap-10">
-                      <div class="status-tag status-normal">정상</div>
-                    </div>
-                  </div>
-                  <div class="profile f-c-space">
-                    <a href="./detail.html" class="tit">
-                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </a>
-                    <div class="td-txt f-c-all">
-                      010-1234-5678
-                    </div>
-                  </div>
-                  <ul class="detail">
-                    <li>
-                      <div class="detail-tit">
-                        <span>지                역</span>
-                      </div>
-                      <div class="detail-cont">구월면 &gt; 이읍리</div>
-                    </li>
-                     <li>
-                      <div class="detail-tit">
-                        <span>조     사      일</span>
-                      </div>
-                      <div class="detail-cont">2025.04.11 17:21</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>조     사      원</span>
-                      </div>
-                      <div class="detail-cont">이시훈</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>지     지      도</span>
-                      </div>
-                      <div class="detail-cont">
-                        <i class="ico ico-like_big"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>의                견</span>
-                      </div>
-                      <div class="detail-cont text-over2">
-                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="table-list comBox-item">
-                <div class="comBox-item__cont">
-                  <div class="f-c-space">
-                    <div class="f-h-c gap-5">
-                      <span class="td_num">324542</span>
-                    </div>
-                    <div class="f-h-c gap-10">
-                      <div class="status-tag status-normal">정상</div>
-                    </div>
-                  </div>
-                  <div class="profile f-c-space">
-                   <a href="./detail.html" class="tit">
-                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </a>
-                    <div class="td-txt f-c-all">
-                      010-1234-5678
-                    </div>
-                  </div>
-                  <ul class="detail">
-                    <li>
-                      <div class="detail-tit">
-                        <span>지                역</span>
-                      </div>
-                      <div class="detail-cont">구월면 &gt; 이읍리</div>
-                    </li>
-                     <li>
-                      <div class="detail-tit">
-                        <span>조     사      일</span>
-                      </div>
-                      <div class="detail-cont">2025.04.11 17:21</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>조     사      원</span>
-                      </div>
-                      <div class="detail-cont">이시훈</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>지     지      도</span>
-                      </div>
-                      <div class="detail-cont">
-                        <i class="ico ico-like_big"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>의                견</span>
-                      </div>
-                      <div class="detail-cont text-over2">
-                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
-              <li class="table-list comBox-item tr-disabled">
-                <div class="comBox-item__cont">
-                  <div class="f-c-space">
-                    <div class="f-h-c gap-5">
-                      <span class="td_num">324542</span>
-                    </div>
-                    <div class="f-h-c gap-10">
-                      <div class="status-tag status-normal">정상</div>
-                    </div>
-                  </div>
-                  <div class="profile f-c-space">
-                   <a href="./detail.html" class="tit">
-                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </a>
-                    <div class="td-txt f-c-all">
-                      010-1234-5678
-                    </div>
-                  </div>
-                  <ul class="detail">
-                    <li>
-                      <div class="detail-tit">
-                        <span>지                역</span>
-                      </div>
-                      <div class="detail-cont">구월면 &gt; 이읍리</div>
-                    </li>
-                     <li>
-                      <div class="detail-tit">
-                        <span>조     사      일</span>
-                      </div>
-                      <div class="detail-cont">2025.04.11 17:21</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>조     사      원</span>
-                      </div>
-                      <div class="detail-cont">이시훈</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>지     지      도</span>
-                      </div>
-                      <div class="detail-cont">
-                        <i class="ico ico-like_big"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>의                견</span>
-                      </div>
-                      <div class="detail-cont text-over2">
-                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
-              <li class="table-list comBox-item tr-disabled">
-                <div class="comBox-item__cont">
-                  <div class="f-c-space">
-                    <div class="f-h-c gap-5">
-                      <span class="td_num">324542</span>
-                    </div>
-                    <div class="f-h-c gap-10">
-                      <div class="status-tag status-normal">정상</div>
-                    </div>
-                  </div>
-                  <div class="profile f-c-space">
-                    <a href="./detail.html" class="tit">
-                      <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
-                    </a>
-                    <div class="td-txt f-c-all">
-                      010-1234-5678
-                    </div>
-                  </div>
-                  <ul class="detail">
-                    <li>
-                      <div class="detail-tit">
-                        <span>지                역</span>
-                      </div>
-                      <div class="detail-cont">구월면 &gt; 이읍리</div>
-                    </li>
-                     <li>
-                      <div class="detail-tit">
-                        <span>조     사      일</span>
-                      </div>
-                      <div class="detail-cont">2025.04.11 17:21</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>조     사      원</span>
-                      </div>
-                      <div class="detail-cont">이시훈</div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>지     지      도</span>
-                      </div>
-                      <div class="detail-cont">
-                        <i class="ico ico-like_big"></i>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="detail-tit">
-                        <span>의                견</span>
-                      </div>
-                      <div class="detail-cont text-over2">
-                        의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-            <!-- e: mobile용 테이블 -->
-
-           
 
             <!-- 하단 컨트롤 -->
             <div class="table-footer">
               <div class="table-footer__wrap">
+              
+                <div class="width-full f-v-r gap-10">
+                  <button class="btn btn-basic list-btn btn-excel" onclick="openPopup('excelRegister'); setTimeout(() => {checkTableHeight();}, 100);">엑셀 일괄 등록</button>
+                  <button class="btn btn-basic list-btn btn-navy" onclick="openPopup('eachRegister')">개별 등록</button>
+                </div>
+              </div>
               <div class="pagination">
                 <button class="page-btn page-first" onclick=""><i></i></button>
                 <button class="page-btn page-prev" onclick=""><i></i></button>
@@ -751,182 +589,11 @@
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
-  <div id="ratingEdit" class="popup-layer popup-admin">
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">지지도조사 수정</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('ratingEdit')"><i class="ico-cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
 
-      <div class="popup-content">
-        <form action="">
-          <div class="form-input">
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">유권자 이름<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
-                <div class="input-wrap input-inner">
-                  <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
-                  <button type="button" class="btn btn-small btn-check btn-disabled">중복<br>확인</button>
-                </div>
-              </div>
-            </div>
+  <div class="popup"></div>
+  <!-- 팝업 -->
 
-            <div class="input-row row row-cols-2">
-              <div>
-                <div class="input-tit">유권자 성별<span class="required">*</span></div>
-                <div class="checkbox-box radio-wrap">
-                  <div class="checkbox">
-                    <input type="radio" id="gender01" name="gender">
-                    <label for="gender01">남</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="radio" id="gender02" name="gender">
-                    <label for="gender02">여</label>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
-                </div>
-              </div>
-            </div>
-            <div class="input-row">
-              <div class="input-row">
-                <label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
-                <div class="select-wrap row row-cols-4">
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="">시/도</option>
-                    <option value="" selected>경상남도</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="" >시/군/구</option>
-                    <option value="" selected>상도군</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">읍/면/동</option>
-                    <option value="" selected>구월면</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">리</option>
-                    <option value="" selected>이읍리</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">조사원 이름</label>
-                <div class="input-wrap">
-                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="name">상태</label>
-                <div class="select-wrap">
-                   <select name="" id="" class="width-quart">
-                    <option value="" selected>정상</option>
-                    <option value="">중지</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="date">조사일</label>
-                <div class="input-wrap">
-                  <input type="text" id="date" name="date" placeholder="조사일" value="2025.03.12 14:23" readonly>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="name">지지도<span class="required">*</span></label>
-                <div class="checkbox-wrap checkbox-box f-c-around">
-                  
-                  <div class="checkbox">
-                    <input type="checkbox" id="check01" name="check" >
-                    <label for="check01"><i class="ico ico-like_big"></i></label>
-                  </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check02" name="check" >
-                    <label for="check02"><i class="ico ico-mid_big"></i></label>
-                  </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check03" name="check" >
-                    <label for="check03"><i class="ico ico-hate_big"></i></label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row">
-              <label class="input-tit" for="name">의견</label>
-              <textarea id="candidateBio" placeholder="의견 입력">의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.</textarea>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- e: popup-content -->
-     
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('ratingEdit')">취소</button>
-          <button type="button" class="btn btn-delete bg-red" onclick="openPopup('deletePopup')">삭제</button>
-          <button type="button" class="btn btn-active">수정</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-
-    </div>
-  </div>
-  <!-- e: 지지도조사 수정 -->
-
-
-  <div id="deletePopup" class="popup-layer popupAlert">
-    <div class="popup-backdrop" onclick="closePopup('deletePopup')"></div>
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">삭제</h2>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-        <p>정말 삭제하시겠습니까?</p>
-      </div>
-      <!-- e: popup-content -->
-
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('deletePopup')">취소</button>
-          <button type="button" class="btn bg-red">삭제</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-    </div>
-  </div>
-  <!-- e: 삭제 팝업 -->
-
+  <!-- 검색 -->
   <div id="searchPopup" class="popup-layer popup-admin popup-bottom popup-full">
     <div class="popup-inner">
       <div class="popup-header">
@@ -1056,12 +723,6 @@
                 <div class="input-row">
                   <input type="text" id="" name="" placeholder="이름(2자 이상)">
                 </div>
-              </div>
-            </div>
-            <div class="search-row__button">
-              <div class="btn-wrap">
-                <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
-                <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
               </div>
             </div>
           </div>

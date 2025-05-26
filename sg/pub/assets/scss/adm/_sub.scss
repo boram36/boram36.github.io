@@ -279,6 +279,17 @@ input[type=date]{
   }
   @include mobile{
     padding: 20px 18px;
+    height: calc(100% - 200px);
+    overflow: hidden;
+    .container-wrap{
+      height: 100%;
+      main{
+        height: 100%;
+      }
+    }
+    .table-scroll{
+      height: calc(100vh - 450px);
+    }
   }
   main{
     height: auto;
@@ -372,6 +383,9 @@ input[type=date]{
   .profile-info{
     font-size: 24px;
     color: var(--color-primary-80);
+    span{
+      color: inherit;
+    }
     @include mobile{
       font-size: $fs-20;
     }
@@ -470,22 +484,25 @@ input[type=date]{
 // popup
 .popup{
   &-admin{
+    max-width: calc(700px + (var(--inner) * 2));
+    width: 100%;
+    margin: 0 auto;
     &.popup{
       &-big{
-          .popup-inner{
-            max-width: 1400px;
-          }
-          input[type=text], input[type=password], input[type=number], input[type=date], select, textarea{font-size: 14px;}
-          .table td{padding: 0 5px;}
-          .table th:after{display: none;}
-          .select-wrap{gap: 0 5px;}
+        max-width: calc(1400px + (var(--inner) * 2));
+      
+        input[type=text], input[type=password], input[type=number], input[type=date], select, textarea{font-size: 14px;}
+        .table td{padding: 0 5px;}
+        .table th:after{display: none;}
+      }
+      &-alert{
+        .popup-content{
+          text-align: center;
+          height: auto;
         }
-        
+      }
     }
     .popup{
-      &-inner{
-        max-width: 700px;
-      }
       &-header{
         padding: 35px 0 25px;
         @include mobile{
@@ -539,6 +556,14 @@ input[type=date]{
       }
     }
 
+  }
+  &-ranking{
+    .candidater-info{
+      margin-top: 0;
+    }
+    .card{
+      border: 1px solid var(--color-primary-20);
+    }
   }
 }
 
@@ -717,7 +742,13 @@ input[type=date]{
   }
 }
 
+
 .table{
+  border: 0;
+  @include laptop{
+    table-layout: fixed;
+
+  }
   &-wrap{
     overflow: hidden;
     @include laptop{
@@ -731,6 +762,9 @@ input[type=date]{
     overflow-x: hidden;
     overflow-y: auto;
     width: 100%;
+    @include mobile{
+      max-height: unset;
+    }
     thead{
       position: sticky;
       top: 0;
@@ -742,29 +776,42 @@ input[type=date]{
   }
   &-scroll2{
     &.scroll-enabled{
-    max-height: 40vh;
-    overflow-y: auto;
-    thead{
-      position: sticky;
-      top: 0;
-      z-index: 22;
-      th{
-        background-color: var(--color-primary-0);
+      max-height: 40vh;
+      overflow-y: auto;
+      thead{
+        position: sticky;
+        top: 0;
+        z-index: 22;
+        th{
+          background-color: var(--color-primary-0);
+        }
       }
     }
-    }
-  
-   
   }
-  border: 0;
   .checkbox{
     padding: 0;
     input[type=checkbox] + label:before{margin-right: 0;}
   }
+  tbody{
+    tr{
+      @include laptop{
+        padding: 24px 0;
+        border-bottom: 1px solid var(--color-primary-20);
+        position: relative;
+        &:last-child{
+          border-bottom: 0;
+        }
+      }
+    }
+  }
   tr{
+    @include laptop{
+      display: flex;
+      flex-wrap: wrap;
+    }
     &.tr-disabled{
       td, td *:not(.status-tag, .btn){
-        color: var(--color-primary-60);
+        color: var(--color-primary-60) !important;
         a{
           pointer-events: none;
         }
@@ -774,11 +821,14 @@ input[type=date]{
         background-image: url("../../images/cmn/ico-message_gray.svg");
       }
     }
-    &:hover, &.active{
-      td{
-        background-color: rgba(242, 244, 245, .5);
+    @media screen and (min-width: 1280px) {
+      &:hover, &.active{
+        td{
+          background-color: rgba(242, 244, 245, .5);
+        }
       }
     }
+  
     &.no-list{
       td{
         padding: 160px 0 170px;
@@ -787,6 +837,10 @@ input[type=date]{
         font-size: 18px;
       }
     }
+  }
+  th, td{
+    font-size: $fs-14;
+    text-align: center;
   }
   th{
     height: 50px;
@@ -807,41 +861,164 @@ input[type=date]{
       height: 16px;
       background: var(--color-primary-20);
     }
+    @include laptop{
+      display: none;
+    }
   }
   tr:last-child td{border-bottom: 0;}
   td{
     height: 60px;
     border-bottom: 1px solid var(--color-primary-20);
     padding: 0 10px;
+    @include laptop{
+      display: flex;
+      border-bottom: 0;
+      width: 100%;
+      height: auto;
+      justify-content: space-between;
+      padding: 0;
+      font-size: 16px;
+      font-weight: 500;
+      order: 1;
+      &:not(.td_chk, .td_num, .td_state, .td_setting, .td_delete){
+        margin-top: 16px;
+      }
+      @include mobile{
+        font-size: $fs-14;
+      }
+    }
+    .td-tit{
+      display: none;
+      @include laptop{
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--color-primary-80);
+        flex: none;
+        & + .tbl-cut{
+          max-width: calc(100% - 150px);
+        }
+        @include mobile{
+          font-size: $fs-14;
+        }
+        &.text-justify{
+          white-space: pre;
+          width: 85px;
+          text-align: left;
+          display: block;
+        }
+      }
+    }
+    &.td-pc{
+      @include laptop{
+        display: none;
+      }
+    }
+    &.td_num{
+      @include laptop{
+        display: inline-block;
+        width: auto;
+        font-size: 18px;
+        font-weight: 500;
+        order: 0;
+        @include mobile{
+          font-size: $fs-16;
+        }
+      }
+    }
+    &.td_chk{
+      @include laptop{
+        display: inline-block;
+        width: auto;
+        padding-right: 10px;
+        font-size: 0;
+        order: 0;
+      }
+    }
+    &.td_setting{
+      overflow: unset;
+    }
+    &.td_right{
+      @include laptop{
+        position: absolute;
+        right: 0;
+        top: 24px;
+        display: inline-block;
+        width: auto;
+      }
+      &.right01{
+        margin-top: 3px;
+        right: 40px;
+      }
+      &.right02{
+        right: 80px;
+      }
+    }
+    &.td_subj{
+      @include laptop{
+        order: 0;
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 20px;
+      }
+      .tbl-cut{
+        max-width: 350px;
+        @include pc2{
+          max-width: 500px;
+        }
+        @include laptop{
+          max-width: 100%;
+        }
+      }
+    }
     .td-txt{
       font-size: inherit;
       font-weight: inherit;
     }
-
     .tbl-cut{
       font-size: inherit;
       font-weight: inherit;
       @extend .text-over;
       max-width: 140px;
-    }
-    &.td_setting{
-      overflow: unset;
-    }
-    &:hover{
-      a{
-        text-decoration: underline;
+      @include laptop{
+        max-width: 100%;
       }
     }
-  }
-  th, td{
-    font-size: $fs-14;
-    text-align: center;
+    a:hover{
+      text-decoration: underline;
+    }
+    .profile{
+      @include laptop{
+        display: flex;  
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 4px;
+        font-weight: 500;
+        .tit{
+          font-size: $fs-18;
+          @include mobile{
+            font-size: $fs-16;
+          }
+          span{
+            color: var(--color-primary-80);
+            @include mobile{
+              font-size: $fs-14;
+            }
+            &:not(.txt-16){
+              font-size: inherit;
+            }
+          }
+        }
+        
+      }
+    }
+   
   }
   .btn-center{
     margin: 0 auto;
   }
-
   &-footer{
+    width: 100%;
     padding: 20px 30px;
     position: relative;
     border-top: 1px solid #EAEDEF;
@@ -867,7 +1044,6 @@ input[type=date]{
         z-index: 11;
       }
       @include mobile{
-        display: none;
         left: 0;
         width: 100%;
         padding: 15px 18px 10px;
@@ -939,44 +1115,44 @@ input[type=date]{
     > li:not(:last-child){
       border-bottom: 1px solid var(--color-primary-20);
     }
-    .table-list{
-      padding: 20px 0;
-      &.comBox-item{
-        &.tr-disabled *:not(.status-tag){
-          color: var(--color-primary-60);
-          a{
-            pointer-events: none;
-          }
-        }
-        + .comBox-item{
-          margin-top: 0;
-        }
-        .profile{
-          margin-top: 10px;
-        }
-        .detail{
-          margin: 16px 0 0;
-          padding-bottom: 0;
-        }
-        .detail li + li{
-          margin-top: 16px;
-          @include mobile{
-            margin-top: 8px;
-          }
-        }
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-        .detail-tit{
-          width: 100px;
-          span{
-            display: block;
-            width: 100%;
-            white-space: pre;
-          }
-        }
-      }
-    }
+    // .table-list{
+    //   padding: 20px 0;
+    //   &.comBox-item{
+    //     &.tr-disabled *:not(.status-tag){
+    //       color: var(--color-primary-60);
+    //       a{
+    //         pointer-events: none;
+    //       }
+    //     }
+    //     + .comBox-item{
+    //       margin-top: 0;
+    //     }
+    //     .profile{
+    //       margin-top: 10px;
+    //     }
+    //     .detail{
+    //       margin: 16px 0 0;
+    //       padding-bottom: 0;
+    //     }
+    //     .detail li + li{
+    //       margin-top: 16px;
+    //       @include mobile{
+    //         margin-top: 8px;
+    //       }
+    //     }
+    //     border-radius: 0;
+    //     background: transparent;
+    //     box-shadow: none;
+    //     .detail-tit{
+    //       width: 100px;
+    //       span{
+    //         display: block;
+    //         width: 100%;
+    //         white-space: pre;
+    //       }
+    //     }
+    //   }
+    // }
     
     .btn-view{
     
@@ -1132,9 +1308,6 @@ input[type=date]{
     .txt-hide{
       display: none;
     }
-    .excel-upload-area + .btn-wrap .btn{
-      width: 85px;
-    }
     .table-wrap{
       margin-bottom: 0;
     }
@@ -1150,7 +1323,17 @@ input[type=date]{
   }
 }
 
-
+.popup-content_excel{
+  @include mobile{
+    height: 100%;
+    overflow-y: auto;
+  }
+  .search-option{
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+ 
+}
 .excel-upload-area {
   border-radius: 20px;
   border: 2px dashed var(--color-primary-30);
@@ -1232,8 +1415,49 @@ input[type=date]{
     text-align: center;
     font-size: 14px;
     line-height: 1.8;
+    @include mobile{
+      font-size: 12px;
+    }
   }
  
+}
+
+.excel-control_btn{
+  @include mobile{
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 20px !important;
+    .btn{
+      width: 100%;
+    }
+    .down-btn{
+      width: 100%;
+    }
+    .control-btn{
+      width: 100%;
+    }
+  }
+}
+
+.popup-content_edit{
+  form .row{display: flex; flex-wrap: wrap; margin-right: calc(-.5 * var(--gutter-x2)); margin-left: calc(-.5 * var(--gutter-x2))}
+  form .row>* {width: 50%; flex: 0 0 auto; padding-right: calc(var(--gutter-x2) * .5); padding-left: calc(var(--gutter-x2) * .5); }
+  @include mobile{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    form .row.row.row-cols-2 {
+      display: block;
+      margin: 0;
+    }
+  
+    form .row.row.row-cols-2 > * {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+  }
+  
 }
 
 // card
@@ -1306,6 +1530,17 @@ input[type=date]{
        
     }
   }
+  .tab-cont{
+    &__wrap{
+      height: 100%;
+    }
+    height: 100%;
+    &.active{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
   #map-container{
     position: relative;
     padding: 30px;
@@ -1338,6 +1573,9 @@ input[type=date]{
     display: flex;
     justify-content: center;
     align-items: center;
+    .btn-wrap{
+      justify-content: center;
+    }
   }
   &-inner{
     text-align: center;
@@ -1349,6 +1587,7 @@ input[type=date]{
     line-height: 1.5;
     color: #fff;
   }
+ 
 }
 
 .tab-cont__wrap{
@@ -1521,6 +1760,9 @@ input[type=date]{
       @include mobile{
         padding: 20px;
         display: block;
+      }
+      &.flex{
+        .input-tit{margin-top: 5px;}
       }
     }
     .input-tit{
@@ -1993,5 +2235,12 @@ input[type=date]{
       height: 80px;
      border-radius: 10px;
     }
+  }
+}
+
+
+.notice{
+  textarea{
+    height: 180px;
   }
 }

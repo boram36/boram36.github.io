@@ -1099,10 +1099,12 @@ input[type="text"]{
     font-weight: 700;
     background: transparent;
     border: none;
-    cursor: pointer;
     background: var(--color-primary-10);
     color: var(--color-primary-60);
     word-break: keep-all;
+    &__control{
+    cursor: pointer;
+    }
     @include mobile{
       font-size: $fs-16;
       padding: 16px 0;

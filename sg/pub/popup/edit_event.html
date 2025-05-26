@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행사 정보 수정</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+</head>
+<body class="admin">
+  <div class="popup-admin inner">
+    <div class="popup-header">
+      <h2 class="popup-title">행사 정보 수정</h2>
+      <button type="button" class="btn-close ico" onclick="closePopup('eventEdit')"><i class="ico-cancel"></i></button>
+    </div>
+    <!-- e: popup-header -->
+
+    <div class="popup-content">
+      <form action="">
+        <div class="form-input">
+          <div class="input-row">
+            <div>
+              <label class="input-tit" for="name">행사명<span class="required">*</span></label>
+              <div class="input-wrap">
+                <input type="text" id="name" name="name" placeholder="행사명" value="구월 동네 잔치" >
+              </div>
+            </div>
+          </div>
+
+          <div class="input-row row row-cols-2">
+            <div>
+              <div class="input-tit">행사일<span class="required">*</span></div>
+              <div class="input-wrap input-date">
+                <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="2025.03.12" autocomplete="off" title="" maxlength="10">
+                <script>
+                  $('#eventEdit .datepicker-here').datepicker({
+                    language: 'kr',
+                    dateFormat: 'yyyy.mm.dd'
+                  }).data('datepicker').selectDate(new Date('2025-03-12'));
+                </script>
+              </div>
+            </div>
+            <div>
+              <label class="input-tit" for="time">행사시간<span class="required">*</span></label>
+              <div class="input-wrap">
+                <input type="text" id="time" name="time" placeholder="행사시간" value="14:00" >
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-row">
+              <label class="input-tit" for="input02">행사 지역<span class="required">*</span></label>
+              <div class="select-wrap row row-cols-4">
+                <select name="" id="" class="width-quart" disabled>
+                  <option value="">시/도</option>
+                  <option value="" selected>경상남도</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+        
+                <select name="" id="" class="width-quart" disabled>
+                  <option value="" >시/군/구</option>
+                  <option value="" selected>상도군</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+        
+                <select name="" id="" class="width-quart">
+                  <option value="">읍/면/동</option>
+                  <option value="" selected>구월면</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+        
+                <select name="" id="" class="width-quart">
+                  <option value="">리</option>
+                  <option value="" selected>이읍리</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-row row row-cols-2">
+            <div>
+              <label class="input-tit" for="name">행사 장소<spanc lass="required">*</span></label>
+              <div class="input-wrap">
+                <input type="text" id="place" name="place" placeholder="행사 장소" value="수월 강당" >
+              </div>
+            </div>
+            <div>
+              <label class="input-tit" for="peopleNum">예상인원</label>
+              <div class="input-wrap">
+                <input type="text" id="peopleNum" name="peopleNum" placeholder="예상인원" value="1,000" >
+              </div>
+            </div>
+          </div>
+
+          <div class="input-row row row-cols-2">
+            <div>
+              <label class="input-tit" for="register">등록 조직원</label>
+              <div class="input-wrap">
+                <input type="text" id="register" name="register" placeholder="등록 조직원" value="김지훈" >
+              </div>
+            </div>
+            <div>
+              <label class="input-tit" for="registerDate">등록일</label>
+              <div class="input-wrap">
+                <input type="text" id="registerDate" name="registerDate" placeholder="등록일" value="2025.03.12" readonly>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <label class="input-tit" for="name">내용</label>
+            <textarea id="candidateBio" placeholder="내용 입력">수월 강당에서 동네 잔치가 열립니다.</textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- e: popup-content -->
+   
+    <div class="popup-footer">
+      <div class="btn-wrap">
+        <button type="button" class="btn" onclick="closePopup('eventEdit')">취소</button>
+        <button type="button" class="btn btn-delete bg-red" onclick="openPopup('deletePopup')">삭제</button>
+        <button type="button" class="btn btn-active">수정</button>
+      </div>
+    </div>
+    <!-- e: popup-footer -->
+  </div>
+
+</body>
+</html> 

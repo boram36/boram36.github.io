@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조직원 정보 수정</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+</head>
+<body class="admin">
+  <div class="popup-admin inner">
+    <div class="popup-header">
+      <h2 class="popup-title">조직원 정보 수정</h2>
+      <button type="button" class="btn-close ico" onclick=""><i class="ico-cancel"></i></button>
+    </div>
+    <div class="popup-content popup-content_edit">
+      <form action="">
+        <!-- 지역 재설정 시 : error-region, 핸드폰 재설정 시 : error-phone -->
+        <div class="form-input">
+          <div class="input-row row row-cols-2">
+            <div>
+              <label class="input-tit" for="name">수신자 이름<span class="required">*</span></label>
+              <div class="input-wrap">
+                <input type="text" id="name" name="name" placeholder="이름" value="이정훈" >
+              </div>
+            </div>
+            <div>
+              <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
+              <div class="input-wrap input-inner td_tel">
+                <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
+              </div>
+            </div>
+          </div>
+
+          <div class="input-row row row-cols-2">
+            <div>
+              <div class="input-tit">수신자 성별<span class="required">*</span></div>
+              <div class="checkbox-box radio-wrap">
+                <div class="checkbox">
+                  <input type="radio" id="gender01" name="gender" checked>
+                  <label for="gender01">남</label>
+                </div>
+                <div class="checkbox">
+                  <input type="radio" id="gender02" name="gender">
+                  <label for="gender02">여</label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="input-tit" for="age">수신자 나이<span class="required">*</span></label>
+              <div class="input-wrap">
+                <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-row">
+              <label class="input-tit" for="input02">수신자 지역<span class="required">*</span></label>
+              <div class="select-wrap row row-cols-4">
+                <select name="" id="" class="width-quart" disabled>
+                  <option value="">시/도</option>
+                  <option value="" selected>경상남도</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+        
+                <select name="" id="" class="width-quart" disabled>
+                  <option value="" >시/군/구</option>
+                  <option value="" selected>상도군</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+        
+                <select name="" id="" class="width-quart" >
+                  <option value="">읍/면/동</option>
+                  <option value="" selected>구월면</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+        
+                <select name="" id="" class="width-quart" >
+                  <option value="">리</option>
+                  <option value="" selected>이읍리</option>
+                  <option value="">서울시</option>
+                  <option value="">부산시</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- e: popup-content -->
+    <div class="popup-footer">
+      <div class="btn-wrap">
+        <button type="button" class="btn bg-red" onclick="openPopup('deletePopup')">삭제</button>
+        <button type="button" class="btn btn-active">수정</button>
+      </div>
+    </div>
+    <!-- e: popup-footer -->
+  </div>
+
+</body>
+</html> 

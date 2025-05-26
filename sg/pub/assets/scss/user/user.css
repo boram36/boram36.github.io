@@ -4167,10 +4167,12 @@ input[type=text].input-sch::placeholder {
   font-weight: 700;
   background: transparent;
   border: none;
-  cursor: pointer;
   background: var(--color-primary-10);
   color: var(--color-primary-60);
   word-break: keep-all;
+}
+.tab-btn__control {
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .tab-btn {

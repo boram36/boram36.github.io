@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지지도 개별 등록</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+</head>
+<body class="admin">
+  <div class="popup-admin inner">
+    <div class="popup-header">
+      <h2 class="popup-title">지지도 개별 등록</h2>
+    </div>
+    <div class="popup-content">
+      <div class="input-row">
+        <label for="searchInput" class="input-tit">유권자 검색</label>
+        <div class="input-wrap input-search input-inner">
+          <input type="text" id="searchInput" name="" placeholder="이름(2글자이상), 휴대폰번호(끝 4자리)">
+          <button type="button" id="searchBtn" class="btn ico" title="검색어 입력"><i class="ico-search"></i></button>
+          <button type="button" id="clearBtn" class="btn ico" title="지우기" style="display:none;"><i class="ico-cancel"></i></button>
+        </div>
+      </div>
+
+      
+      <div class="noList noList-begin mt25">
+        <!-- 검색 전 초기화면{ -->
+        <p>
+          지지도를 등록할<br>
+          유권자를 검색해 주세요.
+        </p>
+        <!-- } 검색 전 초기화면 -->
+      </div>
+
+      <div class="comBox">
+        <div class="comBox-top f-c-space">
+          <b class="comBox-top__tit">검색 결과(2)</b>
+        </div>
+        <!-- e: comBox-top -->
+
+        <div class="comBox-list">
+          <div class="comBox-item">
+            <div class="comBox-item__top f-c-space">
+              <div class="num">2</div>
+              <button type="button" class="btn-small btn ico bg-black" onclick="openPopup('registerPopup')">선택</button>
+            </div>
+            <!-- e: comBox-item__top -->
+
+            <div class="comBox-item__cont">
+              <div class="profile f-c-space">
+                <div class="tit">
+                  <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                  <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+                </div>
+                <p class="profile-tel">010-1***-4532</p>
+              </div>
+              <!-- e: profile -->
+
+              <ul class="detail">
+                <li>
+                  <div class="detail-tit">
+                    <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+                  </div>
+                  <div class="detail-cont">구월면 &gt; 이읍리</div>
+                </li>
+                
+              </ul>
+              <!-- e: detail -->
+
+            </div>
+            <!-- e: comBox-item__cont -->
+
+          </div>
+
+          <div class="comBox-item">
+            <div class="comBox-item__top f-c-space">
+              <div class="num">1</div>
+              <button type="button" class="btn-small btn ico bg-black" onclick="openPopup('registerPopup')">선택</button>                
+            </div>
+            <!-- e: comBox-item__top -->
+
+            <div class="comBox-item__cont">
+              <div class="profile f-c-space">
+                <div class="tit">
+                  <b>김순미</b>(<span class="txt-14">여</span>, 64세)
+                  <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+                </div>
+                <p class="profile-tel">010-1***-4532</p>
+              </div>
+              <!-- e: profile -->
+
+              <ul class="detail">
+                <li>
+                  <div class="detail-tit">
+                    <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+                  </div>
+                  <div class="detail-cont">구월면 &gt; 이읍리</div>
+                </li>
+              </ul>
+              <!-- e: detail -->
+
+            </div>
+            <!-- e: comBox-item__cont -->
+
+          </div>
+          <!-- e: 반복구문 : comBox-item -->
+        </div>
+
+        <!-- 검색결과 없을 경우 -->
+        <div class="noList">
+          <p>
+            찾는 유권자가 없습니까?<br>
+            그럼 유권자를 등록해 주세요
+          </p>
+          <a href="../voter/register.html" class="btn btn-active btn-mid mt5">신규 유권자 등록</a>
+        </div>
+
+
+      </div>
+
+      
+    </div>
+    <!-- e: popup-content -->
+
+  </div>
+
+</body>
+</html> 

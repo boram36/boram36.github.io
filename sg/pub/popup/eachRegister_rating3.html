@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유권자 등록</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+</head>
+<body class="admin">
+  <div class="popup-admin inner">
+    <div class="popup-header">
+      <h2 class="popup-title">유권자 등록</h2>
+    </div>
+    <div class="popup-content">
+
+      <form action="">
+        <div class="form-input">
+          <div class="input-row">
+            <label class="input-tit" for="name">유권자 이름<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="name" name="name" placeholder="유권자 이름(2글자 이상)" value="">
+            </div>
+          </div>
+          <!-- e: 유권자 이름 -->
+          <div class="input-row">
+            <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
+            <div class="input-wrap input-inner">
+              <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰 번호 입력" value="">
+              <button type="button" class="btn btn-small btn-check">중복<br>확인</button><button>
+            </button></div>
+          </div>
+          <!-- e: 휴대폰번호 -->
+          <div class="input-row">
+            <div class="input-tit">유권자 성별<span class="required">*</span></div>
+            <div class="checkbox-box radio-wrap">
+              <div class="checkbox">
+                <input type="radio" id="gender01" name="gender">
+                <label for="gender01">남</label>
+              </div>
+              <div class="checkbox">
+                <input type="radio" id="gender02" name="gender">
+                <label for="gender02">여</label>
+              </div>
+            </div>
+          </div>
+           <!-- e: 유권자 성별  -->
+           <div class="input-row">
+            <label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="age" name="age" placeholder="유권자 나이 입력" value="">
+            </div>
+          </div>
+          <!-- e: 유권자 이름 -->
+          <div class="input-row">
+            <label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
+            <div class="select-wrap">
+              <select name="" id="" class="width-half" disabled>
+                <option value="">시/도</option>
+                <option value="" selected>경상남도</option>
+                <option value="">서울시</option>
+                <option value="">부산시</option>
+              </select>
+      
+              <select name="" id="" class="width-half" disabled>
+                <option value="" >시/군/구</option>
+                <option value="" selected>상도군</option>
+                <option value="">서울시</option>
+                <option value="">부산시</option>
+              </select>
+      
+              <select name="" id="" class="width-half">
+                <option value="">읍/면/동</option>
+                <option value="" selected>구월면</option>
+                <option value="">서울시</option>
+                <option value="">부산시</option>
+              </select>
+      
+              <select name="" id="" class="width-half">
+                <option value="">리</option>
+                <option value="" selected>이읍리</option>
+                <option value="">서울시</option>
+                <option value="">부산시</option>
+              </select>
+            </div>
+          </div>
+          <!-- e: 유권자 지역 -->
+          <div class="input-row">
+            <label for="" class="input-tit">비고</label>
+            <textarea name="" id="" placeholder="내용 입력"></textarea>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+    <!-- e: popup-content -->
+    <div class="popup-footer">
+      <div class="btn-wrap">
+        <button type="button" class="btn" onclick="closePopup('eachRegister')">취소</button>
+        <button type="button" class="btn btn-active">등록</button>
+      </div>
+    </div>
+    <!-- e: popup-footer -->
+  </div>
+
+</body>
+</html> 

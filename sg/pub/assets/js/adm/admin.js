@@ -163,3 +163,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+
+
+function showLoading(){
+  const loadingOverlay = document.getElementById("loadingOverlay");
+
+  loadingOverlay.style.display = "flex";
+}
+
+function hideLoading(){
+  const loadingOverlay = document.getElementById("loadingOverlay");
+
+  loadingOverlay.style.display = "none";
+}

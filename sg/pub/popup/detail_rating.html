@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지지도 조사 내역 상세</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+</head>
+<body class="admin">
+  <div class="popup-admin popup-big popup-ranking inner">
+    <div class="popup-header">
+      <h2 class="popup-title">지지도 조사 내역 상세</h2>
+      <button type="button" class="btn-close ico" onclick="closePopup('ratingRankingDetail')"><i class="ico-cancel"></i></button>
+    </div>
+    <!-- e: popup-header -->
+
+    <div class="popup-content">
+      <div class="popup-cont_wrap row">
+        <div class="col-4">
+          <div class="candidater-info">
+            <div class="candidater-info__top f-h-c">
+              <div class="profile-info">
+                <b>김지훈</b>
+              </div>
+            </div>
+            <!-- e: candidater-info__top -->
+
+            <ul class="detail">
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">휴 대 폰 번 호</span>
+                </div>
+                <div class="detail-cont">
+                  010-1234-5678
+                </div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">지지도조사수</span>
+                </div>
+                <div class="detail-cont">
+                  203
+                </div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">행 사 등 록 수</span>
+                </div>
+                <div class="detail-cont">
+                  32
+                </div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">비         고</span>
+                </div>
+                <div class="detail-cont">
+                  -
+                </div>
+              </li>
+            </ul>
+            <!-- e: detail -->
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="card f-1">
+            <div class="tab-layout">
+              <div class="tab-menu">
+                <div class="tab-title txt-l txt-small">
+                  지지도 조사 내역(24)
+                </div>
+              </div>
+              <div class="tab-cont__wrap">
+                <div class="table-scroll">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>성별</th>
+                        <th>나이</th>
+                        <th>휴대폰번호</th>
+                        <th>지역</th>
+                        <th>조사일</th>
+                        <th>지지도</th>
+                        <th>상태</th>
+                        <th>의견</th>
+                        <th>관리</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td_num">324542</td>
+                        <td class="td_name width-80">
+                          <div class="td-txt pc-ver">김지훈</div>
+                          <div class="mo-ver width-full">
+                            <div class="profile f-c-space">
+                              <div class="tit">
+                                <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                              </div>
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="td_gender td-pc">남</td>
+                        <td class="td_age td-pc">65</td>
+                        <td class="td_tel td-pc  width-160">
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                        <td class="td_rating">
+                          <span class="td-tit text-justify">지      지      도</span>
+                          <div class="f-c-all gap-5">
+                            <i class="ico ico-hate_big"></i>
+                          </div>
+                        </td>
+                        <td class="td_state td_right right01">
+                          <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                          <div class="status-tag status-normal">정상</div>
+                        </td>
+                        <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="td_num">324542</td>
+                        <td class="td_name width-80">
+                          <div class="td-txt pc-ver">김지훈</div>
+                          <div class="mo-ver width-full">
+                            <div class="profile f-c-space">
+                              <div class="tit">
+                                <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                              </div>
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="td_gender td-pc">남</td>
+                        <td class="td_age td-pc">65</td>
+                        <td class="td_tel td-pc  width-160">
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                        <td class="td_rating">
+                          <span class="td-tit text-justify">지      지      도</span>
+                          <div class="f-c-all gap-5">
+                            <i class="ico ico-like_big"></i>
+                          </div>
+                        </td>
+                        <td class="td_state td_right right01">
+                          <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                          <div class="status-tag status-normal">정상</div>
+                        </td>
+                        <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
+                      <tr class="tr-disabled">
+                        <td class="td_num">324542</td>
+                        <td class="td_name width-80">
+                          <div class="td-txt pc-ver">김지훈</div>
+                          <div class="mo-ver width-full">
+                            <div class="profile f-c-space">
+                              <div class="tit">
+                                <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                              </div>
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="td_gender td-pc">남</td>
+                        <td class="td_age td-pc">65</td>
+                        <td class="td_tel td-pc  width-160">
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                        <td class="td_rating">
+                          <span class="td-tit text-justify">지      지      도</span>
+                          <div class="f-c-all gap-5">
+                            <i class="ico ico-mid_big"></i>
+                          </div>
+                        </td>
+                        <td class="td_state td_right right01">
+                          <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                          <div class="status-tag status-stop">중지</div>
+                        </td>
+                        <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- 중지된 조직원일 경우 : tr-disabled 클래스 추가 -->
+                      <tr class="tr-disabled">
+                        <td class="td_num">324542</td>
+                        <td class="td_name width-80">
+                          <div class="td-txt pc-ver">김지훈</div>
+                          <div class="mo-ver width-full">
+                            <div class="profile f-c-space">
+                              <div class="tit">
+                                <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                              </div>
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="td_gender td-pc">남</td>
+                        <td class="td_age td-pc">65</td>
+                        <td class="td_tel td-pc  width-160">
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11 17:21</td>
+                        <td class="td_rating">
+                          <span class="td-tit text-justify">지      지      도</span>
+                          <div class="f-c-all gap-5">
+                            <i class="ico ico-hate_big"></i>
+                          </div>
+                        </td>
+                        <td class="td_state td_right right01">
+                          <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                          <div class="status-tag status-stop">중지</div>
+                        </td>
+                        <td class="td_etc width-200"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">의견입니다. 의견입니다.</div></td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-footer">
+                  <div class="pagination">
+                    <button class="page-btn page-first" onclick=""><i></i></button>
+                    <button class="page-btn page-prev" onclick=""><i></i></button>
+                    <button class="page-btn active" onclick="">1</button>
+                    <button class="page-btn" onclick="">2</button>
+                    <button class="page-btn" onclick="">3</button>
+                    <button class="page-btn page-next" onclick=""><i></i></button>
+                    <button class="page-btn page-end" onclick=""><i></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- e: popup-content -->
+  </div>
+
+</body>
+</html> 

@@ -811,6 +811,9 @@ form .row>* { padding-right: calc(var(--gutter-x2) * .5); padding-left: calc(var
 .radius-20{border-radius: 20px;}
 
 @include pc2{
+  .col-5{
+    width: 100%;
+  }
 }
 @include laptop{
   .tab-cont{

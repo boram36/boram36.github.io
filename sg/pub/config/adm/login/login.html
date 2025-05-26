@@ -83,7 +83,7 @@
             </div>
   
             <div class="input-wrap">
-              <input type="password" id="passwod" name="pwsswod" placeholder="비밀번호 입력" value="" >
+              <input type="password" id="password" name="password" placeholder="비밀번호 입력" value="" >
             </div>
   
             <div class="btn-wrap">
@@ -106,7 +106,7 @@
 
 
 	<!-- 로그인 불가 팝업 -->
-	<div id="loginFailPopup" class="popup-layer popupAlert" style="display: none;">
+	<div id="loginFailPopup" class="popup-layer popupAlert">
 		<div class="popup-inner">
 			<div class="popup-header">
 				<h2 class="popup-title">로그인 불가</h2>
@@ -120,7 +120,7 @@
 			<!-- e: popup-content -->
 			<div class="popup-footer">
 				<div class="btn-wrap">
-					<button type="button" class="btn btn-active" onclick="closePopup()">확인</button>
+					<button type="button" class="btn btn-active" onclick="closePopup('loginFailPopup')">확인</button>
 				</div>
 			</div>
 			<!-- e: popup-footer -->
@@ -131,27 +131,31 @@
 
 
 	<script>
+
+
+
 		// 로그인 팝업
 		function handleLogin() {
-			const name = document.getElementById('name').value.trim();
-			const tel = document.getElementById('tel').value.trim();
+			const id = document.getElementById('id').value.trim();
+			const password = document.getElementById('password').value.trim();
 
-			if (name.length < 2 || tel === '010-3412-1234') {
-				showPopup();
+			if (id.length < 2 || password < 2) {
+				openPopup('loginFailPopup');
 			} else {
 				alert('로그인 성공!');
 			}
 		}
 
-		function showPopup() {
-			document.getElementById('loginFailPopup').style.display = 'flex';
-			document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
-		}
+		
+		// function showPopup() {
+		// 	document.getElementById('loginFailPopup').style.display = 'flex';
+		// 	document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+		// }
 
-		function closePopup() {
-			document.getElementById('loginFailPopup').style.display = 'none';
-			document.body.style.overflow = ''; // 스크롤 복원
-		}
+		// function closePopup() {
+		// 	document.getElementById('loginFailPopup').style.display = 'none';
+		// 	document.body.style.overflow = ''; // 스크롤 복원
+		// }
 
 
 	</script>
