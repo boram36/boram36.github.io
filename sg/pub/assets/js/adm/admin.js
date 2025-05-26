@@ -117,16 +117,29 @@ function closePopup() {
 
 
   // 팝업 로딩 시, iframe 크기 자동 조절 (부모창에서 가능)
-  function resizeParentIframe() {
-    const height = document.body.scrollHeight;
-    const iframe = window.parent.document.querySelector('#popupIframe');
-    if (iframe) {
-      iframe.style.height = height + 'px';
-    }
+function resizeParentIframe() {
+  const height = document.body.scrollHeight;
+  const iframe = window.parent.document.querySelector('#popupIframe');
+  if (iframe) {
+    iframe.style.height = height + 'px';
   }
-  
-  window.addEventListener('load', resizeParentIframe);
-  window.addEventListener('resize', resizeParentIframe);
+}
+
+window.addEventListener('load', resizeParentIframe);
+window.addEventListener('resize', resizeParentIframe);
+
+
+// 검색 팝업
+function openSearch() {
+  const el = document.getElementById('searchPopup');
+  if (window.innerWidth <= 1024) {
+    el.classList.add('active');
+  }
+}
+
+function closeSearch() {
+  document.getElementById('searchPopup').classList.remove('active');
+}
 
 
 $(document).ready(function () {
