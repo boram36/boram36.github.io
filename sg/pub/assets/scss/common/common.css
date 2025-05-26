@@ -3865,6 +3865,10 @@ textarea {
 .input-wrap.input-inner .btn.btn-check.active {
   background: var(--color-primary-50);
 }
+.input-wrap.input-inner .btn.btn-check.btn-disabled {
+  background: var(--color-primary-50);
+  color: #fff;
+}
 .input-wrap.input-search .btn .ico-search {
   background-image: url("../../images/cmn/ico-search.svg");
   background-position: 50%;

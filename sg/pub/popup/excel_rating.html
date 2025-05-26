@@ -18,7 +18,29 @@
 
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
-
+  <style>
+    body {
+      margin: 0 auto;
+      width: 1400px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (max-width: 1400px) {
+      body{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  
+    @media screen and (max-width: 768px) {
+      body{
+        height: 100%;
+      }
+    }
+  
+    </style>
 </head>
 <body>
   <div class="popup-admin popup-big inner">
@@ -200,7 +222,7 @@
                   <div class="status-tag status-normal status-big">등록<br class="pc-ver">가능</div>
                 </td>
                 <td class="td_setting mo-ver td_right right01">
-                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('peopleEdit2')">
+                  <button type="button" class="btn btn-setting ico" onclick="openPopup('./edit_rating.html')">
                     <i class="ico-setting"></i>
                   </button>
                 </td>
@@ -282,7 +304,7 @@
                   <div class="status-tag status-normal status-big">등록<br class="pc-ver">가능</div>
                 </td>
                 <td class="td_setting mo-ver td_right right01">
-                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('peopleEdit2')">
+                  <button type="button" class="btn btn-setting ico" onclick="openPopup('./edit_rating.html')">
                     <i class="ico-setting"></i>
                   </button>
                 </td>
@@ -365,7 +387,7 @@
                   <div class="status-tag status-stop status-big">휴대폰 번호<br class="pc-ver">중독</div>
                 </td>
                 <td class="td_setting mo-ver td_right right01">
-                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('peopleEdit2')">
+                  <button type="button" class="btn btn-setting ico" onclick="openPopup('./edit_rating.html')">
                     <i class="ico-setting"></i>
                   </button>
                 </td>
@@ -447,7 +469,7 @@
                   <div class="status-tag status-stop status-big">지역<br class="pc-ver">재설정</div>
                 </td>
                 <td class="td_setting mo-ver td_right right01">
-                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('peopleEdit2')">
+                  <button type="button" class="btn btn-setting ico" onclick="openPopup('./edit_rating.html')">
                     <i class="ico-setting"></i>
                   </button>
                 </td>
@@ -466,7 +488,7 @@
     <!-- e: popup-content -->
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn" onclick="closePopup('excelRegister')">취소</button>
+        <button type="button" class="btn" onclick="window.parent.closePopup()">취소</button>
         <button type="button" class="btn btn-active" onclick="showLoading();">수정</button>
       </div>
     </div>
@@ -488,6 +510,13 @@
   </div>
   <!-- 로딩화면 -->
 
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap">
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
    
 
   <script>

@@ -18,7 +18,27 @@
 
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
-
+  <style>
+    body {
+      margin: 0 auto;
+      height: 849px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (max-width: 1400px) {
+      body{
+        width: 100%;
+        height: 800px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+    body{
+      height: 600px;
+    }
+  }
+  
+  </style>
 </head>
 <body class="admin">
   <div class="popup-admin inner">
@@ -77,12 +97,13 @@
     <!-- e: popup-content -->
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn" onclick="closePopup('eachRegister')">취소</button>
+        <button type="button" class="btn" onclick="window.parent.closePopup()">취소</button>
         <button type="button" class="btn btn-active">등록</button>
       </div>
     </div>
     <!-- e: popup-footer -->
   </div>
+
 
 </body>
 </html> 

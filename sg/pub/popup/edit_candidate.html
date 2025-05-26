@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>후보자 등록</title>
+    <title>후보자 수정</title>
 
 	<!-- css -->
 	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
@@ -40,11 +40,12 @@
   }
   
   </style>
+
 </head>
 <body class="admin">
   <div class="popup-admin inner">
     <div class="popup-header">
-      <h2 class="popup-title">후보자 등록</h2>
+      <h2 class="popup-title">후보자 수정</h2>
       <button type="button" class="btn-close ico" onclick="window.parent.closePopup()"><i class="ico-cancel"></i></button>
     </div>
     <!-- e: popup-header -->
@@ -88,7 +89,7 @@
             <div class="picture_wrap f-h-c gap-20">
               <div class="profile-img"  onclick="document.getElementById('profileUpload').click()">
                 <!-- 이미지 미리보기 위치 -->
-                <img id="profilePreview" src="../../../assets/images/cmn/profile80.svg" alt="">
+                <img id="profilePreview" src="../../../assets/images/test/profile-img.png" alt="">
                 <!-- 실제 파일 업로드 input -->
                 <input type="file" id="profileUpload" accept="image/*" style="display: none;">
                 <!-- 업로드 버튼 -->
@@ -123,7 +124,7 @@
             <div>
               <label class="input-tit" for="name">후보자 이름<span class="required">*</span></label>
               <div class="input-wrap">
-                <input type="text" id="name" name="name" placeholder="이름" value="">
+                <input type="text" id="name" name="name" placeholder="이름" value="김가나">
               </div>
             </div>
           </div>
@@ -134,35 +135,36 @@
               <div class="select-wrap">
                 <select name="" id="" class="width-full">
                   <option value="">번호 선택</option>
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
                 </select>
               </div>
             </div>
             <div>
               <label class="input-tit" for="name">후보자 나이</label>
               <div class="input-wrap">
-                <input type="text" id="name" name="name" placeholder="나이(숫자)" value="" >
+                <input type="text" id="name" name="name" placeholder="나이(숫자)" value="57" >
               </div>
             </div>
           </div>
 
           <div class="input-row">
             <label class="input-tit" for="name">약력</label>
-            <textarea name="" id="" placeholder="약력 입력"></textarea>
+            <textarea id="candidateBio" placeholder="약력 입력">·서울대학교 행정학과 졸업 &#10;·현) 국민정책연구소 이사 &#10;·전) 제20대 국회의원</textarea>
           </div>
         </div>
       </form>
     </div>
     <!-- e: popup-content -->
-
+   
     <div class="popup-footer">
       <div class="btn-wrap">
         <button type="button" class="btn" onclick="window.parent.closePopup()">취소</button>
-        <button type="button" class="btn btn-active">등록</button>
+        <button type="button" class="btn btn-active">수정</button>
       </div>
     </div>
+    <!-- e: popup-footer -->
   </div>
 
 </body>

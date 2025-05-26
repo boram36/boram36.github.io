@@ -171,139 +171,141 @@
         <h2 class="main-tit f-h-c">
           <i class="ico-heart"></i>
           지지도조사관리
-          <button type="button" class="btn btn-search ico" onclick="openPopup('searchPopup')"><i class="ico-search"></i></button>
+          <button type="button" class="btn btn-search ico" onclick="openSearch()"><i class="ico-search"></i></button>
         </h2>
       
         <!-- 검색 필터 -->
-        <div class="search-option pc-ver">
-          <div class="search-row flex">
-            <div class="search-row__tit">검색옵션</div>
-            <div class="search-row__cont f-h-c">
-              <div class="search-col">
-                <label class="search-col__tit">유권자 성별</label>
-                <div class="radio-wrap">
-                  <div class="checkbox">
-                    <input type="radio" id="gender01" name="gender" checked>
-                    <label for="gender01">남</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="radio" id="gender02" name="gender">
-                    <label for="gender02">여</label>
+        <div class="search-option" id="searchPopup">
+          <div class="search-inner">
+            <button type="button" class="btn-close ico" onclick="closeSearch()"><i class="ico-cancel"></i></button>
+            <div class="search-row flex">
+              <div class="search-row__tit">검색옵션</div>
+              <div class="search-row__cont f-h-c">
+                <div class="search-col">
+                  <label class="search-col__tit">유권자 성별</label>
+                  <div class="radio-wrap">
+                    <div class="checkbox">
+                      <input type="radio" id="gender01" name="gender" checked>
+                      <label for="gender01">남</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="radio" id="gender02" name="gender">
+                      <label for="gender02">여</label>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">유권자 나이</label>
-                <div class="f-h-c gap-15">
-                  <div class="select-wrap type02">
-                    <select name="" id="">
-                      <option value="">0</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
+                <div class="search-col">
+                  <label class="search-col__tit">유권자 나이</label>
+                  <div class="f-h-c gap-15">
+                    <div class="select-wrap type02">
+                      <select name="" id="">
+                        <option value="">0</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                      </select>
+                    </div>
+                    <span>~</span>
+                    <div class="select-wrap type02">
+                      <select name="" id="">
+                        <option value="">0</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="search-col">
+                  <label class="search-col__tit">유권자 지역</label>
+                  <div class="select-wrap row row-cols-4">
+                    <select name="" id="" class="width-quart" >
+                      <option value="">시/도</option>
+                      <option value="" selected>경상남도</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-quart" >
+                      <option value="" >시/군/구</option>
+                      <option value="" selected>상도군</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-quart">
+                      <option value="">읍/면/동</option>
+                      <option value="" selected>구월면</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-quart">
+                      <option value="">리</option>
+                      <option value="" selected>이읍리</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
                     </select>
                   </div>
-                  <span>~</span>
-                  <div class="select-wrap type02">
-                    <select name="" id="">
-                      <option value="">0</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select>
-                  </div>
+                  
                 </div>
-                
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">유권자 지역</label>
-                <div class="select-wrap row row-cols-4">
-                  <select name="" id="" class="width-quart" >
-                    <option value="">시/도</option>
-                    <option value="" selected>경상남도</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
+                <div class="search-col">
+                  <label class="search-col__tit">지지도 조사</label>
+                  <div class="checkbox-wrap">
+                    <div class="checkbox">
+                      <input type="checkbox" id="checkAll" name="check">
+                      <label for="checkAll">전체</label>
+                    </div>
           
-                  <select name="" id="" class="width-quart" >
-                    <option value="" >시/군/구</option>
-                    <option value="" selected>상도군</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">읍/면/동</option>
-                    <option value="" selected>구월면</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">리</option>
-                    <option value="" selected>이읍리</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-                </div>
-                
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">지지도 조사</label>
-                <div class="checkbox-wrap">
-                  <div class="checkbox">
-                    <input type="checkbox" id="checkAll" name="check">
-                    <label for="checkAll">전체</label>
-                  </div>
+                    <div class="checkbox">
+                      <input type="checkbox" id="check01" name="check" >
+                      <label for="check01"><i class="ico ico-like_big"></i></label>
+                    </div>
         
-                  <div class="checkbox">
-                    <input type="checkbox" id="check01" name="check" >
-                    <label for="check01"><i class="ico ico-like_big"></i></label>
+                    <div class="checkbox">
+                      <input type="checkbox" id="check02" name="check" >
+                      <label for="check02"><i class="ico ico-mid_big"></i></label>
+                    </div>
+        
+                    <div class="checkbox">
+                      <input type="checkbox" id="check03" name="check" >
+                      <label for="check03"><i class="ico ico-hate_big"></i></label>
+                    </div>
                   </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check02" name="check" >
-                    <label for="check02"><i class="ico ico-mid_big"></i></label>
-                  </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check03" name="check" >
-                    <label for="check03"><i class="ico ico-hate_big"></i></label>
+                </div>
+                <div class="search-col">
+                  <label class="search-col__tit">조사기간</label>
+                  <div class="input-wrap input-date">
+                    <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                    <span>~</span>
+                    <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
                   </div>
                 </div>
               </div>
-              <div class="search-col">
-                <label class="search-col__tit">조사기간</label>
-                <div class="input-wrap input-date">
-                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
-                  <span>~</span>
-                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+            </div>
+            <div class="search-row search-row__input flex">
+              <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
+              <div class="search-row__cont f-h-c">
+                <div class="search-col">
+                  <label class="search-col__tit">유권자 이름</label>
+                  <div class="input-row">
+                    <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                  </div>
+                </div>
+                <div class="search-col">
+                  <label class="search-col__tit">조사원 이름</label>
+                  <div class="input-row">
+                    <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                  </div>
+                </div>
+              </div>
+              <div class="search-row__button">
+                <div class="btn-wrap">
+                  <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+                  <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="search-row search-row__input flex">
-            <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
-            <div class="search-row__cont f-h-c">
-              <div class="search-col">
-                <label class="search-col__tit">유권자 이름</label>
-                <div class="input-row">
-                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
-                </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">조사원 이름</label>
-                <div class="input-row">
-                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
-                </div>
-              </div>
-            </div>
-            <div class="search-row__button">
-              <div class="btn-wrap">
-                <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
-                <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
-              </div>
-            </div>
-          </div>
-          
         </div>
 
         <!-- 조직원 목록 테이블 -->
@@ -386,8 +388,8 @@
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
-                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                          <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
@@ -439,8 +441,8 @@
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
-                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                          <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
@@ -494,8 +496,8 @@
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
-                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                          <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
@@ -548,8 +550,8 @@
                           <i class="ico-setting"></i>
                         </button>
                         <ul class="setting-drop">
-                          <li><button class="btn" onclick="openPopup('ratingEdit')">수정</button></li>
-                          <li><button class="btn txt-system-red" onclick="openPopup('deletePopup')">삭제</button></li>
+                          <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html')">수정</button></li>
+                          <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html')">삭제</button></li>
                         </ul>
                       </div>
                     </td>
@@ -563,8 +565,8 @@
               <div class="table-footer__wrap">
               
                 <div class="width-full f-v-r gap-10">
-                  <button class="btn btn-basic list-btn btn-excel" onclick="openPopup('excelRegister'); setTimeout(() => {checkTableHeight();}, 100);">엑셀 일괄 등록</button>
-                  <button class="btn btn-basic list-btn btn-navy" onclick="openPopup('eachRegister')">개별 등록</button>
+                  <button class="btn btn-basic list-btn btn-excel" onclick="openPopup('../../../popup/excel_rating.html');">엑셀 일괄 등록</button>
+                  <button class="btn btn-basic list-btn btn-navy" onclick="openPopup('../../../popup/eachRegister_rating.html')">개별 등록</button>
                 </div>
               </div>
               <div class="pagination">
@@ -590,159 +592,14 @@
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
 
-  <div class="popup"></div>
-  <!-- 팝업 -->
-
-  <!-- 검색 -->
-  <div id="searchPopup" class="popup-layer popup-admin popup-bottom popup-full">
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">검색</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('searchPopup')"><i class="ico-popup_cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-
-        <div class="search-option mo-ver">
-          <div class="search-row flex">
-            <div class="search-row__tit">검색옵션</div>
-            <div class="search-row__cont f-h-c">
-              <div class="search-col">
-                <label class="search-col__tit">유권자 성별</label>
-                <div class="radio-wrap">
-                  <div class="checkbox">
-                    <input type="radio" id="gender01" name="gender" checked>
-                    <label for="gender01">남</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="radio" id="gender02" name="gender">
-                    <label for="gender02">여</label>
-                  </div>
-                </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">유권자 나이</label>
-                <div class="f-h-c gap-15">
-                  <div class="select-wrap type02">
-                    <select name="" id="">
-                      <option value="">0</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select>
-                  </div>
-                  <span>~</span>
-                  <div class="select-wrap type02">
-                    <select name="" id="">
-                      <option value="">0</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                    </select>
-                  </div>
-                </div>
-                
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">유권자 지역</label>
-                <div class="select-wrap row row-cols-4">
-                  <select name="" id="" class="width-quart" >
-                    <option value="">시/도</option>
-                    <option value="" selected>경상남도</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" >
-                    <option value="" >시/군/구</option>
-                    <option value="" selected>상도군</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">읍/면/동</option>
-                    <option value="" selected>구월면</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">리</option>
-                    <option value="" selected>이읍리</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-                </div>
-                
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">지지도 조사</label>
-                <div class="checkbox-wrap">
-                  <div class="checkbox">
-                    <input type="checkbox" id="checkAll" name="check">
-                    <label for="checkAll">전체</label>
-                  </div>
-        
-                  <div class="checkbox">
-                    <input type="checkbox" id="check01" name="check" >
-                    <label for="check01"><i class="ico ico-like_big"></i></label>
-                  </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check02" name="check" >
-                    <label for="check02"><i class="ico ico-mid_big"></i></label>
-                  </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check03" name="check" >
-                    <label for="check03"><i class="ico ico-hate_big"></i></label>
-                  </div>
-                </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">조사기간</label>
-                <div class="input-wrap input-date">
-                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
-                  <span>~</span>
-                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="search-row search-row__input flex">
-            <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
-            <div class="search-row__cont f-h-c">
-              <div class="search-col">
-                <label class="search-col__tit">유권자 이름</label>
-                <div class="input-row">
-                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
-                </div>
-              </div>
-              <div class="search-col">
-                <label class="search-col__tit">조사원 이름</label>
-                <div class="input-row">
-                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-
-      </div>
-      <!-- e: popup-content -->
-
-      <div class="popup-footer">
-        <div class="search-row__button">
-          <div class="btn-wrap">
-            <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
-            <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
-          </div>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap">
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
     </div>
   </div>
+  <!-- 공통 팝업 컨테이너 -->
+
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {

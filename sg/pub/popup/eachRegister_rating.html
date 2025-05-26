@@ -19,11 +19,35 @@
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
 
+
+  <style>
+    body {
+      margin: 0 auto;
+      height: 849px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (max-width: 1400px) {
+      body{
+        width: 100%;
+        height: 800px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+    body{
+      height: 600px;
+    }
+  }
+  
+    </style>
+
 </head>
 <body class="admin">
   <div class="popup-admin inner">
     <div class="popup-header">
       <h2 class="popup-title">지지도 개별 등록</h2>
+      <button type="button" class="btn-close ico" onclick="window.parent.closePopup()"><i class="ico-cancel"></i></button>
     </div>
     <div class="popup-content">
       <div class="input-row">
@@ -55,7 +79,7 @@
           <div class="comBox-item">
             <div class="comBox-item__top f-c-space">
               <div class="num">2</div>
-              <button type="button" class="btn-small btn ico bg-black" onclick="openPopup('registerPopup')">선택</button>
+              <button type="button" class="btn-small btn ico bg-black" onclick="openPopup('./eachRegister_rating2.html')">선택</button>
             </div>
             <!-- e: comBox-item__top -->
 
@@ -126,7 +150,7 @@
             찾는 유권자가 없습니까?<br>
             그럼 유권자를 등록해 주세요
           </p>
-          <button type="button" class="btn btn-active btn-mid mt5">신규 유권자 등록</button>
+          <button type="button" class="btn btn-active btn-mid mt5" onclick="openPopup('./eachRegister_rating3.html')">신규 유권자 등록</button>
           <!-- /popup/eachRegister_rating3.html -->
         </div>
 
@@ -138,6 +162,16 @@
     <!-- e: popup-content -->
 
   </div>
+
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap">
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
 
 </body>
 </html> 

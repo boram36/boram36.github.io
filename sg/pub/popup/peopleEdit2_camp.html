@@ -18,13 +18,33 @@
 
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
-
+  <style>
+    body {
+      margin: 0 auto;
+      height: 849px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (max-width: 1400px) {
+      body{
+        width: 100%;
+        height: 800px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+    body{
+      height: 600px;
+    }
+  }
+  
+  </style>
 </head>
 <body class="admin">
   <div class="popup-admin inner">
     <div class="popup-header">
       <h2 class="popup-title">조직원 정보 수정</h2>
-      <button type="button" class="btn-close ico" onclick=""><i class="ico-cancel"></i></button>
+      <button type="button" class="btn-close ico" onclick="window.parent.closePopup()"><i class="ico-cancel"></i></button>
     </div>
     <div class="popup-content popup-content_edit">
       <form action="">
@@ -106,7 +126,7 @@
     <!-- e: popup-content -->
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn bg-red" onclick="openPopup('deletePopup')">삭제</button>
+        <button type="button" class="btn bg-red" onclick="openPopup('./deletePopup.html')">삭제</button>
         <button type="button" class="btn btn-active">수정</button>
       </div>
     </div>

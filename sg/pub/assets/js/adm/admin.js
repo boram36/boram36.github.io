@@ -101,38 +101,62 @@ document.addEventListener('DOMContentLoaded', () => {
 //   document.getElementById(id).style.display = 'none';
 // }
 
-function openPopup(url) {
+function openPopup(url, width, height ) {
   const popup = document.getElementById('layerPopup');
   const iframe = document.getElementById('popupIframe');
-  popup.style.display = 'flex';
+  const wrap = document.getElementById('popupWrap');
+
+  // 적용할 크기
+  wrap.style.width = width + 'px';
+  wrap.style.height = height + 'px';
+
+  // 로드 후 높이 자동 조정 위한 메시지 리스너 (선택사항)
+  window.addEventListener('message', receivePopupSizeMessage, false);
+
+  // 열기
   iframe.src = url;
+  popup.style.display = 'flex';
 }
 
 function closePopup() {
   const popup = document.getElementById('layerPopup');
   const iframe = document.getElementById('popupIframe');
+  const wrap = document.getElementById('popupWrap');
+
   iframe.src = '';
+  wrap.removeAttribute('style');
   popup.style.display = 'none';
+
+  window.removeEventListener('message', receivePopupSizeMessage);
+}
+
+// iframe 내부에서 부모에게 높이 전달
+function receivePopupSizeMessage(event) {
+  if (!event.data || typeof event.data !== 'object') return;
+  const { popupHeight } = event.data;
+  if (popupHeight) {
+    document.getElementById('popupWrap').style.height = popupHeight + 'px';
+  }
 }
 
 
   // 팝업 로딩 시, iframe 크기 자동 조절 (부모창에서 가능)
-function resizeParentIframe() {
-  const height = document.body.scrollHeight;
-  const iframe = window.parent.document.querySelector('#popupIframe');
-  if (iframe) {
-    iframe.style.height = height + 'px';
-  }
-}
+// function resizeParentIframe() {
+//   const height = document.body.scrollHeight;
+//   const iframe = window.parent.document.querySelector('#popupIframe');
+//   if (iframe) {
+//     iframe.style.height = height + 'px';
+//   }
+// }
 
-window.addEventListener('load', resizeParentIframe);
-window.addEventListener('resize', resizeParentIframe);
+// window.addEventListener('load', resizeParentIframe);
+// window.addEventListener('resize', resizeParentIframe);
 
 
 // 검색 팝업
 function openSearch() {
   const el = document.getElementById('searchPopup');
-  if (window.innerWidth <= 1024) {
+  if (window.innerWidth <= 1280) {
     el.classList.add('active');
   }
 }

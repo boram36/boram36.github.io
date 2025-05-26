@@ -798,7 +798,12 @@ select{
           &.active{
             background: var(--color-primary-50);
           }
+          &.btn-disabled{
+            background: var(--color-primary-50);
+            color: #fff;
+          }
         }
+
       }
     }
     &.input-search{

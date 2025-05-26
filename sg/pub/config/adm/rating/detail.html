@@ -141,7 +141,7 @@
           <li>
             <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
           </li>
-          <li>
+          <li class="active">
             <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
           </li>
           <li>
@@ -247,8 +247,8 @@
                 
                 </div>
                 <div class="btn-wrap f-v-r">
-                  <button type="button" class="btn list-btn btn-red" onclick="openPopup('deletePopup')">삭제</button>
-                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('peopleEdit')">지지도조사 수정</button>
+                  <button type="button" class="btn list-btn btn-red" onclick="openPopup('../../../popup/deletePopup.html')">삭제</button>
+                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('../../../popup/edit_rating.html')">지지도조사 수정</button>
                 </div>
               </div>
             </div>
@@ -263,181 +263,13 @@
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
-
-  <div id="peopleEdit" class="popup-layer popup-admin">
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">지지도조사 수정</h2>
-        <button type="button" class="btn-close ico" onclick="closePopup('peopleEdit')"><i class="ico-cancel"></i></button>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-        <form action="">
-          <div class="form-input">
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">유권자 이름<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
-                <div class="input-wrap input-inner">
-                  <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
-                  <button type="button" class="btn btn-small btn-check btn-disabled">중복<br>확인</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <div class="input-tit">유권자 성별<span class="required">*</span></div>
-                <div class="checkbox-box radio-wrap">
-                  <div class="checkbox">
-                    <input type="radio" id="gender01" name="gender">
-                    <label for="gender01">남</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="radio" id="gender02" name="gender">
-                    <label for="gender02">여</label>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
-                </div>
-              </div>
-            </div>
-            <div class="input-row">
-              <div class="input-row">
-                <label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
-                <div class="select-wrap row row-cols-4">
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="">시/도</option>
-                    <option value="" selected>경상남도</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="" >시/군/구</option>
-                    <option value="" selected>상도군</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">읍/면/동</option>
-                    <option value="" selected>구월면</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart">
-                    <option value="">리</option>
-                    <option value="" selected>이읍리</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">조사원 이름</label>
-                <div class="input-wrap">
-                  <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="name">상태</label>
-                <div class="select-wrap">
-                   <select name="" id="" class="width-quart">
-                    <option value="" selected>정상</option>
-                    <option value="">중지</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="date">조사일</label>
-                <div class="input-wrap">
-                  <input type="text" id="date" name="date" placeholder="조사일" value="2025.03.12 14:23" readonly>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="name">지지도<span class="required">*</span></label>
-                <div class="checkbox-wrap checkbox-box f-c-around">
-                  
-                  <div class="checkbox">
-                    <input type="checkbox" id="check01" name="check" >
-                    <label for="check01"><i class="ico ico-like_big"></i></label>
-                  </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check02" name="check" >
-                    <label for="check02"><i class="ico ico-mid_big"></i></label>
-                  </div>
-      
-                  <div class="checkbox">
-                    <input type="checkbox" id="check03" name="check" >
-                    <label for="check03"><i class="ico ico-hate_big"></i></label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row">
-              <label class="input-tit" for="name">의견</label>
-              <textarea id="candidateBio" placeholder="의견 입력">의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다. 의견입니다.</textarea>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- e: popup-content -->
-     
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('peopleEdit')">취소</button>
-          <button type="button" class="btn btn-delete bg-red" onclick="openPopup('deletePopup')">삭제</button>
-          <button type="button" class="btn btn-active">수정</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap">
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
     </div>
   </div>
-  <!-- e: 지지도조사 수정 -->
-
-  <div id="deletePopup" class="popup-layer popupAlert">
-    <div class="popup-backdrop" onclick="closePopup('deletePopup')"></div>
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">삭제</h2>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-        <p>정말 삭제하시겠습니까?</p>
-      </div>
-      <!-- e: popup-content -->
-
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn" onclick="closePopup('deletePopup')">취소</button>
-          <button type="button" class="btn bg-red">삭제</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-    </div>
-  </div>
-  <!-- e: 삭제 팝업 -->
+  <!-- 공통 팝업 컨테이너 -->
 
 
 

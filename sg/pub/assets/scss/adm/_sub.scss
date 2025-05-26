@@ -102,6 +102,10 @@ $url-bg2:"../../images/adm/";
     background-color: var(--system-red);
     color: #fff;
   }
+  &.btn-disabled{
+    background: var(--color-primary-50);
+    color: #fff;
+  }
 }
 
 /** input 공통 **/
@@ -279,7 +283,7 @@ input[type=date]{
   }
   @include mobile{
     padding: 20px 18px;
-    height: calc(100% - 200px);
+    height: calc(100% - 100px);
     overflow: hidden;
     .container-wrap{
       height: 100%;
@@ -497,15 +501,9 @@ input[type=date]{
     background: rgba(0, 0, 0, 0.5);
   }
   &-admin{
-    max-width: calc(700px + (var(--inner) * 2));
-    width: 100%;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 20px;
-    padding-bottom: 20px;
     &.popup{
       &-big{
-        max-width: calc(1400px + (var(--inner) * 2));
+        // max-width: calc(1400px + (var(--inner) * 2));
       
         input[type=text], input[type=password], input[type=number], input[type=date], select, textarea{font-size: 14px;}
         .table td{padding: 0 5px;}
@@ -543,7 +541,7 @@ input[type=date]{
       }
       &-content{
         margin-bottom: 0;
-        height: min(calc(100vh - 300px), 642px);
+        // height: min(calc(100vh - 300px), 642px);
         overflow-x: hidden;
         overflow-y: auto;
         margin-right: -10px;
@@ -555,6 +553,11 @@ input[type=date]{
         }
       }
       &-footer{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
         .btn-wrap{
           justify-content: center;
           margin-top: 25px;
@@ -583,7 +586,24 @@ input[type=date]{
   }
   &-wrap{
     position: relative;
-    width: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    .btn-close{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      @include mobile{
+        top: 15px;
+        right: 15px;
+      }
+    }
+    @include mobile{
+      width: 95vw !important;
+      height: 90vh !important;
+    }
     iframe{
       width: 100%;
       height: 100%;
@@ -600,8 +620,46 @@ input[type=date]{
     background: var(--color-primary-20);
     padding: 0 30px;
     position: relative;
+    .btn-close{
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      @include laptop{
+        display: flex;
+      }
+    }
     @include laptop{
       display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0;
+      padding: 0;
+      border: 0;
+      &.active{
+        display: flex;
+      }
+      .search-inner{
+        padding: 20px;
+        border-radius: 8px;
+        width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid var(--color-primary-40);
+        background: var(--color-primary-20);
+      }
     }
     @include mobile{
      padding: 0 18px;
@@ -1231,6 +1289,7 @@ input[type=date]{
     &.status-big{
       width: 80px;
       height: 38px;
+      font-size: 12px;
     }
   }
   &-normal{
@@ -1344,6 +1403,7 @@ input[type=date]{
   @include laptop{
     .status-tag{
       width: 120px;
+      height: auto;
     }
     .input-row{
       .status-tag{
@@ -1384,7 +1444,15 @@ input[type=date]{
   .search-option{
     background-color: #fff;
     margin-bottom: 20px;
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    @include laptop{
+      padding: 0;
+    }
   }
+  
  
 }
 .excel-upload-area {
@@ -1708,11 +1776,7 @@ input[type=date]{
   }
 }
 
-@media screen and (min-width: 1281px) {
-  #searchPopup{
-    display: none !important;
-  }
-}
+
 
 // 공지사항 디테일
 .comBox{

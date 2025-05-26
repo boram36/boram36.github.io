@@ -3865,6 +3865,10 @@ textarea {
 .input-wrap.input-inner .btn.btn-check.active {
   background: var(--color-primary-50);
 }
+.input-wrap.input-inner .btn.btn-check.btn-disabled {
+  background: var(--color-primary-50);
+  color: #fff;
+}
 .input-wrap.input-search .btn .ico-search {
   background-image: url("../../images/cmn/ico-search.svg");
   background-position: 50%;
@@ -7115,6 +7119,10 @@ form .row > * {
   background-color: var(--system-red);
   color: #fff;
 }
+.btn.btn-disabled {
+  background: var(--color-primary-50);
+  color: #fff;
+}
 
 /** input 공통 **/
 input[type=text].input-small,
@@ -7358,7 +7366,7 @@ input[type=date].input-small {
 @media (max-width: 767px) {
   .container-list {
     padding: 20px 18px;
-    height: calc(100% - 200px);
+    height: calc(100% - 100px);
     overflow: hidden;
   }
   .container-list .container-wrap {
@@ -7603,17 +7611,6 @@ input[type=date].input-small {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
-.popup-admin {
-  max-width: calc(700px + var(--inner) * 2);
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-  border-radius: 20px;
-  padding-bottom: 20px;
-}
-.popup-admin.popup-big {
-  max-width: calc(1400px + var(--inner) * 2);
-}
 .popup-admin.popup-big input[type=text], .popup-admin.popup-big input[type=password], .popup-admin.popup-big input[type=number], .popup-admin.popup-big input[type=date], .popup-admin.popup-big select, .popup-admin.popup-big textarea {
   font-size: 14px;
 }
@@ -7657,7 +7654,6 @@ input[type=date].input-small {
 }
 .popup-admin .popup-content {
   margin-bottom: 0;
-  height: min(100vh - 300px, 642px);
   overflow-x: hidden;
   overflow-y: auto;
   margin-right: -10px;
@@ -7669,6 +7665,13 @@ input[type=date].input-small {
     margin-right: -10px;
     padding-right: 10px;
   }
+}
+.popup-admin .popup-footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 .popup-admin .popup-footer .btn-wrap {
   justify-content: center;
@@ -7693,7 +7696,28 @@ input[type=date].input-small {
 }
 .popup-wrap {
   position: relative;
-  width: 100%;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.popup-wrap .btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+@media (max-width: 767px) {
+  .popup-wrap .btn-close {
+    top: 15px;
+    right: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .popup-wrap {
+    width: 95vw !important;
+    height: 90vh !important;
+  }
 }
 .popup-wrap iframe {
   width: 100%;
@@ -7707,9 +7731,49 @@ input[type=date].input-small {
   padding: 0 30px;
   position: relative;
 }
+.search-option .btn-close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+@media (max-width: 1280px) {
+  .search-option .btn-close {
+    display: flex;
+  }
+}
 @media (max-width: 1280px) {
   .search-option {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    padding: 0;
+    border: 0;
+  }
+  .search-option.active {
+    display: flex;
+  }
+  .search-option .search-inner {
+    padding: 20px;
+    border-radius: 8px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid var(--color-primary-40);
+    background: var(--color-primary-20);
   }
 }
 @media (max-width: 767px) {
@@ -8347,6 +8411,7 @@ input[type=date].input-small {
 .status-tag.status-big {
   width: 80px;
   height: 38px;
+  font-size: 12px;
 }
 .status-normal {
   background-color: var(--system-blue-10);
@@ -8449,6 +8514,7 @@ input[type=date].input-small {
 @media (max-width: 1280px) {
   .popup-admin .status-tag {
     width: 120px;
+    height: auto;
   }
   .popup-admin .input-row .status-tag {
     width: 100%;
@@ -8487,6 +8553,15 @@ input[type=date].input-small {
 .popup-content_excel .search-option {
   background-color: #fff;
   margin-bottom: 20px;
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 1280px) {
+  .popup-content_excel .search-option {
+    padding: 0;
+  }
 }
 
 .excel-upload-area {
@@ -8822,11 +8897,6 @@ input[type=date].input-small {
   }
 }
 
-@media screen and (min-width: 1281px) {
-  #searchPopup {
-    display: none !important;
-  }
-}
 .comBox-full .candidater-list {
   width: 100%;
 }
