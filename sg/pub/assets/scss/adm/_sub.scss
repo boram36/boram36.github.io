@@ -483,10 +483,26 @@ input[type=date]{
 
 // popup
 .popup{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  &-overlay{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
   &-admin{
     max-width: calc(700px + (var(--inner) * 2));
     width: 100%;
     margin: 0 auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding-bottom: 20px;
     &.popup{
       &-big{
         max-width: calc(1400px + (var(--inner) * 2));
@@ -533,7 +549,7 @@ input[type=date]{
         margin-right: -10px;
         padding-right: 10px;
         @include mobile{
-          height: calc(100vh - 300px);
+          height: calc(100vh - 199px);
           margin-right: -10px;
           padding-right: 10px;
         }
@@ -565,6 +581,14 @@ input[type=date]{
       border: 1px solid var(--color-primary-20);
     }
   }
+  &-wrap{
+    position: relative;
+    width: 100%;
+    iframe{
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 
@@ -576,6 +600,9 @@ input[type=date]{
     background: var(--color-primary-20);
     padding: 0 30px;
     position: relative;
+    @include laptop{
+      display: none;
+    }
     @include mobile{
      padding: 0 18px;
 
@@ -648,7 +675,7 @@ input[type=date]{
    
   }
   &-row{
-    gap: 40px;
+    gap: 10px 40px;
     min-height: 66px;
     padding: 13px 0;
     flex-wrap: wrap;
@@ -659,6 +686,7 @@ input[type=date]{
     &__input{
       .search-row__cont{
         gap: 10px 25px;
+        width: 100%;
       }
     }
     &__tit{
@@ -880,7 +908,7 @@ input[type=date]{
       font-size: 16px;
       font-weight: 500;
       order: 1;
-      &:not(.td_chk, .td_num, .td_state, .td_setting, .td_delete){
+      &:not(.td_chk, .td_num, .td_state, .td_setting, .td_delete, .td_right){
         margin-top: 16px;
       }
       @include mobile{
@@ -970,6 +998,19 @@ input[type=date]{
           max-width: 100%;
         }
       }
+    }
+    &.td_category{
+      @include laptop{
+        background-color: rgba(30, 37, 75, 0.1);
+        color: var(--system-navy-1);
+        border-radius: 20px;
+        min-width: 80px;
+        height: 24px;
+        margin-top: 5px;;
+        font-size: 14px;
+      }
+     
+
     }
     .td-txt{
       font-size: inherit;
@@ -1294,6 +1335,12 @@ input[type=date]{
 
 // excel upload
 .popup-admin{
+  .search-row__button{
+    width: 100%;
+  }
+  .search-row__button .btn-wrap{
+    justify-content: right;
+  }
   @include laptop{
     .status-tag{
       width: 120px;
@@ -1320,6 +1367,12 @@ input[type=date]{
         }
       }
     }
+  }
+  @include mobile{
+    .btn.list-btn{
+      width: 100%;
+    }
+    .search-option + .board-list{margin-top: 30px;}
   }
 }
 
@@ -2115,6 +2168,10 @@ input[type=date]{
     }
     &-radius-20{
       border-radius: 20px;
+    }
+  
+    .td_region {
+      justify-content: right;
     }
   }
 }

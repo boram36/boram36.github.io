@@ -93,22 +93,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 팝업 열기/닫기
-function openPopup(id) {
-  const popup = document.getElementById(id);
-  if (popup) {
-    popup.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
+// function openPopup(id) {
+//   document.getElementById(id).style.display = 'flex';
+// }
 
+// function closePopup(id) {
+//   document.getElementById(id).style.display = 'none';
+// }
+
+function openPopup(url) {
+  const popup = document.getElementById('layerPopup');
+  const iframe = document.getElementById('popupIframe');
+  popup.style.display = 'flex';
+  iframe.src = url;
 }
 
-function closePopup(id) {
-  const popup = document.getElementById(id);
-  if (popup) {
-    popup.classList.remove('show');
-    document.body.style.overflow = '';
+function closePopup() {
+  const popup = document.getElementById('layerPopup');
+  const iframe = document.getElementById('popupIframe');
+  iframe.src = '';
+  popup.style.display = 'none';
+}
+
+
+  // 팝업 로딩 시, iframe 크기 자동 조절 (부모창에서 가능)
+  function resizeParentIframe() {
+    const height = document.body.scrollHeight;
+    const iframe = window.parent.document.querySelector('#popupIframe');
+    if (iframe) {
+      iframe.style.height = height + 'px';
+    }
   }
-}	
+  
+  window.addEventListener('load', resizeParentIframe);
+  window.addEventListener('resize', resizeParentIframe);
 
 
 $(document).ready(function () {

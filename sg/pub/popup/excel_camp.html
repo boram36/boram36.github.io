@@ -19,6 +19,20 @@
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
 
+  <style>
+  body {
+    margin: 0 auto;
+    width: 1400px;
+    height: 849px;
+  }
+  @media screen and (max-width: 1400px) {
+    body{
+      width: 100%;
+      height: 600px;
+    }
+  }
+
+  </style>
 </head>
 <body>
   <div class="popup-admin popup-big inner">
@@ -408,7 +422,7 @@
     <!-- e: popup-content -->
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn" onclick="closePopup('excelRegister')">취소</button>
+        <button type="button" class="btn" onclick="window.parent.window.parent.closePopup()">취소</button>
         <button type="button" class="btn btn-active" onclick="showLoading();">수정</button>
       </div>
     </div>
