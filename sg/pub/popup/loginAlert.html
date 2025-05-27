@@ -18,31 +18,32 @@
 
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+
 </head>
 <body class="admin">
   <div class="popup-admin popup-alert">
     <div class="popup-header">
-      <h2 class="popup-title">삭제</h2>
-    </div>
-    <!-- e: popup-header -->
+				<h2 class="popup-title">로그인 불가</h2>
+			</div>
+			<!-- e: popup-header -->
+			<div class="popup-content">
+				등록되지 않은 휴대전화입니다.<br>
+				자세한 내용은<br>
+				캠프 관리자에게 문의하세요.
+			</div>
+			<!-- e: popup-content -->
 
-    <div class="popup-content">
-      <p>정말 삭제하시겠습니까?</p>
-    </div>
-    <!-- e: popup-content -->
-
-    <div class="popup-footer">
-      <div class="btn-wrap">
-        <button type="button" class="btn" onclick="window.parent.closePopup()">취소</button>
-        <button type="button" class="btn bg-red">삭제</button>
-      </div>
-    </div>
-    <!-- e: popup-footer -->
+			<div class="popup-footer">
+				<div class="btn-wrap">
+					<button type="button" class="btn btn-active" onclick="window.parent.closePopup()">확인</button>
+				</div>
+			</div>
+			<!-- e: popup-footer -->
   </div>
 <!-- e: 삭제 팝업 -->
 
-
-  <script>
+<script>
     window.addEventListener('message', function (e) {
       const vw = e.data?.viewportWidth;
       if (!vw) return;
@@ -55,6 +56,7 @@
       else if (vw <= 1280) body.classList.add('viewport-md');
       else body.classList.add('viewport-lg');
   });
+	
 </script>
 
 </body>

@@ -18,30 +18,10 @@
 
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
-  <style>
-    body {
-      margin: 0 auto;
-      height: 849px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    @media screen and (max-width: 1400px) {
-      body{
-        width: 100%;
-        height: 800px;
-      }
-    }
-    @media screen and (max-width: 768px) {
-    body{
-      height: 600px;
-    }
-  }
-  
-  </style>
+
 </head>
 <body class="admin">
-  <div class="popup-admin inner">
+  <div class="popup-admin ">
     <div class="popup-header">
       <h2 class="popup-title">유권자 등록</h2>
     </div>
@@ -137,5 +117,20 @@
     <!-- e: popup-footer -->
   </div>
 
+
+  <script>
+    window.addEventListener('message', function (e) {
+      const vw = e.data?.viewportWidth;
+      if (!vw) return;
+
+      const body = document.body;
+      body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+      if (vw <= 767) body.classList.add('viewport-xs');
+      else if (vw <= 1024) body.classList.add('viewport-sm');
+      else if (vw <= 1280) body.classList.add('viewport-md');
+      else body.classList.add('viewport-lg');
+  });
+  </script>
 </body>
 </html> 

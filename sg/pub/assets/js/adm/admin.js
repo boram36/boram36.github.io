@@ -92,36 +92,70 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 팝업 열기/닫기
-// function openPopup(id) {
-//   document.getElementById(id).style.display = 'flex';
-// }
 
-// function closePopup(id) {
-//   document.getElementById(id).style.display = 'none';
-// }
+let popupIndex = 0;
+const popupResizeListeners = new Map();
 
-function openPopup(url, width, height ) {
-  const popup = document.getElementById('layerPopup');
-  const iframe = document.getElementById('popupIframe');
-  const wrap = document.getElementById('popupWrap');
+function openPopup(url, width, height = null, isDelete = false, sizeClass = '') {
+  popupIndex++;
+  const popupId = `layerPopup_${popupIndex}`;
+  const wrapId = `popupWrap_${popupIndex}`;
+  const iframeId = `popupIframe_${popupIndex}`;
 
-  // 적용할 크기
-  wrap.style.width = width + 'px';
-  wrap.style.height = height + 'px';
+  // 팝업 DOM 생성
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.id = popupId;
 
-  // 로드 후 높이 자동 조정 위한 메시지 리스너 (선택사항)
+  popup.innerHTML = `
+    <div class="popup-overlay" onclick="closePopup('${popupId}')"></div>
+    <div class="popup-wrap ${sizeClass}" id="${wrapId}" style="width: ${width}px; ${height ? `height:${height}px;` : ''}">
+      ${!isDelete ? `<button type="button" class="btn-close ico" onclick="closePopup('${popupId}')"><i class="ico-cancel"></i></button>` : ''}
+      <iframe id="${iframeId}" src="${url}" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+  popup.style.display = 'flex';
+
+  const iframe = document.getElementById(iframeId);
+
+  // 메시지 수신 처리
+  function receivePopupSizeMessage(event) {
+    if (!event.data || typeof event.data !== 'object') return;
+    const { popupHeight, popupTargetId } = event.data;
+
+    if (popupTargetId === popupId && popupHeight) {
+      document.getElementById(wrapId).style.height = popupHeight + 'px';
+    }
+  }
+
+  // 메시지 리스너 등록 (중복 방지용)
   window.addEventListener('message', receivePopupSizeMessage, false);
 
-  // 열기
-  iframe.src = url;
-  popup.style.display = 'flex';
+  // iframe 로드 후 viewport 전달
+  const sendViewportToIframe = () => {
+    try {
+      iframe.contentWindow?.postMessage({ viewportWidth: window.innerWidth, popupTargetId: popupId }, '*');
+    } catch (e) {
+      console.warn('iframe 메시지 전송 실패:', e);
+    }
+  };
+
+  iframe.onload = sendViewportToIframe;
+
+  // 리사이즈 시 전달 (리스너 보관)
+  popupResizeListeners.set(popupId, sendViewportToIframe);
+  window.addEventListener('resize', sendViewportToIframe);
 }
 
-function closePopup() {
-  const popup = document.getElementById('layerPopup');
-  const iframe = document.getElementById('popupIframe');
-  const wrap = document.getElementById('popupWrap');
+// 닫기 함수
+function closePopup(popupId = 'layerPopup') {
+  const popup = document.getElementById(popupId);
+  if (!popup) return;
+
+  const iframe = popup.querySelector('iframe');
+  const wrap = popup.querySelector('.popup-wrap');
 
   iframe.src = '';
   wrap.removeAttribute('style');
@@ -129,6 +163,8 @@ function closePopup() {
 
   window.removeEventListener('message', receivePopupSizeMessage);
 }
+
+
 
 // iframe 내부에서 부모에게 높이 전달
 function receivePopupSizeMessage(event) {
@@ -138,20 +174,6 @@ function receivePopupSizeMessage(event) {
     document.getElementById('popupWrap').style.height = popupHeight + 'px';
   }
 }
-
-
-  // 팝업 로딩 시, iframe 크기 자동 조절 (부모창에서 가능)
-// function resizeParentIframe() {
-//   const height = document.body.scrollHeight;
-//   const iframe = window.parent.document.querySelector('#popupIframe');
-//   if (iframe) {
-//     iframe.style.height = height + 'px';
-//   }
-// }
-
-// window.addEventListener('load', resizeParentIframe);
-// window.addEventListener('resize', resizeParentIframe);
-
 
 // 검색 팝업
 function openSearch() {

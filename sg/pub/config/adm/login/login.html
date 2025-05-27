@@ -50,8 +50,7 @@
 </head>
 
 
-<!-- type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
-<body class="type-red">
+<body>
 
 	<!-- <div id="skip">
 		<a href="#container" tabindex="0">본문내용 바로가기</a>
@@ -104,30 +103,14 @@
 
 
 
-
-	<!-- 로그인 불가 팝업 -->
-	<div id="loginFailPopup" class="popup-layer popupAlert">
-		<div class="popup-inner">
-			<div class="popup-header">
-				<h2 class="popup-title">로그인 불가</h2>
-			</div>
-			<!-- e: popup-header -->
-			<div class="popup-content">
-				등록되지 않은 휴대전화입니다.<br>
-				자세한 내용은<br>
-				캠프 관리자에게 문의하세요.
-			</div>
-			<!-- e: popup-content -->
-			<div class="popup-footer">
-				<div class="btn-wrap">
-					<button type="button" class="btn btn-active" onclick="closePopup('loginFailPopup')">확인</button>
-				</div>
-			</div>
-			<!-- e: popup-footer -->
-			
-		</div>
-	</div>
-
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
 
 
 	<script>
@@ -140,22 +123,11 @@
 			const password = document.getElementById('password').value.trim();
 
 			if (id.length < 2 || password < 2) {
-				openPopup('loginFailPopup');
+				openPopup('../../../popup/loginAlert.html', 400, null, true, 'popup-sm')
 			} else {
 				alert('로그인 성공!');
 			}
 		}
-
-		
-		// function showPopup() {
-		// 	document.getElementById('loginFailPopup').style.display = 'flex';
-		// 	document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
-		// }
-
-		// function closePopup() {
-		// 	document.getElementById('loginFailPopup').style.display = 'none';
-		// 	document.body.style.overflow = ''; // 스크롤 복원
-		// }
 
 
 	</script>
