@@ -509,6 +509,19 @@
   </div>
   <!-- 공통 팝업 컨테이너 -->
 
+    <div id="loadingOverlay" class="loading-overlay" >
+      <div class="loading-inner">
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+        <dotlottie-player src="https://lottie.host/cc029930-234d-4bb7-9ef4-5ea116a58d3f/yuKMnwE605.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
+        <p class="loading-msg">엑셀파일을 업로드중입니다.<br>긴 시간이 소요되니 기다려주세요.</p>
+        <div class="btn-wrap">
+          <button type="button" class="btn list-btn" onclick="hideLoading()">취소</button>
+        </div>
+      </div>
+    </div>
+    <!-- 로딩화면 -->
+
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       initSettingMenu();

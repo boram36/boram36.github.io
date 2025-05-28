@@ -172,75 +172,75 @@
         </h2>
       
         <!-- 검색 필터 -->
-        <div class="search-option" id="searchPopup">
+        <div class="search-option"  id="searchPopup">
           <div class="search-inner">
             <button type="button" class="btn-close ico" onclick="closeSearch()"><i class="ico-cancel"></i></button>
             <div class="search-row flex">
-              <div class="search-row__tit">검색옵션</div>
-              <div class="search-row__cont f-h-c">
-  
-                <div class="search-col">
-                  <label class="search-col__tit">행사기간</label>
-                  <div class="input-wrap input-date">
-                    <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
-                    <span>~</span>
-                    <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
-                  </div>
+          <div class="search-row__tit">검색옵션</div>
+          <div class="search-row__cont f-h-c">
+            <div class="search-col">
+              <label class="search-col__tit">여부 선택</label>
+              <div class="check-wrap">
+                <div class="checkbox">
+                  <input type="checkbox" id="select01" name="select" checked>
+                  <label for="select01">마스터여부</label>
                 </div>
-  
-                <div class="search-col">
-                  <label class="search-col__tit">행사 지역</label>
-                  <div class="select-wrap row row-cols-4">
-                    <select name="" id="" class="width-quart" >
-                      <option value="">시/도</option>
-                      <option value="" >경상남도</option>
-                      <option value="">서울시</option>
-                      <option value="">부산시</option>
-                    </select>
-            
-                    <select name="" id="" class="width-quart" >
-                      <option value="" >시/군/구</option>
-                      <option value="" >상도군</option>
-                      <option value="">서울시</option>
-                      <option value="">부산시</option>
-                    </select>
-            
-                    <select name="" id="" class="width-quart">
-                      <option value="">읍/면/동</option>
-                      <option value="" >구월면</option>
-                      <option value="">서울시</option>
-                      <option value="">부산시</option>
-                    </select>
-            
-                    <select name="" id="" class="width-quart">
-                      <option value="">리</option>
-                      <option value="" >이읍리</option>
-                      <option value="">서울시</option>
-                      <option value="">부산시</option>
-                    </select>
-                  </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="select02" name="select">
+                  <label for="select02">사용중지</label>
                 </div>
               </div>
+            </div>
+            <div class="search-col">
+              <label class="search-col__tit">조직원 성별</label>
+              <div class="radio-wrap">
+                <div class="checkbox">
+                  <input type="radio" id="gender01" name="gender" checked>
+                  <label for="gender01">남</label>
+                </div>
+                <div class="checkbox">
+                  <input type="radio" id="gender02" name="gender">
+                  <label for="gender02">여</label>
+                </div>
+              </div>
+            </div>
+            <div class="search-col">
+              <label class="search-col__tit">조직원 나이</label>
+              <div class="f-h-c gap-15">
+                <div class="select-wrap type02">
+                  <select name="" id="">
+                    <option value="">0</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                  </select>
+                </div>
+                <span>~</span>
+                <div class="select-wrap type02">
+                  <select name="" id="">
+                    <option value="">0</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                  </select>
+                </div>
+              </div>
+              
+            </div>
+
+          </div>
             </div>
             <div class="search-row search-row__input flex">
               <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
               <div class="search-row__cont f-h-c">
                 <div class="search-col">
-                  <label class="search-col__tit">행사명</label>
-                  <div class="input-row">
-                    <input type="text" id="" name="" placeholder="행사명">
-                  </div>
-                </div>
-                <div class="search-col">
-                  <label class="search-col__tit">행사내용</label>
-                  <div class="input-row">
-                    <input type="text" id="" name="" placeholder="행사내용">
-                  </div>
-                </div>
-                <div class="search-col">
-                  <label class="search-col__tit">등록 조직원</label>
+                  <label class="search-col__tit">조직원 이름</label>
                   <div class="input-row">
                     <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                  </div>
+                </div>
+                <div class="search-col">
+                  <label class="search-col__tit">조직원 휴대폰번호</label>
+                  <div class="input-row">
+                    <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
                   </div>
                 </div>
               </div>
@@ -252,10 +252,7 @@
               </div>
             </div>
           </div>
-         
-          
         </div>
-
 
         <!-- 조직원 목록 테이블 -->
         <div class="board-list">
