@@ -175,12 +175,14 @@
         <!-- 문자 발송 템플릿 UI -->
         <div class="message-send__wrap">
           <div class="tab-menu type02">
-            <button class="tab-btn active" data-url="partial-send.html">문자 발송</button>
+            <button class="tab-btn" onclick="openPopup('./partial-send.html', 700, 786)">문자 발송</button>
             <button class="tab-btn" data-url="partial-history.html">문자 발송내역</button>
             <button class="tab-btn" data-url="partial-charge.html">문자 충전</button>
           </div>
            <div id="tabContent" class="fade-in">
-              <!-- AJAX로 콘텐츠 로딩됨 -->
+              <iframe id="contentFrame" src="partial-send.html" frameborder="0" width="100%" height="800px"></iframe>
+              <iframe id="contentFrame" src="partial-history.html" frameborder="0" width="100%" height="800px"></iframe>
+              <iframe id="contentFrame" src="partial-charge.html" frameborder="0" width="100%" height="800px"></iframe>
             </div>
         </div>
 
@@ -451,22 +453,12 @@
     $('select').selectric(); // 필요한 셀렉터로 조정 가능
   }
 
-  function loadContent(url) {
-    const content = document.getElementById('tabContent');
-    content.classList.remove('fade-in');
-    fetch(url)
-      .then(res => res.text())
-      .then(html => {
-        content.innerHTML = html;
-        requestAnimationFrame(() => {
-          content.classList.add('fade-in');
-          initSpecialCharButton();
-          initMobileTabToggle(); 
-          initDatepicker();
-          initSelectric();
-        });
-      });
+function loadContent(url) {
+  const frame = document.getElementById('contentFrame');
+  if (frame) {
+    frame.src = url;
   }
+}
 
 
 </script>
