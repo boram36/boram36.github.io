@@ -7687,6 +7687,7 @@ input[type=date].input-small {
   position: relative;
   display: flex;
   flex-direction: column;
+  max-height: 90vh;
 }
 .popup-wrap .btn-close {
   position: absolute;

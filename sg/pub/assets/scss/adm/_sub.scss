@@ -573,9 +573,9 @@ input[type=date]{
   }
   &-wrap{
     position: relative;
-  
     display: flex;
     flex-direction: column;
+    max-height: 90vh;
     .btn-close{
       position: absolute;
       top: 25px;
