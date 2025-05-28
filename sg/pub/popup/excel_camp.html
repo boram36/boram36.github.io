@@ -45,7 +45,7 @@
         <button type="button" class="btn down-btn list-btn btn-basic02 ico"><i class="ico-down ico-mr"></i>양식 <span class="txt-hide">다운로드</span></button>
         <div class="control-btn f-h-c gap-10">
           <button type="button" class="btn list-btn btn-basic02 ico"><i class="ico-refresh ico-mr"></i>초기화</button>
-          <button type="button" class="btn list-btn bg-green ico" onclick="showLoading();"><i class="ico-apply ico-mr"></i>적용</button>
+          <button type="button" class="btn list-btn bg-green ico" onclick="window.parent.showLoading();"><i class="ico-apply ico-mr"></i>적용</button>
         </div>
       </div>
       
@@ -146,13 +146,12 @@
                   <div class="status-tag status-normal status-big">등록<br class="pc-ver">가능</div>
                 </td>
                 <td class="td_setting mo-ver td_right right01">
-                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2_camp.html', 700, 786);
-">
+                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2_camp.html', 700, 786);">
                     <i class="ico-setting"></i>
                   </button>
                 </td>
                 <td class="td_delete width-40 td_right">
-                  <button type="button" class="btn btn-delete btn-center ico">
+                  <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                     <i class="ico-list_delete"></i>
                   </button>
                 </td>
@@ -233,7 +232,7 @@
                   </button>
                 </td>
                 <td class="td_delete width-40 td_right">
-                  <button type="button" class="btn btn-delete btn-center ico">
+                  <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                     <i class="ico-list_delete"></i>
                   </button>
                 </td>
@@ -314,7 +313,7 @@
                   </button>
                 </td>
                 <td class="td_delete width-40 td_right">
-                  <button type="button" class="btn btn-delete btn-center ico">
+                  <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                     <i class="ico-list_delete"></i>
                   </button>
                 </td>
@@ -394,7 +393,7 @@
                     <i class="ico-setting"></i>
                   </button>
                 </td>
-                <td class="td_delete width-40 td_right">
+                <td class="td_delete width-40 td_right" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                   <button type="button" class="btn btn-delete btn-center ico">
                     <i class="ico-list_delete"></i>
                   </button>
@@ -409,8 +408,8 @@
     <!-- e: popup-content -->
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn" onclick="window.parent.closePopup()">취소</button>
-        <button type="button" class="btn btn-active" onclick="showLoading();">수정</button>
+        <button type="button" class="btn" onclick="requestPopupClose()">취소</button>
+        <button type="button" class="btn btn-active" onclick="window.parent.showLoading();">수정</button>
       </div>
     </div>
     <!-- e: popup-footer -->
@@ -418,18 +417,6 @@
    
   </div>
 
-
-  <div id="loadingOverlay" class="loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9999;">
-    <div class="loading-inner" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
-      <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-      <dotlottie-player src="https://lottie.host/cc029930-234d-4bb7-9ef4-5ea116a58d3f/yuKMnwE605.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
-      <p class="loading-msg">엑셀파일을 업로드중입니다.<br>긴 시간이 소요되니 기다려주세요.</p>
-      <div class="btn-wrap">
-        <button type="button" class="btn list-btn" onclick="hideLoading()">취소</button>
-      </div>
-    </div>
-  </div>
-  <!-- 로딩화면 -->
 
    
 
@@ -449,21 +436,6 @@
       else if (vw <= 1280) body.classList.add('viewport-md');
       else body.classList.add('viewport-lg');
   });
-
-
-  // 팝업 내부 iframe 페이지에 추가
-    function sendHeightToParent() {
-      const height = document.body.scrollHeight;
-      window.parent.postMessage({ popupHeight: height }, '*');
-    }
-
-    window.addEventListener('load', sendHeightToParent);
-    window.addEventListener('resize', sendHeightToParent);
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-      initExcelDragAndUpload();
-    });
 
 
     // 엑셀 업로드 & 드래그 처리
@@ -532,13 +504,20 @@
       });
     }
 
-    function showLoading(){
-        window.document.getElementById('loadingOverlay').style.display = 'flex';
+    function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
     }
 
-    function hideLoading(){
-        window.document.getElementById('loadingOverlay').style.display = 'none';
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
     }
+
+
     </script>
 
 </body>

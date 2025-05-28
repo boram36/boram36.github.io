@@ -621,7 +621,32 @@ input[type=date]{
       }
       .popup-title{
         font-size: $fs-24;
-        
+      }
+      form .row{
+        display: flex;
+        margin-right: calc(-0.5 * var(--gutter-x2));
+        margin-left: calc(-0.5 * var(--gutter-x2));
+        > *{
+          width: 50%;
+          padding-right: calc(var(--gutter-x2) * 0.5);
+          padding-left: calc(var(--gutter-x2) * 0.5);
+          margin-bottom: 0;
+        }
+      }
+      .select-wrap.row{
+        margin: calc(-0.5 * var(--gutter-x2));
+      }
+      .select-wrap.row.row-cols-4 .selectric-wrapper {
+        width: 25%;
+        padding: 0 calc(var(--gutter-x2) * 0.5);
+      }
+      .popup-footer{
+        .btn-wrap .btn{
+          width: 137px;
+          height: 54px;
+          border-radius: 20px;
+          font-size: $fs-16;
+        }
       }
     }
    
@@ -634,6 +659,32 @@ input[type=date]{
       .popup-title{
         font-size: $fs-16;
         
+      }
+      .input-row + .input-row{
+        margin-top: 25px;
+      }
+      form .row{
+        display: block;
+        margin: 0;
+    
+        > *{
+         width: 100%;
+         padding: 0;
+        }
+      }
+      .select-wrap.row{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 calc(-0.5 * var(--gutter-x2));
+        margin-bottom: 25px;
+      }
+      .select-wrap.row.row-cols-4 .selectric-wrapper {
+        width: 50%;
+      }
+      .popup-footer{
+        .btn-wrap .btn{
+          width: 100%;
+        }
       }
     }
   }
@@ -1061,7 +1112,6 @@ input[type=date]{
         width: auto;
       }
       &.right01{
-        margin-top: 3px;
         right: 40px;
       }
       &.right02{
@@ -1204,6 +1254,10 @@ input[type=date]{
       @extend .f-c-all;
       gap: 10px;
       z-index: 1;
+      @include mobile{
+        flex-wrap: wrap;
+        justify-content: center;
+      }
       .page-btn{
         width: 35px;
         height: 35px;
@@ -1714,7 +1768,7 @@ input[type=date]{
 .loading{
   &-overlay{
     position: fixed;
-    z-index: 9999;
+    z-index: 10000;
     top: 0; left: 0;
     width: 100vw;
     height: 100vh;
@@ -1722,6 +1776,8 @@ input[type=date]{
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none; 
+  
     .btn-wrap{
       justify-content: center;
     }
@@ -1729,6 +1785,10 @@ input[type=date]{
   &-inner{
     text-align: center;
     color: #fff;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
   }
   &-msg{
     margin-top: 12px;

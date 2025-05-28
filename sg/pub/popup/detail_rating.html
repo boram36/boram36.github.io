@@ -143,8 +143,8 @@
                               <i class="ico-setting"></i>
                             </button>
                             <ul class="setting-drop">
-                              <li><button class="btn" onclick="openPopup('./edit_rating.html')">수정</button></li>
-                              <li><button class="btn txt-system-red" onclick="openPopup('./deletePopup.html')">삭제</button></li>
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
                             </ul>
                           </div>
                         </td>
@@ -190,8 +190,8 @@
                               <i class="ico-setting"></i>
                             </button>
                             <ul class="setting-drop">
-                              <li><button class="btn" onclick="openPopup('./edit_rating.html')">수정</button></li>
-                              <li><button class="btn txt-system-red" onclick="openPopup('./deletePopup.html')">삭제</button></li>
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
                             </ul>
                           </div>
                         </td>
@@ -239,8 +239,8 @@
                               <i class="ico-setting"></i>
                             </button>
                             <ul class="setting-drop">
-                              <li><button class="btn" onclick="openPopup('./edit_rating.html')">수정</button></li>
-                              <li><button class="btn txt-system-red" onclick="openPopup('./deletePopup.html')">삭제</button></li>
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
                             </ul>
                           </div>
                         </td>
@@ -287,8 +287,8 @@
                               <i class="ico-setting"></i>
                             </button>
                             <ul class="setting-drop">
-                              <li><button class="btn" onclick="openPopup('./edit_rating.html')">수정</button></li>
-                              <li><button class="btn txt-system-red" onclick="openPopup('./deletePopup.html')">삭제</button></li>
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
                             </ul>
                           </div>
                         </td>
@@ -315,16 +315,6 @@
     </div>
     <!-- e: popup-content -->
   </div>
-
-
-  <div id="layerPopup" class="popup" style="display: none;">
-    <div class="popup-overlay" onclick="closePopup()"></div>
-    <div class="popup-wrap" id="popupWrap">
-      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
-      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
-    </div>
-  </div>
-  <!-- 공통 팝업 컨테이너 -->
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -374,6 +364,19 @@ function initSettingMenu() {
       else if (vw <= 1280) body.classList.add('viewport-md');
       else body.classList.add('viewport-lg');
   });
+
+  function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
 
 
 </script>

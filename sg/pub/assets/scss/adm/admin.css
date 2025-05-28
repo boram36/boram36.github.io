@@ -5047,6 +5047,9 @@ body {
 .container.container-full .container-wrap {
   height: 100%;
 }
+.container.container-full main {
+  height: 100%;
+}
 @media (max-width: 1512px) {
   .container.container-full main {
     height: 100%;
@@ -7733,11 +7736,58 @@ input[type=date].input-small {
 .viewport-lg .popup-admin .popup-title {
   font-size: 1.5rem;
 }
+.viewport-lg .popup-admin form .row {
+  display: flex;
+  margin-right: calc(-0.5 * var(--gutter-x2));
+  margin-left: calc(-0.5 * var(--gutter-x2));
+}
+.viewport-lg .popup-admin form .row > * {
+  width: 50%;
+  padding-right: calc(var(--gutter-x2) * 0.5);
+  padding-left: calc(var(--gutter-x2) * 0.5);
+  margin-bottom: 0;
+}
+.viewport-lg .popup-admin .select-wrap.row {
+  margin: calc(-0.5 * var(--gutter-x2));
+}
+.viewport-lg .popup-admin .select-wrap.row.row-cols-4 .selectric-wrapper {
+  width: 25%;
+  padding: 0 calc(var(--gutter-x2) * 0.5);
+}
+.viewport-lg .popup-admin .popup-footer .btn-wrap .btn {
+  width: 137px;
+  height: 54px;
+  border-radius: 20px;
+  font-size: 1rem;
+}
 .viewport-xs .popup-admin .popup-header {
   padding: 15px 0 25px;
 }
 .viewport-xs .popup-admin .popup-title {
   font-size: 1rem;
+}
+.viewport-xs .popup-admin .input-row + .input-row {
+  margin-top: 25px;
+}
+.viewport-xs .popup-admin form .row {
+  display: block;
+  margin: 0;
+}
+.viewport-xs .popup-admin form .row > * {
+  width: 100%;
+  padding: 0;
+}
+.viewport-xs .popup-admin .select-wrap.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-0.5 * var(--gutter-x2));
+  margin-bottom: 25px;
+}
+.viewport-xs .popup-admin .select-wrap.row.row-cols-4 .selectric-wrapper {
+  width: 50%;
+}
+.viewport-xs .popup-admin .popup-footer .btn-wrap .btn {
+  width: 100%;
 }
 
 .search-option {
@@ -8188,7 +8238,6 @@ input[type=date].input-small {
   }
 }
 .table td.td_right.right01 {
-  margin-top: 3px;
   right: 40px;
 }
 .table td.td_right.right02 {
@@ -8343,6 +8392,12 @@ input[type=date].input-small {
   flex: 1;
   gap: 10px;
   z-index: 1;
+}
+@media (max-width: 767px) {
+  .table-footer .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 .table-footer .pagination .page-btn {
   width: 35px;
@@ -8810,7 +8865,7 @@ input[type=date].input-small {
 
 .loading-overlay {
   position: fixed;
-  z-index: 9999;
+  z-index: 10000;
   top: 0;
   left: 0;
   width: 100vw;
@@ -8819,6 +8874,7 @@ input[type=date].input-small {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 .loading-overlay .btn-wrap {
   justify-content: center;
@@ -8826,6 +8882,10 @@ input[type=date].input-small {
 .loading-inner {
   text-align: center;
   color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .loading-msg {
   margin-top: 12px;

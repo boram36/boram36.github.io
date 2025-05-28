@@ -120,60 +120,53 @@ function openPopup(url, width, height = null, isDelete = false, sizeClass = '') 
 
   const iframe = document.getElementById(iframeId);
 
-  // 메시지 수신 처리
-  function receivePopupSizeMessage(event) {
-    if (!event.data || typeof event.data !== 'object') return;
-    const { popupHeight, popupTargetId } = event.data;
-
-    if (popupTargetId === popupId && popupHeight) {
-      document.getElementById(wrapId).style.height = popupHeight + 'px';
-    }
-  }
-
-  // 메시지 리스너 등록 (중복 방지용)
-  window.addEventListener('message', receivePopupSizeMessage, false);
-
-  // iframe 로드 후 viewport 전달
+  // iframe 로드 후 브라우저 뷰포트 전송
   const sendViewportToIframe = () => {
     try {
-      iframe.contentWindow?.postMessage({ viewportWidth: window.innerWidth, popupTargetId: popupId }, '*');
+      iframe.contentWindow?.postMessage({ 
+        viewportWidth: window.innerWidth, 
+        popupTargetId: popupId 
+      }, '*');
     } catch (e) {
       console.warn('iframe 메시지 전송 실패:', e);
     }
   };
 
   iframe.onload = sendViewportToIframe;
-
-  // 리사이즈 시 전달 (리스너 보관)
   popupResizeListeners.set(popupId, sendViewportToIframe);
   window.addEventListener('resize', sendViewportToIframe);
 }
 
-// 닫기 함수
-function closePopup(popupId = 'layerPopup') {
+function closePopup(popupId) {
   const popup = document.getElementById(popupId);
   if (!popup) return;
-
-  const iframe = popup.querySelector('iframe');
-  const wrap = popup.querySelector('.popup-wrap');
-
-  iframe.src = '';
-  wrap.removeAttribute('style');
-  popup.style.display = 'none';
-
-  window.removeEventListener('message', receivePopupSizeMessage);
+  popup.remove();
 }
 
+// 메시지 이벤트 핸들링
+window.addEventListener('message', function (e) {
+  const data = e.data;
 
-
-// iframe 내부에서 부모에게 높이 전달
-function receivePopupSizeMessage(event) {
-  if (!event.data || typeof event.data !== 'object') return;
-  const { popupHeight } = event.data;
-  if (popupHeight) {
-    document.getElementById('popupWrap').style.height = popupHeight + 'px';
+  // 1. 높이 자동 조정
+  if (data?.popupHeight && data.popupTargetId) {
+    const wrap = document.getElementById(`popupWrap_${data.popupTargetId.split('_')[1]}`);
+    if (wrap) wrap.style.height = `${data.popupHeight}px`;
   }
-}
+
+  // 2. 팝업 닫기 요청
+  if (data?.popupCloseRequest) {
+    // 가장 마지막 팝업을 찾아 닫음
+    const popups = Array.from(document.querySelectorAll('.popup')).reverse();
+    for (const p of popups) {
+      if (p.style.display === 'flex') {
+        closePopup(p.id);
+        break;
+      }
+    }
+  }
+});
+
+
 
 // 검색 팝업
 function openSearch() {

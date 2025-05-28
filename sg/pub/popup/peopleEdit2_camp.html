@@ -105,7 +105,7 @@
     <!-- e: popup-content -->
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn bg-red" onclick="openPopup('./deletePopup.html')">삭제</button>
+        <button type="button" class="btn bg-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs')">삭제</button>
         <button type="button" class="btn btn-active">수정</button>
       </div>
     </div>
@@ -126,6 +126,20 @@
       else if (vw <= 1280) body.classList.add('viewport-md');
       else body.classList.add('viewport-lg');
   });
+
+  function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+
 
   </script>
 

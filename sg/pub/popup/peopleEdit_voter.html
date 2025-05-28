@@ -48,7 +48,7 @@
 
           <div class="input-row row row-cols-2">
             <div>
-              <div class="input-tit">조직원 성별<span class="required">*</span></div>
+              <div class="input-tit">유권자 성별<span class="required">*</span></div>
               <div class="checkbox-box radio-wrap">
                 <div class="checkbox">
                   <input type="radio" id="gender01" name="gender" checked>
@@ -61,7 +61,7 @@
               </div>
             </div>
             <div>
-              <label class="input-tit" for="age">조직원 나이<span class="required">*</span></label>
+              <label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
               <div class="input-wrap">
                 <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
               </div>
@@ -69,7 +69,7 @@
           </div>
           <div class="input-row">
             <div class="input-row">
-              <label class="input-tit" for="input02">조직원 지역<span class="required">*</span></label>
+              <label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
               <div class="select-wrap row row-cols-4">
                 <select name="" id="" class="width-quart" disabled>
                   <option value="">시/도</option>
@@ -104,15 +104,6 @@
 
           <div class="input-row row row-cols-2">
             <div>
-              <label class="input-tit" for="name">마스터 권한</label>
-              <div class="checkbox-box f-c-all">
-                <label class="toggle-switch">
-                    <input type="checkbox" checked>
-                    <span class="slider"></span>
-                  </label>
-              </div>
-            </div>
-            <div>
               <label class="input-tit" for="name">상태</label>
               <div class="select-wrap">
                  <select name="" id="" class="width-quart">
@@ -134,12 +125,13 @@
    
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn" onclick="window.parent.closePopup()">취소</button>
+        <button type="button" class="btn" onclick="requestPopupClose()">취소</button>
         <button type="button" class="btn btn-active">수정</button>
       </div>
     </div>
     <!-- e: popup-footer -->
   </div>
+
 
 
     <script>
@@ -155,6 +147,20 @@
       else if (vw <= 1280) body.classList.add('viewport-md');
       else body.classList.add('viewport-lg');
   });
+
+  function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+
 
   </script>
 

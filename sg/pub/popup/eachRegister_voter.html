@@ -23,7 +23,7 @@
 <body class="admin">
   <div class="popup-admin ">
     <div class="popup-header">
-      <h2 class="popup-title">유권자 정보 수정</h2>
+      <h2 class="popup-title">유권자 개별 등록</h2>
     </div>
     <!-- e: popup-header -->
 
@@ -34,13 +34,13 @@
             <div>
               <label class="input-tit" for="name">유권자 이름<span class="required">*</span></label>
               <div class="input-wrap">
-                <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
+                <input type="text" id="name" name="name" placeholder="이름" value="" >
               </div>
             </div>
             <div>
               <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
               <div class="input-wrap input-inner">
-                <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
+                <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="">
                 <button type="button" class="btn btn-small btn-check btn-disabled">중복<br>확인</button>
               </div>
             </div>
@@ -63,7 +63,7 @@
             <div>
               <label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
               <div class="input-wrap">
-                <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56">
+                <input type="text" id="age" name="age" placeholder="나이(숫자)" value="">
               </div>
             </div>
           </div>
@@ -87,14 +87,14 @@
         
                 <select name="" id="" class="width-quart">
                   <option value="">읍/면/동</option>
-                  <option value="" selected>구월면</option>
+                  <option value="" >구월면</option>
                   <option value="">서울시</option>
                   <option value="">부산시</option>
                 </select>
         
                 <select name="" id="" class="width-quart">
                   <option value="">리</option>
-                  <option value="" selected>이읍리</option>
+                  <option value="" >이읍리</option>
                   <option value="">서울시</option>
                   <option value="">부산시</option>
                 </select>
@@ -107,7 +107,7 @@
               <label class="input-tit" for="name">상태</label>
               <div class="select-wrap">
                  <select name="" id="" class="width-quart">
-                  <option value="" selected>정상</option>
+                  <option value="" >정상</option>
                   <option value="">중지</option>
                 </select>
               </div>
@@ -116,7 +116,7 @@
 
           <div class="input-row">
             <label class="input-tit" for="name">비고</label>
-            <textarea id="candidateBio" placeholder="내용 입력">4월 이후 이사 예정</textarea>
+            <textarea id="candidateBio" placeholder="내용 입력"></textarea>
           </div>
         </div>
       </form>
@@ -125,8 +125,8 @@
    
     <div class="popup-footer">
       <div class="btn-wrap">
-        <button type="button" class="btn" onclick="window.parent.closePopup()">취소</button>
-        <button type="button" class="btn btn-active">수정</button>
+        <button type="button" class="btn" onclick="requestPopupClose()">취소</button>
+        <button type="button" class="btn btn-active">등록</button>
       </div>
     </div>
     <!-- e: popup-footer -->
@@ -146,6 +146,20 @@
       else if (vw <= 1280) body.classList.add('viewport-md');
       else body.classList.add('viewport-lg');
   });
+
+  function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+
   </script>
 
 </body>
