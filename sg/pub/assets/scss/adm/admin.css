@@ -5038,7 +5038,7 @@ body {
   margin: 0 auto;
   position: relative;
   height: calc(100vh - 80px);
-  background-color: #EAEDEF;
+  background-color: var(--color-primary-10);
   padding: 50px 50px 16px;
   margin-left: 220px;
   width: calc(100% - 220px);
@@ -6986,8 +6986,8 @@ form .row > * {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
 }
 .ico-delete {
   background-image: url("../../images/adm/ico-delete.svg");
@@ -8274,6 +8274,9 @@ input[type=date].input-small {
     height: 24px;
     margin-top: 5px;
     font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 .table td .td-txt {
@@ -9457,6 +9460,9 @@ input[type=date].input-small {
 .message-send__wrap .table input {
   font-size: 14px;
 }
+.message-send__wrap .table-scroll {
+  height: 290px;
+}
 .message-send__wrap .table-radius-20 {
   border-radius: 20px;
 }
@@ -9468,10 +9474,10 @@ input[type=date].input-small {
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
-  width: 100%;
   gap: 26px;
   height: 330px;
   overflow-y: auto;
+  margin-right: -10px;
 }
 .template-grid .btn-addFile {
   width: 260px;
@@ -9582,4 +9588,22 @@ input[type=date].input-small {
 
 .notice textarea {
   height: 180px;
+}
+
+.sendInfo {
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: var(--color-primary-20);
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sendInfo-list {
+  font-weight: 700;
+}
+.sendInfo-list + .sendInfo-list {
+  margin-left: 20px;
+}
+.sendInfo .ico-file_del {
+  background-image: url("../../images/adm/ico-delete_black.svg");
 }/*# sourceMappingURL=admin.css.map */

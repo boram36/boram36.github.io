@@ -24,7 +24,7 @@
 
 
 	<!-- favicon -->
-	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+	<link rel="shortcut icon" href="../assets/images/favicon/favicon.ico">
  
 
 
@@ -35,21 +35,22 @@
 
 
 	<!-- css -->
-  <link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
-	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
-	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+  <link rel="stylesheet" href="../assets/scss/common/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
 
 	<!-- js :: lib -->
-	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
-  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
-	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
-  <script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="..assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/datepicker.min.js"></script>
 
 
 	<!-- js :: common -->
-	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+</head>
 </head>
 
 
@@ -393,7 +394,7 @@
                         <label for="sendCamp">전체 조직원 <span class="mo-none">발송</span></label>
                       </div>
                     </div>
-                    <button type="button" class="btn list-btn btn-active" onclick="openPopup('./addReciveNm.html', 1400, 849, false, 'popup-lg', 1)">+ 수신번호 추가</button>
+                    <button type="button" class="btn list-btn btn-active" onclick="window.parent.openPopup('./addReciveNm.html', 1400, 849, false, 'popup-lg', 1)">+ 수신번호 추가</button>
                   </div>
                   <div class="sendInfo">
                     <div class="sendInfo-list f-h-c gap-10">
@@ -672,10 +673,19 @@
       </div>
     </div>
   </div>
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
 </body>
 </html>
 
- 
+
 
 
   <script>

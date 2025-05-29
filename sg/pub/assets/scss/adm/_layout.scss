@@ -49,7 +49,7 @@ body{
   margin: 0 auto;
   position: relative;
   height: calc(100vh - 80px);
-  background-color: #EAEDEF;
+  background-color: var(--color-primary-10);
   @extend .f-d-c;
   padding: 50px 50px 16px;
   margin-left: 220px;

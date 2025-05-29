@@ -30,7 +30,7 @@ $url-bg2:"../../images/adm/";
 .ico{
   &-search_w{@include icon-style(24px, 24px, "ico-search_w");}
   &-message{@include icon-style(16px, 16px, "ico-message");}
-  &-setting{@include icon-style-adm(28px, 28px, "ico-setting");}
+  &-setting{@include icon-style-adm(34px, 34px, "ico-setting");}
   &-delete{@include icon-style-adm(30px, 30px , "ico-delete")}
   &-excel{@include icon-style-adm(20px, 20px , "ico-excel")}
   &-down{@include icon-style-adm(20px, 20px , "ico-down")}
@@ -1144,6 +1144,9 @@ input[type=date]{
         height: 24px;
         margin-top: 5px;;
         font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
      
 
@@ -2318,6 +2321,9 @@ input[type=date]{
     input{
       font-size: 14px;
     }
+    &-scroll{
+      height: 290px;
+    }
     &-radius-20{
       border-radius: 20px;
     }
@@ -2334,10 +2340,10 @@ input[type=date]{
     display: flex;
     justify-content: left;
     flex-wrap: wrap;
-    width: 100%;
     gap: 26px;
     height: 330px;
     overflow-y: auto;
+    margin-right: -10px;
     .btn-addFile{
       width: 260px;
       height: 246px;
@@ -2452,4 +2458,22 @@ input[type=date]{
   textarea{
     height: 180px;
   }
+}
+
+
+.sendInfo{
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: var(--color-primary-20);
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  &-list{
+    font-weight: 700;
+    & + .sendInfo-list{margin-left: 20px;}
+  }
+  .ico-file_del{
+    background-image: url("../../images/adm/ico-delete_black.svg");
+  }
+
 }
