@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../assets/images/favicon/favicon.ico">
+ 
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+  <link rel="stylesheet" href="../assets/scss/common/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/datepicker.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+
+<body class="admin">
+  <div class="tab-cont__wrap">
+    <div class="tab-cont active" data-index="0">
+      <div class="row row-cols-2">
+        <div class="col-lg-5">
+          <div class="message-send__wrap charge-cont">
+            <div class="card">
+              <div class="tab-layout">
+                <div class="tab-menu ">
+                  <div class="tab-title txt-c">문자 금액</div>
+                </div>
+                <div class="tab-cont__wrap">
+
+                  <ul class="charge-list">
+                    <li>
+                      <div class="checkbox width-full">
+                        <input type="radio" id="charge01" name="charge">
+                        <label for="charge01" class="width-full">
+                          <div class="f-c-space width-full">
+                            <span class="chargeNm">1,000건</span>
+                            <span class="line"></span>
+                            <b class="chargePrice">23,000원</b>
+                          </div>
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="checkbox width-full">
+                        <input type="radio" id="charge02" name="charge">
+                        <label for="charge02" class="width-full">
+                          <div class="f-c-space width-full">
+                            <span class="chargeNm">5,000건</span>
+                            <span class="line"></span>
+                            <b class="chargePrice">33,000원</b>
+                          </div>
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="checkbox width-full">
+                        <input type="radio" id="charge03" name="charge">
+                        <label for="charge03" class="width-full">
+                          <div class="f-c-space width-full">
+                            <span class="chargeNm">10,000건</span>
+                            <span class="line"></span>
+                            <b class="chargePrice">33,000원</b>
+                          </div>
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="checkbox width-full">
+                        <input type="radio" id="charge04" name="charge">
+                        <label for="charge04" class="width-full">
+                          <div class="f-c-space width-full">
+                            <span class="chargeNm">50,000건</span>
+                            <span class="line"></span>
+                            <b class="chargePrice">33,000원</b>
+                          </div>
+                        </label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="checkbox width-full">
+                        <input type="radio" id="charge05" name="charge">
+                        <label for="charge05" class="width-full">
+                          <div class="f-c-space width-full">
+                            <span class="chargeNm">100,000건</span>
+                            <span class="line"></span>
+                            <b class="chargePrice">33,000원</b>
+                          </div>
+                        </label>
+                      </div>
+                    </li>
+                  </ul>
+                  
+                  <div class="message-box__info">
+                    단문은 1건, 장문은 2건, 이미지가 포함된 문자는 5건으로 처리됩니다.
+                  </div>
+                  <div class="btn-wrap f-v-r">
+                    <button type="button" class="btn list-btn btn-red" onclick="">결제하기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <div class="col-lg-7">
+          <div class="card">
+            <div class="tab-layout">
+              <div class="tab-menu ">
+                <div class="tab-title txt-c">결제 내역</div>
+              </div>
+              <div class="tab-cont__wrap">
+                <div class="table-scroll table-charge">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>번호</th>
+                        <th>결제일시</th>
+                        <th>결제방법</th>
+                        <th>충전건수</th>
+                        <th>결제금액</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">결   제   일   시</span>2024.03.12 14:32</td>
+                        <td class="td_pay"><span class="td-tit text-justify">결   제   방   법</span>카드</td>
+                        <td class="td_chgNm"><span class="td-tit text-justify">충   전   건   수</span>5,000건</td>
+                        <td class="td_price"><span class="td-tit text-justify">결   제   금   액</span>43,000원</td>
+
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-footer">
+                  <div class="pagination">
+                    <button class="page-btn page-first" onclick=""><i></i></button>
+                    <button class="page-btn page-prev" onclick=""><i></i></button>
+                    <button class="page-btn active" onclick="">1</button>
+                    <button class="page-btn" onclick="">2</button>
+                    <button class="page-btn" onclick="">3</button>
+                    <button class="page-btn page-next" onclick=""><i></i></button>
+                    <button class="page-btn page-end" onclick=""><i></i></button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+ 
+
+
+  <script>
+  function resizeParentIframe() {
+    const container = document.querySelector('.tab-cont__wrap');
+    const height = container ? container.offsetHeight : document.documentElement.offsetHeight;
+    window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+  }
+
+  window.addEventListener('load', () => {
+    resizeParentIframe();
+    
+    // 이미지나 폰트 로드 이후 다시 한번 안전하게
+    setTimeout(resizeParentIframe, 300);
+  });
+
+  window.addEventListener('resize', resizeParentIframe);
+
+
+
+  </script>

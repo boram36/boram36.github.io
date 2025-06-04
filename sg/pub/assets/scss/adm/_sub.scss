@@ -610,6 +610,14 @@ input[type=date]{
       }
     }
   }
+  &-message{
+    .popup-content{
+      height: calc(100vh - 100px);
+    }
+    .message-box{
+      padding: 0;
+    }
+  }
 }
 
 // viewport
@@ -648,6 +656,10 @@ input[type=date]{
           font-size: $fs-16;
         }
       }
+      .message-box__cont{
+        height: 307px;
+       
+      }
     }
    
   }
@@ -685,6 +697,9 @@ input[type=date]{
         .btn-wrap .btn{
           width: 100%;
         }
+      }
+      .message-box__cont{
+        height: 288px;
       }
     }
   }
@@ -2168,6 +2183,15 @@ input[type=date]{
 
 
 .message-send__wrap{
+  .table-footer__wrap{
+    @include laptop{
+      position: static;
+      width: 100%;
+      padding: 0;
+      margin-top: 20px;
+    }
+  
+  }
   .tab-cont{
     display: block;
   }
@@ -2386,8 +2410,6 @@ input[type=date]{
   }
 }
 
-
-
 .char {
   &-popup{
     position: absolute;
@@ -2418,8 +2440,6 @@ input[type=date]{
   font-weight: 700;
  
 }
-
-
 
 // 이미지 파일
 .btn-addFile{
@@ -2470,10 +2490,66 @@ input[type=date]{
   flex-wrap: wrap;
   &-list{
     font-weight: 700;
-    & + .sendInfo-list{margin-left: 20px;}
+    & + .sendInfo-list{
+      margin-left: 20px;
+      @include mobile{
+        margin-left: 0;
+      }
+    }
   }
   .ico-file_del{
     background-image: url("../../images/adm/ico-delete_black.svg");
   }
 
+}
+
+// charge
+.table-charge{
+  &.table-scroll{
+    max-height: 480px;
+  }
+}
+.charge{
+  &-cont{
+    .message-box__info{
+      padding: 20px;
+    }
+  }
+  &-list{
+    li{
+      label{
+        .chargeNm{
+          font-weight: 400;
+          width: 115px;
+          flex: none;
+          @include mobile{
+            width: 75px;
+          }
+        }
+        .line{
+          border-bottom: 2px dashed var(--color-primary-40);
+          flex: 1;
+          margin: 0 40px;
+          @include mobile{
+            margin: 0 20px;
+          }
+        }
+        *{
+          font-size: 24px;
+          @include laptop{
+            font-size: 20px;
+          }
+          @include mobile{
+            font-size: 16px;
+          }
+        }
+      }
+      + li{
+        margin-top: 40px;
+        @include mobile{
+          margin-top: 20px;
+        }
+      }
+    }
+  }
 }

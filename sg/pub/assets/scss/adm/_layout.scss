@@ -373,6 +373,11 @@ body{
       width: 100%;
       position: relative;
       z-index: 10;
+      height: calc(100vh - 300px);
+      @include pc2{
+        height: calc(100vh - 150px);
+      }
+     
     }
     &__list{
       li{
@@ -487,6 +492,12 @@ body{
       .gnb-toggle i {
         transform: rotate(180deg);
       }
+      .gnb-menu__wrap{
+        @include pc2{
+          height: calc(100vh - 300px);
+        }
+      }
+     
     }
   }
   @include mobile{

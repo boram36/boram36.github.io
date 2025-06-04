@@ -560,7 +560,7 @@
                       <label for="">검색전체</label>
                     </div>
                   </div>
-                  <button type="button" class="btn list-btn btn-basic02" onclick="openPopup('../../../popup/sendMessage.html', 1400, 849, false, 'popup-lg', 1)">문자전송</button>
+                  <button type="button" class="btn list-btn btn-basic02" onclick="openPopup('../../../popup/messagePopup.html', 1400, 849, false, 'popup-lg', 1)">문자전송</button>
                 </div>
                 <!-- e: 선택 -->
                 <div class="f-h-c gap-10">
@@ -621,6 +621,14 @@
 
   <script>
 
+
+      function resizeParentIframe() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+      }
+
+      window.addEventListener('load', resizeParentIframe);
+      window.addEventListener('resize', resizeParentIframe); // 내부 리사이즈 대응
 
     document.addEventListener('DOMContentLoaded', () => {
       initSettingMenu();

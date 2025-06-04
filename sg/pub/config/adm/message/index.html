@@ -180,7 +180,7 @@
             <button class="tab-btn" data-url="partial-charge.html">문자 충전</button>
           </div>
           <div id="tabContent" class="iframe-container">
-            <iframe id="tabIframe" src="partial-send.html" frameborder="0" width="100%" style="min-height: 600px; height: auto;"></iframe>
+            <iframe id="tabIframe" src="../../../popup/partial-send.html" frameborder="0" width="100%" style="min-height: 600px; height: auto;"></iframe>
           </div>
         </div>
         
@@ -193,105 +193,16 @@
 	</div>
 	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
 
-
-
-  <div id="peopleEdit2" class="popup-layer popup-admin">
-    <div class="popup-inner">
-      <div class="popup-header">
-        <h2 class="popup-title">수신번호 정보 수정</h2>
-      </div>
-      <!-- e: popup-header -->
-
-      <div class="popup-content">
-        <form action="">
-          <!-- 지역 재설정 시 : error-region, 핸드폰 재설정 시 : error-phone -->
-          <div class="form-input">
-            <div class="input-row row row-cols-2">
-              <div>
-                <label class="input-tit" for="name">수신자 이름<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="name" name="name" placeholder="이름" value="이정훈" >
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
-                <div class="input-wrap input-inner td_tel">
-                  <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
-                </div>
-              </div>
-            </div>
-
-            <div class="input-row row row-cols-2">
-              <div>
-                <div class="input-tit">수신자 성별<span class="required">*</span></div>
-                <div class="checkbox-box radio-wrap">
-                  <div class="checkbox">
-                    <input type="radio" id="gender01" name="gender" checked>
-                    <label for="gender01">남</label>
-                  </div>
-                  <div class="checkbox">
-                    <input type="radio" id="gender02" name="gender">
-                    <label for="gender02">여</label>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label class="input-tit" for="age">수신자 나이<span class="required">*</span></label>
-                <div class="input-wrap">
-                  <input type="text" id="age" name="age" placeholder="나이(숫자)" value="56" readonly>
-                </div>
-              </div>
-            </div>
-            <div class="input-row">
-              <div class="input-row">
-                <label class="input-tit" for="input02">수신자 지역<span class="required">*</span></label>
-                <div class="select-wrap row row-cols-4">
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="">시/도</option>
-                    <option value="" selected>경상남도</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="" >시/군/구</option>
-                    <option value="" selected>상도군</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="">읍/면/동</option>
-                    <option value="" selected>구월면</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-          
-                  <select name="" id="" class="width-quart" disabled>
-                    <option value="">리</option>
-                    <option value="" selected>이읍리</option>
-                    <option value="">서울시</option>
-                    <option value="">부산시</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- e: popup-content -->
-     
-      <div class="popup-footer">
-        <div class="btn-wrap">
-          <button type="button" class="btn bg-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button>
-          <button type="button" class="btn btn-active">수정</button>
-        </div>
-      </div>
-      <!-- e: popup-footer -->
-
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
     </div>
   </div>
-  <!-- e: 수신번호 정보 수정 -->
+  <!-- 공통 팝업 컨테이너 -->
+
+
 
 
 <script>
@@ -380,24 +291,23 @@
 
   // 탭 메뉴 클릭 시 이동
   function initTabMenu() {
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        loadIframe(btn.dataset.url);
-        resizeParentIframe();
-      });
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      loadIframe(btn.dataset.url);
+      resizeParentIframe();
     });
-  }
+  });
+}
 
-
-  // iframe src 설정
-  function loadIframe(url) {
+// iframe src 설정
+function loadIframe(url) {
   const iframe = document.getElementById('tabIframe');
   if (iframe) {
-    iframe.src = url;
+    // 항상 popup 폴더 기준으로 경로 구성
+    iframe.src = `../../../popup/${url}`;
 
-    // 메시지 수신 이벤트 추가 (한 번만 등록되도록 체크)
     if (!window._iframeResizeHandlerAdded) {
       window.addEventListener('message', (event) => {
         if (event.data && event.data.type === 'resize-iframe') {
@@ -406,24 +316,9 @@
       });
       window._iframeResizeHandlerAdded = true;
     }
-
-    // iframe이 로드되었을 때 강제로 resize 요청
-    iframe.onload = () => {
-      iframe.contentWindow?.postMessage({ type: 'force-resize' }, '*');
-    };
   }
 }
 
-
-  function resizeParentIframe() {
-        const height = document.documentElement.scrollHeight;
-        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
-      }
-
-      window.addEventListener('load', resizeParentIframe);
-      window.addEventListener('resize', resizeParentIframe); // 내부 리사이즈 대응
-
-     
 
 
 </script>

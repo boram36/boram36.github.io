@@ -44,13 +44,12 @@
 	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
   <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
-	<script type="text/javascript" src="..assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
   <script type="text/javascript" src="../assets/js/lib/datepicker.min.js"></script>
 
 
 	<!-- js :: common -->
 	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
-</head>
 </head>
 
 
@@ -66,29 +65,8 @@
             <div class="card message-box">
               <div class="message-box__tit f-c-space">
                 <h3>미리보기</h3>
-                <button type="button" class="btn btn-small01 btn-center btn-special">특수문자</button>
-                <div class="char-popup">
-                  <div class="popup-header">
-                    <h2 class="popup-title">특수문자 선택</h2>
-                    <button type="button" class="btn-close ico" onclick="closeCharPopup('')"><i class="ico-popup_cancel"></i></button>
-                  </div>
-                  <div class="char-grid">
-                    <button class="char">★</button>
-                    <button class="char">☆</button>
-                    <button class="char">☎</button>
-                    <button class="char">☏</button>
-                    <button class="char">☜</button>
-                    <button class="char">☞</button>
-                    <button class="char">※</button>
-                    <button class="char">♥</button>
-                    <button class="char">♡</button>
-                    <button class="char">♣</button>
-                    <button class="char">♠</button>
-                    <button class="char">♤</button>
-                    <button class="char">♧</button>
-                    <button class="char">♨</button>
-                  </div>
-                </div>
+                <button type="button" class="btn btn-small01 btn-center btn-special" onclick="showSpecialCharPopup(this)">특수문자</button>
+                <div class="char-popup"></div>
               </div>
               <div class="message-box__cont">
                 <textarea placeholder="내용 입력" maxlength="2000"></textarea>
@@ -116,7 +94,7 @@
                       <button type="button" class="img-delBtn ico" title="삭제" onclick="fnDelSelectorFile(this)">
                         <i class="ico-file_del"></i>
                       </button> 
-                      <img src="../../../assets/images/test/message-test.png" alt="">
+                      <img src="../assets/images/test/message-test.png" alt="">
                     </li>
                   </ul>                   
                 </div>
@@ -170,29 +148,8 @@
                             <label for="TEMP_MESS01">템플릿1</label>
                           </div>
                           <div class="f-h-c gap-5">
-                            <button type="button" class="btn btn-small01 btn-center btn-special">특수문자</button>
-                            <div class="char-popup">
-                              <div class="popup-header">
-                                <h2 class="popup-title">특수문자 선택</h2>
-                                <button type="button" class="btn-close ico" onclick="closeCharPopup('')"><i class="ico-popup_cancel"></i></button>
-                              </div>
-                              <div class="char-grid">
-                                <button class="char">★</button>
-                                <button class="char">☆</button>
-                                <button class="char">☎</button>
-                                <button class="char">☏</button>
-                                <button class="char">☜</button>
-                                <button class="char">☞</button>
-                                <button class="char">※</button>
-                                <button class="char">♥</button>
-                                <button class="char">♡</button>
-                                <button class="char">♣</button>
-                                <button class="char">♠</button>
-                                <button class="char">♤</button>
-                                <button class="char">♧</button>
-                                <button class="char">♨</button>
-                              </div>
-                            </div>
+                            <button type="button" class="btn btn-small01 btn-center btn-special" onclick="showSpecialCharPopup(this)">특수문자</button>
+                            <div class="char-popup"></div>
                             <button type="button" class="btn btn-delete ico">
                               <i class="ico-list_delete"></i>
                             </button>
@@ -215,29 +172,8 @@
                             <label for="TEMP_MESS02">템플릿2</label>
                           </div>
                           <div class="f-h-c gap-5">
-                            <button type="button" class="btn btn-small01 btn-center btn-special">특수문자</button>
-                            <div class="char-popup">
-                              <div class="popup-header">
-                                <h2 class="popup-title">특수문자 선택</h2>
-                                <button type="button" class="btn-close ico" onclick="closeCharPopup('')"><i class="ico-popup_cancel"></i></button>
-                              </div>
-                              <div class="char-grid">
-                                <button class="char">★</button>
-                                <button class="char">☆</button>
-                                <button class="char">☎</button>
-                                <button class="char">☏</button>
-                                <button class="char">☜</button>
-                                <button class="char">☞</button>
-                                <button class="char">※</button>
-                                <button class="char">♥</button>
-                                <button class="char">♡</button>
-                                <button class="char">♣</button>
-                                <button class="char">♠</button>
-                                <button class="char">♤</button>
-                                <button class="char">♧</button>
-                                <button class="char">♨</button>
-                              </div>
-                            </div>
+                            <button type="button" class="btn btn-small01 btn-center btn-special" onclick="showSpecialCharPopup(this)">특수문자</button>
+                            <div class="char-popup"></div>
                             <button type="button" class="btn btn-delete ico">
                               <i class="ico-list_delete"></i>
                             </button>
@@ -259,29 +195,8 @@
                             <label for="TEMP_MESS03">템플릿3</label>
                           </div>
                           <div class="f-h-c gap-5">
-                            <button type="button" class="btn btn-small01 btn-center btn-special">특수문자</button>
-                            <div class="char-popup">
-                              <div class="popup-header">
-                                <h2 class="popup-title">특수문자 선택</h2>
-                                <button type="button" class="btn-close ico" onclick="closeCharPopup('')"><i class="ico-popup_cancel"></i></button>
-                              </div>
-                              <div class="char-grid">
-                                <button class="char">★</button>
-                                <button class="char">☆</button>
-                                <button class="char">☎</button>
-                                <button class="char">☏</button>
-                                <button class="char">☜</button>
-                                <button class="char">☞</button>
-                                <button class="char">※</button>
-                                <button class="char">♥</button>
-                                <button class="char">♡</button>
-                                <button class="char">♣</button>
-                                <button class="char">♠</button>
-                                <button class="char">♤</button>
-                                <button class="char">♧</button>
-                                <button class="char">♨</button>
-                              </div>
-                            </div>
+                            <button type="button" class="btn btn-small01 btn-center btn-special" onclick="showSpecialCharPopup(this)">특수문자</button>
+                            <div class="char-popup"></div>
                             <button type="button" class="btn btn-delete ico">
                               <i class="ico-list_delete"></i>
                             </button>
@@ -299,29 +214,8 @@
                             <label for="TEMP_MESS04">템플릿4</label>
                           </div>
                           <div class="f-h-c gap-5">
-                            <button type="button" class="btn btn-small01 btn-center btn-special">특수문자</button>
-                            <div class="char-popup">
-                              <div class="popup-header">
-                                <h2 class="popup-title">특수문자 선택</h2>
-                                <button type="button" class="btn-close ico" onclick="closeCharPopup('')"><i class="ico-popup_cancel"></i></button>
-                              </div>
-                              <div class="char-grid">
-                                <button class="char">★</button>
-                                <button class="char">☆</button>
-                                <button class="char">☎</button>
-                                <button class="char">☏</button>
-                                <button class="char">☜</button>
-                                <button class="char">☞</button>
-                                <button class="char">※</button>
-                                <button class="char">♥</button>
-                                <button class="char">♡</button>
-                                <button class="char">♣</button>
-                                <button class="char">♠</button>
-                                <button class="char">♤</button>
-                                <button class="char">♧</button>
-                                <button class="char">♨</button>
-                              </div>
-                            </div>
+                            <button type="button" class="btn btn-small01 btn-center btn-special" onclick="showSpecialCharPopup(this)">특수문자</button>
+                            <div class="char-popup"></div>
                             <button type="button" class="btn btn-delete ico">
                               <i class="ico-list_delete"></i>
                             </button>
@@ -339,29 +233,8 @@
                             <label for="TEMP_MESS05">템플릿5</label>
                           </div>
                           <div class="f-h-c gap-5">
-                            <button type="button" class="btn btn-small01 btn-center btn-special">특수문자</button>
-                            <div class="char-popup">
-                              <div class="popup-header">
-                                <h2 class="popup-title">특수문자 선택</h2>
-                                <button type="button" class="btn-close ico" onclick="closeCharPopup('')"><i class="ico-popup_cancel"></i></button>
-                              </div>
-                              <div class="char-grid">
-                                <button class="char">★</button>
-                                <button class="char">☆</button>
-                                <button class="char">☎</button>
-                                <button class="char">☏</button>
-                                <button class="char">☜</button>
-                                <button class="char">☞</button>
-                                <button class="char">※</button>
-                                <button class="char">♥</button>
-                                <button class="char">♡</button>
-                                <button class="char">♣</button>
-                                <button class="char">♠</button>
-                                <button class="char">♤</button>
-                                <button class="char">♧</button>
-                                <button class="char">♨</button>
-                              </div>
-                            </div>
+                             <button type="button" class="btn btn-small01 btn-center btn-special" onclick="showSpecialCharPopup(this)">특수문자</button>
+                            <div class="char-popup"></div>
                             <button type="button" class="btn btn-delete ico">
                               <i class="ico-list_delete"></i>
                             </button>
@@ -394,7 +267,7 @@
                         <label for="sendCamp">전체 조직원 <span class="mo-none">발송</span></label>
                       </div>
                     </div>
-                    <button type="button" class="btn list-btn btn-active" onclick="window.parent.openPopup('./addReciveNm.html', 1400, 849, false, 'popup-lg', 1)">+ 수신번호 추가</button>
+                    <button type="button" class="btn list-btn btn-active" onclick="window.parent.parent.openPopup('../../../popup/addReciveNm.html', 1400, 849, false, 'popup-lg', 1)">+ 수신번호 추가</button>
                   </div>
                   <div class="sendInfo">
                     <div class="sendInfo-list f-h-c gap-10">
@@ -450,12 +323,45 @@
                               경상남도 > 호고군 > 이호읍 > 시읍리
                             </td>
                             <td class="td_delete width-80 td_right">
-                              <button type="button" class="btn btn-delete btn-center ico">
+                              <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                                 <i class="ico-list_delete"></i>
                               </button>
                             </td>
                             <td class="td_setting mo-ver td_right right01">
-                              <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2', 700, 786)">
+                              <button type="button" class="btn btn-setting ico" onclick="window.parent.parent.openPopup('../../../popup/peopleEdit2_number.html', 700, 786)">
+                                <i class="ico-setting"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="td_num width-100">43</td>
+                            <td class="td_category width-80 td_right right02">유권자</td>
+                            <td class="td_name width-100">
+                              <input type="text" value="박종식" class="width-full input-small pc-ver">
+                              <div class="mo-ver width-full">
+                                <div class="profile f-c-space">
+                                  <a href="./detail.html" class="tit">
+                                    <b>박종식</b><span>(<span class="txt-16">남</span>, 67<span class="txt-16">세</span>)</span>
+                                  </a>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="td_gender td-pc">남</td>
+                            <td class="td_age td-pc">67</td>
+                            <td class="td_tel width-180 td-pc"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                            <td class="td_region width-450">
+                              경상남도 > 호고군 > 이호읍 > 시읍리
+                            </td>
+                            <td class="td_delete width-80 td_right">
+                              <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
+                                <i class="ico-list_delete"></i>
+                              </button>
+                            </td>
+                            <td class="td_setting mo-ver td_right right01">
+                              <button type="button" class="btn btn-setting ico" onclick="window.parent.parent.openPopup('../../../popup/peopleEdit2_number.html', 700, 786)">
                                 <i class="ico-setting"></i>
                               </button>
                             </td>
@@ -488,7 +394,7 @@
                               </button>
                             </td>
                             <td class="td_setting mo-ver td_right right01">
-                              <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2', 700, 786)">
+                              <button type="button" class="btn btn-setting ico" onclick="window.parent.parent.openPopup('../../../popup/peopleEdit2_number.html', 700, 786)">
                                 <i class="ico-setting"></i>
                               </button>
                             </td>
@@ -516,12 +422,12 @@
                               경상남도 > 호고군 > 이호읍 > 시읍리
                             </td>
                             <td class="td_delete width-80 td_right">
-                              <button type="button" class="btn btn-delete btn-center ico">
+                              <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                                 <i class="ico-list_delete"></i>
                               </button>
                             </td>
                             <td class="td_setting mo-ver td_right right01">
-                              <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2', 700, 786)">
+                              <button type="button" class="btn btn-setting ico" onclick="window.parent.parent.openPopup('../../../popup/peopleEdit2_number.html', 700, 786)">
                                 <i class="ico-setting"></i>
                               </button>
                             </td>
@@ -549,12 +455,12 @@
                               경상남도 > 호고군 > 이호읍 > 시읍리
                             </td>
                             <td class="td_delete width-80 td_right">
-                              <button type="button" class="btn btn-delete btn-center ico">
+                              <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                                 <i class="ico-list_delete"></i>
                               </button>
                             </td>
                             <td class="td_setting mo-ver td_right right01">
-                              <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2', 700, 786)">
+                              <button type="button" class="btn btn-setting ico" onclick="window.parent.parent.openPopup('../../../popup/peopleEdit2_number.html', 700, 786)">
                                 <i class="ico-setting"></i>
                               </button>
                             </td>
@@ -582,45 +488,12 @@
                               경상남도 > 호고군 > 이호읍 > 시읍리
                             </td>
                             <td class="td_delete width-80 td_right">
-                              <button type="button" class="btn btn-delete btn-center ico">
+                              <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
                                 <i class="ico-list_delete"></i>
                               </button>
                             </td>
                             <td class="td_setting mo-ver td_right right01">
-                              <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2', 700, 786)">
-                                <i class="ico-setting"></i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="td_num width-100">43</td>
-                            <td class="td_category width-80 td_right right02">유권자</td>
-                            <td class="td_name width-100">
-                              <input type="text" value="박종식" class="width-full input-small pc-ver">
-                              <div class="mo-ver width-full">
-                                <div class="profile f-c-space">
-                                  <a href="./detail.html" class="tit">
-                                    <b>박종식</b><span>(<span class="txt-16">남</span>, 67<span class="txt-16">세</span>)</span>
-                                  </a>
-                                  <div class="td-txt f-c-all">
-                                    010-1234-5678
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                            <td class="td_gender td-pc">남</td>
-                            <td class="td_age td-pc">67</td>
-                            <td class="td_tel width-180 td-pc"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
-                            <td class="td_region width-450">
-                              경상남도 > 호고군 > 이호읍 > 시읍리
-                            </td>
-                            <td class="td_delete width-80 td_right">
-                              <button type="button" class="btn btn-delete btn-center ico">
-                                <i class="ico-list_delete"></i>
-                              </button>
-                            </td>
-                            <td class="td_setting mo-ver td_right right01">
-                              <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2', 700, 786)">
+                              <button type="button" class="btn btn-setting ico" onclick="window.parent.parent.openPopup('../../../popup/peopleEdit2_number.html', 700, 786)">
                                 <i class="ico-setting"></i>
                               </button>
                             </td>
@@ -659,7 +532,7 @@
                       <div class="send-txt">남은 문자 수 <b>3건</b></div>
                       <div class="btn-wrap f-v-r">
                         <button type="button" class="btn list-btn btn-basic02" onclick="moveToTab(2)">문자 충전</button>
-                        <button type="button" class="btn list-btn btn-navy" onclick="window.parent.openPopup('../../../popup/sendMsg.html', 324, 250, true)">문자 발송</button>
+                        <button type="button" class="btn list-btn btn-navy" onclick="window.parent.parent.openPopup('../../../popup/sendMsg.html', 324, 250, true)">문자 발송</button>
                         <!-- 눌렀을때 바로 안내 팝업뜸. 전체 인원수가 많으면 예 3천명이 넘는다면 다 로딩하기에는 너무 길어서 리스트 부르지 않고 바로 발송 -->
                       </div>
                     </div>
@@ -673,7 +546,6 @@
       </div>
     </div>
   </div>
-
   <div id="layerPopup" class="popup" style="display: none;">
     <div class="popup-overlay" onclick="closePopup()"></div>
     <div class="popup-wrap" id="popupWrap">
@@ -685,17 +557,22 @@
 </body>
 </html>
 
-
+ 
 
 
   <script>
-     function resizeParentIframe() {
-        const height = document.documentElement.scrollHeight;
-        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
-      }
 
-      window.addEventListener('load', resizeParentIframe);
-      window.addEventListener('resize', resizeParentIframe); // 내부 리사이즈 대응
+    function resizeParentIframe() {
+      const height = document.body.scrollHeight;
+      window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+    }
+
+    window.addEventListener('load', () => {
+      resizeParentIframe();
+      setTimeout(notifyParentHeight, 300); // 이미지 로드 이후 안정화
+    });
+    window.addEventListener('resize', resizeParentIframe);
+
 
       document.addEventListener('DOMContentLoaded', () => {
         initSettingMenu();
@@ -703,6 +580,7 @@
         initMobileTabToggle();
         initSpecialCharButton();
         initSendCheckboxToggle();
+
       });
 
       // 관리메뉴 클릭 이벤트
@@ -752,33 +630,64 @@
       }
 
 
-      // 특수문자 팝업
-      function initSpecialCharButton() {
-        document.querySelectorAll('.btn-special').forEach(button => {
-          button.addEventListener('click', (e) => {
-            e.stopPropagation();
+      function showSpecialCharPopup(button) {
+        // 버튼 기준으로 가장 가까운 textarea 찾기
+        const container = button.closest('.message-box') || button.closest('.template-item');
+        const textarea = container.querySelector('textarea');
+        const popup = button.nextElementSibling; // 버튼 옆에 있는 .char-popup div
 
-            // 모든 팝업 닫기
-            document.querySelectorAll('.char-popup').forEach(popup => popup.style.display = 'none');
+        // 다른 팝업 다 닫기
+        document.querySelectorAll('.char-popup').forEach(p => {
+          if (p !== popup) p.style.display = 'none';
+        });
 
-            // 현재 버튼의 부모에서 가장 가까운 char-popup만 열기
-            const popup = button.closest('.message-box__tit')?.querySelector('.char-popup') ||
-                          button.closest('.template-item')?.querySelector('.char-popup');
-            if (popup) popup.style.display = 'block';
+        // innerHTML 전체 구성
+        popup.innerHTML = `
+          <div class="popup-header" >
+            <h2 class="popup-title">특수문자 선택</h2>
+            <button type="button" class="btn-close ico" onclick="this.closest('.char-popup').style.display='none'">
+              <i class="ico-popup_cancel"></i>
+            </button>
+          </div>
+          <div class="char-grid" >
+            <button class="char">★</button>
+            <button class="char">☆</button>
+            <button class="char">☎</button>
+            <button class="char">☏</button>
+            <button class="char">☜</button>
+            <button class="char">☞</button>
+            <button class="char">※</button>
+            <button class="char">♥</button>
+            <button class="char">♡</button>
+            <button class="char">♣</button>
+            <button class="char">♠</button>
+            <button class="char">♤</button>
+            <button class="char">♧</button>
+            <button class="char">♨</button>
+          </div>
+        `;
+
+        // 이벤트 연결
+        popup.querySelectorAll('.char').forEach(charBtn => {
+          charBtn.addEventListener('click', () => {
+            insertAtCursor(textarea, charBtn.textContent);
+            popup.style.display = 'none';
           });
         });
 
-        // 외부 클릭 시 모든 char-popup 닫기
-        document.addEventListener('click', e => {
-          if (!e.target.closest('.char-popup') && !e.target.classList.contains('btn-special')) {
-            document.querySelectorAll('.char-popup').forEach(popup => popup.style.display = 'none');
-          }
-        });
+        // 토글 열고 닫기
+        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
       }
 
-      function closeCharPopup() {
-        document.querySelectorAll('.char-popup').forEach(popup => popup.style.display = 'none');
+      function insertAtCursor(textarea, text) {
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const value = textarea.value;
+        textarea.value = value.substring(0, start) + text + value.substring(end);
+        textarea.selectionStart = textarea.selectionEnd = start + text.length;
+        textarea.focus();
       }
+
 
 
       // 이동
@@ -787,15 +696,15 @@
           const iframe = window.parent.document.getElementById('tabIframe');
           const tabButtons = window.parent.document.querySelectorAll('.tab-btn');
 
-          // 탭 인덱스에 따라 URL 지정
+          // 탭 인덱스에 따라 URL 지정 (상대경로는 그대로 유지)
           let url = '';
           if (tabIndex === 0) url = 'partial-send.html';
           else if (tabIndex === 1) url = 'partial-history.html';
           else if (tabIndex === 2) url = 'partial-charge.html';
 
-          // iframe src 변경
+          // iframe src 변경 (popup 폴더 기준으로 경로 수정)
           if (iframe && url) {
-            iframe.src = url;
+            iframe.src = `../../../popup/${url}`;
           }
 
           // active 클래스 토글
@@ -805,6 +714,7 @@
           });
         }
       }
+
 
 
       // 이미지 삭제
