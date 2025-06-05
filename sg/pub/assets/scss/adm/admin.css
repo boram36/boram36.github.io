@@ -7072,6 +7072,14 @@ form .row > * {
   width: 34px;
   height: 34px;
 }
+.ico-refresh {
+  background-image: url("../../images/adm/ico-refresh.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 34px;
+  height: 34px;
+}
 
 /** button 공통 **/
 .btn-wrap {
@@ -9691,4 +9699,30 @@ input[type=date].input-small {
   .charge-list li + li {
     margin-top: 20px;
   }
+}
+
+.campInfo.candidater-wrap .candidater-list {
+  width: 100%;
+}
+.campInfo.candidater-wrap .candidater-list .selectSg-cont {
+  padding: 50px;
+}
+.campInfo .candidater-info {
+  gap: 80px;
+}
+.campInfo .candidater-info__wrap {
+  flex: 1;
+}
+.campInfo .color-input {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.campInfo .color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: 0.2s;
 }/*# sourceMappingURL=admin.css.map */

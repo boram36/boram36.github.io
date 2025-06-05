@@ -40,6 +40,7 @@ $url-bg2:"../../images/adm/";
   &-file{@include icon-style-adm(20px, 20px, "ico-file")}
   &-floating_gray{@include icon-style(37px, 37px, "ico-floating_gray")}
   &-file_del{@include icon-style-adm(34px, 34px, "ico-file_del")}
+  &-refresh{@include icon-style-adm(34px, 34px, "ico-refresh")}
 
 }
 
@@ -2552,4 +2553,36 @@ input[type=date]{
       }
     }
   }
+}
+
+
+// campInfo
+.campInfo{
+  &.candidater-wrap {
+    .candidater-list{
+      width: 100%;
+      .selectSg-cont{
+        padding: 50px;
+      }
+    }
+  }
+  .candidater-info{
+    gap: 80px;
+    &__wrap{
+      flex: 1;
+    }
+  }
+  .color-input{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+  .color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: 0.2s;
+}
 }

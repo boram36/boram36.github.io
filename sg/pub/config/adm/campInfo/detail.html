@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-date"></i>
+            캠프정보
+        </h2>
+        <div class="candidater-wrap f-space gap-25 campInfo">
+          <div class="candidater-list flex-none">
+            <div class="selectSg-box">
+              <div class="selectSg-cont">
+              
+                <div class="candidater-info flex">
+                  <div class="candidater-info__wrap">
+                    <div class="candidater-info__top f-h-c">
+                      <div class="profile-info">
+                        <b>사용자 정보</b>
+                      </div>
+                    </div>
+                    <!-- e: candidater-info__top -->
+  
+                    <ul class="detail">
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">이                름</span>
+                        </div>
+                        <div class="detail-cont">박동준</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">아      이      디</span>
+                        </div>
+                        <div class="detail-cont">10930</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">비  밀   번  호</span>
+                        </div>
+                        <div class="detail-cont">●●●●●●●●●</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">휴 대 폰 번 호</span>
+                        </div>
+                        <div class="detail-cont">
+                         010-1234-5678
+                        </div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">이      메      일</span>
+                        </div>
+                        <div class="detail-cont">
+                        eamdo@gmail.com
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- e: detail -->
+                  </div>
+                   <div class="candidater-info__wrap">
+                    <div class="candidater-info__top f-h-c">
+                      <div class="profile-info">
+                        <b>선거 정보</b>
+                      </div>
+                    </div>
+                    <!-- e: candidater-info__top -->
+  
+                    <ul class="detail">
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">신  청   지  역</span>
+                        </div>
+                        <div class="detail-cont">성주군</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">선  출   직  책</span>
+                        </div>
+                        <div class="detail-cont">지방자체단체장</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">선      거      명</span>
+                        </div>
+                        <div class="detail-cont">제 13회 성주군 선거</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">선      거      일</span>
+                        </div>
+                        <div class="detail-cont">
+                          2025.04.01
+                        </div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">캠  프   색  상</span>
+                        </div>
+                        <div class="detail-cont">
+                          <div class="colorSelect-wrap">
+                            <input type="color" value="#59963B" disabled class="color-input">
+                            <button type="button" class="btn btn-refresh ico" onclick=""><i class="ico-refresh"></i></button>
+                            <div class="color-popup">
+                                <div class="popup-header">
+                                  <h2 class="popup-title">캠프 색상 선택</h2>
+                                  <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+
+                                </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">지  역   상  세</span>
+                        </div>
+                        <div class="detail-cont text-over2">
+                         금수강산면, 벽진면, 이월면, 이상면, 수륜면금수강산면, 벽진면, 이월면
+                        </div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">비                고</span>
+                        </div>
+                        <div class="detail-cont text-over2">
+                         비고내용
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- e: detail -->
+                  </div>
+                   <div class="candidater-info__wrap">
+                    <div class="candidater-info__top f-h-c">
+                      <div class="profile-info">
+                        <b>캠프번호 정보</b>
+                      </div>
+                    </div>
+                    <!-- e: candidater-info__top -->
+  
+                    <ul class="detail">
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">전  화   번  호</span>
+                        </div>
+                        <div class="detail-cont">054-123-4567</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">문자발신번호</span>
+                        </div>
+                        <div class="detail-cont">070-1234-5678</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">수신거부번호</span>
+                        </div>
+                        <div class="detail-cont">080-1234-5678</div>
+                      </li>
+                      <li>
+                        <div class="detail-tit">
+                          <span class="text-justify">비                고</span>
+                        </div>
+                        <div class="detail-cont text-over2">
+                          수월 강당에서 동네 잔치가 열립니다. 수월 강당에서 동네 잔치가 열립니다. 수월 강당에서 동네 잔치가 열립니다. 수월 강당에서 동네 잔치가 열립니다.
+                        </div>
+                      </li>
+                    </ul>
+                    <!-- e: detail -->
+                  </div>
+                </div>
+                <div class="btn-wrap f-v-r">
+                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('../../../popup/edit_campInfo.html', 700, 786)">정보 수정</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+  <script>
+    // 탭 메뉴
+    document.addEventListener('DOMContentLoaded', () => {
+			const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+		});
+
+  </script>
+
+</body>
+
+</html>
