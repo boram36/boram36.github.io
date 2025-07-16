@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후보자 수정</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+
+</head>
+<body class="admin">
+  <div class="popup-admin popup-camp">
+    <div class="popup-header">
+      <h2 class="popup-title" id="popupTitle">사용 신청 (약관동의)</h2>
+    </div>
+    <!-- e: popup-header -->
+
+    <div class="tab-menu type03">
+      <button class="tab-btn active" >약관동의</button>
+      <button class="tab-btn" >선거정보</button>
+      <button class="tab-btn">사용자 정보</button>
+      <button class="tab-btn" >문자번호 정보</button>
+    </div>
+    
+    <div class="popup-content">
+     
+      <div id="tabContent" class="iframe-container"></div>
+
+     
+    </div>
+    <!-- e: popup-content -->
+   
+    <div class="popup-footer">
+      <div class="btn-wrap">
+        <!-- 이전 -->
+        <button type="button" id="prevBtn" class="btn list-btn">이전</button>
+        <!-- 다음 / 신청 -->
+        <button type="button" id="nextBtn" class="btn list-btn btn-active">다음</button>
+      </div>
+    </div>
+    
+  </div> 
+
+
+  <script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1) 단계(스텝) 정의
+    const steps = [
+      { url: 'useApply_agree.html',    title: '사용 신청 (약관동의)'    },
+      { url: 'useApply_election.html', title: '사용 신청 (선거정보)'    },
+      { url: 'useApply_userInfo.html',   title: '사용 신청 (사용자 정보)'  },
+      { url: 'useApply_smsInfo.html',      title: '사용 신청 (문자번호 정보)' }
+    ];
+
+    let currentStep = 0;
+    const tabButtons = document.querySelectorAll('.tab-menu .tab-btn');
+    const popupTitle = document.getElementById('popupTitle');
+    const prevBtn    = document.getElementById('prevBtn');
+    const nextBtn    = document.getElementById('nextBtn');
+
+    // 2) showStep: 화면 갱신
+    function showStep(idx) {
+      currentStep = idx;
+
+      // — 탭 메뉴 활성화
+      tabButtons.forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+      });
+
+      // — 타이틀 / iframe 변경
+      popupTitle.textContent = steps[idx].title;
+      loadIframe(steps[idx].url);
+
+      // — 이전 버튼: 0단계면 숨기고, 아니면 클릭 설정
+      if (idx === 0) {
+        prevBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'block';
+        prevBtn.onclick = () => showStep(idx - 1);
+      }
+
+      // — 다음 버튼: 마지막 전엔 ‘다음’, 마지막엔 ‘신청’
+      if (idx < steps.length - 1) {
+        nextBtn.textContent = '다음';
+        nextBtn.onclick     = () => showStep(idx + 1);
+      } else {
+        nextBtn.textContent = '신청';
+        nextBtn.onclick     = submitApplication;
+      }
+    }
+
+    // 3) iframe 로딩 (기존 loadIframe 활용)
+    function loadIframe(url) {
+      const wrapper = document.getElementById('tabContent');
+      wrapper.innerHTML = `<iframe id="tabIframe"
+                                  src="./${url}"
+                                  frameborder="0"
+                                  width="100%"></iframe>`;
+      // → iframe 높이 조절, postMessage 핸들링 등은
+      //   기존 코드 그대로 두시면 됩니다.
+    }
+
+    // 4) 마지막 단계 ‘신청’ 동작
+    function submitApplication() {
+      // 예: iframe 내부에 있는 form data 꺼내거나, 
+      //     parent window에서 ajax 호출도 가능
+      alert('모든 단계를 완료했습니다! 실제 신청 로직을 여기서 처리하세요.');
+    }
+
+    // 5) 초기화
+    showStep(0);
+  });
+
+  if (!window._iframeResizeHandlerAdded) {
+    window.addEventListener('message', (event) => {
+      if (event.data?.type === 'resize-iframe') {
+        const iframe = document.getElementById('tabIframe');
+        if (iframe) {
+          iframe.style.height = event.data.height + 'px';
+        }
+      }
+    });
+    window._iframeResizeHandlerAdded = true;
+  }
+
+
+    // 넓이 전송
+    window.addEventListener('message', function(e) {
+      if (e.data?.viewportWidth) {
+        parentViewportWidth = e.data.viewportWidth;
+        sendViewportWidth();
+      }
+    });
+
+    function sendViewportWidth() {
+      const iframe = document.getElementById('tabIframe');
+      if (iframe?.contentWindow) {
+        iframe.contentWindow.postMessage({ viewportWidth: parentViewportWidth }, '*');
+      }
+    }
+
+    window.addEventListener('resize', sendViewportWidth);
+
+
+        
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+
+    window.addEventListener('message', function (e) {
+        const data = e.data;
+
+        if (data?.viewportWidth) {
+          // 기존 반응형 처리
+          const vw = data.viewportWidth;
+          const body = document.body;
+          body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+          if (vw <= 767) body.classList.add('viewport-xs');
+          else if (vw <= 1024) body.classList.add('viewport-sm');
+          else if (vw <= 1280) body.classList.add('viewport-md');
+          else body.classList.add('viewport-lg');
+
+          // 넓이 받았을 때 높이도 같이 요청
+          resizeParentIframe();
+        }
+
+        if (data?.type === 'request-resize') {
+          resizeParentIframe();
+        }
+      });
+
+
+      function resizeParentIframe() {
+        const container = document.querySelector('.campInfo-cont__wrap');
+        const height = container ? container.offsetHeight : document.documentElement.offsetHeight;
+        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+      }
+
+      window.addEventListener('load', () => {
+        resizeParentIframe();
+        
+        // 이미지나 폰트 로드 이후 다시 한번 안전하게
+        setTimeout(resizeParentIframe, 300);
+      });
+
+      window.addEventListener('resize', resizeParentIframe);
+  </script>
+
+</body>
+</html> 

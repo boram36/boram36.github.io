@@ -262,16 +262,89 @@
                         </div>
                         <div class="detail-cont">
                           <div class="colorSelect-wrap">
-                            <input type="color" value="#59963B" disabled class="color-input">
-                            <button type="button" class="btn btn-refresh ico" onclick=""><i class="ico-refresh"></i></button>
-                            <div class="color-popup">
+                            <div class="f-h-c gap-15">
+                              <div class="colorSelect-item" id="selectedColor" style="background-color: #59963B;"></div>
+                              <input type="hidden" id="campColorInput" name="campColor" value="#59963B">
+                              <button id="openColorPopup" type="button" class="btn btn-refresh ico" onclick=""><i class="ico-refresh_blue"></i></button>
+                            </div>
+                            <div class="char-popup" id="colorPopup">
                                 <div class="popup-header">
                                   <h2 class="popup-title">캠프 색상 선택</h2>
-                                  <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+                                  <button type="button" id="closePopup" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
 
+                                </div>
+                                <div class="popup-content">
+                                  <div class="camp-color-selector">
+                                    <label class="color-option" style="background-color: #CF4A4A;" data-color="#CF4A4A"></label>
+                                    <label class="color-option" style="background-color: #D35C28;" data-color="#D35C28"></label>
+                                    <label class="color-option" style="background-color: #D78D1B;" data-color="#D78D1B"></label>
+                                    <label class="color-option active" style="background-color: #59963B;" data-color="#59963B"></label>
+                                    <label class="color-option" style="background-color: #238C92;" data-color="#238C92"></label>
+                                    <label class="color-option" style="background-color: #1D79B7;" data-color="#1D79B7"></label>
+                                    <label class="color-option" style="background-color: #343787;" data-color="#343787"></label>
+                                    <label class="color-option" style="background-color: #5A3EA4;" data-color="#5A3EA4"></label>
+                                    <label class="color-option" style="background-color: #C6436D;" data-color="#C6436D"></label>
+                                    <label class="color-option" style="background-color: #1B1F27;" data-color="#1B1F27"></label>
+                                  </div>
                                 </div>
                             </div>
                           </div>
+
+                          <script>
+                            // 색상 변경 
+                            const openBtn = document.getElementById("openColorPopup");
+                            const popup = document.getElementById("colorPopup");
+                            const closeBtn = document.getElementById("closePopup");
+                            const selectedColor = document.getElementById("selectedColor");
+                            const hiddenInput = document.getElementById("campColorInput");
+
+                            // 팝업 열기
+                            openBtn.addEventListener("click", () => {
+                              // 현재 선택된 색상 읽어오기
+                              const currentColor = hiddenInput.value;
+
+                              // 모든 color-option에서 active 제거
+                              document.querySelectorAll(".color-option").forEach(option => {
+                                option.classList.remove("active");
+
+                                if (option.getAttribute("data-color") === currentColor) {
+                                  option.classList.add("active");
+                                }
+                              });
+
+                              popup.style.display = "block";
+                            });
+
+                            // 팝업 닫기
+                            closeBtn.addEventListener("click", () => {
+                              popup.style.display = "none";
+                            });
+
+                            // 색상 선택
+                            document.querySelectorAll(".color-option").forEach(option => {
+                              option.addEventListener("click", () => {
+                                const color = option.getAttribute("data-color");
+
+                                // 선택 값 반영
+                                selectedColor.style.backgroundColor = color;
+                                hiddenInput.value = color;
+
+                                // active 클래스 관리
+                                document.querySelectorAll(".color-option").forEach(opt => opt.classList.remove("active"));
+                                option.classList.add("active");
+
+                                popup.style.display = "none";
+                              });
+                            });
+
+                            // 외부 클릭 닫기 (선택사항)
+                            document.addEventListener("click", function(event) {
+                              if (!popup.contains(event.target) && event.target !== openBtn && !openBtn.contains(event.target)) {
+                                popup.style.display = "none";
+                              }
+                            });
+
+                            </script>
 
                         </div>
                       </li>
@@ -334,7 +407,7 @@
                   </div>
                 </div>
                 <div class="btn-wrap f-v-r">
-                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('../../../popup/edit_campInfo.html', 700, 786)">정보 수정</button>
+                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('../../../popup/edit_camp.html', 700, 786, false, 'viewport-lg')">정보 수정</button>
                 </div>
               </div>
             </div>
@@ -360,30 +433,17 @@
   <!-- 공통 팝업 컨테이너 -->
 
   <script>
-    // 탭 메뉴
-    document.addEventListener('DOMContentLoaded', () => {
-			const buttons = document.querySelectorAll('.tab-btn');
-			const contents = document.querySelectorAll('.tab-cont');
 
-			buttons.forEach(button => {
-				button.addEventListener('click', () => {
-					const index = button.getAttribute('data-index');
+      function resizeParentIframe() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+      }
 
-					// 탭 버튼 활성화 처리
-					buttons.forEach(btn => btn.classList.remove('active'));
-					button.classList.add('active');
+      window.addEventListener('load', resizeParentIframe);
+      window.addEventListener('resize', resizeParentIframe); // 내부 리사이즈 대응
 
-					// 콘텐츠 보이기
-					contents.forEach(content => {
-						if (content.getAttribute('data-index') === index) {
-							content.classList.add('active');
-						} else {
-							content.classList.remove('active');
-						}
-					});
-				});
-			});
-		});
+
+    
 
   </script>
 

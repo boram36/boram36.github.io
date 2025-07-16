@@ -3796,6 +3796,11 @@ textarea {
   resize: none;
   text-align: left;
 }
+textarea:disabled {
+  border: 1px solid var(--color-primary-40);
+  background-color: var(--color-primary-20);
+  color: var(--color-primary-80);
+}
 
 /* SELECT */
 @media (max-width: 767px) {
@@ -3841,7 +3846,7 @@ textarea {
 .input-wrap input[type=password][disabled],
 .input-wrap input[type=num][disabled] {
   border: 1px solid var(--color-primary-40);
-  background: var(--color-primary-20);
+  background-color: var(--color-primary-20);
   color: var(--color-primary-80);
 }
 .input-wrap.input-inner {

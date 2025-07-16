@@ -135,6 +135,7 @@ function openPopup(url, width, height = null, isDelete = false, sizeClass = '') 
   iframe.onload = sendViewportToIframe;
   popupResizeListeners.set(popupId, sendViewportToIframe);
   window.addEventListener('resize', sendViewportToIframe);
+
 }
 
 function closePopup(popupId) {

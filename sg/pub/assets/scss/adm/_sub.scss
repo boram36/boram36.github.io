@@ -40,7 +40,7 @@ $url-bg2:"../../images/adm/";
   &-file{@include icon-style-adm(20px, 20px, "ico-file")}
   &-floating_gray{@include icon-style(37px, 37px, "ico-floating_gray")}
   &-file_del{@include icon-style-adm(34px, 34px, "ico-file_del")}
-  &-refresh{@include icon-style-adm(34px, 34px, "ico-refresh")}
+  &-refresh_blue{@include icon-style-adm(34px, 34px, "ico-refresh_blue")}
 
 }
 
@@ -90,6 +90,10 @@ $url-bg2:"../../images/adm/";
     color: var(--color-primary-100);
     font-size: 14px;
     font-weight: 500;
+    &.bg-primary-100{
+      background: var(--color-primary-100);
+      color: #fff;
+    }
   }
   &.btn-excel{
     background-color: var(--system-green);
@@ -208,6 +212,10 @@ input[type=date]{
       &-message{@include icon-style(30px, 30px, "gnb-message");}
       &-notice{@include icon-style(30px, 30px, "gnb-notice");}
       &-chart{@include icon-style(30px, 30px, "gnb-chart");}
+      &-star{@include icon-style(30px, 30px, "gnb-star");}
+      &-open{@include icon-style(30px, 30px, "gnb-open");}
+      &-map{@include icon-style(30px, 30px, "gnb-map");}
+      &-position{@include icon-style(30px, 30px, "gnb-position");}
     }
     @include mobile{
       margin-right: 0;
@@ -619,19 +627,17 @@ input[type=date]{
       padding: 0;
     }
   }
+  &-camp{
+    .popup-content{
+      height: calc(100vh - 280px);
+    }
+  }
 }
 
 // viewport
 .viewport{
   &-lg{
-    .popup-admin{
-      .popup-header{
-        padding: 15px 0 25px;
-      }
-      .popup-title{
-        font-size: $fs-24;
-      }
-      form .row{
+     form .row{
         display: flex;
         margin-right: calc(-0.5 * var(--gutter-x2));
         margin-left: calc(-0.5 * var(--gutter-x2));
@@ -642,6 +648,14 @@ input[type=date]{
           margin-bottom: 0;
         }
       }
+    .popup-admin{
+      .popup-header{
+        padding: 15px 0 25px;
+      }
+      .popup-title{
+        font-size: $fs-24;
+      }
+     
       .select-wrap.row{
         margin: calc(-0.5 * var(--gutter-x2));
       }
@@ -662,6 +676,15 @@ input[type=date]{
        
       }
     }
+    .camp-color-selector{
+      justify-content: space-between;
+      .color-option {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    
+   
    
   }
   &-xs{
@@ -701,6 +724,22 @@ input[type=date]{
       }
       .message-box__cont{
         height: 288px;
+      }
+    }
+    .email-wrap  {
+      flex-direction: column;
+      > * {
+        width: 100%;
+      }
+      .email-box{
+        width: 100%;
+      }
+    }
+    .camp-color-selector{
+      justify-content: left;
+      .color-option{
+        width: 30px;
+        height: 30px;
       }
     }
   }
@@ -780,6 +819,9 @@ input[type=date]{
       .selectric-width-big{
         .selectric{
           width: 260px;
+          @include mobile{
+            width: 100%;
+          }
         }
       }
       .selectric{
@@ -919,6 +961,32 @@ input[type=date]{
     font-weight: 500;
     @include mobile{
       margin: 0 0 15px;
+    }
+  }
+  &.type02{
+    margin-top: 30px;
+    @include mobile{
+      margin-top: 10px;
+    }
+    .table .checkbox{
+      &-wrap{
+        flex-wrap: wrap;
+        @include laptop{
+          gap: 10px;
+        }
+      }
+      input[type=checkbox] + label:before{
+        margin-right: 10px;
+      }
+
+    }
+    input{
+      width: 100%;
+    }
+    .table-footer__wrap .left-controls .btn{
+      flex: 1;
+      height: 40px;
+      
     }
   }
 }
@@ -1384,6 +1452,7 @@ input[type=date]{
     }
     @include laptop{
       width: auto;
+      height: auto;
       padding: 7px 10px;
     }
     @extend .f-c-all;
@@ -1391,6 +1460,10 @@ input[type=date]{
       width: 80px;
       height: 38px;
       font-size: 12px;
+    }
+    &.status-mid{
+      width: 88px;
+      height: 24px;
     }
   }
   &-normal{
@@ -1405,6 +1478,10 @@ input[type=date]{
   &-dead{
     background-color: rgba(157, 164, 173, 0.1);
     color: var(--color-primary-60);
+  }
+  &-request{
+    background-color: rgba(58, 165, 73, 0.1);
+    color: #3AA549;
   }
 }
 .error{
@@ -2106,6 +2183,27 @@ input[type=date]{
       }
     }
   }
+  &.type03{
+    border-radius: 20px;
+    background: var(--color-primary-10);
+    overflow: hidden;
+    border: 0;
+    box-shadow: none;
+    padding: 5px;
+
+    .tab-btn{
+      font-size: 18px;
+      padding: 11px 0;
+      @include mobile{
+        font-size: 16px;
+      }
+      &.active{
+        border-radius: 15px;
+
+      }
+    }
+
+  }
 }
 
 // 문자
@@ -2425,11 +2523,18 @@ input[type=date]{
     box-shadow: 3px 3px 20px 0px rgba(136, 136, 136, 0.05);
     display: none;
     z-index: 1000;
+    @include mobile{
+      right: auto;
+      left: 0;
+    }
     .popup-header{
       padding: 0;
       border-bottom: 0;
       .popup-title{text-align: left; font-size: 16px;}
       .btn-close{top: -20px;}
+    }
+    .popup-content{
+      margin-bottom: 0;
     }
   }
   &-grid{
@@ -2551,6 +2656,44 @@ input[type=date]{
           margin-top: 20px;
         }
       }
+      .charge-list__cont{
+        @include mobile{
+          display: block;
+
+        }
+      }
+      .charge-tit{
+        flex: none;
+        font-size: $fs-22;
+        font-weight: 500;
+        @extend .f-h-c;
+        gap: 10px;
+        @include mobile{
+          font-size: $fs-16;
+          margin-bottom: 10px;
+        }
+        &::before{
+          content: '•';
+          line-height: 1;
+          
+        }
+      }
+      .input-wrap{
+        width: auto;
+      }
+      .input-num{
+        input{
+          text-align: right;
+          width: 180px;
+          height: 54px;
+          border-radius: 20px;
+          @include mobile{
+            width: 100%;
+            height: 44px;
+            border-radius: 10px;
+          }
+        }
+      }
     }
   }
 }
@@ -2563,26 +2706,200 @@ input[type=date]{
       width: 100%;
       .selectSg-cont{
         padding: 50px;
+        @include laptop{
+          padding: 30px;
+        }
+        @include mobile{
+          padding: 20px;
+        }
       }
     }
   }
   .candidater-info{
     gap: 80px;
+    @include laptop{
+      flex-direction: column;
+    }
     &__wrap{
       flex: 1;
     }
   }
-  .color-input{
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+  .colorSelect{
+    &-wrap{
+      position: relative;
+      @include mobile{
+        position: static;
+      }
+      .char-popup .popup-header .btn-close{
+        top: -10px;
+        .ico-cancel{
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+    &-item{
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 3px solid var(--color-primary-100);
+      cursor: pointer;
+
+    }
+  }
+  &-cont__wrap{
+    padding: 20px 0;
+    .checkbox-box{
+      background-color: var(--color-primary-10);
+    }
+    .checkbox.width-fifth{
+      @include mobile{
+        width: auto;
+      }
+    }
+    
+  }
+  .detail > li{
+    @include mobile{
+      position: relative;
+
+    }
+  }
+  .detail-cont{
+    @include mobile{
+      position: static;
+    }
+  }
+  
+}
+
+.border-box{
+  padding: 10px 20px;
+  border: 1px solid var(--color-primary-40);
+}
+
+// 색상선택
+.camp-color-selector {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  @include mobile{
+    justify-content: left;
   }
   .color-option {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  transition: 0.2s;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: 0.2s;
+    @include mobile{
+      width: 30px;
+      height: 30px;
+    }
+    &:hover,
+    &.active{
+      border: 3px solid var(--color-primary-100);
+
+    }
+  }
 }
+
+.email-wrap  {
+  .email-box{
+    width: 210px;
+  }
+}
+
+
+// 시스템 관리자
+.use-btn{
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 500;
+} 
+.useApply{
+  &-cont{
+    &__wrap{
+      .candidater-info{
+        div{
+          h3{
+            color: inherit;
+          }
+          color: var(--color-primary-80);
+          line-height: 2;
+        }
+      }
+    }
+  }
+}
+
+.agree-check{
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.checkbox-box.noSelect{
+  padding: 60px 0;
+  text-align: center;
+  p{
+    font-size: 14px;
+    color: var(--color-primary-80);
+  }
+}
+
+.border-box.noSelect{
+  min-height: auto;
+}
+
+.select-color{
+  border-radius: 10px;
+  border: 1px solid var(--color-primary-10);
+  height: 28px;
+}
+
+.info{
+  font-size: 12px;
+  color: var(--color-primary-80);
+}
+
+.gnb-info{
+  padding: 14px;
+  border-radius: 10px;
+  justify-content: space-between;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  margin-top: 10px;
+  *{
+    color: #fff;
+  }
+  p{
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  b{
+    width: 100%;
+    text-align: right;
+    font-size: 18px;
+  }
+}
+
+.search-option{
+  + .candidater-wrap{
+    margin-top: 30px;
+    .map-cont{
+      max-width: 569px;
+      width: 100%;
+      margin:  0 auto;
+      img{
+        width: 100%;
+      }
+
+    }
+  }
 }

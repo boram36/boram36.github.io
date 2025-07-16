@@ -323,7 +323,7 @@
                               경상남도 > 호고군 > 이호읍 > 시읍리
                             </td>
                             <td class="td_delete width-80 td_right">
-                              <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
+                              <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.parent.openPopup('../../../pop/deletePopup.html', 324, null, true, 'popup-xs');">
                                 <i class="ico-list_delete"></i>
                               </button>
                             </td>
@@ -562,136 +562,121 @@
 
   <script>
 
-    function resizeParentIframe() {
-      const height = document.body.scrollHeight;
-      window.parent.postMessage({ type: 'resize-iframe', height }, '*');
-    }
+  document.addEventListener('DOMContentLoaded', () => {
+    initSettingMenu();
+    initMessageByteCount();
+    initMobileTabToggle();
+    initSpecialCharButton();
+    initSendCheckboxToggle();
 
-    window.addEventListener('load', () => {
-      resizeParentIframe();
-      setTimeout(notifyParentHeight, 300); // 이미지 로드 이후 안정화
+  });
+
+  // 관리메뉴 클릭 이벤트
+  function initSettingMenu() {
+    const menus = document.querySelectorAll('.setting-menu');
+    menus.forEach(menu => {
+      const btn = menu.querySelector('.btn-setting');
+      const dropdown = menu.querySelector('.setting-drop');
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        menus.forEach(m => m.querySelector('.setting-drop').classList.remove('active'));
+        dropdown.classList.toggle('active');
+      });
     });
-    window.addEventListener('resize', resizeParentIframe);
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.setting-drop.active').forEach(drop => drop.classList.remove('active'));
+    });
+  }
 
+  // 문자메시지 byte 
+  function initMessageByteCount() {
+    document.querySelectorAll('.message-box__cont').forEach(box => {
+      const textarea = box.querySelector('textarea');
+      const byteCount = box.querySelector('.byte-count b');
+      if (!textarea || !byteCount) return;
+      const updateByteCount = () => {
+        const text = textarea.value;
+        const bytes = [...text].reduce((acc, ch) => acc + (ch.charCodeAt(0) > 0x7f ? 2 : 1), 0);
+        byteCount.textContent = `${bytes}`;
+      };
+      textarea.addEventListener('input', updateByteCount);
+      updateByteCount();
+    });
+  }
 
-      document.addEventListener('DOMContentLoaded', () => {
-        initSettingMenu();
-        initMessageByteCount();
-        initMobileTabToggle();
-        initSpecialCharButton();
-        initSendCheckboxToggle();
+  // 모바일에서 탭 메뉴 열고 닫기
+  function initMobileTabToggle() {
+    document.querySelectorAll('.tab-menu__control').forEach(menu => {
+      menu.addEventListener('click', () => {
+        const cont = menu.nextElementSibling;
+        cont.classList.toggle('open');
+        menu.classList.toggle('active');
+        resizeParentIframe();
 
       });
+    });
+  }
 
-      // 관리메뉴 클릭 이벤트
-      function initSettingMenu() {
-        const menus = document.querySelectorAll('.setting-menu');
-        menus.forEach(menu => {
-          const btn = menu.querySelector('.btn-setting');
-          const dropdown = menu.querySelector('.setting-drop');
-          btn.addEventListener('click', e => {
-            e.stopPropagation();
-            menus.forEach(m => m.querySelector('.setting-drop').classList.remove('active'));
-            dropdown.classList.toggle('active');
-          });
-        });
-        document.addEventListener('click', () => {
-          document.querySelectorAll('.setting-drop.active').forEach(drop => drop.classList.remove('active'));
-        });
-      }
+  function showSpecialCharPopup(button) {
+    // 버튼 기준으로 가장 가까운 textarea 찾기
+    const container = button.closest('.message-box') || button.closest('.template-item');
+    const textarea = container.querySelector('textarea');
+    const popup = button.nextElementSibling; // 버튼 옆에 있는 .char-popup div
 
-      // 문자메시지 byte 
-      function initMessageByteCount() {
-        document.querySelectorAll('.message-box__cont').forEach(box => {
-          const textarea = box.querySelector('textarea');
-          const byteCount = box.querySelector('.byte-count b');
-          if (!textarea || !byteCount) return;
-          const updateByteCount = () => {
-            const text = textarea.value;
-            const bytes = [...text].reduce((acc, ch) => acc + (ch.charCodeAt(0) > 0x7f ? 2 : 1), 0);
-            byteCount.textContent = `${bytes}`;
-          };
-          textarea.addEventListener('input', updateByteCount);
-          updateByteCount();
-        });
-      }
+    // 다른 팝업 다 닫기
+    document.querySelectorAll('.char-popup').forEach(p => {
+      if (p !== popup) p.style.display = 'none';
+    });
 
-      // 모바일에서 탭 메뉴 열고 닫기
-      function initMobileTabToggle() {
-        document.querySelectorAll('.tab-menu__control').forEach(menu => {
-          menu.addEventListener('click', () => {
-            const cont = menu.nextElementSibling;
-            cont.classList.toggle('open');
-            menu.classList.toggle('active');
-            resizeParentIframe();
+    // innerHTML 전체 구성
+    popup.innerHTML = `
+      <div class="popup-header" >
+        <h2 class="popup-title">특수문자 선택</h2>
+        <button type="button" class="btn-close ico" onclick="this.closest('.char-popup').style.display='none'">
+          <i class="ico-popup_cancel"></i>
+        </button>
+      </div>
+      <div class="char-grid" >
+        <button class="char">★</button>
+        <button class="char">☆</button>
+        <button class="char">☎</button>
+        <button class="char">☏</button>
+        <button class="char">☜</button>
+        <button class="char">☞</button>
+        <button class="char">※</button>
+        <button class="char">♥</button>
+        <button class="char">♡</button>
+        <button class="char">♣</button>
+        <button class="char">♠</button>
+        <button class="char">♤</button>
+        <button class="char">♧</button>
+        <button class="char">♨</button>
+      </div>
+    `;
 
-          });
-        });
-      }
+    // 이벤트 연결
+    popup.querySelectorAll('.char').forEach(charBtn => {
+      charBtn.addEventListener('click', () => {
+        insertAtCursor(textarea, charBtn.textContent);
+        popup.style.display = 'none';
+      });
+    });
 
+    // 토글 열고 닫기
+    popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+  }
 
-      function showSpecialCharPopup(button) {
-        // 버튼 기준으로 가장 가까운 textarea 찾기
-        const container = button.closest('.message-box') || button.closest('.template-item');
-        const textarea = container.querySelector('textarea');
-        const popup = button.nextElementSibling; // 버튼 옆에 있는 .char-popup div
+  function insertAtCursor(textarea, text) {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const value = textarea.value;
+    textarea.value = value.substring(0, start) + text + value.substring(end);
+    textarea.selectionStart = textarea.selectionEnd = start + text.length;
+    textarea.focus();
+  }
 
-        // 다른 팝업 다 닫기
-        document.querySelectorAll('.char-popup').forEach(p => {
-          if (p !== popup) p.style.display = 'none';
-        });
-
-        // innerHTML 전체 구성
-        popup.innerHTML = `
-          <div class="popup-header" >
-            <h2 class="popup-title">특수문자 선택</h2>
-            <button type="button" class="btn-close ico" onclick="this.closest('.char-popup').style.display='none'">
-              <i class="ico-popup_cancel"></i>
-            </button>
-          </div>
-          <div class="char-grid" >
-            <button class="char">★</button>
-            <button class="char">☆</button>
-            <button class="char">☎</button>
-            <button class="char">☏</button>
-            <button class="char">☜</button>
-            <button class="char">☞</button>
-            <button class="char">※</button>
-            <button class="char">♥</button>
-            <button class="char">♡</button>
-            <button class="char">♣</button>
-            <button class="char">♠</button>
-            <button class="char">♤</button>
-            <button class="char">♧</button>
-            <button class="char">♨</button>
-          </div>
-        `;
-
-        // 이벤트 연결
-        popup.querySelectorAll('.char').forEach(charBtn => {
-          charBtn.addEventListener('click', () => {
-            insertAtCursor(textarea, charBtn.textContent);
-            popup.style.display = 'none';
-          });
-        });
-
-        // 토글 열고 닫기
-        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
-      }
-
-      function insertAtCursor(textarea, text) {
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-        const value = textarea.value;
-        textarea.value = value.substring(0, start) + text + value.substring(end);
-        textarea.selectionStart = textarea.selectionEnd = start + text.length;
-        textarea.focus();
-      }
-
-
-
-      // 이동
-      function moveToTab(tabIndex) {
+  // 이동
+  function moveToTab(tabIndex) {
         if (window.parent) {
           const iframe = window.parent.document.getElementById('tabIframe');
           const tabButtons = window.parent.document.querySelectorAll('.tab-btn');
@@ -715,10 +700,8 @@
         }
       }
 
-
-
-      // 이미지 삭제
-      function fnDelSelectorFile(button) {
+  // 이미지 삭제
+  function fnDelSelectorFile(button) {
         const li = button.closest('li');
         if (li) {
           li.remove();
@@ -731,9 +714,8 @@
         }
       }
 
-
-   // 체크박스 체크 시 변경
-   function initSendCheckboxToggle() {
+  // 체크박스 체크 시 변경
+  function initSendCheckboxToggle() {
     document.querySelectorAll('.checkbox .sendCheck').forEach(checkbox => {
       const wrapper = checkbox.closest('.checkbox');
       checkbox.addEventListener('change', () => wrapper.classList.toggle('on', checkbox.checked));
@@ -741,6 +723,19 @@
     });
   }
 
+  function resizeParentIframe() {
+      const container = document.querySelector('.tab-cont__wrap');
+      const height = container ? container.offsetHeight : document.documentElement.offsetHeight;
+      window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+    }
 
+    window.addEventListener('load', () => {
+      resizeParentIframe();
+      
+      // 이미지나 폰트 로드 이후 다시 한번 안전하게
+      setTimeout(resizeParentIframe, 300);
+    });
+
+    window.addEventListener('resize', resizeParentIframe);
 
   </script>

@@ -329,6 +329,11 @@ body{
   transition: all .4s;
   background: var(--system-navy-1);
   box-shadow: 2px 0px 25px 0px rgba(199, 206, 213, 0.50);
+  &-wrap{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
   &-top{
     position: relative;
     &__wrap{
@@ -374,6 +379,7 @@ body{
       position: relative;
       z-index: 10;
       height: calc(100vh - 300px);
+      overflow-y: auto !important;
       @include pc2{
         height: calc(100vh - 150px);
       }
@@ -420,6 +426,10 @@ body{
           &-message_w{@include icon-style(24px, 24px, "gnb-message_w");}
           &-notice_w{@include icon-style(24px, 24px, "gnb-notice_w");}
           &-chart_w{@include icon-style(24px, 24px, "gnb-chart_w");}
+          &-star_w{@include icon-style(24px, 24px, "gnb-star_w");}
+          &-open_w{@include icon-style(24px, 24px, "gnb-open_w");}
+          &-map_w{@include icon-style(24px, 24px, "gnb-map_w");}
+          &-position_w{@include icon-style(24px, 24px, "gnb-position_w");}
         }
       }
     }
@@ -444,6 +454,7 @@ body{
       .gnb-menu__wrap{
         padding-left: 15px;
         padding-right: 15px;
+
       }
       .gnb-menu__list{
         li{
@@ -494,7 +505,7 @@ body{
       }
       .gnb-menu__wrap{
         @include pc2{
-          height: calc(100vh - 300px);
+          height: 100%;
         }
       }
      

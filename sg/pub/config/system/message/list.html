@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<!-- 3. 시스템 관리자 페이지 system 클래스 추가 -->
+<body class="admin system">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <a href="" class="logout">
+          로그아웃
+        </a>
+            
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile-system.svg" alt="">
+            <!-- noImg -->
+          </div>
+          <div class="gnb-name">
+            <b>시스템 관리자</b>
+          </div>
+          <div class="gnb-info gnb-refresh">
+            <p>신청</p>
+            <b>1,014</b>
+          </div>
+          <div class="gnb-info gnb-refresh">
+            <p>개설</p>
+            <b>246</b>
+          </div>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="./index.html" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="./apply/list.html" class="gnb-menu__btn ico"><i class="gnb-star_w"></i>신청</a>
+          </li>
+          <li>
+            <a href="./open/list.html" class="gnb-menu__btn ico"><i class="gnb-open_w"></i>개설</a>
+          </li>
+          <li class="active">
+            <a href="./map/list.html" class="gnb-menu__btn ico"><i class="gnb-map_w"></i>지도</a>
+          </li>
+          <li>
+            <a href="./message/list.html" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자</a>
+          </li>
+          <li>
+            <a href="./notice/list.html" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지사항</a>
+          </li>
+          <li>
+            <a href="./setting/list.html" class="gnb-menu__btn ico"><i class="gnb-position_w"></i>직책설정</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+  <div class="container container-list" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-message"></i>
+          문자
+        </h2>
+      
+        <div class="candidater-wrap f-space gap-25">
+          <div class="candidater-list flex-none">
+              <div class="message-send__wrap charge-cont">
+                <div class="card">
+                  <div class="tab-layout">
+                    <div class="tab-menu ">
+                      <div class="tab-title txt-c">문자 금액 정보</div>
+                    </div>
+                    <div class="tab-cont__wrap">
+    
+                      <ul class="charge-list">
+                        <li>
+                          <div class="charge-list__cont f-c-space">
+                            <div class="charge-tit">SMS 건당 문자 가격</div>
+                            <div class="input-wrap input-num f-h-c gap-10">
+                              <input type="text" id="" name="" placeholder="가격 입력">
+                              <b>원</b>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="charge-list__cont f-c-space">
+                            <div class="charge-tit">LMS는 SMS</div>
+                            <div class="input-wrap input-num f-h-c gap-10">
+                              <input type="text" id="" name="" placeholder="건수 입력">
+                              <b>원</b>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="charge-list__cont f-c-space">
+                            <div class="charge-tit">MMS는 SMS</div>
+                            <div class="input-wrap input-num f-h-c gap-10">
+                              <input type="text" id="" name="" placeholder="건수 입력">
+                              <b>원</b>
+                            </div>
+                          </div>
+                        </li>
+                        
+                      </ul>
+                      
+                      <div class="btn-wrap f-v-r">
+                        <button type="button" class="btn list-btn btn-navy" onclick="">저장</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+
+
+  <div id="loadingOverlay" class="loading-overlay" >
+    <div class="loading-inner">
+      <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+      <dotlottie-player src="https://lottie.host/cc029930-234d-4bb7-9ef4-5ea116a58d3f/yuKMnwE605.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
+      <p class="loading-msg">엑셀파일을 업로드중입니다.<br>긴 시간이 소요되니 기다려주세요.</p>
+      <div class="btn-wrap">
+        <button type="button" class="btn list-btn" onclick="hideLoading()">취소</button>
+      </div>
+    </div>
+  </div>
+  <!-- 로딩화면 -->
+
+
+
+  <script>
+
+
+      function resizeParentIframe() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+      }
+
+      window.addEventListener('load', resizeParentIframe);
+      window.addEventListener('resize', resizeParentIframe); // 내부 리사이즈 대응
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initSettingMenu();
+      initCheckboxHighlight();
+    });
+
+    // 관리 버튼 드롭다운
+    function initSettingMenu() {
+      const menus = document.querySelectorAll('.setting-menu');
+
+      menus.forEach(menu => {
+        const btn = menu.querySelector('.btn-setting');
+        const dropdown = menu.querySelector('.setting-drop');
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // 모든 드롭다운 닫기
+          menus.forEach(m => {
+            const d = m.querySelector('.setting-drop');
+            if (d !== dropdown) d.classList.remove('active');
+          });
+
+          // 현재 드롭다운 토글
+          dropdown.classList.toggle('active');
+        });
+      });
+
+      // 바깥 클릭 시 닫기
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.setting-drop.active').forEach(drop => {
+          drop.classList.remove('active');
+        });
+      });
+    }
+
+    // 체크박스
+    function initCheckboxHighlight() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"][name="campCheck"]');
+
+
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          const tr = checkbox.closest('tr');
+          tr.classList.toggle('active', checkbox.checked);
+        });
+      });
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>

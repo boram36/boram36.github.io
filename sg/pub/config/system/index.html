@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<!-- 3. 시스템 관리자 페이지 system 클래스 추가 -->
+<body class="admin system">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <a href="" class="logout">
+          로그아웃
+        </a>
+            
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../assets/images/cmn/profile-system.svg" alt="">
+            <!-- noImg -->
+          </div>
+          <div class="gnb-name">
+            <b>시스템 관리자</b>
+          </div>
+          <div class="gnb-info gnb-refresh">
+            <p>신청</p>
+            <b>1,014</b>
+          </div>
+          <div class="gnb-info gnb-refresh">
+            <p>개설</p>
+            <b>246</b>
+          </div>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li class="active">
+            <a href="./index.html" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="./candidate/list.html" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>신청</a>
+          </li>
+          <li>
+            <a href="./camppeople/list.html" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원</a>
+          </li>
+          <li>
+            <a href="./voter/list.html" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>개설</a>
+          </li>
+          <li>
+            <a href="./rating/list.html" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지도</a>
+          </li>
+          <li>
+            <a href="./event/list.html" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>문자</a>
+          </li>
+          <li>
+            <a href="./notice/list.html" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지사항</a>
+          </li>
+          <li>
+            <a href="./stats/list.html" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>직책설정</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<!-- 메인페이지에서 main클래스 추가 -->
+	<div class="container main" id="container">
+    <div class="container-wrap">
+      <main class="dashboard flex">
+        <div class="dashboard-l">
+          <h2 class="main-tit f-h-c">
+            <i class="ico-camp"></i>
+              박동준 <span>후보님 캠프</span>
+          </h2>
+          <div class="row">
+            <section class="main-select">
+              <div>
+                <div class="selectSg-box">
+                  <div class="selectSg-cont">
+                    <div class="selectSg-cont__top">
+                      <b>2024년 제13대 지방선거</b>
+                      <p>경상북도 청도군 기초자치단체장</p>
+                    </div>
+                    <div class="selectSg-cont__bottom">
+                      <div class="selectSg-dday">D-23</div>
+                      <p>2025.04.12 월요일</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sub-tit">후보자 정보</h3>
+                <div class="candidate-box">
+                  <div class="candidate-box__top">
+                    <div class="candidate-box__wrap gap-10 flex">
+                      <div class="candidate-box__img">
+                        <img src="../../assets/images/cmn/profile95.svg" alt="">
+                        <!-- no-img -->
+                      </div>
+                      <div class="candidate-box__profile flex-space">
+                        <div class="profile-tit"><b>박동준</b><span>72세 (1957년)</span></div>
+                        <ul class="profile-cont">
+                          <li>서울대학교 행정학과 졸업</li>
+                          <li>현) 국민정책연구소 이사</li>
+                          <li>전) 제20대 국회의원</li>
+                          <li>서울대학교 행정학과 졸업</li>
+                        </ul>
+                      </div>
+            
+                    </div>
+                    <button type="button" class="drop-btn ico"><i class="ico-drop_w"></i></button>
+                  </div>
+                  <!-- e: candidate-box__top -->
+          
+                  <div class="candidate-box__bottom">
+                    <div class="rating-tit f-c-space">
+                      <div class="rating-tit__txt ico f-h-c">내 후보 지지도<i class="ico-heart"></i></div>
+                      <b class="rating-tit__num">21.7%</b>
+                    </div>
+                    <div class="rating-bar">
+                      <p style="width: 21.7%;"></p>
+                    </div>
+                    <ul class="rating-list">
+                      <li class="f-c-space">
+                        총 유권자 수
+                        <b>11,500 <span>명</span></b>
+                      </li>
+                      <li class="f-c-space">
+                        총 지지자 수
+                        <b>2,500 <span>명</span></b>
+                      </li>
+                    </ul>
+          
+                  </div>
+                  <!-- e: candidate-box__bottom -->
+                  
+                </div>
+                <!-- e: candidate-box -->
+              </div>
+          </section>
+    
+          <section class="main-rating">
+            <div class="card">
+              <!-- 탭 -->
+              <div class="tab-menu">
+                <button class="tab-btn active" data-index="0">지지도 조사 현황</button>
+                <button class="tab-btn" data-index="1">지지율</button>
+              </div>
+
+              <div class="tab-cont__wrap">
+                <!-- 1) 지지도 현황 영역 -->
+                <div id="map-container" class="tab-cont active" data-index="0">
+                  <div class="rating-box__wrap">
+                    <div class="scroll-info">
+                      <p><img src="../../assets/images/adm/ico-scroll.svg" alt=""></p>
+                      좌우 스크롤
+                    </div>
+                    <div class="map-cont">
+                      <img src="../../assets/images/adm/map.svg" alt="">
+                      <!-- <div id="submap-container" class="hidden">
+                        <svg id="submap-svg" viewBox="0 0 600 600"></svg>
+                      </div> -->
+                    </div>
+                    <div class="map-legend">
+                      <span class="legend-label">지지도 조사 현황(%)</span>
+                      <div class="legend-bar">
+                        <span class="legend-value value01">0%</span>
+                        <div class="bar">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                        <span class="legend-value value02">100%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 2) 지지율 영역 -->
+                <div id="rate-container" class="tab-cont" data-index="1">
+                  <p></p>
+                </div>
+              </div>
+             
+            </div>
+          </section>
+          </div>
+
+        </div>
+
+        <div class="dashboard-r">
+          <!-- 우측: 랭킹 박스 -->
+          <section class="main-ranking">
+            <div class="ranking-cards">
+              <h3 class="sub-tit">
+                <span>지지도 등록 수</span> 랭킹
+              </h3>
+              <ul class="ranking-list">
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank01.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank02.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank03.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank04.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank05.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <a href="" class="btn-more">+더보기</a>
+            </div>
+            <div class="ranking-cards">
+              <h3 class="sub-tit">
+                <span>행사 등록 수</span> 랭킹
+              </h3>
+              <ul class="ranking-list">
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank01.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank02.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank03.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank04.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="ranking-num">
+                    <img src="../../assets/images/adm/rank05.svg" alt="">
+                  </div>
+                  <div class="ranking-card flex-space">
+                    <div class="rank-info">
+                      <strong>이시훈</strong>
+                      <p>010-1234-5938</p>
+                    </div>
+                    <div class="rank-value">
+                      <b>245</b> 건
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <a href="" class="btn-more">+더보기</a>
+            </div>
+          </section>
+        </div>
+      </main>
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+
+  <script>
+    // 탭 메뉴
+    document.addEventListener('DOMContentLoaded', () => {
+			const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+		});
+
+  </script>
+
+
+</body>
+
+</html>

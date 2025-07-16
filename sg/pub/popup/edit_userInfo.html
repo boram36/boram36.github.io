@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후보자 수정</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+
+</head>
+<body class="admin">
+  <div class="campInfo-cont__wrap">
+    <form action="">
+      <div class="form-input">
+        <div class="input-row row row-cols-2">
+          <div>
+            <label class="input-tit" for="name">사용자 이름<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="name" name="name" placeholder="이름" value="김정윤" >
+            </div>
+          </div>
+          <div>
+            <label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
+            <div class="input-wrap input-inner">
+              <input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰번호" value="010-1234-5678">
+              <button type="button" class="btn btn-small btn-check btn-disabled">중복<br>확인</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div>
+            <div class="input-tit">사용자 이메일<span class="required">*</span></div>
+            <div class="email-wrap f-h-c gap-5">
+              <div class="f-h-c gap-5 email-input">
+                <input type="text" id="email" name="email" placeholder="아이디" value="" class="email-box">
+                <span>@</span>
+              </div>
+            
+              <div class="select-wrap email-box">
+                <select name="" id="" class="">
+                  <option value="">naver.com</option>
+                  <option value="">daum.net</option>
+                </select>
+              </div>
+              <input type="text" id="emailTxt" name="emailTxt" placeholder="직접 입력" value=""  class="email-box">
+
+            </div>
+          </div>
+        </div>
+        <div class="input-row row row-cols-2">
+          <div>
+            <label class="input-tit" for="id">아이디<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="id" name="id" placeholder="아이디 입력" value="129392" readonly>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row row row-cols-2">
+          <div>
+            <label class="input-tit" for="password">사용자 비밀번호<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="password" id="password" name="password" placeholder="" value="test">
+            </div>
+          </div>
+          <div>
+            <label class="input-tit" for="password">사용자 비밀번호 재입력<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="password" id="password" name="password" placeholder="" value="test">
+            </div>
+          </div>
+        </div>
+
+        <div class="message-box__info">
+          아이디는 수정은 불가합니다.
+        </div>
+      </div>
+    </form>
+      
+  </div>
+
+
+
+
+    <script>
+      window.addEventListener('message', function (e) {
+        const data = e.data;
+
+        if (data?.viewportWidth) {
+          // 기존 반응형 처리
+          const vw = data.viewportWidth;
+          const body = document.body;
+          body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+          if (vw <= 767) body.classList.add('viewport-xs');
+          else if (vw <= 1024) body.classList.add('viewport-sm');
+          else if (vw <= 1280) body.classList.add('viewport-md');
+          else body.classList.add('viewport-lg');
+
+          // 넓이 받았을 때 높이도 같이 요청
+          resizeParentIframe();
+        }
+
+        if (data?.type === 'request-resize') {
+          resizeParentIframe();
+        }
+      });
+
+
+      function resizeParentIframe() {
+        const container = document.querySelector('.campInfo-cont__wrap');
+        const height = container ? container.offsetHeight : document.documentElement.offsetHeight;
+        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+      }
+
+      window.addEventListener('load', () => {
+        resizeParentIframe();
+        
+        // 이미지나 폰트 로드 이후 다시 한번 안전하게
+        setTimeout(resizeParentIframe, 300);
+      });
+
+      window.addEventListener('resize', resizeParentIframe);
+ 
+
+     
+
+  </script>
+      
+
+</body>
+</html> 

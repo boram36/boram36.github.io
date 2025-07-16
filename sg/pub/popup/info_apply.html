@@ -28,16 +28,49 @@
       <div class="form-input">
         <div class="input-row row row-cols-2">
           <div>
-            <label class="input-tit" for="name">선거명<span class="required">*</span></label>
+            <label class="input-tit" for="name">이름<span class="required">*</span></label>
             <div class="input-wrap">
-              <input type="text" id="name" name="name" placeholder="선거명 입력" value="2024년 제14대 지방선거" readonly>
+              <input type="text" id="name" name="name" placeholder="이름 입력" value="" >
             </div>
           </div>
           <div>
-            <label class="input-tit" for="name">선출직책명<span class="required">*</span></label>
+            <label class="input-tit" for="phone">휴대폰번호<span class="required">*</span></label>
             <div class="input-wrap">
-              <input type="text" id="name" name="name" placeholder="선출직책명 입력" value="기초자치단체장" readonly>
+              <input type="text" id="phone" name="phone" placeholder="휴대폰번호 입력" value="" >
             </div>
+          </div>
+        </div>
+        <div class="input-row row row-cols-2">
+          <div>
+            <label class="input-tit" for="tel">전화번호</label>
+            <div class="input-wrap">
+              <input type="text" id="tel" name="tel" placeholder="000-000-000" value="">
+            </div>
+          </div>
+          <div>
+            <label class="input-tit" for="email">이메일<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="email" name="email" placeholder="010abc@naver.com" value="">
+            </div>
+          </div>
+        </div>
+        <div class="input-row row row-cols-2">
+          <div>
+            <label class="input-tit" for="name">선거명<span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="name" name="name" placeholder="선거명 입력" value="">
+            </div>
+          </div>
+          <div>
+            <label class="input-tit" for="positionNm">선출직책명<span class="required">*</span></label>
+            <div class="select-wrap">
+              <select name="" id="" class="width-full" >
+                <option value="">선택</option>
+                <option value="" selected>기초자치단체장</option>
+                <option value="">기초자치단체장</option>
+                <option value="">기초자치단체장</option>
+              </select>
+              </div>
           </div>
         </div>
 
@@ -45,28 +78,23 @@
           <div>
             <label class="input-tit" for="name">선거일(예상)<span class="required">*</span></label>
             <div class="input-wrap">
-              <input class="datepicker-here" disabled id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+              <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="0000.00.00" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
             </div>
-            <script>
-              $('.datepicker-here').datepicker({
-                language: 'kr',
-                dateFormat: 'yyyy.mm.dd'
-              }).data('datepicker').selectDate(new Date('2025-03-12'));
-            </script>
+          
           </div>
           <div>
-            <label class="input-tit" for="input02">행사일</label>
+            <label class="input-tit" for="input02">신청 지역</label>
             <div class="select-wrap">
-              <select name="" id="" class="width-half" disabled>
-                <option value="">읍/면/동</option>
-                <option value="" selected>가산면</option>
+              <select name="" id="" class="width-half">
+                <option value="">시/도</option>
+                <option value="">가산면</option>
                 <option value="">서울시</option>
                 <option value="">부산시</option>
               </select>
       
-              <select name="" id="" class="width-half" disabled>
-                <option value="">리</option>
-                <option value="" selected>이읍리</option>
+              <select name="" id="" class="width-half">
+                <option value="">시/군/구</option>
+                <option value="">이읍리</option>
                 <option value="">서울시</option>
                 <option value="">부산시</option>
               </select>
@@ -76,37 +104,37 @@
 
         <div class="input-row">
           <label class="input-tit">지역상세<span class="required">*</span></label>
-          <div class="checkbox-box disabled">
+          <div class="checkbox-box">
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="regionAll" name="region" checked>
+              <input type="checkbox" id="regionAll" name="region">
               <label for="regionAll">전체</label>
             </div>
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="region01" name="region" checked>
+              <input type="checkbox" id="region01" name="region">
               <label for="region01">초진면</label>
             </div>
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="region01" name="region" disabled>
+              <input type="checkbox" id="region01" name="region">
               <label for="region01">초진면</label>
             </div>
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="region01" name="region" disabled>
+              <input type="checkbox" id="region01" name="region">
               <label for="region01">벽진면</label>
             </div>
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="region01" name="region" disabled>
+              <input type="checkbox" id="region01" name="region">
               <label for="region01">대가면</label>
             </div>
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="region01" name="region" disabled>
+              <input type="checkbox" id="region01" name="region">
               <label for="region01">무릉도원리</label>
             </div>
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="region01" name="region" disabled>
+              <input type="checkbox" id="region01" name="region">
               <label for="region01">수륜면</label>
             </div>
             <div class="checkbox width-fifth">
-              <input type="checkbox" id="region01" name="region" disabled>
+              <input type="checkbox" id="region01" name="region">
               <label for="region01">초진면</label>
             </div>
           </div>
@@ -149,13 +177,10 @@
           </div>
           <div>
             <label class="input-tit">비고</label>
-            <textarea id="candidateBio" placeholder="내용 입력" disabled>내용</textarea>
+            <textarea id="candidateBio" placeholder="내용 입력"></textarea>
 
           </div>
         </div>
-      </div>
-      <div class="message-box__info">
-        선거 정보 수정은 관리자에게 문의해 주세요.
       </div>
     </form>
       

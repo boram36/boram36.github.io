@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<body>
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+	<!--  로그인에서만 container-login 클래스 추가 -->
+  <div class="container container-login" id="container">
+
+    <main>
+      <div class="inner height-full">
+        <div class="login-wrap f-c-all f-d-c height-full">
+          <div class="login-logo">
+            <img src="../../../assets/images/cmn/login-logo.svg" alt="백전백승">
+          </div>
+          <!-- e: login-logo -->
+
+          <form action="javascript:;" class="width-full">
+            <div class="input-wrap">
+              <input type="text" id="id" name="id" placeholder="아이디 입력" value="">
+            </div>
+  
+            <div class="input-wrap">
+              <input type="password" id="password" name="password" placeholder="비밀번호 입력" value="" >
+            </div>
+  
+            <div class="btn-wrap">
+              <button type="button" class="btn btn-active" onclick="handleLogin()">로그인</button>
+            </div>
+						<button type="button" class="btn use-btn mt15 width-full" onclick="openPopup('../../../popup/useApply.html', 700, 786)">사용신청</button>
+          </form>
+					
+					<div class="footer-logo">바른소프트웨어</div>
+         
+        </div>
+      </div>
+    </main>
+    <!-- e: main -->
+
+
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+
+	<script>
+
+
+
+		// 로그인 팝업
+		function handleLogin() {
+			const id = document.getElementById('id').value.trim();
+			const password = document.getElementById('password').value.trim();
+
+			if (id.length < 2 || password < 2) {
+				openPopup('../../../popup/loginAlert.html', 400, null, true, 'popup-sm')
+			} else {
+				alert('로그인 성공!');
+			}
+		}
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
