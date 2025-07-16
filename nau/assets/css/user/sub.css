@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body{overflow: hidden;}
-.container-sub{background: url('/assets/images/ko/sub/nau/sub-bg.png') no-repeat top / 100%; padding-top: 166px;padding-left: 69px; height: 100vh;}
+.container-sub{background: url('../../images/ko/sub/nau/sub-bg.png') no-repeat top / 100%; padding-top: 166px;padding-left: 69px; height: 100vh;}
 .container-wrap{display: flex;justify-content: space-between; position: relative; height: 100%; padding-left: 411px;}
 .sub-aside{position: absolute;top: calc(308px - 166px);left: 0;width: 411px;flex: none;}
 .sub-aside > ul > li + li{margin-top: 17px;}
@@ -9,7 +9,7 @@ body{overflow: hidden;}
 .sub-aside img{width: 100%;}
 .sub-aside a{font-size: 0;}
 .sub-aside .depth02 > li + li{margin-top: 20px;}
-.container-nau .sub-aside > ul > li.on{background-image: url("/assets/images/ko/sub/nau/sub01_aside.png");}
+.container-nau .sub-aside > ul > li.on{background-image: url("../../images/ko/sub/nau/sub01_aside.png");}
 .sub-content{overflow-y: auto;  height: 100%; padding-left: 180px;  padding-bottom: 166px; box-sizing: border-box; min-width: 0;} 
 .sub-content img{width: 100%;}
 .content02{margin-top: 97px;}
@@ -21,29 +21,29 @@ body{overflow: hidden;}
 .content03{margin-top: 126px;}
 
 /* clean */
-.container-clean.container-sub{background-image: url('/assets/images/ko/sub/clean/sub-bg.png')}
-.container-clean .sub-aside > ul > li.on{background-image: url("/assets/images/ko/sub/clean/sub02_aside.png");}
+.container-clean.container-sub{background-image: url('../../images/ko/sub/clean/sub-bg.png')}
+.container-clean .sub-aside > ul > li.on{background-image: url("../../images/ko/sub/clean/sub02_aside.png");}
 
 /* safety */
-.container-safety.container-sub{background-image: url('/assets/images/ko/sub/safety/sub-bg.png')}
-.container-safety .sub-aside > ul > li.on{background-image: url("/assets/images/ko/sub/safety/sub02_aside.png");}
+.container-safety.container-sub{background-image: url('../../images/ko/sub/safety/sub-bg.png')}
+.container-safety .sub-aside > ul > li.on{background-image: url("../../images/ko/sub/safety/sub02_aside.png");}
 
 
 /* en */
-.en .container-sub{background-image: url('/assets/images/en/sub/nau/sub-bg.png')}
-.en .container-clean.container-sub{background-image: url('/assets/images/en/sub/clean/sub-bg.png')}
-.en .container-safety.container-sub{background-image: url('/assets/images/en/sub/safety/sub-bg.png')}
-.en .container-nau .sub-aside > ul > li.on{background-image: url('/assets/images/en/sub/nau/sub01_aside.png')}
-.en .container-clean .sub-aside > ul > li.on{background-image: url('/assets/images/en/sub/clean/sub02_aside.png')}
-.en .container-safety .sub-aside > ul > li.on{background-image: url('/assets/images/en/sub/safety/sub03_aside.png')}
+.en .container-sub{background-image: url('../../images/en/sub/nau/sub-bg.png')}
+.en .container-clean.container-sub{background-image: url('../../images/en/sub/clean/sub-bg.png')}
+.en .container-safety.container-sub{background-image: url('../../images/en/sub/safety/sub-bg.png')}
+.en .container-nau .sub-aside > ul > li.on{background-image: url('../../images/en/sub/nau/sub01_aside.png')}
+.en .container-clean .sub-aside > ul > li.on{background-image: url('../../images/en/sub/clean/sub02_aside.png')}
+.en .container-safety .sub-aside > ul > li.on{background-image: url('../../images/en/sub/safety/sub03_aside.png')}
 
 /* cn */
-.cn .container-sub{background-image: url('/assets/images/cn/sub/nau/sub-bg.png')}
-.cn .container-clean.container-sub{background-image: url('/assets/images/cn/sub/clean/sub-bg.png')}
-.cn .container-safety.container-sub{background-image: url('/assets/images/cn/sub/safety/sub-bg.png')}
-.cn .container-nau .sub-aside > ul > li.on{background-image: url('/assets/images/cn/sub/nau/sub01_aside.png')}
-.cn .container-clean .sub-aside > ul > li.on{background-image: url('/assets/images/cn/sub/clean/sub02_aside.png')}
-.cn .container-safety .sub-aside > ul > li.on{background-image: url('/assets/images/cn/sub/safety/sub03_aside.png')}
+.cn .container-sub{background-image: url('../../images/cn/sub/nau/sub-bg.png')}
+.cn .container-clean.container-sub{background-image: url('../../images/cn/sub/clean/sub-bg.png')}
+.cn .container-safety.container-sub{background-image: url('../../images/cn/sub/safety/sub-bg.png')}
+.cn .container-nau .sub-aside > ul > li.on{background-image: url('../../images/cn/sub/nau/sub01_aside.png')}
+.cn .container-clean .sub-aside > ul > li.on{background-image: url('../../images/cn/sub/clean/sub02_aside.png')}
+.cn .container-safety .sub-aside > ul > li.on{background-image: url('../../images/cn/sub/safety/sub03_aside.png')}
 
 
 @media screen and (max-width: 1400px) {
