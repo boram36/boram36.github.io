@@ -19,6 +19,9 @@ body{overflow: hidden;}
 .content-scroll{overflow-x: auto;}
 .content-scroll img{width: 3884px;}
 .content03{margin-top: 126px;}
+.sub-content{width: calc(1275px + 180px);}
+.logo{position: absolute; top: 115px; left: 60px; z-index: 22;}
+
 
 /* clean */
 .container-clean.container-sub{background-image: url('../../images/ko/sub/clean/sub-bg.png')}
@@ -48,8 +51,8 @@ body{overflow: hidden;}
 
 @media screen and (max-width: 1400px) {
   body{overflow-x: auto;}
-  .sub-content{width: calc(1275px + 180px);}
   .container-wrap{display: block;}
+
 }
 
 @media screen and (max-width: 768px) {
