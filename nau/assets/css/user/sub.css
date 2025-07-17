@@ -45,8 +45,7 @@ body{overflow: hidden;}
 .cn .container-clean .sub-aside > ul > li.on{background-image: url('../../images/cn/sub/clean/sub02_aside.png')}
 .cn .container-safety .sub-aside > ul > li.on{background-image: url('../../images/cn/sub/safety/sub03_aside.png')}
 
-
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1919px) {
   body{overflow-x: auto;}
   .sub-content{width: calc(1275px + 180px);}
   .container-wrap{display: block;}
