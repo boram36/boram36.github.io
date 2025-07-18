@@ -19,7 +19,7 @@ body{overflow: hidden;}
 .content-scroll{overflow-x: auto;}
 .content-scroll img{width: 3884px;}
 .content03{margin-top: 126px;}
-.sub-content{width: calc(1275px + 180px);}
+
 .logo{position: absolute; top: 115px; left: 60px; z-index: 22;}
 
 
@@ -48,6 +48,9 @@ body{overflow: hidden;}
 .cn .container-clean .sub-aside > ul > li.on{background-image: url('../../images/cn/sub/clean/sub02_aside.png')}
 .cn .container-safety .sub-aside > ul > li.on{background-image: url('../../images/cn/sub/safety/sub03_aside.png')}
 
+@media screen and (min-width: 1921px) {
+  .sub-content{width: calc(1275px + 180px);}
+}
 @media screen and (max-width: 1919px) {
   body{overflow-x: auto;}
   .container-wrap{display: block;}
