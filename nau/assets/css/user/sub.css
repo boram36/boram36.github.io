@@ -19,6 +19,7 @@ body{overflow: hidden;}
 .content-scroll{overflow-x: auto;}
 .content-scroll img{width: 3884px;}
 .content03{margin-top: 126px;}
+.content03 img {width: 1257px;}
 
 .logo{position: absolute; top: 115px; left: 60px; z-index: 22;}
 

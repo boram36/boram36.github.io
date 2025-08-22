@@ -187,8 +187,8 @@ address{
 
 /* 스크롤 디자인 */
 ::-webkit-scrollbar{
-	width:5px;
-	height:5px;
+	width:9px;
+	height:9px;
 	background-color:#ebebeb;
 }
 
