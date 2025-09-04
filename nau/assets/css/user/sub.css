@@ -20,6 +20,8 @@ body{overflow: hidden;}
 .content-scroll img{width: 3884px;}
 .content03{margin-top: 126px;}
 .content03 img {width: 1257px;}
+.content03 .content02_tit img{width: auto;}
+.content03 .content-scroll img{width: 1539px;}
 
 .logo{position: absolute; top: 115px; left: 60px; z-index: 22;}
 
