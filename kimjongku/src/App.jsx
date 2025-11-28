@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useIdleTimer from "./hooks/useIdleTimer";
 import Screensaver from "./components/Screensaver";
-import { Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import YearPage from "./pages/YearPage";
@@ -18,7 +18,7 @@ function App() {
   const exitScreensaver = () => setShowScreensaver(false);
 
   return (
-    <>
+    <Router>
       {showScreensaver && <Screensaver onExit={exitScreensaver} />}
 
       {!showScreensaver && (
@@ -31,7 +31,7 @@ function App() {
           </Routes>
         </>
       )}
-    </>
+    </Router>
   );
 }
 
