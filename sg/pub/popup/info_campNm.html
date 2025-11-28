@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후보자 수정</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+
+</head>
+<body class="admin">
+  <div class="campInfo-cont__wrap">
+    <form action="">
+      <div class="form-input">
+        <div class="input-row">
+          <div>
+            <label class="input-tit" for="campNm">캠프 전화번호</label>
+            <div class="input-wrap">
+              <input type="text" id="campNm" name="campNm" placeholder="캠프 전화번호" value="" >
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="input-row row row-cols-2">
+          <div>
+            <label class="input-tit" for="campSendNm">캠프 문자발신번호</label>
+            <div class="input-wrap">
+              <input type="text" id="campSendNm" name="campSendNm" placeholder="캠프 문자발신번호" value="" >
+            </div>
+          </div>
+          <div>
+            <label class="input-tit" for="campRejectNm">캠프 수신거부번호</label>
+            <div class="input-wrap">
+              <input type="text" id="campRejectNm" name="campRejectNm" placeholder="캠프 수신거부번호" value="">
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div>
+            <label class="input-tit">비고</label>
+            <textarea id="candidateBio" placeholder="내용 입력"></textarea>
+          </div>
+        </div>
+
+      </div>
+    </form>
+      
+  </div>
+
+
+
+
+    <script>
+      window.addEventListener('message', function (e) {
+        const data = e.data;
+
+        if (data?.viewportWidth) {
+          // 기존 반응형 처리
+          const vw = data.viewportWidth;
+          const body = document.body;
+          body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+          if (vw <= 767) body.classList.add('viewport-xs');
+          else if (vw <= 1024) body.classList.add('viewport-sm');
+          else if (vw <= 1280) body.classList.add('viewport-md');
+          else body.classList.add('viewport-lg');
+
+          // 넓이 받았을 때 높이도 같이 요청
+          resizeParentIframe();
+        }
+
+        if (data?.type === 'request-resize') {
+          resizeParentIframe();
+        }
+      });
+
+
+      function resizeParentIframe() {
+        const container = document.querySelector('.campInfo-cont__wrap');
+        const height = container ? container.offsetHeight : document.documentElement.offsetHeight;
+        window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+      }
+
+      window.addEventListener('load', () => {
+        resizeParentIframe();
+        
+        // 이미지나 폰트 로드 이후 다시 한번 안전하게
+        setTimeout(resizeParentIframe, 300);
+      });
+
+      window.addEventListener('resize', resizeParentIframe);
+ 
+
+     
+
+  </script>
+      
+
+</body>
+</html> 

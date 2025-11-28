@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-camppeople"></i>
+            조직원관리
+        </h2>
+        <div class="candidater-wrap f-space gap-25">
+          <div class="candidater-list flex-none">
+            <div class="selectSg-box">
+              <div class="selectSg-cont">
+
+                <a href="./list.html" class="btn bbsView-btn ico"><i class="ico-btn_back"></i>목록으로</a>
+              
+                <div class="candidater-info">
+                  <div class="candidater-info__top f-h-c">
+                    <div class="profile-info">
+                      <b>이정훈</b> (<span class="txt-14">남</span>,64<span>세</span>)
+                    </div>
+                  </div>
+                  <!-- e: candidater-info__top -->
+  
+                  <ul class="detail">
+                    <li>
+                      <div class="detail-tit">
+                        <span class="text-justify">휴 대 폰 번 호</span>
+                      </div>
+                      <div class="detail-cont">
+                        010-1234-5678
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">아      이      디</span>
+                      </div>
+                      <div class="detail-cont">
+                        324542
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">지               역</span>
+                      </div>
+                      <div class="detail-cont">
+                        김가면 > 유수리 
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">지지도조사수</span>
+                      </div>
+                      <div class="detail-cont">
+                        203
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">행 사 등 록 수</span>
+                      </div>
+                      <div class="detail-cont">
+                        32
+                      </div>
+                    </li>
+                      <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">등      록      일</span>
+                      </div>
+                      <div class="detail-cont">
+                        2025.04.12
+                      </div>
+                    </li>
+                      <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">상                태</span>
+                      </div>
+                      <div class="detail-cont">
+                        정상
+                      </div>
+                    </li>
+                      <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">마 스 터 권 한</span>
+                      </div>
+                      <div class="detail-cont">
+                        O
+                      </div>
+                    </li>
+                    <li>
+                      <div class="detail-tit">
+                       <span class="text-justify">비                고</span>
+                      </div>
+                      <div class="detail-cont text-over2">
+                        비고입니다.비고비고입니다.비고입니다.입니다.비고입니다.비고입니다.
+                      </div>
+                    </li>
+                  </ul>
+                  <!-- e: detail -->
+                  
+                
+                </div>
+                <div class="btn-wrap f-v-r">
+                  <button type="button" class="btn list-btn btn-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button>
+                  <button type="button" class="btn list-btn btn-active" onclick="openPopup('../../../popup/peopleEdit_camp.html', 700, 786)">조직원 수정</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card f-1">
+            <div class="tab-layout">
+              <div class="tab-menu">
+                <button type="button" class="tab-btn active" data-index="0">지지도 조사 (203)</button>
+                <button type="button" class="tab-btn" data-index="1">행사 등록 (3/32)</button>
+              </div>
+              <div class="tab-cont__wrap">
+                <div class="tab-cont active" data-index="0">
+                    <div class="table-scroll">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>번호</th>
+                            <th>이름</th>
+                            <th>성별</th>
+                            <th>나이</th>
+                            <th>휴대폰번호</th>
+                            <th>지역</th>
+                            <th>조사일</th>
+                            <th>지지도</th>
+                            <th>상태</th>
+                            <th>의견</th>
+                            <th>관리</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="td_num">119091</td>
+                            <td class="td_name">
+                              <div class="td-txt pc-ver">김정윤</div>
+                              <div class="mo-ver width-full">
+                                <div class="profile f-c-space">
+                                  <div class="tit">
+                                    <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                  </div>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="td_gender td-pc">남</td>
+                            <td class="td_age td-pc">65</td>
+                            <td class="td_tel td-pc">
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </td>
+                            <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리</div></td>
+                            <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11<br class="pc-ver"> 17:21</td>
+                            <td class="td_rating">
+                              <span class="td-tit text-justify">지      지      도</span>
+                              <div class="f-c-all gap-5">
+                                <i class="ico ico-like_big"></i>
+                                <i class="ico ico-like_big"></i>
+                                <i class="ico ico-like_big"></i>
+                              </div>
+                              
+                            </td>
+                            <td class="td_state width-80 td_right right01">
+                              <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                              <div class="status-tag status-normal">정상</div>
+                            </td>
+                            <td class="td_etc"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">평소 공약을 성실히 평소 공약을 성실히 평소 공약을 성실히</div></td>
+                            
+                            <td class="td_setting td_right">
+                              <div class="setting-menu">
+                                <button class="btn btn-setting btn-center">
+                                  <i class="ico-setting"></i>
+                                </button>
+                                <ul class="setting-drop">
+                                  <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                                  <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="td_num">119091</td>
+                            <td class="td_name">
+                              <div class="td-txt pc-ver">김정윤</div>
+                              <div class="mo-ver width-full">
+                                <div class="profile f-c-space">
+                                  <div class="tit">
+                                    <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                  </div>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="td_gender td-pc">남</td>
+                            <td class="td_age td-pc">65</td>
+                            <td class="td_tel td-pc">
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </td>
+                            <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리</div></td>
+                            <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11<br class="pc-ver"> 17:21</td>
+                            <td class="td_rating">
+                              <span class="td-tit text-justify">지      지      도</span>
+                              <div class="f-c-all gap-5">
+                                <i class="ico ico-like_big"></i>
+                                <i class="ico ico-like_big"></i>
+                                <i class="ico ico-like_big"></i>
+                              </div>
+                              
+                            </td>
+                            <td class="td_state width-80 td_right right01">
+                              <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                              <div class="status-tag status-normal">정상</div>
+                            </td>
+                            <td class="td_etc"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">평소 공약을 성실히 평소 공약을 성실히 평소 공약을 성실히</div></td>
+                            
+                            <td class="td_setting td_right">
+                              <div class="setting-menu">
+                                <button class="btn btn-setting btn-center">
+                                  <i class="ico-setting"></i>
+                                </button>
+                                <ul class="setting-drop">
+                                  <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                                  <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                          <!-- 중지, 이사, 사망인 경우 tr-disabled 클래스 추가 -->
+                          <tr class="tr-disabled">
+                            <td class="td_num">119091</td>
+                            <td class="td_name">
+                              <div class="td-txt pc-ver">김정윤</div>
+                              <div class="mo-ver width-full">
+                                <div class="profile f-c-space">
+                                  <div class="tit">
+                                    <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                  </div>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="td_gender td-pc">남</td>
+                            <td class="td_age td-pc">65</td>
+                            <td class="td_tel td-pc">
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </td>
+                            <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리</div></td>
+                            <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11<br class="pc-ver"> 17:21</td>
+                            <td class="td_rating">
+                              <span class="td-tit text-justify">지      지      도</span>
+                              <div class="f-c-all gap-5">
+                                <i class="ico ico-mid_big"></i>
+                              </div>
+                              
+                            </td>
+                            <td class="td_state width-80 td_right right01">
+                              <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                              <div class="status-tag status-stop">중지</div>
+                            </td>
+                            <td class="td_etc"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">평소 공약을 성실히 평소 공약을 성실히 평소 공약을 성실히</div></td>
+                            
+                            <td class="td_setting td_right">
+                              <div class="setting-menu">
+                                <button class="btn btn-setting btn-center">
+                                  <i class="ico-setting"></i>
+                                </button>
+                                <ul class="setting-drop">
+                                  <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                                  <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                          <!-- 중지, 이사, 사망인 경우 tr-disabled 클래스 추가 -->
+                          <tr class="tr-disabled">
+                            <td class="td_num">119091</td>
+                            <td class="td_name">
+                              <div class="td-txt pc-ver">김정윤</div>
+                              <div class="mo-ver width-full">
+                                <div class="profile f-c-space">
+                                  <div class="tit">
+                                    <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                  </div>
+                                  <div class="td-txt f-c-all">
+                                    010-1234-5678
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="td_gender td-pc">남</td>
+                            <td class="td_age td-pc">65</td>
+                            <td class="td_tel td-pc">
+                              <div class="td-txt f-c-all">
+                                010-1234-5678
+                              </div>
+                            </td>
+                            <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리</div></td>
+                            <td class="td_date"><span class="td-tit text-justify">조      사      일</span>2025.04.11<br class="pc-ver"> 17:21</td>
+                            <td class="td_rating">
+                              <span class="td-tit text-justify">지      지      도</span>
+                              <div class="f-c-all gap-5">
+                                <i class="ico ico-hate_big"></i>
+                              </div>
+                              
+                            </td>
+                            <td class="td_state width-80 td_right right01">
+                              <!-- 정상: status-noraml, 중지: status-stop, 이사: status-move, 사망: status-dead -->
+                              <div class="status-tag status-stop">중지</div>
+                            </td>
+                            <td class="td_etc"><span class="td-tit text-justify">의                견</span><div class="tbl-cut">평소 공약을 성실히 평소 공약을 성실히 평소 공약을 성실히</div></td>
+                            
+                            <td class="td_setting td_right">
+                              <div class="setting-menu">
+                                <button class="btn btn-setting btn-center">
+                                  <i class="ico-setting"></i>
+                                </button>
+                                <ul class="setting-drop">
+                                  <li><button class="btn" onclick="openPopup('../../../popup/edit_rating.html', 700, 786)">수정</button></li>
+                                  <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="table-footer">
+                      <div class="pagination">
+                        <button class="page-btn page-first" onclick=""><i></i></button>
+                        <button class="page-btn page-prev" onclick=""><i></i></button>
+                        <button class="page-btn active" onclick="">1</button>
+                        <button class="page-btn" onclick="">2</button>
+                        <button class="page-btn" onclick="">3</button>
+                        <button class="page-btn page-next" onclick=""><i></i></button>
+                        <button class="page-btn page-end" onclick=""><i></i></button>
+                      </div>
+                    </div>
+                </div>
+                <div class="tab-cont" data-index="1">
+                  <div class="table-scroll">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>번호</th>
+                          <th>행사일</th>
+                          <th>시간</th>
+                          <th>제목</th>
+                          <th>장소</th>
+                          <th>지역</th>
+                          <th>예상인원</th>
+                          <th>관리</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="td_num">119091</td>
+                          <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                          <td class="td_time"><span class="td-tit text-justify">시                간</span>13:00</td>
+                          <td class="td_subj"><div class="tbl-cut">월읍 동네 잔치월읍 동네 잔치월읍 동네 잔치월읍 동네 잔치월읍 동네 잔치월읍 동네 잔치월읍 동네 잔치</div></td>
+                          <td class="td_place"><span class="td-tit text-justify">장                소</span><div class="tbl-cut">구월 강당</div></td>
+                          <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">구월면 > 우월리</div></td>
+                          <td class="td_peopleNm"><span class="td-tit text-justify">예   상  인  원</span>40</td>
+                          <td class="td_setting td_right">
+                            <div class="setting-menu">
+                              <button class="btn btn-setting btn-center">
+                                <i class="ico-setting"></i>
+                              </button>
+                              <ul class="setting-drop">
+                                <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="td_num">119091</td>
+                          <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                          <td class="td_time"><span class="td-tit text-justify">시                간</span>13:00</td>
+                          <td class="td_subj"><div class="tbl-cut">월읍 동네 잔치</div></td>
+                          <td class="td_place"><span class="td-tit text-justify">장                소</span><div class="tbl-cut">구월 강당</div></td>
+                          <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">구월면 > 우월리</div></td>
+                          <td class="td_peopleNm"><span class="td-tit text-justify">예   상  인  원</span>40</td>
+                          <td class="td_setting td_right">
+                            <div class="setting-menu">
+                              <button class="btn btn-setting btn-center">
+                                <i class="ico-setting"></i>
+                              </button>
+                              <ul class="setting-drop">
+                                <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <!-- 행사 종료된 경우 : tr-disabled 클래스 추가 -->
+                        <tr class="tr-disabled">
+                          <td class="td_num">119091</td>
+                          <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                          <td class="td_time"><span class="td-tit text-justify">시                간</span>13:00</td>
+                          <td class="td_subj"><div class="tbl-cut">월읍 동네 잔치</div></td>
+                          <td class="td_place"><span class="td-tit text-justify">장                소</span><div class="tbl-cut">구월 강당</div></td>
+                          <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">구월면 > 우월리</div></td>
+                          <td class="td_peopleNm"><span class="td-tit text-justify">예   상  인  원</span>40</td>
+                          <td class="td_setting td_right">
+                            <div class="setting-menu">
+                              <button class="btn btn-setting btn-center">
+                                <i class="ico-setting"></i>
+                              </button>
+                              <ul class="setting-drop">
+                                <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="table-footer">
+                      <div class="pagination">
+                        <button class="page-btn page-first" onclick=""><i></i></button>
+                        <button class="page-btn page-prev" onclick=""><i></i></button>
+                        <button class="page-btn active" onclick="">1</button>
+                        <button class="page-btn" onclick="">2</button>
+                        <button class="page-btn" onclick="">3</button>
+                        <button class="page-btn page-next" onclick=""><i></i></button>
+                        <button class="page-btn page-end" onclick=""><i></i></button>
+                      </div>
+                    </div>
+                 
+                </div>
+              </div>
+          </div>
+        </div>
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+  
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initSettingMenu();
+      tabMenu();
+    });
+
+    // 관리 버튼 드롭다운
+    function initSettingMenu() {
+      const menus = document.querySelectorAll('.setting-menu');
+
+      menus.forEach(menu => {
+        const btn = menu.querySelector('.btn-setting');
+        const dropdown = menu.querySelector('.setting-drop');
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // 모든 드롭다운 닫기
+          menus.forEach(m => {
+            const d = m.querySelector('.setting-drop');
+            if (d !== dropdown) d.classList.remove('active');
+          });
+
+          // 현재 드롭다운 토글
+          dropdown.classList.toggle('active');
+        });
+      });
+
+      // 바깥 클릭 시 닫기
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.setting-drop.active').forEach(drop => {
+          drop.classList.remove('active');
+        });
+      });
+    }
+
+     // 탭메뉴
+    function tabMenu() {
+      const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+    }
+
+
+  </script>
+
+</body>
+
+</html>

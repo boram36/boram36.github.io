@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행사 등록 내역 상세</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+</head>
+<body class="admin">
+  <div class="popup-admin popup-ranking">
+    <div class="popup-header">
+      <h2 class="popup-title">행사 등록 내역 상세</h2>
+    </div>
+    <!-- e: popup-header -->
+
+    <div class="popup-content">
+      <div class="popup-cont_wrap row">
+        <div class="col-4">
+          <div class="candidater-info">
+            <div class="candidater-info__top f-h-c">
+              <div class="profile-info">
+                <b>김지훈</b>
+              </div>
+            </div>
+            <!-- e: candidater-info__top -->
+
+            <ul class="detail">
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">휴 대 폰 번 호</span>
+                </div>
+                <div class="detail-cont">
+                  010-1234-5678
+                </div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">지지도조사수</span>
+                </div>
+                <div class="detail-cont">
+                  203
+                </div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">행 사 등 록 수</span>
+                </div>
+                <div class="detail-cont">
+                  32
+                </div>
+              </li>
+              <li>
+                <div class="detail-tit">
+                  <span class="text-justify">비         고</span>
+                </div>
+                <div class="detail-cont">
+                  -
+                </div>
+              </li>
+            </ul>
+            <!-- e: detail -->
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="card f-1">
+            <div class="tab-layout">
+              <div class="tab-menu">
+                <div class="tab-title txt-l txt-small">
+                  행사 등록 내역 상세(24)
+                </div>
+              </div>
+              <div class="tab-cont__wrap">
+                <div class="table-scroll">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>번호</th>
+                        <th>행사일</th>
+                        <th>시간</th>
+                        <th>제목</th>
+                        <th>장소</th>
+                        <th>지역</th>
+                        <th>예상인원</th>
+                        <th>관리</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                        <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                        <td class="td_subj txt-l width-200"><div class="tbl-cut td-txt">초청 강연회</div></td>
+                        <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                        <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                        <td class="td_subj txt-l width-200"><div class="tbl-cut td-txt">초청 강연회</div></td>
+                        <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                        <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                        <td class="td_subj txt-l width-200"><div class="tbl-cut td-txt">초청 강연회</div></td>
+                        <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                      <tr class="tr-disabled">
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                        <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                        <td class="td_subj txt-l width-200"><div class="tbl-cut td-txt">초청 강연회</div></td>
+                        <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                      <tr class="tr-disabled">
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                        <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                        <td class="td_subj txt-l width-200"><div class="tbl-cut td-txt">초청 강연회</div></td>
+                        <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                      <tr class="tr-disabled">
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                        <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                        <td class="td_subj txt-l width-200"><div class="tbl-cut td-txt">초청 강연회</div></td>
+                        <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                      <tr class="tr-disabled">
+                        <td class="td_num">119091</td>
+                        <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                        <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                        <td class="td_subj txt-l width-200"><div class="tbl-cut td-txt">초청 강연회</div></td>
+                        <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                        <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                        <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                        <td class="td_setting td_right width-80">
+                          <div class="setting-menu">
+                            <button class="btn btn-setting btn-center">
+                              <i class="ico-setting"></i>
+                            </button>
+                            <ul class="setting-drop">
+                              <li><button class="btn" onclick="window.parent.openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                              <li><button class="btn txt-system-red" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+                      
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-footer">
+                  <div class="pagination">
+                    <button class="page-btn page-first" onclick=""><i></i></button>
+                    <button class="page-btn page-prev" onclick=""><i></i></button>
+                    <button class="page-btn active" onclick="">1</button>
+                    <button class="page-btn" onclick="">2</button>
+                    <button class="page-btn" onclick="">3</button>
+                    <button class="page-btn page-next" onclick=""><i></i></button>
+                    <button class="page-btn page-end" onclick=""><i></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <!-- e: popup-content -->
+  </div>
+
+
+
+  <script>
+     document.addEventListener('DOMContentLoaded', () => {
+      initSettingMenu();
+    });
+
+    // 관리 버튼 드롭다운
+    function initSettingMenu() {
+      const menus = document.querySelectorAll('.setting-menu');
+
+      menus.forEach(menu => {
+        const btn = menu.querySelector('.btn-setting');
+        const dropdown = menu.querySelector('.setting-drop');
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // 모든 드롭다운 닫기
+          menus.forEach(m => {
+            const d = m.querySelector('.setting-drop');
+            if (d !== dropdown) d.classList.remove('active');
+          });
+
+          // 현재 드롭다운 토글
+          dropdown.classList.toggle('active');
+        });
+      });
+
+      // 바깥 클릭 시 닫기
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.setting-drop.active').forEach(drop => {
+          drop.classList.remove('active');
+        });
+      });
+    }
+
+     window.addEventListener('message', function (e) {
+        const vw = e.data?.viewportWidth;
+        if (!vw) return;
+
+        const body = document.body;
+        body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+        if (vw <= 767) body.classList.add('viewport-xs');
+        else if (vw <= 1024) body.classList.add('viewport-sm');
+        else if (vw <= 1280) body.classList.add('viewport-md');
+        else body.classList.add('viewport-lg');
+    });
+
+    function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+
+  
+  </script>
+
+</body>
+</html> 

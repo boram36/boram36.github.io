@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <a href="" class="logout">
+          로그아웃
+        </a>
+            
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile-system.svg" alt="">
+            <!-- noImg -->
+          </div>
+          <div class="gnb-name">
+            <b>시스템 관리자</b>
+          </div>
+          <div class="gnb-info gnb-refresh">
+            <p>신청</p>
+            <b>1,014</b>
+          </div>
+          <div class="gnb-info gnb-refresh">
+            <p>개설</p>
+            <b>246</b>
+          </div>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="./index.html" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="./apply/list.html" class="gnb-menu__btn ico"><i class="gnb-star_w"></i>신청</a>
+          </li>
+          <li>
+            <a href="./open/list.html" class="gnb-menu__btn ico"><i class="gnb-open_w"></i>개설</a>
+          </li>
+          <li>
+            <a href="./map/list.html" class="gnb-menu__btn ico"><i class="gnb-map_w"></i>지도</a>
+          </li>
+          <li>
+            <a href="./message/list.html" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자</a>
+          </li>
+          <li  class="active">
+            <a href="./notice/list.html" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지사항</a>
+          </li>
+          <li>
+            <a href="./setting/list.html" class="gnb-menu__btn ico"><i class="gnb-position_w"></i>직책설정</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-notice"></i>
+            공지사항
+        </h2>
+        <!--  -->
+        <div class="candidater-wrap f-space gap-25 comBox-full">
+          <div class="candidater-list flex-none">
+            <div class="selectSg-box">
+              <div class="selectSg-cont">
+                <a href="./list.html" class="btn bbsView-btn ico"><i class="ico-btn_back"></i>목록으로</a>
+                <div class="com-detail__box">
+                  <div class="com-detail__top">
+                    <div class="com-detail__tit">[공지] 후보자 등록 오픈합니다. 후보자 등록 오픈합니다. 후보자 등록 오픈합니다. 후보자 등록 오픈합니다. 후보자 등록 오픈합니다.</div>
+                    <div class="com-detail__subTit"> 
+                      <span>2025.10.25 13:23</span>ㅣ <span>관리자</span>
+                    </div>
+                  </div>
+                  <div class="com-detail__cont">
+                    <p>
+                      안녕하세요.<br>
+                      후보자 등록 절차를 운영하고 있습니다. 등록을 완료하신 분에 한하여 이후 참여 및 활동 승인이 이루어지며, 등록하신 정보는 심사 및 내부 운영 목적으로만 활용됩니다.<br>
+                      후보자 등록 방법은 다음과 같습니다.<br>
+                      등록 폼 링크를 통해 기본 정보(이름, 연락처 등)와 내용을 작성하여 제출해주시면 됩니다. 제출된 등록 내용은 수정이 불가하오니 신중하게 작성해 주시기 바랍니다.<br>
+                      등록 후 약 3~5일 이내에 개별적으로 결과를 안내드릴 예정입니다. 등록은 1회만 가능하며, 제출된 자료는 반환되지 않습니다.<br>
+                      기타 등록과 관련된 문의사항은 안내된 이메일 또는 오픈채팅 링크를 통해 문의해주시기 바랍니다.<br>
+                      감사합니다.
+                    </p>
+                  </div>
+                  <ul class="com-detail__file">
+                    <li>
+                      <a href="" target="_blank" class="btn-file f-h-c">
+                        <div class="file-tit ico ico-left">
+                            <i class="ico-file"></i>
+                            <span>경상남도 호고군 이호읍 시읍리 유권자 리스트.pdf</span>
+                          </div>
+                          <span class="file-size">56.2KB</span>
+                       </a>
+                    </li>
+                    <li>
+                      <a href="" target="_blank" class="btn-file f-h-c">
+                        <div class="file-tit ico ico-left">
+                            <i class="ico-file"></i>
+                            <span>경상남도 호고군 이호읍 시읍리 유권자 리스트.pdf</span>
+                          </div>
+                          <span class="file-size">56.2KB</span>
+                       </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="btn-wrap f-c-all">
+                  <button type="button" class="btn list-btn btn-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button>
+                  <a href="./register.html" class="btn list-btn btn-active">수정</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+
+
+
+  <script>
+    // 탭 메뉴
+    document.addEventListener('DOMContentLoaded', () => {
+			const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+		});
+
+  </script>
+
+</body>
+
+</html>

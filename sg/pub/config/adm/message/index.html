@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+ 
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+  <link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li >
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-message"></i>
+          문자발송
+        </h2>
+
+        <!-- 문자 발송 템플릿 UI -->
+        <div class="message-send__wrap">
+          <div class="tab-menu type02">
+            <button class="tab-btn active" data-url="partial-send.html">문자 발송</button>
+            <button class="tab-btn" data-url="partial-history.html">문자 발송내역</button>
+            <button class="tab-btn" data-url="partial-charge.html">문자 충전</button>
+          </div>
+          <div id="tabContent" class="iframe-container">
+            <iframe id="tabIframe" src="../../../popup/partial-send.html" frameborder="0" width="100%" style="min-height: 600px; height: auto;"></iframe>
+          </div>
+        </div>
+        
+
+      </main>
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    initSettingMenu();
+    initMessageByteCount();
+    initMobileTabToggle();
+    initSendCheckboxToggle();
+    initTabMenu();
+    loadIframe('partial-send.html');
+  });
+
+  // 관리메뉴 클릭 이벤트
+  function initSettingMenu() {
+    const menus = document.querySelectorAll('.setting-menu');
+    menus.forEach(menu => {
+      const btn = menu.querySelector('.btn-setting');
+      const dropdown = menu.querySelector('.setting-drop');
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        menus.forEach(m => m.querySelector('.setting-drop').classList.remove('active'));
+        dropdown.classList.toggle('active');
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.setting-drop.active').forEach(drop => drop.classList.remove('active'));
+    });
+  }
+
+  // 문자메시지 byte 
+  function initMessageByteCount() {
+    document.querySelectorAll('.message-box__cont').forEach(box => {
+      const textarea = box.querySelector('textarea');
+      const byteCount = box.querySelector('.byte-count b');
+      if (!textarea || !byteCount) return;
+      const updateByteCount = () => {
+        const text = textarea.value;
+        const bytes = [...text].reduce((acc, ch) => acc + (ch.charCodeAt(0) > 0x7f ? 2 : 1), 0);
+        byteCount.textContent = `${bytes}`;
+      };
+      textarea.addEventListener('input', updateByteCount);
+      updateByteCount();
+    });
+  }
+
+  // 모바일에서 탭 메뉴 열고 닫기
+  function initMobileTabToggle() {
+    document.querySelectorAll('.tab-menu__control').forEach(menu => {
+      menu.addEventListener('click', () => {
+        const cont = menu.nextElementSibling;
+        cont.classList.toggle('open');
+        menu.classList.toggle('active');
+      });
+    });
+  }
+
+  // 체크박스 체크 시 변경
+  function initSendCheckboxToggle() {
+    document.querySelectorAll('.checkbox .sendCheck').forEach(checkbox => {
+      const wrapper = checkbox.closest('.checkbox');
+      checkbox.addEventListener('change', () => wrapper.classList.toggle('on', checkbox.checked));
+      wrapper.classList.toggle('on', checkbox.checked);
+    });
+  }
+
+  // 특수문자 팝업
+  function initSpecialCharButton() {
+    document.querySelectorAll('.btn-special').forEach(button => {
+      button.addEventListener('click', () => {
+        const popup = document.getElementById('charPopup');
+        if (popup) popup.style.display = 'block';
+      });
+    });
+
+    document.addEventListener('click', e => {
+      const popup = document.getElementById('charPopup');
+      if (popup && !popup.contains(e.target) && !e.target.classList.contains('btn-special')) {
+        popup.style.display = 'none';
+      }
+    });
+  }
+  function closeCharPopup() {
+    const popup = document.getElementById('charPopup');
+    if (popup) popup.style.display = 'none';
+  }
+
+  // 탭 메뉴 클릭 시 이동
+  function initTabMenu() {
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      loadIframe(btn.dataset.url);
+      resizeParentIframe();
+    });
+  });
+}
+
+// iframe src 설정
+function loadIframe(url) {
+  const iframe = document.getElementById('tabIframe');
+  if (iframe) {
+    // 항상 popup 폴더 기준으로 경로 구성
+    iframe.src = `../../../popup/${url}`;
+
+    if (!window._iframeResizeHandlerAdded) {
+      window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'resize-iframe') {
+          iframe.style.height = event.data.height + 'px';
+        }
+      });
+      window._iframeResizeHandlerAdded = true;
+    }
+  }
+}
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

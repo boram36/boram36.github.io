@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	
+	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
+
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/user/design.js"></script>
+</head>
+
+
+<body>
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+	<div class="container" id="container">
+
+    <nav class="header py-10 ">
+      <div class="inner f-c-l">
+        <button type="button" class="back-btn ico" onclick=""><i class="ico-back"></i></button>
+        <h2 class="header-tit">유권자 등록</h2>
+      </div>
+    </nav>
+    <!-- e: header -->
+
+    <main>
+      <div class="inner">
+        <form action="">
+          <div class="form-input">
+						<div class="input-row">
+							<label class="input-tit" for="name">유권자 이름<span class="required">*</span></label>
+							<div class="input-wrap">
+								<input type="text" id="name" name="name" placeholder="유권자 이름(2글자 이상)" value="">
+							</div>
+						</div>
+						<!-- e: 유권자 이름 -->
+						<div class="input-row">
+							<label class="input-tit" for="tel">휴대폰번호<span class="required">*</span></label>
+							<div class="input-wrap input-inner">
+								<input type="text" id="tel" name="tel" class="input-check" placeholder="휴대폰 번호 입력" value="">
+								<button type="button" class="btn btn-small btn-check">중복<br>확인</button><button>
+							</button></div>
+						</div>
+						<!-- e: 휴대폰번호 -->
+						<div class="input-row">
+							<div class="input-tit">유권자 성별<span class="required">*</span></div>
+							<div class="checkbox-box radio-wrap">
+								<div class="checkbox">
+									<input type="radio" id="gender01" name="gender">
+									<label for="gender01">남</label>
+								</div>
+								<div class="checkbox">
+									<input type="radio" id="gender02" name="gender">
+									<label for="gender02">여</label>
+								</div>
+							</div>
+						</div>
+						 <!-- e: 유권자 성별  -->
+						 <div class="input-row">
+							<label class="input-tit" for="age">유권자 나이<span class="required">*</span></label>
+							<div class="input-wrap">
+								<input type="text" id="age" name="age" placeholder="유권자 나이 입력" value="">
+							</div>
+						</div>
+						<!-- e: 유권자 이름 -->
+						<div class="input-row">
+							<label class="input-tit" for="input02">유권자 지역<span class="required">*</span></label>
+							<div class="select-wrap">
+								<select name="" id="" class="width-half" disabled>
+									<option value="">시/도</option>
+									<option value="" selected>경상남도</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
+								</select>
+				
+								<select name="" id="" class="width-half" disabled>
+									<option value="" >시/군/구</option>
+									<option value="" selected>상도군</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
+								</select>
+				
+								<select name="" id="" class="width-half">
+									<option value="">읍/면/동</option>
+									<option value="" selected>구월면</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
+								</select>
+				
+								<select name="" id="" class="width-half">
+									<option value="">리</option>
+									<option value="" selected>이읍리</option>
+									<option value="">서울시</option>
+									<option value="">부산시</option>
+								</select>
+							</div>
+						</div>
+						<!-- e: 유권자 지역 -->
+						<div class="input-row">
+							<label for="" class="input-tit">비고</label>
+							<textarea name="" id="" placeholder="내용 입력"></textarea>
+						</div>
+
+					</div>
+					<div class="btn-wrap">
+						<button type="button" class="btn btn-disabled" onclick="openPopup('confirmPopup')">유권자 등록</button>
+					</div>
+        </form>
+      </div>
+    </main>
+    <!-- e: main -->
+
+
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+	<div id="confirmPopup" class="popup-layer popupAlert">
+    <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">유권자 등록</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <p><b>유권자 등록</b>이 완료되었습니다.</p>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn btn-active" onclick="closePopup('confirmPopup')">확인</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- 등록완료 팝업 -->
+
+	<script>
+		// 입력 폼 체크
+		function checkVoterFormStatus() {
+			const name = document.getElementById('name').value.trim();
+			const tel = document.getElementById('tel').value.trim();
+			const age = document.getElementById('age').value.trim();
+			const genderChecked = document.querySelector('input[name="gender"]:checked');
+			const selects = document.querySelectorAll('.select-wrap select');
+			const registerBtn = document.querySelector('.btn-wrap .btn');
+	
+			let selectsFilled = true;
+			selects.forEach(select => {
+				const selectedValue = select.options[select.selectedIndex].value;
+				if (selectedValue === '') {
+					selectsFilled = false;
+				}
+			});
+	
+			if (name.length >= 2 && tel !== '' && age !== '' && genderChecked && selectsFilled) {
+				registerBtn.classList.remove('btn-disabled');
+				registerBtn.classList.add('btn-active');
+			} else {
+				registerBtn.classList.remove('btn-active');
+				registerBtn.classList.add('btn-disabled');
+			}
+		}
+	
+		window.addEventListener('DOMContentLoaded', function () {
+			document.getElementById('name').addEventListener('input', checkVoterFormStatus);
+			document.getElementById('tel').addEventListener('input', checkVoterFormStatus);
+			document.getElementById('age').addEventListener('input', checkVoterFormStatus);
+	
+			document.querySelectorAll('input[name="gender"]').forEach(radio => {
+				radio.addEventListener('change', checkVoterFormStatus);
+			});
+	
+			document.querySelectorAll('.select-wrap select').forEach(select => {
+				select.addEventListener('change', checkVoterFormStatus);
+			});
+		});
+
+		$(document).ready(function () {
+			// selectric의 커스텀 change 이벤트에 반응
+			$('.select-wrap select').on('selectric-change', function () {
+				checkVoterFormStatus();
+			});
+		});
+
+	</script>
+	
+
+
+</body>
+
+</html>

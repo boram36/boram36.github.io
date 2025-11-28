@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="./assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="./assets/scss/common/datepicker.min.css">
+	<link rel="stylesheet" href="./assets/scss/user/user.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="./assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/datepicker.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="./assets/js/user/design.js"></script>
+</head>
+
+
+
+<body>
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+	<!----------------------------------------------------------- s:header ----------------------------------------------------------->
+	<header>
+		
+	</header>
+	<!----------------------------------------------------------- e:header ----------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+	<div class="container" id="container">
+		<main>
+
+			<div class="tab-layout">
+				<div class="tab-menu">
+					<button type="button" class="tab-btn active" data-index="0">버튼</button>
+					<button type="button" class="tab-btn" data-index="1">input / textarea</button>
+					<button type="button" class="tab-btn" data-index="2">select</button>
+					<button type="button" class="tab-btn" data-index="3">popup</button>
+					<button type="button" class="tab-btn" data-index="4">카드</button>
+				</div>
+				<!-- e: tab-menu -->
+	
+				<div class="tab-cont__wrap">
+					<div class="tab-cont active" data-index="0">
+						<h2 class="txt-24">1. 버튼</h2>
+		
+						<div class="btn-wrap">
+							<button class="btn btn-active">버튼명 입력</button>
+						</div>
+			
+						
+			
+						<div class="btn-wrap">
+							<button class="btn btn-disabled">버튼명 입력</button>
+						</div>
+			
+						
+			
+						<div class="btn-wrap">
+							<button type="button" class="btn-refresh ico">
+								<i class="ico-refresh"></i>
+								초기화
+							</button>
+							<a href="" class="btn btn-active">버튼명 입력</a>
+						</div>
+			
+						
+			
+						<div class="btn-wrap">
+							<button type="button" class="btn">
+								버튼명 입력
+							</button>
+						</div>
+			
+						
+			
+						<div class="btn-wrap btn-small">
+							<button type="button" class="btn-active btn">버튼명 입력</button>
+						</div>
+			
+						
+			
+						<div class="btn-wrap btn-small">
+							<button type="button" class="btn">버튼명 입력</button>
+						</div>
+			
+						
+			
+						<div class="btn-wrap btn-small btn-row">
+							<button type="button" class="btn">버튼명 입력</button>
+							<button type="button" class="btn btn-active">버튼명 입력</button>
+						</div>
+			
+						
+			
+						<div class="btn-wrap btn-small btn-row">
+							<button type="button" class="btn">버튼명 입력</button>
+							<button type="button" class="btn btn-active bg-red">버튼명 입력</button>
+						</div>
+			
+						
+			
+						<div class="btn-wrap">
+							<button type="button" class="btn btn-picture_add ico" title="사진 첨부"><i class="ico-add_sm"></i></button>
+						</div>
+			
+						
+			
+						<!-- 버튼 2줄 이상일때 : f-d-c 클래스 추가 -->
+						<div class="btn-wrap f-d-c">
+							<button type="button" class="btn">버튼명 입력</button>
+							<button type="button" class="btn btn-active bg-red">버튼명 입력</button>
+						</div>
+						
+			
+						<div class="btn-wrap f-d-c">
+							<!-- 색상 변경 시 bg-red, bg-orange,...등 bg-색상 클래스 추가 -->
+							<button type="button" class="btn btn-floating bg-red" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-orange" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-yellow" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-green" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-mint" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-skyblue" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-blue" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-violet" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-pink" title="플로팅 버튼"><i class="ico-add"></i></button>
+							<button type="button" class="btn btn-floating bg-black" title="플로팅 버튼"><i class="ico-add"></i></button>
+						</div>
+			
+					</div>
+					<!-- 1) 버튼 -->
+
+					<div class="tab-cont" data-index="1">
+						<h2 class="txt-24">3. input / textarea</h2>
+
+						<div class="input-wrap">
+							<input type="text" id="" name="" placeholder="내용을 입력하세요">
+						</div>
+	
+						
+						<div class="input-row">
+							<label class="input-tit" for="input01">유권자 이름</label>
+							<div class="input-wrap">
+								<input type="text" id="input01" name="input01" placeholder="유권자 이름(2글자 이상)" value="">
+							</div>
+						</div>
+
+						<div class="input-row">
+							<label class="input-tit" for="input04">날짜</label>
+							<div class="input-wrap">
+								<input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="행사일" data-date-format="yyyy.mm.dd" value="2025.05.07" autocomplete="off" title="" maxlength="10">
+							</div>
+						</div>
+			
+						<div class="input-row">
+							<label class="input-tit" for="input02">유권자 이름 (readonly, disabled)</label>
+							<div class="input-wrap">
+								<input type="text" id="input02" name="input02" placeholder="유권자 이름(2글자 이상)" value="유강남" readonly>
+							</div>
+						</div>
+			
+						<div class="input-row">
+							<label class="input-tit" for="input03">유권자 이름 (input 안에 button)</label>
+							<div class="input-wrap input-inner">
+								<input type="text" id="input03" name="input03" class="input-check"  placeholder="유권자 이름(2글자 이상)" value="">
+								<button type="button" class="btn btn-small btn-check">중복<br>확인<button>
+							</div>
+						</div>
+		
+						<script>
+							const inputs = document.querySelectorAll('.input-check');
+							const buttons = document.querySelectorAll('.btn-check');
+			
+							inputs.forEach((input, index) => {
+								const button = buttons[index];
+								input.addEventListener('input', function () {
+									if (input.value.trim().length >= 2) {
+										button.classList.add('active');
+									} else {
+										button.classList.remove('active');
+									}
+								});
+							});
+			
+						</script>
+			
+						<div class="input-row">
+							<div class="input-tit">유권자 성별<span class="required">*</span></div>
+							<div class="radio-wrap">
+								<div class="checkbox">
+									<input type="radio" id="gender01" name="gender">
+									<label for="gender01">남</label>
+								</div>
+								<div class="checkbox">
+									<input type="radio" id="gender02" name="gender">
+									<label for="gender02">여</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="input-wrap input-search input-inner">
+							<input type="text" id="searchInput" name="" placeholder="이름(2글자이상), 휴대폰번호(끝 4자리)">
+							<button type="button" id="searchBtn" class="btn ico" title="검색어 입력"><i class="ico-search"></i></button>
+							<button type="button" id="clearBtn" class="btn ico" title="지우기" style="display:none;"><i class="ico-cancel"></i></button>
+						</div>
+		
+						<script>
+							// 검색어 입력
+							const input = document.getElementById('searchInput');
+							const searchBtn = document.getElementById('searchBtn');
+							const clearBtn = document.getElementById('clearBtn');
+						
+							input.addEventListener('input', function () {
+								if (input.value.trim() !== '') {
+									searchBtn.style.display = 'none';
+									clearBtn.style.display = 'flex';
+								} else {
+									searchBtn.style.display = 'flex';
+									clearBtn.style.display = 'none';
+								}
+							});
+						
+							clearBtn.addEventListener('click', function () {
+								input.value = '';
+								input.focus();
+								searchBtn.style.display = 'flex';
+								clearBtn.style.display = 'none';
+							});
+						
+							searchBtn.addEventListener('click', function () {
+								alert('검색 기능 실행'); // 여기에 실제 검색 로직 넣으면 됨
+							});
+						</script>
+			
+						<div class="checkbox">
+							<input type="checkbox" id="check01" name="check">
+							<label for="check01">체크박스 off</label>
+						</div>
+
+						<div class="checkbox">
+							<input type="checkbox" id="check02" name="check" checked>
+							<label for="check02">체크박스 on</label>
+						</div>
+
+						<div class="checkbox">
+							<input type="checkbox" id="check03" name="check" disabled>
+							<label for="check03">체크박스 disabled</label>
+						</div>
+
+						
+
+						<div class="checkbox">
+							<input type="radio" id="radio01" name="radio">
+							<label for="radio01">라디오 off</label>
+						</div>
+
+						<div class="checkbox">
+							<input type="radio" id="radio02" name="radio" checked>
+							<label for="radio02">라디오 on</label>
+						</div>
+
+						<div class="checkbox">
+							<input type="radio" id="radio03" name="radio" disabled>
+							<label for="radio03">라디오 disabled</label>
+						</div>	
+
+						<div class="input-status input-pass">등록 가능</div>
+						<div class="input-status input-area">지역 재설정</div>
+						<div class="input-status input-phone">휴대폰번호 중복</div>
+	
+						<div class="input-row">
+							<label for="" class="input-tit">비고</label>
+							<textarea name="" id="" placeholder="내용 입력"></textarea>
+						</div>
+			
+						<div class="input-row width-half">
+							<label for="" class="input-tit">비고</label>
+							<textarea name="" id="" placeholder="내용 입력">비고입니다.</textarea>
+						</div>
+	
+					</div>
+					<!-- 2) input / textarea -->
+
+					<div class="tab-cont" data-index="2">
+						<h2 class="txt-24">4. select</h2>
+		
+						<div class="select-wrap">
+							<select name="" id="">
+								<option value="" disabled>대구시</option>
+								<option value="">서울시</option>
+								<option value="">부산시</option>
+							</select>
+						</div>
+			
+						
+			
+						<div class="select-wrap">
+							<select name="" id="" class="width-half">
+								<option value="" disabled>대구시</option>
+								<option value="">서울시</option>
+								<option value="">부산시</option>
+							</select>
+			
+							<select name="" id="" class="width-half">
+								<option value="" disabled>대구시</option>
+								<option value="">서울시</option>
+								<option value="">부산시</option>
+							</select>
+			
+							<select name="" id="" class="width-half">
+								<option value="" disabled>대구시</option>
+								<option value="">서울시</option>
+								<option value="">부산시</option>
+							</select>
+			
+							<select name="" id="" class="width-half">
+								<option value="" disabled>대구시</option>
+								<option value="">서울시</option>
+								<option value="">부산시</option>
+							</select>
+						</div>
+			
+			
+						<script>
+							$(function() {
+								$('select').selectric();
+							});
+						</script>
+					</div>
+					<!-- 3) select -->
+
+					<div class="tab-cont" data-index="3">
+						<h2 class="txt-24">5. popup</h2>
+	
+						<div class="btn-wrap">
+							<button class="btn btn-active" onclick="openPopup('searchFilterPopup');">팝업 아래 위치</button>
+						</div>
+
+						<div class="btn-wrap">
+							<button class="btn btn-active" onclick="openPopup('deletePopup');">팝업 중간 위치</button>
+						</div>
+		
+						<!-- 로그인 불가 팝업 -->
+						<div id="loginFailPopup" class="popup-layer" style="display: none;">
+							<div class="popup-inner">
+								<h2 class="popup-title">로그인 불가</h2>
+								<hr class="divider">
+								<div class="popup-content">
+									등록되지 않은 휴대전화입니다.
+									자세한 내용은
+									캠프 관리자에게 문의하세요.
+								</div>
+								<button type="button" class="popup-btn" onclick="closePopup()">확인</button>
+							</div>
+						</div>
+					</div>
+					<!-- 4) popup -->
+
+					<div class="tab-cont" data-index="4">
+						<div class="comBox-list">
+							<div class="comBox-item">
+								<div class="comBox-item__top f-c-space">
+									<div class="num">121</div>
+									<button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
+								</div>
+								<!-- e: comBox-item__top -->
+		
+								<div class="comBox-item__cont">
+									<div class="profile f-c-space">
+										<div class="tit">
+											<b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+											<a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
+										</div>
+										<p class="profile-tel">010-1***-4532</p>
+									</div>
+									<!-- e: profile -->
+		
+									<ul class="detail">
+										<li>
+											<div class="detail-tit">
+												<span>지지도</span>
+											</div>
+											<div class="detail-cont">
+												<!-- 지지도 표기 -->
+												<div class="detail-state"><i class="ico ico-like_big"></i></div>
+											</div>
+										</li>
+										<li>
+											<div class="detail-tit">
+												<span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+											</div>
+											<div class="detail-cont">구월면 > 이읍리</div>
+										</li>
+										<li>
+											<div class="detail-tit">
+												<span>조사일</span>
+											</div>
+											<div class="detail-cont">2025.04.12 11:40</div>
+										</li>
+		
+										<!-- 의견 : detail-idea 클래스 추가 -->
+										<li class="detail-idea">
+											<div class="detail-tit">
+												<span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
+											</div>
+											<!-- 글자 수 제한으로 더보기 : 접기 버튼 구현 -->
+											<div class="detail-cont" data-limit="35">
+												<span class="detail-text">
+													지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
+												</span>
+												<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+											</div>
+										</li>
+									</ul>
+									<!-- e: detail -->
+		
+								</div>
+								<!-- e: comBox-item__cont -->
+		
+							 </div>
+							 <div class="comBox-item">
+								<div class="comBox-item__top f-c-space">
+									<div class="num">120</div>
+									<button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
+								</div>
+								<!-- e: comBox-item__top -->
+		
+								<div class="comBox-item__cont">
+									<div class="profile f-c-space">
+										<div class="tit">
+											<b>김순미</b>(<span class="txt-14">여</span>, 64세)
+											<a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
+										</div>
+										<p class="profile-tel">010-1***-4532</p>
+									</div>
+									<!-- e: profile -->
+		
+									<ul class="detail">
+										<li>
+											<div class="detail-tit">
+												<span>지지도</span>
+											</div>
+											<div class="detail-cont">
+												<!-- 지지도 표기 -->
+												<div class="detail-state">
+													<i class="ico ico-like_big"></i>
+													<i class="ico ico-mid_big"></i>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="detail-tit">
+												<span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+											</div>
+											<div class="detail-cont">구월면 > 이읍리</div>
+										</li>
+										<li>
+											<div class="detail-tit">
+												<span>조사일</span>
+											</div>
+											<div class="detail-cont">2025.04.12 11:40</div>
+										</li>
+									 <!-- 의견 : detail-idea 클래스 추가 -->
+										<li class="detail-idea">
+											<div class="detail-tit">
+												<span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
+											</div>
+											<div class="detail-cont" data-limit="35">
+												<span class="detail-text">
+													지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다. 지역 발전을 위해 꾸준히 노력해 오신 모습이 인상 깊었습니다.
+												</span>
+												<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+											</div>
+											
+										</li>
+									</ul>
+									<!-- e: detail -->
+		
+								</div>
+								<!-- e: comBox-item__cont -->
+		
+							 </div>
+							 <div class="comBox-item">
+								<div class="comBox-item__top f-c-space">
+									<div class="num">119</div>
+									<button type="button" class="more-btn ico" title="상세" onclick="openPopup('confirmPopup');"><i class="ico-more"></i></button>
+								</div>
+								<!-- e: comBox-item__top -->
+		
+								<div class="comBox-item__cont">
+									<div class="profile f-c-space">
+										<div class="profile-name">
+											<b>김순미</b>(<span class="txt-14">여</span>, 64세)
+											<a href="../voter/edit.html" class="edit-btn ico" title="수정"><i class="ico-edit"></i></a>
+										</div>
+										<p class="profile-tel">010-1***-4532</p>
+									</div>
+									<!-- e: profile -->
+		
+									<ul class="detail">
+										<li>
+											<div class="detail-tit">
+												<span>지지도</span>
+											</div>
+											<div class="detail-cont">
+												<!-- 지지도 표기 -->
+												<div class="detail-state">
+													<i class="ico ico-hate_big"></i>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="detail-tit">
+												<span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+											</div>
+											<div class="detail-cont">구월면 > 이읍리</div>
+										</li>
+										<li>
+											<div class="detail-tit">
+												<span>조사일</span>
+											</div>
+											<div class="detail-cont">2025.04.12 11:40</div>
+										</li>
+										<!-- 의견 : detail-idea 클래스 추가 -->
+										<li class="detail-idea">
+											<div class="detail-tit">
+												<span>의&nbsp;&nbsp;&nbsp;&nbsp;견</span>
+											</div>
+											<div class="detail-cont" data-limit="35">
+												<span class="detail-text">
+													-
+												</span>
+												<button class="detail-more" onclick="toggleComment(this)">...더보기</button>
+											</div>
+										</li>
+									</ul>
+									<!-- e: detail -->
+		
+								</div>
+								<!-- e: comBox-item__cont -->
+		
+							 </div>
+							 <!-- e: 반복구문 : comBox-item -->
+						</div>
+						<!-- e: comBox-list -->
+					</div>
+					<!-- 5) comBox -->
+
+				</div>
+			</div>
+			
+		</main>
+		
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+
+	<div id="searchFilterPopup" class="popup-layer popup-bottom">
+    <div class="popup-backdrop" onclick="closePopup('searchFilterPopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">검색 필터</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('searchFilterPopup')"><i class="ico-popup_cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+        <div class="input-row">
+          <label class="input-tit" for="input01">행사명</label>
+          <div class="input-wrap">
+            <input type="text" id="input01" name="input01" placeholder="행사명" value="">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-tit">행사일</div>
+          <div class="input-wrap input-date">
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+            <span>~</span>
+            <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <label class="input-tit" for="input02">행사일</label>
+          <div class="select-wrap">
+            <select name="" id="" class="width-half">
+              <option value="">시/도</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="" >시/군/구</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="">읍/면/동</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+    
+            <select name="" id="" class="width-half">
+              <option value="">리</option>
+              <option value="">대구시</option>
+              <option value="">서울시</option>
+              <option value="">부산시</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-tit">행사 장소</div>
+          <div class="input-wrap input-date">
+            <input type="text" id="" name="" placeholder="행사 장소">
+          </div>
+        </div>
+
+       
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn-refresh ico">
+            <i class="ico-refresh"></i>
+            초기화
+          </button>
+          <a href="" class="btn btn-active bg-blue">검색하기</a>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 검색필터 팝업 -->
+
+	<div id="deletePopup" class="popup-layer popupAlert">
+    <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">삭제</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <p>정말 삭제하시겠습니까?</p>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="closePopup('deletePopup')">취소</button>
+          <button type="button" class="btn bg-red">삭제</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 삭제 팝업 -->
+
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+		});
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:footer ----------------------------------------------------------->
+	<footer>
+
+		
+
+	</footer>
+	<!---------------------------------------------------------- e:footer ----------------------------------------------------------->
+
+
+
+
+
+
+
+</body>
+
+</html>

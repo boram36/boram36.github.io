@@ -1,0 +1,148 @@
+<div class="layer-top">
+  <button type="button" onclick="$.modal.close();" class="btn-close"><i></i></button>
+</div>
+<div class="layer layer-guide">
+  <div class="layer-wrap">
+    <div class="main-top">
+      <div class="main-top__box">
+        <div class="list list01">
+          <div class="main-top__txt small">관람</div>
+          <div class="main-top__img big">
+            <img src="../assets/images/guide_icon01.svg" alt="">
+            <img src="../assets/images/guide_icon02.svg" alt="">
+          </div>
+        </div>
+        <div class="list list02">
+          <div class="main-top__img small">
+            <img src="../assets/images/guide_icon03.svg" alt="">
+          </div>
+          <div class="main-top__txt big">안내도</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer-cont">
+      <div class="guide-img">
+        <div class="inner">
+          <img src="../assets/images/guide-img.svg" alt="">
+        </div>
+      </div>
+      <div class="guide-box">
+        <div class="inner">
+          <div class="guide-box__tit">관람 추천 동선</div>
+          <div class="guide-box__cont">
+            <p><span class="bg-blue">1F</span>열린 수장고 4·5·6 → 보이는 수장고 3 → 소장품 정보실 →</p>
+            <p><span class="bg-orange">2F</span>민속아카이브 → 보이는 수장고 8 → 열린 수장고 9·10·11 →</p>
+            <p><span class="bg-blue">1F</span>열린 보존과학실 → 보이는 수장고 7 → 열린 수장고16</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="main-top">
+      <div class="main-top__box type2">
+        <div class="list list01">
+          <div class="main-top__txt big">박물관</div>
+          <div class="main-top__img">
+            <img src="../assets/images/guide_icon04.svg" alt="">
+          </div>
+        </div>
+        <div class="list list02">
+          <div class="main-top__img big">
+            <img src="../assets/images/guide_icon05.svg" alt="">
+            <img src="../assets/images/guide_icon06.svg" alt="">
+          </div>
+          <div class="main-top__txt">예절</div>
+        </div>
+      </div>
+      <div class="main-top__bottom">먼저, 학습 전에 박물관 예절에 대해 알아봐요.</div>
+    </div>
+
+    <div class="etiquette">
+      <div class="inner">
+        <ul class="etiquette-list">
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette01.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">박물관에서는<br>뛰지 않아요.</div>
+          </li>
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette02.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">눈과 마음으로<br>	소장품을 감상해요.</div>
+          </li>
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette03.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">핸드폰 알림은<br>진동으로 해요.</div>
+          </li>
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette04.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">음식물을<br>먹지 않아요.</div>
+          </li>
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette05.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">촬영은 플래시<br>없이 찍어요.</div>
+          </li>
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette06.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">삼각대 사용은<br>지양해 주세요.</div>
+          </li>
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette07.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">사진 촬영<br>가능해요.</div>
+          </li>
+          <li>
+            <div class="etiquette-list__img">
+              <img src="../assets/images/etiquette08.svg" alt="">
+            </div>
+            <div class="etiquette-list__cont">조용한 목소리로<br>대화해요.</div>
+          </li>
+          <li>
+            <a href="../index.html">
+              <div class="etiquette-list__img">
+                <img src="../assets/images/etiquette09.svg" alt="">
+              </div>
+              <div class="etiquette-list__cont">학습하러<br>가볼까요?</div>
+            </a>
+          </li>
+
+          
+
+        </ul>
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+<button type="button" class="layer-top-btn"></button>
+
+
+<script>
+  $(".layer-top-btn").click(function() {
+      $(".layer-pop").animate({ scrollTop: 0 }, 600); // 600ms 동안 스크롤
+      return false;
+    });
+
+    $('.layer-pop').on('scroll', function () {
+					const scrollTop = $(this).scrollTop();
+					if (scrollTop > 50) {
+						$(this).find('.layer-top').addClass('active');
+					} else {
+						$(this).find('.layer-top').removeClass('active');
+					}
+				});
+</script>

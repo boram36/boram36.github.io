@@ -1,0 +1,380 @@
+@charset "UTF-8";
+/*
+ * File       : _main.scss
+ * Date       : 2025.04.
+ *
+ *
+ * 
+ */
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MAIN
+// ─────────────────────────────────────────────────────────────────────────────
+.container{
+  &.main{
+    padding: 0;
+    @include laptop{
+      padding: 30px 40px 16px;
+    }
+    @include mobile{
+      padding: 18px 18px 16px;
+    }
+    .main-tit{
+     .ico-camp{
+        width: 30px;
+        height: 30px;
+        background: url("../../images/cmn/ico-camp_b.svg") no-repeat 50% / cover;
+      }
+    }
+    
+    .dashboard{
+      height: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      @include laptop{
+        flex-direction: column;
+        gap: 30px;
+        height: auto;
+      }
+      @include laptop{
+        flex-wrap: nowrap;
+      }
+      &-l{
+        flex: 1;
+        padding: 50px;
+        @include laptop{
+          padding: 0;
+          flex: none;
+        }
+        .row{
+          flex-wrap: nowrap;
+          @include laptop{
+            flex-wrap: wrap;
+          }
+        }
+      }
+      &-r{
+        width: calc(375px + var(--gutter-x));
+        flex: none;
+        position: relative;
+        padding: 60px 50px 50px;
+        &:before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1px;
+          height: 100%;
+          border-left: 1px solid var(--color-primary-30);
+          @include laptop{
+            display: none;
+          }
+        }
+        @include laptop{
+          width: 100%;
+          padding: 0;
+        }
+      }
+    
+    }
+  }
+}
+
+
+
+@media screen and (min-width: 769px) {
+  .selectSg-cont{
+    padding: 0 30px;
+    
+    &__top{
+      padding: 42px 0 32px;
+      b{
+        font-size: $fs-24; 
+      }
+      p{
+        font-size: $fs-16; margin-top: 6px;
+        
+      }
+     
+    }
+    &__bottom{
+      padding: 19px 0 20px;
+      .selectSg-dday{
+        font-size: $fs-28;
+        flex: 1;
+        height: 50px;
+      }
+      p{
+        font-size: $fs-16;
+        flex: 1;
+        text-align: center;
+        @include mobile{
+          font-size: $fs-14;
+        }
+      }
+    }
+  }
+  .candidate-box{
+    position: relative;
+    &__top{
+      padding: 30px 30px 37px;
+      min-height: 180px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    
+    }
+    &__wrap{
+     gap: 25px;
+    }
+    &__profile{
+      margin-top: 15px;
+      
+    }
+    &__bottom{
+      padding: 32px 30px 30px;
+      padding-top: calc(180px + 20px);
+      @include mobile{
+        padding: calc(180px + 15px) 20px 20px;
+      }
+     
+      .rating-tit__num{
+        font-size: 32px;
+      }
+      .rating-bar{
+        margin-top: 22px;
+      }
+      .rating-list{
+        li{
+          font-size: 18px;
+          b{font-size: 24px;}
+          span{
+            font-size: 18px;
+          }
+          & + li{
+            margin-top: 20px;
+          }
+        }
+        margin-top: 50px;
+      }
+      .rating-tit__txt{
+        font-size: $fs-20;
+      }
+    }
+    .drop-btn{display: none;}
+  }
+}
+
+.candidate-box__top{
+  @include mobile{
+    min-height: auto;
+    padding: 30px 20px 32px;
+  }
+}
+
+.main-select{
+  width: calc(400px + (var(--gutter-x)));
+  flex: none;
+  > div + div{
+    margin-top: 35px;
+    @include laptop{
+      margin-top: 30px;
+    }
+  }
+  @include laptop{
+    width: 100%;
+  }
+}
+.main-rating {
+  flex: 1;
+  @include laptop{
+    margin-top: 30px;
+  }
+  .tab-cont{
+    padding: 30px;
+    @include mobile{
+      padding: 18px 17px;
+      margin-top: 0;
+    }
+  }
+}
+.rating-box__wrap{
+  position: relative;
+}
+.map-cont{
+    text-align: center;
+    @include mobile{
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
+
+.map-legend {
+  margin-top: 16px;
+  width: 100%;
+  @include mobile{
+    margin-top: 30px;
+  }
+  .legend-label{
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+    @include mobile{
+      font-size: $fs-12;
+    }
+  }
+  .legend-bar {
+    position: relative;
+    padding-top: 22px;
+    @include mobile{
+      padding-top: 20px;
+    }
+    .legend-value{
+      position: absolute;
+      top: 0;
+      font-size: $fs-12;
+      @include mobile{
+        font-size: 10px;
+      }
+      &.value01{
+        left: 0;
+      }
+      &.value02{
+        right: 0;
+      }
+    }
+    .bar{
+      flex: 1;
+      width: 100%;
+      height: 20px;
+      border-radius: 10px;
+      display: flex;
+      overflow: hidden;
+      @include mobile{
+        font-size: 15px;
+      }
+      span{
+        flex: 1;
+        background-color: var(--point-blue);
+        &:nth-child(1){opacity: .2;}
+        &:nth-child(2){opacity: .4;}
+        &:nth-child(3){opacity: .6;}
+        &:nth-child(4){opacity: .8;}
+      }
+    }
+    
+  }
+}
+.scroll-info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color: var(--color-primary-80);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 2;
+    p{
+      font-size: 0;
+    }
+    @include mobile{
+      display: block;
+    }
+  }
+
+.hidden{
+  display: none;
+}
+
+.main-ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @include laptop{
+    flex-direction: row;
+    gap: 44px;
+  }
+  @include mobile{
+    flex-direction: column;
+    gap: 33px;
+  }
+  .sub-tit{
+    @include mobile{
+      margin-bottom: 18px;
+    }
+  }
+  .ranking-cards{
+    @include laptop{
+      flex: 1;
+    }
+  }
+  .ranking-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    @include laptop{
+      margin-left: 14px;
+    }
+    li{
+      position: relative;
+    }
+  }
+  .ranking-num{
+    position: absolute;
+    top: -8px;
+    left: -14px;
+  }
+  .ranking-card {
+    background: var(--color-primary-0);
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px 0px rgba(199, 206, 213, 0.25);
+    padding: 12px 20px 9px;
+    @extend .f-space;
+    align-items: flex-end;
+    height: 55px;
+    .card-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      color: var(--color-primary-80);
+    }
+    .rank-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      b {
+        font-size: $fs-14;
+      }
+      p {
+        font-size: $fs-12;
+        color: var(--color-primary-60);
+      }
+    }
+    .rank-value {
+      b{
+        font-size: $fs-20;
+      }
+      font-size: $fs-14;
+      margin-left: 12px;
+    } 
+  }
+  .btn-more {
+    @extend .f-c-all;
+    width: 100%;
+    height: 25px;
+    margin-top: 10px;
+    font-size: $fs-12;
+    font-weight: 500;
+    border-radius: 20px;
+    background: var(--color-primary-30);
+    color: rgba(27, 31, 39, 0.5);
+    @include laptop{
+      margin-left: 14px;
+      width: auto;
+    }
+  }
+}

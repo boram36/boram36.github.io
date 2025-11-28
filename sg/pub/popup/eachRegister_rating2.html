@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지지도 개별 등록</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+</head>
+<body class="admin">
+  <div class="popup-admin ">
+    <div class="popup-header">
+      <h2 class="popup-title">지지도 개별 등록</h2>
+    </div>
+    <div class="popup-content">
+
+      <div class="input-row">
+        <div class="input-tit">유권자</div>
+        <div class="comBox-item comBox-view">
+          <div class="profile f-c-space">
+            <div class="tit">
+              <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+              <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+            </div>
+            <p class="profile-tel">010-1***-4532</p>
+          </div>
+          <ul class="detail">
+            <li>
+              <div class="detail-tit">
+                <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+              </div>
+              <div class="detail-cont">구월면 &gt; 이읍리</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label class="input-tit" for="">지지도<span class="required">*</span></label>
+        <div class="checkbox-box radio-wrap">
+          <div class="checkbox">
+            <input type="radio" id="radio01" name="radio" >
+            <label for="radio01"><i class="ico ico-like_big"></i></label>
+          </div>
+
+          <div class="checkbox">
+            <input type="radio" id="radio02" name="radio" >
+            <label for="radio02"><i class="ico ico-mid_big"></i></label>
+          </div>
+
+          <div class="checkbox">
+            <input type="radio" id="radio03" name="radio" >
+            <label for="radio03"><i class="ico ico-hate_big"></i></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <label for="input03" class="input-tit">의견</label>
+        <textarea name="" id="" placeholder="의견 입력"></textarea>
+      </div>
+
+    </div>
+    <!-- e: popup-content -->
+    <div class="popup-footer">
+      <div class="btn-wrap">
+        <button type="button" class="btn" onclick="requestPopupClose()">취소</button>
+        <button type="button" class="btn btn-active">등록</button>
+      </div>
+    </div>
+    <!-- e: popup-footer -->
+  </div>
+
+  <script>
+    window.addEventListener('message', function (e) {
+      const vw = e.data?.viewportWidth;
+      if (!vw) return;
+
+      const body = document.body;
+      body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+      if (vw <= 767) body.classList.add('viewport-xs');
+      else if (vw <= 1024) body.classList.add('viewport-sm');
+      else if (vw <= 1280) body.classList.add('viewport-md');
+      else body.classList.add('viewport-lg');
+  });
+
+  function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+
+  </script>
+
+</body>
+</html> 

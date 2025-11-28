@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+  <link rel="stylesheet" href="../../../assets/scss/common/datepicker.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/datepicker.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container container-list" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-notice"></i>
+          공지사항
+          <button type="button" class="btn btn-search ico" onclick="openSearch()"><i class="ico-search"></i></button>
+        </h2>
+      
+        <!-- 검색 필터 -->
+        <div class="search-option" id="searchPopup">
+          <div class="search-inner">
+            <button type="button" class="btn-close ico" onclick="closeSearch()"><i class="ico-cancel"></i></button>
+            <div class="search-row flex">
+              <div class="search-row__tit">검색옵션</div>
+              <div class="search-row__cont f-h-c">
+
+                <div class="search-col">
+                  <label class="search-col__tit">등록일</label>
+                  <div class="input-wrap input-date">
+                    <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                    <span>~</span>
+                    <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                  </div>
+                </div>
+
+                <div class="search-col">
+                  <label class="search-col__tit">작성자</label>
+                  <div class="select-wrap ">
+                    <select name="" id="" class="width-big" >
+                      <option value="">작성자</option>
+                      <option value="" >작성자</option>
+                      <option value="">작성자</option>
+                      <option value="">작성자</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="search-row search-row__input flex">
+              <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
+              <div class="search-row__cont f-h-c">
+                <div class="search-col">
+                  <label class="search-col__tit">제목 및 내용</label>
+                  <div class="input-row">
+                    <input type="text" id="" name="" placeholder="제목 및 내용">
+                  </div>
+                </div>
+              </div>
+              <div class="search-row__button">
+                <div class="btn-wrap">
+                  <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+                  <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- 조직원 목록 테이블 -->
+        <div class="board-list">
+          <div class="header">
+            전체(34) 
+          </div>
+          <!-- 공지사항 table-full 클래스 추가 -->
+          <div class="card table-wrap">
+
+            <div class="table-scroll">
+              <table class="table  table-full">
+                <thead>
+                  <tr>
+                    <th class="width-100">번호</th>
+                    <th class="">제목</th>
+                    <th class="width-100">조회수</th>
+                    <th class="width-120">등록일</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="td_num">44</td>
+                    <td class="td_subject txt-l"><a href="./detail.html" class="tbl-cut td-txt">[공지] 서비스 정검 공지입니다. 서비스 정검 공지입니다. 서비스 정검 공지입니다. 서비스 정검 공지입니다. 서비스 정검 공지입니다. 서비스 정검 공지입니다. 서비스 정검 공지입니다. 서비스 정검 공지입니다. </a></td>
+                    <td class="td_researcher"><span class="td-tit text-justify">조       회       수</span>10</td>
+                    <td class="td_regDate"><span class="td-tit text-justify">등       록       일</span>2025.04.11</td>
+                  </tr>
+                  <tr>
+                    <td class="td_num">43</td>
+                    <td class="td_subject txt-l"><a href="./detail.html" class="tbl-cut td-txt">[공지] 서비스 정검 공지입니다. </a></td>
+                    <td class="td_researcher"><span class="td-tit text-justify">조       회       수</span>10</td>
+                    <td class="td_regDate"><span class="td-tit text-justify">등       록       일</span>2025.04.11</td>
+                  </tr>
+                  <tr>
+                    <td class="td_num">42</td>
+                    <td class="td_subject txt-l"><a href="./detail.html" class="tbl-cut td-txt">[공지] 서비스 정검 공지입니다.</a></td>
+                    <td class="td_researcher"><span class="td-tit text-justify">조       회       수</span>100</td>
+                    <td class="td_regDate"><span class="td-tit text-justify">등       록       일</span>2025.04.11</td>
+                  </tr>
+
+                
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 하단 컨트롤 -->
+            <div class="table-footer">
+              <div class="table-footer__wrap">
+                <!-- e: 선택 -->
+                <div class="gap-10 width-full f-v-r">
+                  <a href="./register.html" class="btn btn-basic list-btn btn-navy"><i class="ico ico-add_sm ico-mr"></i>공지 등록</a>
+                </div>
+              </div>
+              <div class="pagination">
+                <button class="page-btn page-first" onclick=""><i></i></button>
+                <button class="page-btn page-prev" onclick=""><i></i></button>
+                <button class="page-btn active" onclick="">1</button>
+                <button class="page-btn" onclick="">2</button>
+                <button class="page-btn" onclick="">3</button>
+                <button class="page-btn page-next" onclick=""><i></i></button>
+                <button class="page-btn page-end" onclick=""><i></i></button>
+              </div>
+              <!-- e: pagination -->
+            </div>
+          </div>
+
+        
+
+        </div>
+
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+  <div id="searchPopup" class="popup-layer popup-admin popup-bottom popup-full">
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">검색</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('searchPopup')"><i class="ico-popup_cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+         <div class="search-option mo-ver">
+          <div class="search-row flex">
+            <div class="search-row__tit">검색옵션</div>
+            <div class="search-row__cont f-h-c">
+
+              <div class="search-col">
+                <label class="search-col__tit">행사기간</label>
+                <div class="input-wrap input-date">
+                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="시작일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                  <span>~</span>
+                  <input class="datepicker-here" id="date" name="date" data-language="kr" type="text" placeholder="종료일" data-date-format="yyyy.mm.dd" value="" autocomplete="off" title="" maxlength="10">
+                </div>
+              </div>
+
+              <div class="search-col">
+                <label class="search-col__tit">행사 지역</label>
+                <div class="select-wrap row row-cols-4">
+                  <select name="" id="" class="width-quart" >
+                    <option value="">시/도</option>
+                    <option value="" >경상남도</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart" >
+                    <option value="" >시/군/구</option>
+                    <option value="" >상도군</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">읍/면/동</option>
+                    <option value="" >구월면</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+          
+                  <select name="" id="" class="width-quart">
+                    <option value="">리</option>
+                    <option value="" >이읍리</option>
+                    <option value="">서울시</option>
+                    <option value="">부산시</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-row search-row__input flex">
+            <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">행사명</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="행사명">
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">행사내용</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="행사내용">
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">등록 조직원</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="search-row__button">
+          <div class="btn-wrap">
+            <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+            <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+          </div>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initSettingMenu();
+    });
+
+    // 관리 버튼 드롭다운
+    function initSettingMenu() {
+      const menus = document.querySelectorAll('.setting-menu');
+
+      menus.forEach(menu => {
+        const btn = menu.querySelector('.btn-setting');
+        const dropdown = menu.querySelector('.setting-drop');
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // 모든 드롭다운 닫기
+          menus.forEach(m => {
+            const d = m.querySelector('.setting-drop');
+            if (d !== dropdown) d.classList.remove('active');
+          });
+
+          // 현재 드롭다운 토글
+          dropdown.classList.toggle('active');
+        });
+      });
+
+      // 바깥 클릭 시 닫기
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.setting-drop.active').forEach(drop => {
+          drop.classList.remove('active');
+        });
+      });
+    }
+
+  </script>
+
+
+</body>
+
+</html>

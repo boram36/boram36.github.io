@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li >
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-chart"></i>
+          통계
+        </h2>
+
+        <div class="stats-wrap">
+          <div class="tab-menu type02">
+            <button class="tab-btn active" data-index="0">지지도 현황</button>
+            <button class="tab-btn" data-index="1">지지도 조사수</button>
+            <button class="tab-btn" data-index="2">행사 현황</button>
+            <button class="tab-btn" data-index="3">조직원 활동 현황(랭킹)</button>
+          </div>
+  
+          <div class="tab-cont__wrap">
+            <div class="tab-cont active" data-index="0">
+              <div class="row row-cols-2">
+                <div>
+                  <div class="card">
+                    <!-- 1) 지지도 현황 영역 -->
+                    <div id="map-container" class="width-full">
+                      <div class="rating-box__wrap">
+                        <div class="scroll-info">
+                          <p><img src="../../../assets/images/adm/ico-scroll.svg" alt=""></p>
+                          좌우 스크롤
+                        </div>
+                        <div class="map-cont">
+                          <img src="../../../assets/images/adm/map.svg" alt="">
+                          <!-- <div id="submap-container" class="hidden">
+                            <svg id="submap-svg" viewBox="0 0 600 600"></svg>
+                          </div> -->
+                        </div>
+                        <div class="map-legend">
+                          <span class="legend-label">지지도 조사 현황(%)</span>
+                          <div class="legend-bar">
+                            <span class="legend-value value01">0%</span>
+                            <div class="bar">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                            </div>
+                            <span class="legend-value value02">100%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div>
+                  <div class="card card-space">
+                    <div class="card-top">
+                      <div class="border-box">
+                        <div class="candidate-box__bottom">
+                          <div class="rating-tit f-c-space">
+                            <div class="rating-tit__txt ico f-h-c">내 후보 지지도<i class="ico-heart"></i></div>
+                            <b class="rating-tit__num">21.7%</b>
+                          </div>
+                          <div class="rating-bar">
+                            <p style="width: 21.7%;"></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chart-wrap">
+                      <canvas id="chart1" class="chart-box" style="width:100%; max-width: 100%; height: 435px;"></canvas>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+            <div class="tab-cont" data-index="1">
+              <div class="row row-cols-2">
+                <div>
+                  <div class="card">
+                    <!-- 1) 지지도 현황 영역 -->
+                    <div id="map-container" class="width-full">
+                      <div class="rating-box__wrap">
+                        <div class="scroll-info">
+                          <p><img src="../../../assets/images/adm/ico-scroll.svg" alt=""></p>
+                          좌우 스크롤
+                        </div>
+                        <div class="map-cont">
+                          <img src="../../../assets/images/adm/map.svg" alt="">
+                          <!-- <div id="submap-container" class="hidden">
+                            <svg id="submap-svg" viewBox="0 0 600 600"></svg>
+                          </div> -->
+                        </div>
+                        <div class="map-legend">
+                          <span class="legend-label">지지도 조사 현황(%)</span>
+                          <div class="legend-bar">
+                            <span class="legend-value value01">0%</span>
+                            <div class="bar">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                            </div>
+                            <span class="legend-value value02">100%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div>
+                  <div class="card card-space">
+                    <div class="card-top row row-cols-2">
+                      <div>
+                        <div class="border-box f-h-c">
+                          <div class="candidate-box__bottom width-full">
+                            <div class="rating-tit f-c-space">
+                              <div class="rating-tit__txt ico f-h-c">총 유권자 수</div>
+                              <b class="rating-tit__num">21,200 <span>명</span></b>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="border-box  f-h-c">
+                          <div class="candidate-box__bottom width-full">
+                            <div class="rating-tit f-c-space">
+                              <div class="rating-tit__txt ico f-h-c">지지도<br>조사완료</div>
+                              <b class="rating-tit__num">21,200 <span>명</span></b>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chart-wrap" style="height: 470px;">
+                      <canvas id="chart2" class="chart-box" style="width:100%; max-width: 100%; height: 470px !important;"></canvas>
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+            <div class="tab-cont" data-index="2">
+              <div class="row">
+                <div class="col-5">
+                  <div class="card card-space">
+                    <div class="card-top">
+                      <div class="border-box f-h-c">
+                        <div class="candidate-box__bottom width-full">
+                          <div class="rating-tit f-c-space">
+                            <div class="rating-tit__txt ico f-h-c">행사 수</div>
+                            <b class="rating-tit__num">34 <span>명</span></b>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 1) 지지도 현황 영역 -->
+                    <div id="map-container" class="width-full">
+                      <div class="rating-box__wrap">
+                        <div class="scroll-info">
+                          <p><img src="../../../assets/images/adm/ico-scroll.svg" alt=""></p>
+                          좌우 스크롤
+                        </div>
+                        <div class="map-cont">
+                          <img src="../../../assets/images/adm/map.svg" alt="">
+                          <!-- <div id="submap-container" class="hidden">
+                            <svg id="submap-svg" viewBox="0 0 600 600"></svg>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="card f-1">
+                    <div class="tab-layout">
+                      <div class="tab-menu">
+                        <div class="tab-title txt-l txt-small">
+                          전체(24)
+                        </div>
+                      </div>
+                      <div class="tab-cont__wrap">
+                        <div class="table-scroll">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>번호</th>
+                                <th>행사일</th>
+                                <th>시간</th>
+                                <th>제목</th>
+                                <th>장소</th>
+                                <th>지역</th>
+                                <th>예상인원</th>
+                                <th>관리</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="td_num">119091</td>
+                                <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                                <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                                <td class="td_subj txt-l width-200"><a href="../event/detail.html" class="tbl-cut td-txt">초청 강연회</a></td>
+                                <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                                <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                                <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                                <td class="td_setting width-80 td-pc">
+                                  <div class="setting-menu">
+                                    <button class="btn btn-setting btn-center">
+                                      <i class="ico-setting"></i>
+                                    </button>
+                                    <ul class="setting-drop">
+                                      <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                      <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td class="td_num">119091</td>
+                                <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                                <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                                <td class="td_subj txt-l width-200"><a href="../event/detail.html" class="tbl-cut td-txt">초청 강연회</a></td>
+                                <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                                <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                                <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                                <td class="td_setting width-80 td-pc">
+                                  <div class="setting-menu">
+                                    <button class="btn btn-setting btn-center">
+                                      <i class="ico-setting"></i>
+                                    </button>
+                                    <ul class="setting-drop">
+                                      <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                      <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                              
+                              <tr>
+                                <td class="td_num">119091</td>
+                                <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                                <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                                <td class="td_subj txt-l width-200"><a href="../event/detail.html" class="tbl-cut td-txt">초청 강연회</a></td>
+                                <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                                <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                                <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                                <td class="td_setting width-80 td-pc">
+                                  <div class="setting-menu">
+                                    <button class="btn btn-setting btn-center">
+                                      <i class="ico-setting"></i>
+                                    </button>
+                                    <ul class="setting-drop">
+                                      <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                      <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                              <tr class="tr-disabled">
+                                <td class="td_num">119091</td>
+                                <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                                <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                                <td class="td_subj txt-l width-200"><a href="../event/detail.html" class="tbl-cut td-txt">초청 강연회</a></td>
+                                <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                                <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                                <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                                <td class="td_setting width-80 td-pc">
+                                  <div class="setting-menu">
+                                    <button class="btn btn-setting btn-center">
+                                      <i class="ico-setting"></i>
+                                    </button>
+                                    <ul class="setting-drop">
+                                      <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                      <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                              <tr class="tr-disabled">
+                                <td class="td_num">119091</td>
+                                <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                                <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                                <td class="td_subj txt-l width-200"><a href="../event/detail.html" class="tbl-cut td-txt">초청 강연회</a></td>
+                                <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                                <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                                <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                                <td class="td_setting width-80 td-pc">
+                                  <div class="setting-menu">
+                                    <button class="btn btn-setting btn-center">
+                                      <i class="ico-setting"></i>
+                                    </button>
+                                    <ul class="setting-drop">
+                                      <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                      <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                                </td>
+                              </tr>
+
+                              <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                              <tr class="tr-disabled">
+                                <td class="td_num">119091</td>
+                                <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                                <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                                <td class="td_subj txt-l width-200"><a href="../event/detail.html" class="tbl-cut td-txt">초청 강연회</a></td>
+                                <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                                <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                                <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                                <td class="td_setting width-80 td-pc">
+                                  <div class="setting-menu">
+                                    <button class="btn btn-setting btn-center">
+                                      <i class="ico-setting"></i>
+                                    </button>
+                                    <ul class="setting-drop">
+                                      <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                      <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <!-- 종료된 행사 경우 : tr-disabled 클래스 추가 -->
+                              <tr class="tr-disabled">
+                                <td class="td_num">119091</td>
+                                <td class="td_date"><span class="td-tit text-justify">행      사      일</span>2025.04.11</td>
+                                <td class="td_time"><span  class="td-tit text-justify">시                간</span>13:00</td>
+                                <td class="td_subj txt-l width-200"><a href="../event/detail.html" class="tbl-cut td-txt">초청 강연회</a></td>
+                                <td class="td_place txt-l width-200"><span  class="td-tit text-justify">장                소</span><div class="tbl-cut">구월강당</div></td>
+                                <td class="td_region"><span class="td-tit text-justify">지                역</span><div class="tbl-cut">김가면 > 유수리 김가면 > 유수리 김가면 > 유수리 김가면 > 유수리</div></td>
+                                <td class="td_ratingNum"><span class="td-tit text-justify">예   상   인   원</span>300</td>
+                                <td class="td_setting width-80 td-pc">
+                                  <div class="setting-menu">
+                                    <button class="btn btn-setting btn-center">
+                                      <i class="ico-setting"></i>
+                                    </button>
+                                    <ul class="setting-drop">
+                                      <li><button class="btn" onclick="openPopup('../../../popup/edit_event.html', 700, 786)">수정</button></li>
+                                      <li><button class="btn txt-system-red" onclick="openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">삭제</button></li>
+                                    </ul>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!-- 하단 컨트롤 -->
+                        <div class="table-footer">
+                          <div class="pagination">
+                            <button class="page-btn page-first" onclick=""><i></i></button>
+                            <button class="page-btn page-prev" onclick=""><i></i></button>
+                            <button class="page-btn active" onclick="">1</button>
+                            <button class="page-btn" onclick="">2</button>
+                            <button class="page-btn" onclick="">3</button>
+                            <button class="page-btn page-next" onclick=""><i></i></button>
+                            <button class="page-btn page-end" onclick=""><i></i></button>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-cont" data-index="3">
+              <div class="row row-cols-2">
+                <div>
+                  <div class="card f-1">
+                    <div class="tab-layout">
+                      <div class="tab-menu">
+                        <div class="tab-title">
+                          지지도 등록 수 랭킹
+                        </div>
+                      </div>
+                      <div class="tab-cont__wrap">
+                        <div class="table-scroll">
+                          <table class="table table-full">
+                            <thead>
+                              <tr>
+                                <th>순위</th>
+                                <th>이름</th>
+                                <th>성별</th>
+                                <th>나이</th>
+                                <th class="width-200">휴대폰번호</th>
+                                <th class="width-200">지지도 등록 수</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="td_num">1</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)"  class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">지지도등록수</span>321</td>
+                              </tr>
+                              <tr>
+                                <td class="td_num">2</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)"  class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">지지도등록수</span>321</td>
+                              </tr>
+                              <tr>
+                                <td class="td_num">3</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)"  class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">지지도등록수</span>321</td>
+                              </tr>
+                              <tr>
+                                <td class="td_num">4</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_rating.html', 700, 786)"  class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">지지도등록수</span>321</td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                </div>
+                  <div>
+                  <div class="card f-1">
+                    <div class="tab-layout">
+                      <div class="tab-menu">
+                        <div class="tab-title">
+                          행사 등록 수 랭킹
+                        </div>
+                      </div>
+                      <div class="tab-cont__wrap">
+                        <div class="table-scroll">
+                          <table class="table table-full">
+                            <thead>
+                              <tr>
+                                <th>순위</th>
+                                <th>이름</th>
+                                <th>성별</th>
+                                <th>나이</th>
+                                <th class="width-200">휴대폰번호</th>
+                                <th class="width-200">행사 등록 수</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="td_num">1</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">행사등록수</span>321</td>
+                              </tr>
+                              <tr>
+                                <td class="td_num">2</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">행사등록수</span>321</td>
+                              </tr>
+                              <tr>
+                                <td class="td_num">3</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">행사등록수</span>321</td>
+                              </tr>
+                              <tr>
+                                <td class="td_num">4</td>
+                                <td class="td_subj">
+                                  <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tbl-cut td-txt pc-ver">김지훈</a>
+                                  <div class="mo-ver width-full">
+                                    <div class="profile f-c-space">
+                                      <a href="javascript:;" onclick="openPopup('../../../popup/detail_event.html', 700, 786)" class="tit">
+                                        <b>김지훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                                      </a>
+                                      <div class="td-txt f-c-all">
+                                        010-1234-5678
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="td_gender td-pc">남</td>
+                                <td class="td_age td-pc">54</td>
+                                <td class="td_tel td-pc">010-1235-1234</td>
+                                <td class="td_ratingNum txt-r"><span class="td-tit text-justify">행사등록수</span>321</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+
+                      </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initSettingMenu();
+      tabMenu();
+    });
+
+    // 관리 버튼 드롭다운
+    function initSettingMenu() {
+      const menus = document.querySelectorAll('.setting-menu');
+
+      menus.forEach(menu => {
+        const btn = menu.querySelector('.btn-setting');
+        const dropdown = menu.querySelector('.setting-drop');
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // 모든 드롭다운 닫기
+          menus.forEach(m => {
+            const d = m.querySelector('.setting-drop');
+            if (d !== dropdown) d.classList.remove('active');
+          });
+
+          // 현재 드롭다운 토글
+          dropdown.classList.toggle('active');
+        });
+      });
+
+      // 바깥 클릭 시 닫기
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.setting-drop.active').forEach(drop => {
+          drop.classList.remove('active');
+        });
+      });
+    }
+
+    function tabMenu() {
+      const buttons = document.querySelectorAll('.tab-btn');
+			const contents = document.querySelectorAll('.tab-cont');
+
+			buttons.forEach(button => {
+				button.addEventListener('click', () => {
+					const index = button.getAttribute('data-index');
+
+					// 탭 버튼 활성화 처리
+					buttons.forEach(btn => btn.classList.remove('active'));
+					button.classList.add('active');
+
+					// 콘텐츠 보이기
+					contents.forEach(content => {
+						if (content.getAttribute('data-index') === index) {
+							content.classList.add('active');
+						} else {
+							content.classList.remove('active');
+						}
+					});
+				});
+			});
+    }
+
+    // chart
+    const ctx = $('#chart1');
+
+    const dataValues = [32, 11, 93, 28, 32, 11, 93, 28, 32, 11];
+
+    // 값 기반 색상 지정
+    const getColorByValue = (value) => {
+      if (value >= 80) return 'rgba(52, 55, 135, 1)'; // 아주 진한 보라
+      if (value >= 60) return 'rgba(52, 55, 135, 0.8)'; // 아주 진한 보라
+      if (value >= 40) return 'rgba(52, 55, 135, 0.6)'; // 진한 보라
+      if (value >= 20) return 'rgba(52, 55, 135, 0.4)'; // 중간 보라
+      return 'rgba(52, 55, 135, 0.2)'; // 매우 연함 (0~9%)
+    };
+
+    const colors = dataValues.map(getColorByValue);
+
+    const myChart = new Chart(ctx, {
+        plugins: [ChartDataLabels],
+        type: 'bar',
+        data: {
+            labels: [
+                '가천면', '금수면', '수륜면', '벽진면',
+                '가천면', '금수면', '수륜면', '벽진면',
+                '가천면', '금수면'
+            ],
+            datasets: [{
+                label: '내 후보 지지도',
+                data: dataValues,
+                backgroundColor: colors,
+                hoverBackgroundColor: '#CBCE91',
+                borderRadius: 15,
+                barPercentage: 1,
+                barThickness: 12,
+                categoryPercentage: 0.6,
+            }]
+        },
+        options: {
+            maxBarThickness: 15,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                datalabels: {
+                    color: '#000',
+                    align: 'end',
+                    anchor: 'end',
+                    padding: 10,
+                    formatter: value => `${value}%`,
+                    font: {
+                        size: 14,
+                        family: "'Pretendard Variable', 'sans-serif'",
+                        weight: 400
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: { color: '#eee' },
+                    min: 0,
+                    max: 100,
+                    ticks: {
+                        stepSize: 10,
+                        callback: value => `${value}%`, // 퍼센트 표기
+                        color: '#999',
+                        font: {
+                            size: 12,
+                            family: "'Pretendard Variable', 'sans-serif'",
+                            weight: 400
+                        }
+                    }
+                },
+                y: {
+                    grid: { color: 'transparent' },
+                    ticks: {
+                        color: '#000',
+                        padding: 20,
+                        font: {
+                            size: 14,
+                            family: "'Pretendard Variable', 'sans-serif'",
+                            weight: 500
+                        }
+                    }
+                }
+            },
+            indexAxis: 'y'
+          }
+    });
+
+
+    const ctx2 = $('#chart2');
+    ctx2.height(600); // 높이를 600px로 고정
+
+    // 실제 데이터
+    const values2 = [500, 300, 200, 100, 1000, 500, 250, 400, 800, 600];
+    const maxValue2 = 1200; // 기준 값
+
+    // 회색 배경 바
+    const backgroundBar2 = Array(values2.length).fill(maxValue2);
+
+    // 퍼센트 기반 색상
+    const getColorByValue2 = (value) => {
+      const percent = value;
+      if (percent >= 1200) return 'rgba(52, 55, 135, 1)';
+      if (percent >= 900) return 'rgba(52, 55, 135, 0.8)';
+      if (percent >= 600) return 'rgba(52, 55, 135, 0.6)';
+      if (percent >= 300) return 'rgba(52, 55, 135, 0.4)';
+      return 'rgba(52, 55, 135, 0.2)';
+    };
+    const colors2 = values2.map(getColorByValue2);
+
+    // Chart 생성
+    new Chart(ctx2, {
+      plugins: [ChartDataLabels],
+      type: 'bar',
+      data: {
+        labels: [
+          '가천면', '금수면', '가천면', '금수면',
+          '가천면', '금수면', '가천면', '금수면',
+          '가천면', '금수면'
+        ],
+        datasets: [
+          {
+            label: '전체 기준',
+            data: backgroundBar2,
+            backgroundColor: '#EDEDED',
+            barThickness: 10,
+            categoryPercentage: 0.6,
+            order: 1, // 회색이 뒤로
+            datalabels: { display: false }
+          },
+          {
+            label: '실제 값',
+            data: values2,
+            backgroundColor: colors2,
+            borderRadius: {
+              topRight: 8,
+              bottomRight: 8
+            },
+            barThickness: 10,
+            categoryPercentage: 0.6,
+            order: 0, // 앞에 표시
+            datalabels: {
+              align: 'end',
+              anchor: 'end',
+              color: '#000',
+              padding: 20,
+              formatter: (value) => `${value}/${maxValue2}`,
+              font: {
+                size: 12,
+                weight: 500,
+                family: "'Pretendard Variable', 'sans-serif'"
+              }
+            }
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: {
+            top: 20,
+            bottom: 20
+          }
+        },
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            max: maxValue2,
+            ticks: {
+              color: '#999',
+              font: {
+                size: 12
+              }
+            },
+            grid: {
+              color: '#eee'
+            }
+          },
+          y: {
+            ticks: {
+              padding: 20,
+              color: '#000',
+              font: {
+                size: 14,
+                weight: 500
+              }
+            },
+            grid: {
+              color: 'transparent'
+            }
+          }
+        }
+      }
+    });
+
+
+
+  </script>
+
+
+</body>
+
+</html>

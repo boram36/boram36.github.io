@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="./assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="./assets/scss/user/user.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="./assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/jquery.selectric.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="./assets/js/user/design.js"></script>
+</head>
+
+
+<!-- type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<body class="type-red">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+	<!-- 메인페이지에서 main클래스 추가 -->
+	<div class="container main" id="container">
+
+    <nav class="header py-10 ">
+      <div class="inner f-c-space">
+        <div class="hd-logo">
+          <img src="./assets/images/cmn/logo.svg" alt="백전백승">
+        </div>
+        <button type="button" class="refresh-btn ico"><i class="ico-hd_refresh"></i></button>
+      </div>
+    </nav>
+    <!-- e: header -->
+
+
+    <main>
+      <div class="inner">
+        <div class="main-top">
+          <h3 class="main-top__tit">2024년 제13대 지방선거</h3>
+          <p class="main-top__txt01">경상북도 청도군 기초자치단체장</p>
+          <p class="main-top__txt02"><b>D-120</b>2025.04.12 월요일</p>
+        </div>
+        <!-- e: main-top -->
+  
+        <div class="candidate-box ">
+          <div class="candidate-box__top">
+            <b class="candidate-box__tit">내 후보자</b>
+            <div class="candidate-box__wrap flex">
+              <div class="candidate-box__img">
+                <!-- 기본 이미지 -->
+                <!-- <img src="./assets/images/cmn/profile80.svg" alt=""> -->
+                <!-- noImg -->
+                 <div class="noImg">
+                    <img src="./assets/images/cmn/ico-profile.svg" alt="">
+                 </div>
+              </div>
+              <div class="candidate-box__profile flex-space">
+                <div class="profile-tit"><b>박동준</b><span>72세 (1957년)</span></div>
+                <ul class="profile-cont">
+                  <!-- 3줄 이하면 drop-btn 안보임 -->
+                  <!-- 3줄 이상 시 닫기/열기 버튼 -->
+                  <li>서울대학교 행정학과 졸업</li>
+                  <li>현) 국민정책연구소 이사</li>
+                  <li>전) 제20대 국회의원</li>
+                  <li>서울대학교 행정학과 졸업 서울대학교 행정학과 졸업 서울대학교 행정학과 졸업</li>
+                  <li>현) 국민정책연구소 이사 현) 국민정책연구소 이사 현) 국민정책연구소 이사</li>
+                </ul>
+              </div>
+    
+            </div> 
+            <button type="button" class="drop-btn ico" style="display: none;"><i class="ico-drop_w"></i></button>
+          </div>
+          <!-- e: candidate-box__top -->
+  
+          <div class="candidate-box__bottom">
+            <div class="rating-tit f-c-space">
+              <div class="rating-tit__txt ico f-h-c">내 후보 지지도<i class="ico-heart"></i></div>
+              <b class="rating-tit__num">21.7%</b>
+            </div>
+            <div class="rating-bar">
+              <p style="width: 21.7%;"></p>
+            </div>
+            <ul class="rating-list">
+              <li class="f-c-space">
+                총 유권자 수
+                <b>11,500 <span>명</span></b>
+              </li>
+              <li class="f-c-space">
+                총 지지자 수
+                <b>2,500 <span>명</span></b>
+              </li>
+            </ul>
+  
+          </div>
+          <!-- e: candidate-box__bottom -->
+         
+        </div>
+        <!-- e: candidate-box -->
+  
+        <div class="activity-cont">
+          <h3 class="sub-tit">내 활동</h3>
+          <div class="activity-box">
+            <ul class="flex">
+              <li>
+                <a href="./config/user/rating/list.html">
+                  <div class="activity-box__tit f-c-space ico">지지도 조사수<i class="ico-enter"></i></div>
+                  <div class="activity-box__cont f-c-space">
+                    <i class="ico-my_heart"></i>
+                    <b>121</b>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="./config/user/event/list.html">
+                  <div class="activity-box__tit f-c-space ico">행사 등록수<i class="ico-enter"></i></div>
+                  <div class="activity-box__cont f-c-space">
+                    <i class="ico-my_day"></i>
+                    <b>23</b>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- e: activity-box -->
+        </div>
+        <!-- e: activity-cont -->
+      </div>
+    </main>
+    <!-- e: main -->
+
+
+    <div class="footer">
+      <div class="inner">
+        <div class="footer-wrap">
+          <!-- 해당 메뉴 : active 클래스 추가 -->
+          <a href="./index.html" class="menu-btn menu01 active">
+            <i></i>
+            <p>홈</p>
+          </a>
+          <a href="./config/user/rating/list.html" class="menu-btn menu02">
+            <i></i>
+            <p>지지도</p>
+          </a>
+          <a href="./config/user/event/list.html" class="menu-btn menu03">
+            <i></i>
+            <p>행사</p>
+          </a>
+          <a href="./config/user/notice/list.html" class="menu-btn menu04">
+            <i></i>
+            <p>공지</p>
+          </a>
+        </div>
+      </div>
+     
+    </div>
+    <!-- e: footer -->
+
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

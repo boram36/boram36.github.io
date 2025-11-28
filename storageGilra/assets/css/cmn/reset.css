@@ -1,0 +1,245 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Th.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+*{
+    font-family: "LINESeedKR","Noto Sans KR", sans-serif;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    letter-spacing: -0.6px;
+    line-height: 1.4;
+    color: #000;
+    /* scrollbar-width: none; */
+}   
+
+
+
+/*--------------------------------------------------------- reset ---------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    /*min-width:1600px;*/
+    -webkit-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+}
+
+
+a{
+    color:#000;
+    display:block;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+
+a:hover, a:active{
+    text-decoration:none;
+}
+
+
+ol, ul{
+	list-style:none;
+}
+
+
+span,
+em,
+b{
+    font-style:normal;
+    font-size:inherit;
+    letter-spacing:inherit;
+    font-family:inherit;
+}
+p{
+    font-style:normal;
+    font-size:inherit;
+    letter-spacing:inherit;
+    font-family:inherit; 
+}
+
+pre{
+    line-height:1.76;
+}
+
+table{
+    width:100%;
+	border-spacing:0;
+    border-collapse:collapse;
+}
+
+
+select{
+    background:url(../../images/cmn/ico_select_arr.svg) no-repeat 50% / 11px;
+    background-position-x:calc(100% - 15.5px);
+    padding-right:30px !important;
+}
+
+select option{
+	font-size:inherit;
+}
+
+
+select::-ms-expand{
+    display:none; /* 네이티브 화살표 제거*/
+}
+
+
+select:focus::-ms-value{
+	background-color:inherit;
+	color:inherit;
+}
+
+
+/* 초기화 */
+input:not([type=checkbox],[type=radio],[type=range]),
+textarea,
+button,
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0; 
+}
+
+/* 자동완성 */
+input:-webkit-autofill,
+input:-internal-autofill-selected{
+	-webkit-box-shadow:0 0 0 30px #f4f4f4 inset;
+	-webkit-text-fill-color:#000000;
+}
+
+
+input::-moz-focus-inner,
+button::-moz-focus-inner{
+    border:0;
+    padding:0;
+}
+
+
+
+/* readonly & disabled */
+input[readonly],
+input[disabled],
+input[type="checkbox"]:disabled + label::before,
+input[type="radio"]:disabled + label::before{
+	background-color:#F7F7F7 !important;
+	cursor:default;
+    color:#232323 !important;
+}
+
+input[type="checkbox"]:disabled + label,
+input[type="radio"]:disabled + label{color:#ccc !important;}
+
+input[type="checkbox"]:disabled + label::before,
+input[type="radio"]:disabled + label::before{border-color:#a2a2a2 !important;}
+
+
+::placeholder{
+	color:#888;
+    font-size:inherit;
+    font-weight:400;
+}
+
+
+button{
+	background:none;
+    border:0;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    cursor:pointer;
+    vertical-align:middle;
+    color: #000;
+}
+
+
+address{
+    font-style:normal;
+}
+
+
+/* 스크롤 디자인 */
+::-webkit-scrollbar{
+	width:5px;
+	height:5px;
+	background-color:#ebebeb;
+}
+
+
+::-webkit-scrollbar-thumb{
+	background:#c9c9c9;
+}
+
+
+/* :focus{
+	outline:none;
+	box-shadow:0 0 0 1px #000;
+}
+
+input:focus{
+	outline:none;
+	box-shadow:0 0 0 1px #000;
+}
+	 */
+	
+::selection{
+	background:#ddd;
+}

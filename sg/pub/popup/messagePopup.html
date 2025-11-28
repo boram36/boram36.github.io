@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../assets/images/favicon/favicon.ico">
+ 
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+  <link rel="stylesheet" href="../assets/scss/common/datepicker.min.css">
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/datepicker.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+</head>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+
+<body class="admin">
+
+  <div class="popup-admin">
+    <div class="popup-header">
+      <h2 class="popup-title">문자 전송</h2>
+    </div>
+    <!-- e: popup-header -->
+    <div class="popup-content">
+      
+      <div class="message-send__wrap">
+        <div class="tab-menu type02">
+          <button class="tab-btn active" data-url="partial-send.html">문자 발송</button>
+          <button class="tab-btn" data-url="partial-history.html">문자 발송내역</button>
+          <button class="tab-btn" data-url="partial-charge.html">문자 충전</button>
+        </div>
+        <div id="tabContent" class="iframe-container">
+          <iframe id="tabIframe" src="./partial-send.html" frameborder="0" width="100%" style="min-height: 600px; height: auto;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+</body>
+</html>
+
+
+
+
+  <script>
+
+window.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'resize-iframe') {
+    const iframe = document.getElementById('tabIframe');
+    iframe.style.height = event.data.height + 'px';
+  }
+});
+
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initSettingMenu();
+        initMessageByteCount();
+        initMobileTabToggle();
+        initSendCheckboxToggle();
+        initTabMenu();
+      });
+
+      // 관리메뉴 클릭 이벤트
+      function initSettingMenu() {
+        const menus = document.querySelectorAll('.setting-menu');
+        menus.forEach(menu => {
+          const btn = menu.querySelector('.btn-setting');
+          const dropdown = menu.querySelector('.setting-drop');
+          btn.addEventListener('click', e => {
+            e.stopPropagation();
+            menus.forEach(m => m.querySelector('.setting-drop').classList.remove('active'));
+            dropdown.classList.toggle('active');
+          });
+        });
+        document.addEventListener('click', () => {
+          document.querySelectorAll('.setting-drop.active').forEach(drop => drop.classList.remove('active'));
+        });
+      }
+
+      // 문자메시지 byte 
+      function initMessageByteCount() {
+        document.querySelectorAll('.message-box__cont').forEach(box => {
+          const textarea = box.querySelector('textarea');
+          const byteCount = box.querySelector('.byte-count b');
+          if (!textarea || !byteCount) return;
+          const updateByteCount = () => {
+            const text = textarea.value;
+            const bytes = [...text].reduce((acc, ch) => acc + (ch.charCodeAt(0) > 0x7f ? 2 : 1), 0);
+            byteCount.textContent = `${bytes}`;
+          };
+          textarea.addEventListener('input', updateByteCount);
+          updateByteCount();
+        });
+      }
+
+      // 모바일에서 탭 메뉴 열고 닫기
+      function initMobileTabToggle() {
+        document.querySelectorAll('.tab-menu__control').forEach(menu => {
+          menu.addEventListener('click', () => {
+            const cont = menu.nextElementSibling;
+            cont.classList.toggle('open');
+            menu.classList.toggle('active');
+            resizeParentIframe();
+
+          });
+        });
+      }
+
+
+      function showSpecialCharPopup(button) {
+        // 버튼 기준으로 가장 가까운 textarea 찾기
+        const container = button.closest('.message-box') || button.closest('.template-item');
+        const textarea = container.querySelector('textarea');
+        const popup = button.nextElementSibling; // 버튼 옆에 있는 .char-popup div
+
+        // 다른 팝업 다 닫기
+        document.querySelectorAll('.char-popup').forEach(p => {
+          if (p !== popup) p.style.display = 'none';
+        });
+
+        // innerHTML 전체 구성
+        popup.innerHTML = `
+          <div class="popup-header" >
+            <h2 class="popup-title">특수문자 선택</h2>
+            <button type="button" class="btn-close ico" onclick="this.closest('.char-popup').style.display='none'">
+              <i class="ico-popup_cancel"></i>
+            </button>
+          </div>
+          <div class="char-grid" >
+            <button class="char">★</button>
+            <button class="char">☆</button>
+            <button class="char">☎</button>
+            <button class="char">☏</button>
+            <button class="char">☜</button>
+            <button class="char">☞</button>
+            <button class="char">※</button>
+            <button class="char">♥</button>
+            <button class="char">♡</button>
+            <button class="char">♣</button>
+            <button class="char">♠</button>
+            <button class="char">♤</button>
+            <button class="char">♧</button>
+            <button class="char">♨</button>
+          </div>
+        `;
+
+        // 이벤트 연결
+        popup.querySelectorAll('.char').forEach(charBtn => {
+          charBtn.addEventListener('click', () => {
+            insertAtCursor(textarea, charBtn.textContent);
+            popup.style.display = 'none';
+          });
+        });
+
+        // 토글 열고 닫기
+        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+      }
+
+      function insertAtCursor(textarea, text) {
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const value = textarea.value;
+        textarea.value = value.substring(0, start) + text + value.substring(end);
+        textarea.selectionStart = textarea.selectionEnd = start + text.length;
+        textarea.focus();
+      }
+
+
+
+      // 이동
+      function moveToTab(tabIndex) {
+        if (window.parent) {
+          const iframe = window.parent.document.getElementById('tabIframe');
+          const tabButtons = window.parent.document.querySelectorAll('.tab-btn');
+
+          // 탭 인덱스에 따라 URL 지정
+          let url = '';
+          if (tabIndex === 0) url = 'partial-send.html';
+          else if (tabIndex === 1) url = 'partial-history.html';
+          else if (tabIndex === 2) url = 'partial-charge.html';
+
+          // iframe src 변경
+          if (iframe && url) {
+            iframe.src = url;
+          }
+
+          // active 클래스 토글
+          tabButtons.forEach(btn => {
+            const btnUrl = btn.getAttribute('data-url');
+            btn.classList.toggle('active', btnUrl === url);
+          });
+        }
+      }
+
+
+      // 이미지 삭제
+      function fnDelSelectorFile(button) {
+        const li = button.closest('li');
+        if (li) {
+          li.remove();
+
+          // iframe 부모에게 높이 재조정 요청
+          if (window.parent) {
+            const height = document.documentElement.scrollHeight;
+            window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+          }
+        }
+      }
+
+
+   // 체크박스 체크 시 변경
+   function initSendCheckboxToggle() {
+    document.querySelectorAll('.checkbox .sendCheck').forEach(checkbox => {
+      const wrapper = checkbox.closest('.checkbox');
+      checkbox.addEventListener('change', () => wrapper.classList.toggle('on', checkbox.checked));
+      wrapper.classList.toggle('on', checkbox.checked);
+    });
+  }
+
+
+   // 탭 메뉴 클릭 시 이동
+   function initTabMenu() {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadIframe(btn.dataset.url);
+        resizeParentIframe();
+      });
+    });
+  }
+
+
+  // iframe src 설정
+  function loadIframe(url) {
+  const iframe = document.getElementById('tabIframe');
+  if (iframe) {
+    iframe.src = url;
+
+    if (!window._iframeResizeHandlerAdded) {
+      window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'resize-iframe') {
+          iframe.style.height = event.data.height + 'px';
+        }
+      });
+      window._iframeResizeHandlerAdded = true;
+    }
+  }
+}
+
+
+
+  </script>

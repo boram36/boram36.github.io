@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	<link rel="stylesheet" href="../../../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/adm/admin.js"></script>
+</head>
+
+
+<!-- 1. type-red, type-orange, type-yellow ... 등 클래스 추가 시 배경 색상 변경 -->
+<!-- 2. 관리자 페이지 admin 클래스 추가 -->
+<body class="admin">
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+
+  <header>
+    <div class="header-top f-c-space">
+      <!-- gnb 버튼 -->
+      <button type="button" class="gnb-btn ico"><i class="ico-gnb"></i></button>
+      <div class="hd-logo">
+        <img src="../../../assets/images/cmn/logo.svg" alt="">
+        <span>바른소프트웨워</span>
+      </div>
+      <div class="hd-control f-h-c">
+        <div class="hd-user">
+          <button type="button" class="hd-user__wrap">
+            <span class="user-name f-h-c">
+              <i class="ico-profile_sm"></i>이시훈님
+            </span>
+          </button>
+          <ul class="dropdown_menu">
+            <li>
+              <span class="user-name f-c-all"><i class="ico-profile_sm"></i>이시훈님</span>
+            </li>
+            <li>
+              <a href="">
+                로그아웃
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="hd-control__link f-h-c">
+          <a href="" class="btn">캠프 정보</a>
+          <a href="" class="btn">시스템 공지</a>
+        </div>
+        
+      </div>
+    </div>
+  </header>
+  <!-- e: header -->
+
+  <nav class="gnb">
+    <button type="button" class="close-btn ico"><i class="ico-close"></i></button>
+    <div class="gnb-wrap">
+      <div class="gnb-top">
+        <button type="button" class="gnb-toggle ico">
+          <i class="ico-toggle"></i>
+        </button>
+        <div class="gnb-top__wrap">
+          <div class="profile-img">
+            <img src="../../../assets/images/cmn/profile80.svg" alt="">
+            <!-- noImg -->
+            <span>1</span>
+          </div>
+          <div class="gnb-name">
+            <b>박동준</b>
+            <p>박동준 후보님 캠프</p>
+          </div>
+          <button type="button" class="gnb-refresh ico"><i class="ico-refresh_w"></i>캠프 변경</button>
+        </div>
+      </div>
+      <!-- e: gnb-top -->
+      <div class="gnb-menu__wrap">
+        <ul class="gnb-menu__list">
+          <!-- active 클래스 추가 -->
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-home_w"></i>홈</a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-candidater_w"></i>후보자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-camppeople_w"></i>조직원<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-voter_w"></i>유권자<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-heart_w"></i>지지도<span>조사관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-date_w"></i>행사<span>관리</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-message_w"></i>문자<span>발송</span></a>
+          </li>
+          <li class="active">
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-notice_w"></i>공지<span>사항</span></a>
+          </li>
+          <li>
+            <a href="" class="gnb-menu__btn ico"><i class="gnb-chart_w"></i>통계</a>
+          </li>
+        </ul>
+      </div>
+     
+    </div>
+  </nav>
+
+	<div class="container notice" id="container">
+    <div class="container-wrap">
+      <main>
+        <h2 class="main-tit f-h-c">
+          <i class="ico-notice"></i>
+            공지사항
+        </h2>
+        <div class="candidater-wrap f-space gap-25 comBox-full">
+          <div class="candidater-list flex-none">
+            <div class="selectSg-box">
+              <div class="selectSg-cont">
+
+                <a href="./list.html" class="btn bbsView-btn ico"><i class="ico-btn_back"></i>목록으로</a>
+              
+                <div class="com-input">
+                  <form action="">
+                    <div class="form-input">
+                      <div class="input-row f-h-c">
+                          <label class="input-tit" for="name">제목<span class="required">*</span></label>
+                          <div class="input-wrap">
+                            <input type="text" id="name" name="name" placeholder="제목" value="">
+                          </div>
+                      </div>
+                      <div class="input-row flex">
+                        <label class="input-tit" for="name">내용<span class="required">*</span></label>
+                        <!-- 에디터 -->
+                        <textarea id="candidateBio" placeholder="내용 입력"></textarea>
+                      </div>
+                      <div class="input-row f-h-c">
+                        <label class="input-tit" for="name">첨부<br>파일</label>
+                        <div class="excel-upload-area" id="excelDropArea">
+                          <div class="upload-before">
+                            <div class="file-txt f-c-all"><i class="ico-floating_black"></i>첨부 파일 찾기</div>
+                            <input type="file" id="excelFile"  hidden  multiple/>
+                            <p class="upload-info">00MB 용량 제한됩니다.</p>
+                          </div>
+                          <div class="upload-result__wrap"  style="display: none;">
+                            <div class="upload-result">
+                              <div class="file-name"></div>
+                              <button type="button" class="btn btn-delete ico"><i class="ico-delete"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="btn-wrap f-c-all">
+                  <button type="button" class="btn list-btn btn-active" onclick="">등록</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    
+      <div class="footer">
+       © Bareunsoftware All rights reserved.
+      </div>
+    </div>
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+
+  <div id="layerPopup" class="popup" style="display: none;">
+    <div class="popup-overlay" onclick="closePopup()"></div>
+    <div class="popup-wrap" id="popupWrap">
+      <button type="button" class="btn-close ico" onclick="closePopup()"><i class="ico-cancel"></i></button>      
+      <iframe id="popupIframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+  <!-- 공통 팝업 컨테이너 -->
+
+
+  <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  initExcelDragAndUpload();
+});
+
+function initExcelDragAndUpload() {
+  const dropArea = document.getElementById("excelDropArea");
+  const fileInput = document.getElementById("excelFile");
+  const beforeBox = dropArea.querySelector(".upload-before");
+  const resultBox = dropArea.querySelector(".upload-result__wrap");
+  const loadingOverlay = document.getElementById("loadingOverlay"); // optional
+
+  const handleFiles = (files) => {
+    resultBox.innerHTML = ""; // 기존 내용 초기화
+
+    Array.from(files).forEach((file, index) => {
+      const kb = (file.size / 1024).toFixed(1);
+      const fileId = `file-${index}-${Date.now()}`;
+
+      const fileEl = document.createElement("div");
+      fileEl.className = "upload-result";
+      fileEl.id = fileId;
+      fileEl.innerHTML = `
+        <div class="file-name">
+        <i class="ico ico-file"></i>
+        ${file.name} <span>${kb}KB</span></div>
+
+        <button type="button" class="btn btn-delete ico" data-target="${fileId}">
+          <i class="ico-delete"></i>
+        </button>
+      `;
+      resultBox.appendChild(fileEl);
+    });
+
+    resultBox.style.display = "inline-flex";
+    beforeBox.style.display = "none";
+    dropArea.classList.add('dragover');
+  };
+
+  // 클릭하여 파일 선택
+  dropArea.addEventListener("click", () => fileInput.click());
+
+  // 파일 선택 시
+  fileInput.addEventListener("change", (e) => {
+    if (e.target.files.length > 0) {
+      handleFiles(e.target.files);
+    }
+  });
+
+  // 드래그 영역
+  dropArea.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropArea.classList.add("dragover");
+  });
+
+  dropArea.addEventListener("dragleave", () => {
+    dropArea.classList.remove("dragover");
+  });
+
+  dropArea.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropArea.classList.remove("dragover");
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      handleFiles(files);
+    }
+  });
+
+  // 삭제 버튼 클릭 시 (이벤트 위임 방식)
+  resultBox.addEventListener("click", (e) => {
+    const btn = e.target.closest(".btn-delete");
+    if (btn) {
+      const targetId = btn.dataset.target;
+      const fileDiv = document.getElementById(targetId);
+      if (fileDiv) fileDiv.remove();
+
+      // 모든 파일 삭제된 경우
+      if (resultBox.children.length === 0) {
+        resultBox.style.display = "none";
+        beforeBox.style.display = "flex";
+        fileInput.value = "";
+      }
+    }
+  });
+}
+
+  </script>
+
+</body>
+
+</html>

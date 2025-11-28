@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/*
+ * File       : _main.scss
+ * Date       : 2025.04.
+ *
+ *
+ * 
+ */
+
+
+
+
+
+.main{
+  &-top{
+    &__tit{font-size: $fs-20;}
+    &__txt01{margin-top: 5px; color: var(--color-primary-80);}
+    &__txt02{
+      b{font-size: $fs-16; margin-right: 10px;}
+      margin-top: 10px; font-size: $fs-14; color: var(--color-primary-60); 
+    }
+  }
+}
+
+
+.activity{
+  &-cont{
+    margin-top: 27px;
+  }
+  &-box{
+    border-radius: 20px;
+    background: var(--color-primary-10);
+    padding: 14px 18px;
+    > ul > li{
+      flex: 1;
+    }
+    li + li{
+      margin-left: 17px;
+      padding-left: 17px;
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 1px;
+        height: 100%;
+        background: var(--point-black);
+        opacity: 0.05;
+      }
+    }
+    &__tit{
+      font-weight: 500;
+    }
+    &__cont{
+      margin-top: 5px;
+      border-radius: 100px;
+      background: var(--color-primary-0);
+      padding: 4px 15px 4px 10px;
+      b{
+        font-size: 18px;
+      }
+    }
+  }
+}

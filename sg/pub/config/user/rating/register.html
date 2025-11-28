@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="OOO 홈페이지 입니다.">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<meta property="og:description" content="OOO 홈페이지 입니다.">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+
+	<link rel="canonical" href="">
+
+
+	<title></title>
+
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="../../../assets/images/favicon/favicon.ico">
+
+
+
+	<!-- css :: lib -->
+	<!-- <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+	<link rel="stylesheet" href="./assets/css/swiper.min.css">
+	<link rel="stylesheet" href="./assets/css/slick.css"> -->
+
+
+	<!-- css -->
+	
+	<link rel="stylesheet" href="../../../assets/scss/user/user.css">
+
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.modal.min.js"></script>
+	<script type="text/javascript" src="../../../assets/js/lib/jquery.selectric.js"></script>
+
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../../../assets/js/user/design.js"></script>
+</head>
+
+
+<body>
+
+	<!-- <div id="skip">
+		<a href="#container" tabindex="0">본문내용 바로가기</a>
+	</div> -->
+
+
+
+
+
+
+
+
+
+	<!---------------------------------------------------------- s:container ----------------------------------------------------------->
+	<div class="container bg-primary-10" id="container">
+
+    <nav class="header py-10 ">
+      <div class="inner f-c-l">
+        <button type="button" class="back-btn ico" onclick=""><i class="ico-back"></i></button>
+        <h2 class="header-tit">지지도 등록</h2>
+      </div>
+    </nav>
+    <!-- e: header -->
+
+    <main>
+      <div class="inner">
+        <div class="input-row">
+          <label for="searchInput" class="input-tit">유권자 검색</label>
+          <div class="input-wrap input-search input-inner">
+            <input type="text" id="searchInput" name="" placeholder="이름(2글자이상), 휴대폰번호(끝 4자리)">
+            <button type="button" id="searchBtn" class="btn ico" title="검색어 입력"><i class="ico-search"></i></button>
+            <button type="button" id="clearBtn" class="btn ico" title="지우기" style="display:none;"><i class="ico-cancel"></i></button>
+          </div>
+        </div>
+
+        
+        <div class="noList noList-begin mt25">
+          <!-- 검색 전 초기화면{ -->
+          <p>
+            지지도를 등록할<br>
+            유권자를 검색해 주세요.
+          </p>
+          <!-- } 검색 전 초기화면 -->
+        </div>
+
+        <div class="comBox">
+          <div class="comBox-top f-c-space">
+            <b class="comBox-top__tit">검색 결과(2)</b>
+          </div>
+          <!-- e: comBox-top -->
+
+          <div class="comBox-list">
+            <div class="comBox-item">
+              <div class="comBox-item__top f-c-space">
+                <div class="num">2</div>
+                <button type="button" class="btn-small btn ico bg-black" onclick="openPopup('registerPopup')">선택</button>
+              </div>
+              <!-- e: comBox-item__top -->
+  
+              <div class="comBox-item__cont">
+                <div class="profile f-c-space">
+                  <div class="tit">
+                    <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                    <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+                  </div>
+                  <p class="profile-tel">010-1***-4532</p>
+                </div>
+                <!-- e: profile -->
+  
+                <ul class="detail">
+                  <li>
+                    <div class="detail-tit">
+                      <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+                    </div>
+                    <div class="detail-cont">구월면 &gt; 이읍리</div>
+                  </li>
+                  
+                </ul>
+                <!-- e: detail -->
+  
+              </div>
+              <!-- e: comBox-item__cont -->
+  
+            </div>
+  
+            <div class="comBox-item">
+              <div class="comBox-item__top f-c-space">
+                <div class="num">1</div>
+                <button type="button" class="btn-small btn ico bg-black" onclick="openPopup('registerPopup')">선택</button>                
+              </div>
+              <!-- e: comBox-item__top -->
+  
+              <div class="comBox-item__cont">
+                <div class="profile f-c-space">
+                  <div class="tit">
+                    <b>김순미</b>(<span class="txt-14">여</span>, 64세)
+                    <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+                  </div>
+                  <p class="profile-tel">010-1***-4532</p>
+                </div>
+                <!-- e: profile -->
+  
+                <ul class="detail">
+                  <li>
+                    <div class="detail-tit">
+                      <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+                    </div>
+                    <div class="detail-cont">구월면 &gt; 이읍리</div>
+                  </li>
+                </ul>
+                <!-- e: detail -->
+  
+              </div>
+              <!-- e: comBox-item__cont -->
+  
+            </div>
+            <!-- e: 반복구문 : comBox-item -->
+          </div>
+
+          <!-- 검색결과 없을 경우 -->
+          <div class="noList">
+            <p>
+              찾는 유권자가 없습니까?<br>
+              그럼 유권자를 등록해 주세요
+            </p>
+            <a href="../voter/register.html" class="btn btn-active btn-mid mt5">신규 유권자 등록</a>
+          </div>
+
+
+        </div>
+
+        
+
+       
+      </div>
+    </main>
+    <!-- e: main -->
+
+
+    <div class="footer">
+      <div class="inner">
+        <div class="footer-wrap">
+          <!-- 해당 메뉴 : active 클래스 추가 -->
+          <a href="../index.html" class="menu-btn menu01 ">
+            <i></i>
+            <p>홈</p>
+          </a>
+          <a href="../rating/list.html" class="menu-btn menu02 active">
+            <i></i>
+            <p>지지도</p>
+          </a>
+          <a href="../event/list.html" class="menu-btn menu03">
+            <i></i>
+            <p>행사</p>
+          </a>
+          <a href="../notice/list.html" class="menu-btn menu04">
+            <i></i>
+            <p>공지</p>
+          </a>
+        </div>
+      </div>
+     
+    </div>
+    <!-- e: footer -->
+
+
+	</div>
+	<!---------------------------------------------------------- e:container ----------------------------------------------------------->
+
+  <div id="registerPopup" class="popup-layer popup-bottom popup-full">
+    <div class="popup-backdrop" onclick="closePopup('registerPopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">지지도 등록</h2>
+        <button type="button" class="btn-close ico" onclick="closePopup('registerPopup')"><i class="ico-popup_cancel"></i></button>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+        <div class="input-row">
+          <div class="input-tit">유권자</div>
+          <div class="comBox-item comBox-view">
+            <div class="profile f-c-space">
+              <div class="tit">
+                <b>이정훈</b>(<span class="txt-14">남</span>, 64세)
+                <button type="button" class="edit-btn ico" title="수정"><i class="ico-edit"></i></button>
+              </div>
+              <p class="profile-tel">010-1***-4532</p>
+            </div>
+            <ul class="detail">
+              <li>
+                <div class="detail-tit">
+                  <span>지&nbsp;&nbsp;&nbsp;&nbsp;역</span>
+                </div>
+                <div class="detail-cont">구월면 &gt; 이읍리</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <label class="input-tit" for="">지지도<span class="required">*</span></label>
+          <div class="checkbox-box radio-wrap">
+            <div class="checkbox">
+              <input type="radio" id="radio01" name="radio" >
+              <label for="radio01"><i class="ico ico-like_big"></i></label>
+            </div>
+
+            <div class="checkbox">
+              <input type="radio" id="radio02" name="radio" >
+              <label for="radio02"><i class="ico ico-mid_big"></i></label>
+            </div>
+
+            <div class="checkbox">
+              <input type="radio" id="radio03" name="radio" >
+              <label for="radio03"><i class="ico ico-hate_big"></i></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <label for="input03" class="input-tit">의견</label>
+          <textarea name="" id="" placeholder="의견 입력"></textarea>
+        </div>
+
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <a href="javascript:;" class="btn btn-disabled" onclick="openPopup('confirmPopup')">등록하기</a>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- e: 등록 팝업 -->
+
+  <div id="confirmPopup" class="popup-layer popupAlert">
+    <div class="popup-backdrop" onclick="closePopup('confirmPopup')"></div>
+    <div class="popup-inner">
+      <div class="popup-header">
+        <h2 class="popup-title">지지도 등록</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+        <p><b>지지도 등록</b>이 완료되었습니다.</p>
+      </div>
+      <!-- e: popup-content -->
+
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn btn-active" onclick="closePopup('confirmPopup')">확인</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+    </div>
+  </div>
+  <!-- 등록완료 팝업 -->
+
+
+  <script>
+    // 버튼 활성화 스크립트
+    function checkFormStatus() {
+      const radioChecked = document.querySelector('input[name="radio"]:checked');
+      const textareaFilled = document.querySelector('textarea').value.trim() !== '';
+      const registerButton = document.querySelector('.popup-footer .btn');
+  
+      if (radioChecked && textareaFilled) {
+        registerButton.classList.remove('btn-disabled');
+        registerButton.classList.add('btn-active');
+      } else {
+        registerButton.classList.remove('btn-active');
+        registerButton.classList.add('btn-disabled');
+      }
+    }
+  
+    // 이벤트 연결
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('input[name="radio"]').forEach(radio => {
+        radio.addEventListener('change', checkFormStatus);
+      });
+  
+      document.querySelector('textarea').addEventListener('input', checkFormStatus);
+    });
+  </script>
+  
+
+
+</body>
+
+</html>

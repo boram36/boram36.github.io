@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수신번호 추가</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+</head>
+<body class="admin">
+  <div class="popup-admin">
+      <div class="popup-header">
+        <h2 class="popup-title">수신번호 추가</h2>
+      </div>
+      <!-- e: popup-header -->
+
+      <div class="popup-content">
+
+         <!-- 검색 필터 -->
+         <div class="search-option">
+          <div class="search-row flex">
+            <div class="search-row__tit">검색옵션</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">분류</label>
+                <div class="radio-wrap">
+                  <div class="checkbox">
+                    <input type="radio" id="cate01" name="category">
+                    <label for="cate01">조직원</label>
+                  </div>
+                  <div class="checkbox">
+                    <input type="radio" id="cate02" name="category">
+                    <label for="cate02">유권자</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-row search-row__input flex">
+            <div class="search-row__tit">검&nbsp;&nbsp;색&nbsp;&nbsp;어</div>
+            <div class="search-row__cont f-h-c">
+              <div class="search-col">
+                <label class="search-col__tit">이름</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="이름(2자 이상)">
+                </div>
+              </div>
+              <div class="search-col">
+                <label class="search-col__tit">휴대폰번호</label>
+                <div class="input-row">
+                  <input type="text" id="" name="" placeholder="휴대폰번호(끝 4자리)">
+                </div>
+              </div>
+            </div>
+            <div class="search-row__button">
+              <div class="btn-wrap">
+                <button type="button" class="btn list-btn btn-basic01" onclick=""><i class="ico ico-mr ico-refresh"></i>초기화</button>
+                <button type="button" class="btn list-btn btn-active" onclick=""><i class="ico ico-mr ico-search_w"></i>검색</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+       
+        <div class="board-list">
+          <div class="header">
+            전체(34) 
+          </div>
+          <div class="card table-wrap bg-primary-10">
+            <div class="table-scroll2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="checkbox">
+                        <input type="checkbox" id="campCheckAll" name="campCheck">
+                        <label for="campCheckAll"></label>
+                      </div>
+                    </th>
+                    <th>번호</th>
+                    <th>구분</th>
+                    <th>이름</th>
+                    <th>성별</th>
+                    <th>나이</th>
+                    <th>수신번호</th>
+                    <th>지역</th>
+                    <th>삭제</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- TODO 리스트가 없을 경우 -->
+                  <!-- <tr class="no-list">
+                    <td colspan="10">엑셀 파일을 등록해 주세요.</td>
+                  </tr> -->
+  
+                  <!-- 리스트가 있을 경우 -->
+                  <!-- 지역 재설정일 경우 : tr클래스에 error-region, 휴대폰번호 중복일 경우: tr클래스에 error-phone -->
+                  <tr>
+                    <td class="td_chk width-80">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01" name="campCheck">
+                        <label for="campChec01"></label>
+                      </div>
+                    </td>
+                    <td class="td_num width-100">43</td>
+                    <td class="td_category width-80 td_right right02">유권자</td>
+                    <td class="td_name width-100">
+                      <input type="text" value="박종식" class="width-full input-small pc-ver">
+                      <div class="mo-ver width-full">
+                        <div class="profile f-c-space">
+                          <div class="tit">
+                            <b>박종식</b><span>(<span class="txt-16">남</span>, 67<span class="txt-16">세</span>)</span>
+                          </div>
+                          <div class="td-txt f-c-all">
+                            010-1234-5678
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="td_gender td-pc">남</td>
+                    <td class="td_age td-pc">67</td>
+                    <td class="td_tel width-180 td-pc"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                    <td class="td_region width-450">
+                      경상남도 > 호고군 > 이호읍 > 시읍리
+                    </td>
+                    <td class="td_delete width-80">
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td_chk width-80">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01" name="campCheck">
+                        <label for="campChec01"></label>
+                      </div>
+                    </td>
+                    <td class="td_num width-100">43</td>
+                    <td class="td_category width-80">유권자</td>
+                    <td class="td_name width-100">
+                      <input type="text" value="박종식" class="width-full input-small">
+                    </td>
+                    <td class="td_gender">남</td>
+                    <td class="td_age">67</td>
+                    <td class="td_tel width-180"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                    <td class="td_region width-450">
+                      경상남도 > 호고군 > 이호읍 > 시읍리
+                    </td>
+                    <td class="td_delete width-80">
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td_chk width-80">
+                      <div class="checkbox">
+                        <input type="checkbox" id="campChec01" name="campCheck">
+                        <label for="campChec01"></label>
+                      </div>
+                    </td>
+                    <td class="td_num width-100">43</td>
+                    <td class="td_category width-80">유권자</td>
+                    <td class="td_name width-100">
+                      <input type="text" value="박종식" class="width-full input-small">
+                    </td>
+                    <td class="td_gender">남</td>
+                    <td class="td_age">67</td>
+                    <td class="td_tel width-180"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                    <td class="td_region width-450">
+                      경상남도 > 호고군 > 이호읍 > 시읍리
+                    </td>
+                    <td class="td_delete width-80">
+                      <button type="button" class="btn btn-delete btn-center ico">
+                        <i class="ico-list_delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+             
+              </table>
+            </div>
+            <!-- e: pc용 테이블 -->
+          </div>
+        </div>
+     
+        
+      </div>
+      <!-- e: popup-content -->
+     
+      <div class="popup-footer">
+        <div class="btn-wrap">
+          <button type="button" class="btn" onclick="requestPopupClose()">취소</button>
+          <button type="button" class="btn btn-active">추가</button>
+        </div>
+      </div>
+      <!-- e: popup-footer -->
+  </div>
+
+
+  <script>
+    window.addEventListener('message', function (e) {
+      const vw = e.data?.viewportWidth;
+      if (!vw) return;
+
+      const body = document.body;
+      body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+      if (vw <= 767) body.classList.add('viewport-xs');
+      else if (vw <= 1024) body.classList.add('viewport-sm');
+      else if (vw <= 1280) body.classList.add('viewport-md');
+      else body.classList.add('viewport-lg');
+  });
+
+  function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+</script>
+
+</body>
+</html> 

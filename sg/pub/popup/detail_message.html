@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자 내용</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+</head>
+<body class="admin">
+  <div class="popup-admin popup-message ">
+    <div class="popup-header">
+      <h2 class="popup-title">문자 내용</h2>
+    </div>
+    <!-- e: popup-header -->
+
+    <div class="popup-content">
+      <div class="message-box">
+        <div class="message-box__cont">
+          <textarea placeholder="내용 입력" maxlength="2000">
+[Web 발신]
+후보 캠프1,
+안녕하세요, 주민 여러분.
+○○○는 금천구에 꼭 필요한 [청년주거 지원 확대/노후 재개발 추진/경로당 개선]을 약속드립니다.
+실천하는 후보 ○○○에게 소중한 한 표를 부탁드립니다.
+감사합니다!
+
+무료거부 080-1234-5678
+          </textarea>
+          <div class="byte-count"><b>0</b> / 2000 Bytes</div>
+        </div>
+        <div class="message-box__check">
+          <div class="checkbox">
+            <input type="checkbox" id="addTxt" name="addTxt" checked>
+            <label for="addTxt">[추가] 무료거부 080-1234-5678</label>
+          </div>
+        </div>
+
+        <div class="message-box__image">
+          <div class="add-image">
+            <ul id="fileList" class="file-list">
+              <li id="" style="">
+                <img src="../assets/images/test/message-test.png" alt="">
+              </li>
+            </ul>                   
+          </div>
+        </div>
+        <div class="message-box__info">
+          발신번호 : 070-1234-5678<br>
+          발신번호 변경 시, 관리자에게 꼭 문의주세요.
+        </div>
+      
+      </div>
+    </div>
+    <!-- e: popup-content -->
+  </div>
+
+  <script>
+       window.addEventListener('message', function (e) {
+      const vw = e.data?.viewportWidth;
+      if (!vw) return;
+
+      const body = document.body;
+      body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+      if (vw <= 767) body.classList.add('viewport-xs');
+      else if (vw <= 1024) body.classList.add('viewport-sm');
+      else if (vw <= 1280) body.classList.add('viewport-md');
+      else body.classList.add('viewport-lg');
+  });
+
+  function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+</script>
+  
+</body>
+</html> 

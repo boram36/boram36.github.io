@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유권자 엑셀 일괄 등록</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="../assets/scss/common/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../assets/scss/adm/admin.css">
+
+	<!-- js :: lib -->
+	<script type="text/javascript" src="../assets/js/lib/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.modal.min.js"></script>
+  <script type="text/javascript" src="../assets/js/lib/jquery.selectric.js"></script>
+	<script type="text/javascript" src="../assets/js/lib/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<!-- js :: common -->
+	<script type="text/javascript" src="../assets/js/adm/admin.js"></script>
+
+</head>
+<body class="admin">
+  <div class="popup-admin">
+    <div class="popup-header">
+      <h2 class="popup-title">유권자 엑셀 일괄 등록</h2>
+    </div>
+    <!-- e: popup-header -->
+    <div class="popup-content popup-content_excel">
+
+      <div class="excel-upload-area" id="excelDropArea">
+        <div class="upload-before">
+          <div class="file-txt f-c-all"><i class="ico-floating_green"></i>엑셀 파일 찾기</div>
+          <input type="file" id="excelFile" accept=".xlsx, .xls" hidden />
+          <p class="upload-info">휴대폰번호가 중복될 경우 상태란에 중복으로 표기 되며,<br class="mo-ver"> 핸드폰 중복일 경우 등록이 불가합니다.</p>
+        </div>
+        <div class="upload-result" style="display: none;">
+          <div class="file-name"></div>
+          <button type="button" class="btn btn-delete ico"><i class="ico-delete"></i></button>
+        </div>
+      </div>
+
+      
+      <div class="excel-control_btn btn-wrap f-c-space mt20 mb35">
+        <button type="button" class="btn down-btn list-btn btn-basic02 ico"><i class="ico-down ico-mr"></i>양식 <span class="txt-hide">다운로드</span></button>
+        <div class="control-btn f-h-c gap-10">
+          <button type="button" class="btn list-btn btn-basic02 ico"><i class="ico-refresh ico-mr"></i>초기화</button>
+          <button type="button" class="btn list-btn bg-green ico" onclick="window.parent.showLoading();"><i class="ico-apply ico-mr"></i>적용</button>
+        </div>
+      </div>
+     
+
+      <div class="card table-wrap bg-primary-10">
+        <div class="table-scroll">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>성별</th>
+                <th>나이</th>
+                <th>휴대폰번호</th>
+                <th>지역</th>
+                <th>마스터여부</th>
+                <th>비고</th>
+                <th>등록상태</th>
+                <th>제외</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- TODO 리스트가 없을 경우 -->
+              <!-- <tr class="no-list">
+                <td colspan="10">엑셀 파일을 등록해 주세요.</td>
+              </tr> -->
+
+              <!-- 리스트가 있을 경우 -->
+              <!-- 지역 재설정일 경우 : tr클래스에 error-region, 휴대폰번호 중복일 경우: tr클래스에 error-phone -->
+              <tr>
+                <td class="td_num width-60">132</td>
+                <td class="td_name width-80 width-90">
+                  <input type="text" value="박종식" class="width-full input-small pc-ver">
+                  <div class="mo-ver width-full">
+                    <div class="profile f-c-space">
+                      <div class="tit">
+                        <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                      </div>
+                      <div class="td-txt f-c-all">
+                        010-1234-5678
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_gender width-130 td-pc">
+                  <div class="radio-wrap">
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_1" name="gender01" checked>
+                      <label for="gender01_1">남</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_2" name="gender01">
+                      <label for="gender01_2">여</label>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_age width-70 td-pc"><input type="text" value="64" class="width-full input-small"></td>
+                <td class="td_tel width-150 td-pc"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                
+                <td class="td_region td-pc">
+                  <div class="select-wrap type02 nowrap">
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >경상남도</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >호고군</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>이호읍</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>시읍리</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="td_master width-80 td-pc">
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td class="td_etc width-160 td-pc">
+                  <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
+                </td>
+                <td class="td_state width-100 td_right right02">
+                  <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
+                  <div class="status-tag status-normal status-big">등록<br class="pc-ver">가능</div>
+                </td>
+                <td class="td_setting mo-ver td_right right01">
+                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2_voter.html', 700, 786)">
+                    <i class="ico-setting"></i>
+                  </button>
+                </td>
+                <td class="td_delete width-40 td_right">
+                  <button type="button" class="btn btn-delete btn-center ico"  onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
+                    <i class="ico-list_delete"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="td_num width-60">132</td>
+                <td class="td_name width-80 width-90">
+                  <input type="text" value="박종식" class="width-full input-small pc-ver">
+                  <div class="mo-ver width-full">
+                    <div class="profile f-c-space">
+                      <div class="tit">
+                        <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                      </div>
+                      <div class="td-txt f-c-all">
+                        010-1234-5678
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_gender width-130 td-pc">
+                  <div class="radio-wrap">
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_1" name="gender01" checked>
+                      <label for="gender01_1">남</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_2" name="gender01">
+                      <label for="gender01_2">여</label>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_age width-70 td-pc"><input type="text" value="64" class="width-full input-small"></td>
+                <td class="td_tel width-150 td-pc"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                
+                <td class="td_region td-pc">
+                  <div class="select-wrap type02 nowrap">
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >경상남도</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >호고군</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>이호읍</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>시읍리</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="td_master width-80 td-pc">
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td class="td_etc width-160 td-pc">
+                  <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
+                </td>
+                <td class="td_state width-100 td_right right02">
+                  <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
+                  <div class="status-tag status-normal status-big">등록<br class="pc-ver">가능</div>
+                </td>
+                <td class="td_setting mo-ver td_right right01">
+                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2_voter.html', 700, 786)">
+                    <i class="ico-setting"></i>
+                  </button>
+                </td>
+                <td class="td_delete width-40 td_right" >
+                  <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
+                    <i class="ico-list_delete"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr class="error-phone">
+                <td class="td_num width-60">132</td>
+                <td class="td_name width-80 width-90">
+                  <input type="text" value="박종식" class="width-full input-small pc-ver">
+                  <div class="mo-ver width-full">
+                    <div class="profile f-c-space">
+                      <div class="tit">
+                        <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                      </div>
+                      <div class="td-txt f-c-all">
+                        010-1234-5678
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_gender width-130 td-pc">
+                  <div class="radio-wrap">
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_1" name="gender01" checked>
+                      <label for="gender01_1">남</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_2" name="gender01">
+                      <label for="gender01_2">여</label>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_age width-70 td-pc"><input type="text" value="64" class="width-full input-small"></td>
+                <td class="td_tel width-150 td-pc"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                
+                <td class="td_region td-pc">
+                  <div class="select-wrap type02 nowrap">
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >경상남도</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >호고군</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>이호읍</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>시읍리</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="td_master width-80 td-pc">
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td class="td_etc width-160 td-pc">
+                  <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
+                </td>
+                <td class="td_state width-100 td_right right02">
+                  <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
+                  <div class="status-tag status-normal status-big">등록<br class="pc-ver">가능</div>
+                </td>
+                <td class="td_setting mo-ver td_right right01">
+                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2_voter.html', 700, 786)">
+                    <i class="ico-setting"></i>
+                  </button>
+                </td>
+                <td class="td_delete width-40 td_right">
+                  <button type="button" class="btn btn-delete btn-center ico"  onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
+                    <i class="ico-list_delete"></i>
+                  </button>
+                </td>
+              </tr>
+               <tr class="error-region">
+                <td class="td_num width-60">132</td>
+                <td class="td_name width-80 width-90">
+                  <input type="text" value="박종식" class="width-full input-small pc-ver">
+                  <div class="mo-ver width-full">
+                    <div class="profile f-c-space">
+                      <div class="tit">
+                        <b>이정훈</b><span>(<span class="txt-16">남</span>, 64<span class="txt-16">세</span>)</span>
+                      </div>
+                      <div class="td-txt f-c-all">
+                        010-1234-5678
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_gender width-130 td-pc">
+                  <div class="radio-wrap">
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_1" name="gender01" checked>
+                      <label for="gender01_1">남</label>
+                    </div>
+                    <div class="checkbox">
+                      <input type="radio" id="gender01_2" name="gender01">
+                      <label for="gender01_2">여</label>
+                    </div>
+                  </div>
+                </td>
+                <td class="td_age width-70 td-pc"><input type="text" value="64" class="width-full input-small"></td>
+                <td class="td_tel width-150 td-pc"><input type="text" value="010-1234-5678" class="width-full input-small"></td>
+                
+                <td class="td_region td-pc">
+                  <div class="select-wrap type02 nowrap">
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >경상남도</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110" disabled>
+                      <option value="" >호고군</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>이호읍</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+            
+                    <select name="" id="" class="width-110">
+                      <option value="" selected>시읍리</option>
+                      <option value="">서울시</option>
+                      <option value="">부산시</option>
+                    </select>
+                  </div>
+                </td>
+                <td class="td_master width-80 td-pc">
+                  <label class="toggle-switch">
+                    <input type="checkbox" checked />
+                    <span class="slider"></span>
+                  </label>
+                </td>
+                <td class="td_etc width-160 td-pc">
+                  <input type="text" value="" class="width-full input-small" placeholder="비고 입력">
+                </td>
+                <td class="td_state width-100 td_right right02">
+                  <!-- 등록가능: status-noraml, 지역 재설정, 휴대폰 번호 중복: status-stop -->
+                  <div class="status-tag status-normal status-big">등록<br class="pc-ver">가능</div>
+                </td>
+                <td class="td_setting mo-ver td_right right01">
+                  <button type="button" class="btn btn-setting ico" onclick="window.parent.openPopup('../../../popup/peopleEdit2_voter.html', 700, 786)">
+                    <i class="ico-setting"></i>
+                  </button>
+                </td>
+                <td class="td_delete width-40 td_right">
+                  <button type="button" class="btn btn-delete btn-center ico" onclick="window.parent.openPopup('../../../popup/deletePopup.html', 324, null, true, 'popup-xs');">
+                    <i class="ico-list_delete"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+         
+          </table>
+        </div>
+      </div>
+      
+    </div>
+    <!-- e: popup-content -->
+    <div class="popup-footer">
+      <div class="btn-wrap">
+        <button type="button" class="btn" onclick="requestPopupClose()">취소</button>
+        <button type="button" class="btn btn-active" onclick="window.parent.showLoading();">등록</button>
+      </div>
+    </div>
+    <!-- e: popup-footer -->
+  </div>
+    
+
+
+  <script>
+
+    window.addEventListener('message', function (e) {
+      const vw = e.data?.viewportWidth;
+      if (!vw) return;
+
+      const body = document.body;
+      body.classList.remove('viewport-xs', 'viewport-sm', 'viewport-md', 'viewport-lg');
+
+      if (vw <= 767) body.classList.add('viewport-xs');
+      else if (vw <= 1024) body.classList.add('viewport-sm');
+      else if (vw <= 1280) body.classList.add('viewport-md');
+      else body.classList.add('viewport-lg');
+  });
+
+    
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initExcelDragAndUpload();
+    });
+
+
+    // 엑셀 업로드 & 드래그 처리
+    function initExcelDragAndUpload() {
+      const dropArea = document.getElementById("excelDropArea");
+      const fileInput = document.getElementById("excelFile");
+      const beforeBox = dropArea.querySelector(".upload-before");
+      const fileName = dropArea.querySelector(".file-name");
+      const resultBox = dropArea.querySelector(".upload-result");
+      const deleteBtn = dropArea.querySelector(".btn-delete");
+   
+
+      const handleFile = (file) => {
+        if (!file.name.match(/\.(xls|xlsx)$/)) {
+          alert("엑셀 파일(.xls, .xlsx)만 가능합니다.");
+          return;
+        }
+
+
+        const kb = (file.size / 1024).toFixed(1);
+        fileName.innerHTML = `
+          <i class="ico ico-excel"></i>
+          ${file.name}
+          <span>${kb}KB</span>
+        `;
+        resultBox.style.display = "inline-flex";
+        beforeBox.style.display = "none";
+        dropArea.classList.add('dragover');
+
+      };
+
+      // 클릭
+      dropArea.addEventListener("click", () => fileInput.click());
+
+      // 파일 선택
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files[0]) handleFile(e.target.files[0]);
+      });
+
+      // 드래그 영역 처리
+      dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("dragover");
+      });
+
+      dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("dragover");
+      });
+
+      dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("dragover");
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          fileInput.files = e.dataTransfer.files;
+          handleFile(file);
+        }
+      });
+
+      // 삭제 버튼
+      deleteBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        fileInput.value = "";
+        resultBox.style.display = "none";
+        beforeBox.style.display = "flex";
+      });
+    }
+
+    function sendHeightToParent() {
+      const height = document.body.scrollHeight;
+      const popupTargetId = window.name || ''; 
+      window.parent.postMessage({ popupHeight: height, popupTargetId }, '*');
+    }
+
+    window.addEventListener('load', sendHeightToParent);
+    window.addEventListener('resize', sendHeightToParent);
+
+    function requestPopupClose() {
+      window.parent.postMessage({ popupCloseRequest: true }, '*');
+    }
+
+    </script>
+
+</body>
+</html> 
