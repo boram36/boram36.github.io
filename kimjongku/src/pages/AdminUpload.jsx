@@ -70,7 +70,7 @@ export default function AdminUpload() {
     }
 
     return (
-        <div className="admin-wrap">
+        <div className="admin-wrap admin-upload222">
             <h2>Admin 작품 업로드</h2>
 
             <form className="admin-form" onSubmit={handleSubmit}>

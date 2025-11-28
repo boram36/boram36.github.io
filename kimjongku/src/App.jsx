@@ -8,7 +8,7 @@ import YearPage from "./pages/YearPage";
 import AdminUpload from "./pages/AdminUpload";
 
 function App() {
-  const isIdle = useIdleTimer(6000);
+  const isIdle = useIdleTimer(100000);
   const [showScreensaver, setShowScreensaver] = useState(false);
 
   useEffect(() => {
