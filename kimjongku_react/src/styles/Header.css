@@ -1,0 +1,43 @@
+/* Header 기본 스타일 */
+
+.site-title {
+  font-size: 28px;
+  font-weight: 400;
+}
+.info-button {
+  font-size: 28px;
+  font-weight: 400;
+  text-decoration: underline;
+  background: transparent;
+  padding: 0;
+}
+
+.header {
+ 
+    font-size: 21px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    line-height: 1;
+}
+
+.header .header-content {
+    overflow: hidden;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0 60px;
+}
+
+.header.info-active .header-content{
+  border-bottom: 1px solid #797676;
+}
+.header.info-active *{
+  color: #767676;
+}

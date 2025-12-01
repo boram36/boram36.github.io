@@ -1,0 +1,14 @@
+/* nprogress 커스텀: 검은색 프로세스바 */
+#nprogress .bar {
+  background: #222 !important;
+}
+#nprogress .peg {
+  box-shadow: none !important;
+}
+#nprogress .spinner {
+  display: none !important;
+}
+#nprogress .spinner-icon {
+  border-top-color: #222 !important;
+  border-left-color: #222 !important;
+}

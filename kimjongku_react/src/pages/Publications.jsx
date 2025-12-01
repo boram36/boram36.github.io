@@ -1,0 +1,1 @@
+export default function Publications() { return <div>Publications page content</div>; }

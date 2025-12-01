@@ -1,0 +1,1 @@
+export default function EssaysPress() { return <div>Essays & Press page content</div>; }
