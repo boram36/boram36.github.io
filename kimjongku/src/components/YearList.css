@@ -5,12 +5,14 @@
   justify-items: center;
   max-width: 1200px;
   margin: 50px auto;
+  background: url('/assets/pattern.png');
+  background: #000;
 }
 
 .year-item {
   font-size: 36px;
   text-decoration: none;
-  color: black;
+  color: white;
   transition: 0.2s;
 }
 

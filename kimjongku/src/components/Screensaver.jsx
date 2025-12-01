@@ -31,7 +31,7 @@ export default function Screensaver({ onExit }) {
     const sliderImages = [...images, ...images];
 
     return (
-        <div className="screensaver" onClick={handleExit} onMouseMove={handleExit}>
+        <div className="screensaver" onClick={handleExit}>
             <div className="screensaver-inner">
                 <div className="screensaver-track">
                     {sliderImages.map((src, idx) => (
