@@ -10,6 +10,8 @@ import { useEffect } from 'react';
 
 function NProgressHandler() {
   useEffect(() => {
+    // 느리게 보이도록 설정 (trickleSpeed: ms, minimum: 시작값)
+    NProgress.configure({ trickleSpeed: 500, minimum: 0.1, speed: 800 });
     const handleStart = () => NProgress.start();
     const handleStop = () => NProgress.done();
     window.addEventListener('navigation-start', handleStart);
