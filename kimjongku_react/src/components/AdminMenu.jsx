@@ -11,6 +11,7 @@ export default function AdminMenu() {
         <li><Link to="/admin/essays">Essays &amp; Press</Link></li>
         <li><Link to="/admin/projects">Project</Link></li>
         <li><Link to="/admin/video">Video</Link></li>
+        <li><Link to="/admin/works">Works</Link></li>
       </ul>
     </div>
   );

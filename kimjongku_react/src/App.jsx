@@ -15,12 +15,15 @@ import Work from "./pages/Work";
 import Projects from "./components/Project";
 import Video from "./components/Video";
 import Contact from "./pages/Contact";
+import AdminWorks from "./components/AdminWorks";
+import AdminLogin from "./components/AdminLogin";
 
 function App() {
   const [showInfo, setShowInfo] = useState(false);
   const [screensaver, setScreensaver] = useState(false);
   const location = useLocation();
   const timerRef = useRef();
+  const isAdmin = location.pathname.startsWith('/admin');
 
   useEffect(() => {
     window.dispatchEvent(new Event('navigation-start'));
@@ -33,6 +36,12 @@ function App() {
       if (screensaver) setScreensaver(false);
       timerRef.current = setTimeout(() => setScreensaver(true), 6000);
     };
+    if (isAdmin) {
+      // 관리자 페이지에서는 스크린세이버 비활성화
+      if (screensaver) setScreensaver(false);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      return; // 이벤트 리스너 등록 안 함
+    }
     window.addEventListener('mousemove', resetTimer);
     window.addEventListener('mousedown', resetTimer);
     resetTimer();
@@ -41,15 +50,15 @@ function App() {
       window.removeEventListener('mousedown', resetTimer);
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [screensaver]);
+  }, [screensaver, isAdmin]);
 
   return (
     <>
-      {screensaver && <Screensaver onExit={() => setScreensaver(false)} />}
-      {!screensaver && (
+      {!isAdmin && screensaver && <Screensaver onExit={() => setScreensaver(false)} />}
+      {(isAdmin || !screensaver) && (
         <>
           <Header onInfoClick={() => setShowInfo(!showInfo)} />
-          {showInfo && <InfoMenu />}
+          {showInfo && !isAdmin && <InfoMenu />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/info" element={<InfoLayout />}>
@@ -63,14 +72,14 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/video" element={<Video />} />
             <Route path="/contact" element={<Contact />} />
-
-            {/* 관리자 대시보드 및 각 섹션 라우트 */}
             <Route path="/admin" element={<AdminMenu />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/biography" element={<Biography isAdmin={true} />} />
             <Route path="/admin/publications" element={<Publications isAdmin={true} />} />
             <Route path="/admin/essays" element={<EssaysPress isAdmin={true} />} />
             <Route path="/admin/projects" element={<Projects isAdmin={true} />} />
             <Route path="/admin/video" element={<Video isAdmin={true} />} />
+            <Route path="/admin/works" element={<AdminWorks />} />
           </Routes>
         </>
       )}

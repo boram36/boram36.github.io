@@ -28,7 +28,7 @@ export default function Biography() {
             <li key={item.id}>
               <strong>{item.category}</strong> | <span>{item.year}</span>
               <div>{item.text}</div>
-              {item.image && <img src={item.image} alt="bio-img" style={{ width: 120, marginTop: 8, border: "1px solid #ccc" }} />}
+              {item.image && <img src={item.image} alt="bio-img" />}
             </li>
           ))}
         </ul>
