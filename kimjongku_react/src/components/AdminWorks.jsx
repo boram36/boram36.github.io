@@ -106,10 +106,11 @@ export default function AdminWorks() {
   };
 
   return (
-    <div style={{ padding: "2rem", maxWidth: 720 }}>
+    <div className="container">
+      <div className="inner">
       <h3>Works 업로드 (관리자)</h3>
       <form onSubmit={onSubmit}>
-        {existingYears.length > 0 && (
+        {/* {existingYears.length > 0 && (
           <div style={{ marginBottom: 12 }}>
             <label>Year 선택</label><br />
             <select value={year} onChange={(e) => setYear(e.target.value)}>
@@ -119,7 +120,7 @@ export default function AdminWorks() {
               ))}
             </select>
           </div>
-        )}
+        )} */}
         <div style={{ marginBottom: 12 }}>
           <label>Year</label><br />
           <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required />
@@ -150,5 +151,6 @@ export default function AdminWorks() {
         참고: Storage 버킷 "works" (public) 와 테이블 정책 (select: anon, insert: authenticated) 확인. RLS 오류시 정책 재확인.
       </p>
     </div>
+      </div>
   );
 }

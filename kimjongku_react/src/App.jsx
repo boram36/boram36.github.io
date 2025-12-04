@@ -31,10 +31,11 @@ function App() {
   }, [location]);
 
   useEffect(() => {
+    // Screensaver 일시 비활성화를 위해 타이머 설정을 주석 처리
     const resetTimer = () => {
       if (timerRef.current) clearTimeout(timerRef.current);
       if (screensaver) setScreensaver(false);
-      timerRef.current = setTimeout(() => setScreensaver(true), 6000);
+      // timerRef.current = setTimeout(() => setScreensaver(true), 6000);
     };
     if (isAdmin) {
       // 관리자 페이지에서는 스크린세이버 비활성화
@@ -54,8 +55,9 @@ function App() {
 
   return (
     <>
-      {!isAdmin && screensaver && <Screensaver onExit={() => setScreensaver(false)} />}
-      {(isAdmin || !screensaver) && (
+      {/* 스크린세이버 표시 주석 처리 */}
+      {/* {!isAdmin && screensaver && <Screensaver onExit={() => setScreensaver(false)} />} */}
+      {true && (
         <>
           <Header onInfoClick={() => setShowInfo(!showInfo)} />
           {showInfo && !isAdmin && <InfoMenu />}

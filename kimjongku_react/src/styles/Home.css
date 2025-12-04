@@ -10,9 +10,14 @@
   padding: 95px 100px;
   background: url('../assets/year-bg.png') no-repeat center center;
   background-size: cover;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: repeat(7, 1fr); */
   gap: 70px 90px;
+}
+.year-listing > li{
+  width: 90px;
 }
 .year-list {
   display: flex;
@@ -31,6 +36,7 @@
 .year-item:hover {
   opacity: 1;
 }
+
 
 @media (max-width: 768px) {
   .home-container {

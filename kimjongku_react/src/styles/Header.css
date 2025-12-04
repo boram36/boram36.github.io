@@ -26,13 +26,13 @@
 
 .header .header-content {
     overflow: hidden;
-    max-width: 1400px;
+    max-width: calc(1400px + 40px);
     width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 0 60px;
+    padding: 50px 0;
 }
 
 .header.info-active .header-content{
@@ -40,4 +40,11 @@
 }
 .header.info-active *{
   color: #767676;
+}
+.header.work-active .header-content{
+  border-bottom: 1px solid #000;
+}
+
+@media screen and (max-width: 1200px) {
+  
 }

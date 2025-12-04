@@ -10,3 +10,11 @@ export const supabase = createClient(supabaseUrl, supabaseKey, {
 		detectSessionInUrl: true,
 	},
 });
+
+// 개발 편의: 브라우저 콘솔에서 테스트할 수 있도록 전역에 노출
+if (typeof window !== 'undefined') {
+  // 안전하게 덮어쓰기 방지
+  if (!window.supabase) {
+    window.supabase = supabase;
+  }
+}
