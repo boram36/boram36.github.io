@@ -8,9 +8,9 @@ const years = Array.from({ length: 2025 - 1988 + 1 }, (_, i) => 2025 - i);
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <div className="container">
+    <div className="container main">
       <div className="inner">
-        <ul className="year-listing list-unstyled">
+        <ul className="year-listing">
           {years.map((year) => (
             <li key={year}>
               <button

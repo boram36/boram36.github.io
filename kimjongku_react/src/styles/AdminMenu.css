@@ -1,10 +1,4 @@
 .admin-menu {
-  background: #f8f9fa;
-  border: 1px solid #e5e5e5;
-  padding: 24px;
-  margin: 32px auto;
-  max-width: 400px;
-  border-radius: 8px;
 }
 .admin-menu h3 {
   font-size: 1.2rem;
@@ -12,18 +6,33 @@
   font-weight: bold;
 }
 .admin-menu ul {
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
   padding: 0;
+  gap: 20px
 }
 .admin-menu li {
-  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: calc(33.3333% - 20px);
+  background: #fff;
+  height: 200px;
+
 }
 .admin-menu a {
-  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #000;
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s;
 }
-.admin-menu a:hover {
-  color: #007bff;
+
+.admin-menu a:hover{
+  background: #f0f0f0;
 }

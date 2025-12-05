@@ -1,246 +1,47 @@
 /* Slide-down collapse container */
 
-.collapse {
-    overflow: hidden;
-    max-height: 0;
-    -moz-transition: max-height .3s ease-out;
-    -o-transition: max-height .3s ease-out;
-    -webkit-transition: max-height .3s ease-out;
-    transition: max-height .3s ease-out
-}
 
-.collapse.open {
-    max-height: 800px
-}
-
-/* Work image wrapper */
-.work-image {
-  margin-top: 40px;
-}
-
+.container {padding-left: 0 !important; padding-right: 0 !important; padding-bottom: 50px; padding-top: 131px; width: 100%; margin: 0 auto; max-width: 100% !important; } 
+.container::after { content: ""; display: table; clear: both}
+.inner { max-width: calc(1400px + 40px); width: 100%; margin:0 auto; padding:0 20px; } 
+.wrap-input select, .wrap-input input { width:100%; height: 40px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; padding: 0 20px; } 
+.collapse { overflow: hidden; max-height: 0; -moz-transition: max-height .3s ease-out; -o-transition: max-height .3s ease-out; -webkit-transition: max-height .3s ease-out; transition: max-height .3s ease-out}
+.collapse.open { max-height: 800px}
 /* Carousel base */
-.carousel-container {
-  position: relative;
-  max-width: 920px;
-  margin: 0 auto;
-}
-
-.carousel-viewport {
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 300ms ease;
-}
-
-.carousel-slide {
-  width: 100%;
-  flex: 0 0 100%;
-  height: auto;
-  cursor: zoom-in;
-}
+.carousel-container { position: relative; max-width: 920px; margin: 0 auto; } 
+.carousel-viewport { overflow: hidden; border-radius: 8px; } 
+.carousel-track { display: flex; transition: transform 300ms ease; } 
+.carousel-slide { width: 100%; flex: 0 0 100%; height: auto; cursor: zoom-in; } 
 
 /* Next-only control */
-.carousel-next {
-  position: absolute;
-  right: -32px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 28px;
-  color: #333;
-  cursor: pointer;
-}
-
-.carousel-next:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
+.carousel-next { position: absolute; right: -32px; top: 50%; transform: translateY(-50%); background: transparent; border: none; font-size: 28px; color: #333; cursor: pointer; } 
+.carousel-next:disabled { opacity: 0.3; cursor: default; } 
 
 /* Thumbnails strip */
-.carousel-thumbs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-  justify-content: center;
-}
-
-.carousel-thumb {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-
-.carousel-thumb.active {
-  border: 2px solid #333;
-}
+.carousel-thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; justify-content: center; } 
+.carousel-thumb { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; } 
+.carousel-thumb.active { border: 2px solid #333; } 
 
 /* Modal overlay and content */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.modal-content {
-  position: relative;
-  max-width: 92vw;
-}
-
-.modal-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: transparent;
-  border: none;
-  font-size: 28px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modal-viewport {
-  overflow: hidden;
-  max-width: 920px;
-  border-radius: 8px;
-}
-
-.modal-track {
-  display: flex;
-  transition: transform 300ms ease;
-}
-
-.modal-slide {
-  width: 100%;
-  flex: 0 0 100%;
-  height: auto;
-}
-
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 9999; } 
+.modal-content { position: relative; max-width: 92vw; } 
+.modal-close { position: absolute; top: -40px; right: 0; background: transparent; border: none; font-size: 28px; color: #fff; cursor: pointer; } 
+.modal-viewport { overflow: hidden; max-width: 920px; border-radius: 8px; } 
+.modal-track { display: flex; transition: transform 300ms ease; } 
+.modal-slide { width: 100%; flex: 0 0 100%; height: auto; } 
 .modal-prev,
-.modal-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 32px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.modal-prev.disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-.modal-prev { left: -36px; }
-.modal-next { right: -36px; }
-
-.modal-counter {
-  text-align: center;
-  margin-top: 8px;
-  color: #fff;
-  font-weight: 600;
-}
-
-/* wool735.com 스타일에 맞춘 InfoLayout */
-
-.info-layout{
-  position: relative;
-  display: flex;
-  gap: 50px;
-}
-.info-content {
-}
-
-.info-sidebar {
-  position: sticky;
-  top: 100px;
-  left: 0;
-}
-/* InfoSidebar 기본 스타일 */
-.info-sidebar {
-  min-width: 180px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.sidebar-link {
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-}
-.sidebar-link.active,
-.sidebar-link:hover {
-  background: #e0e0e0;
-}
-
-.work-info{
-  display: flex;
-  justify-content: space-between;
-}
-.work-info > div{
-  text-align: left;
-}
-.work-info .title{
-  max-width: 490px;
-  width: 100%;
-}
-.work-info .material{
-  max-width: 650px;
-  width: 100%;
-}
-.work-info .size{
-  max-width: 150px;
-  width: 100%;
-}
-.work-year{
-  color: #797676;
-  font-size: 20px;
-}
-.work-label{
-  font-size: 12px;
-  color: #797676;
-  margin-bottom: 20px;
-}
-.work-title{
-  font-size:18px;
-  font-style: italic;
-}
-.work-material{
-  font-size:18px;
-}
-.work-size{
-  font-size:18px;
-}
-.toggle-btn{
-  width: 20px;
-  height: 20px;
-  background: url('../assets/toggle-icon.svg') no-repeat center center;
-}
-.work-toggle{
-  display: flex;
-}
-.work-top{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.work-toggle.open .toggle-btn{
-  transform: rotate(180deg);
-}
-.work-button{width: 100%;}
-.work-image{margin-top: 20px}
-.year-section + .year-section{margin-top: 40px;}
+.modal-next { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; font-size: 32px; color: #fff; cursor: pointer; } 
+.modal-prev.disabled { opacity: 0.4; cursor: default; } 
+.modal-prev { left: -36px; } 
+.modal-next { right: -36px; } 
+.modal-counter { text-align: center; margin-top: 8px; color: #fff; font-weight: 600; } 
 
 
+@media (max-width: 1024px) {
+  .container{padding-top: 100px;}
+}
+
+@media (max-width: 768px) {
+ .container{padding-top: 75px; } 
+ .container.main .inner{height: auto; }
+}

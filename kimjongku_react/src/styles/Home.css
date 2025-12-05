@@ -12,9 +12,8 @@
   background-size: cover;
   display: flex;
   flex-wrap: wrap;
-  /* display: grid;
-  grid-template-columns: repeat(7, 1fr); */
   gap: 70px 90px;
+  justify-content: center;
 }
 .year-listing > li{
   width: 90px;
@@ -37,14 +36,38 @@
   opacity: 1;
 }
 
+@media (max-width: 1024px) {
+  .container.main{
+    padding-left: 0;
+    padding-right: 0;
+    height: 100vh;
+  }
+  .container.main .inner{
+    padding: 0;
+    height: 100%;
+  }
+  .year-listing{
+    height: 100%;
+    gap: 0;
+    padding: 50px;
+  }
+  .year-listing > li {
+    width: 25%;
+    text-align: center;
+}
+}
 
 @media (max-width: 768px) {
   .home-container {
     margin: 80px auto;
     padding-left: 40px;
   }
+  .year-listing{
+    padding: 40px 0;
+    gap: 44px 0;
+  }
 
-  .year-item {
-    font-size: 32px;
+  .year-item{
+    font-size: 20px;
   }
 }

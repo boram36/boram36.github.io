@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 
@@ -93,6 +94,7 @@ export default function AdminWorks() {
       });
       if (insertError) throw new Error(insertError.message);
       setMessage("등록 완료!");
+      setYear(2025);
       setTitle("");
       setMaterial("");
       setSize("");
@@ -108,12 +110,12 @@ export default function AdminWorks() {
   return (
     <div className="container">
       <div className="inner">
-      <h3>Works 업로드 (관리자)</h3>
-      <form onSubmit={onSubmit}>
-        {/* {existingYears.length > 0 && (
-          <div style={{ marginBottom: 12 }}>
-            <label>Year 선택</label><br />
-            <select value={year} onChange={(e) => setYear(e.target.value)}>
+        <h3 className="mb-4">Works 업로드 (관리자)</h3>
+        <form onSubmit={onSubmit} className="mb-3">
+          {/* {existingYears.length > 0 && (
+          <div className="mb-3">
+            <label className="form-label">Year 선택</label>
+            <select value={year} onChange={(e) => setYear(e.target.value)} className="form-select">
               <option value="">년도 선택...</option>
               {existingYears.map(y => (
                 <option key={y} value={y}>{y}</option>
@@ -121,36 +123,36 @@ export default function AdminWorks() {
             </select>
           </div>
         )} */}
-        <div style={{ marginBottom: 12 }}>
-          <label>Year</label><br />
-          <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required />
-        </div>
-        <div style={{ marginBottom: 12 }}>
-          <label>Title</label><br />
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        </div>
-        <div style={{ marginBottom: 12 }}>
-          <label>Material</label><br />
-          <input type="text" value={material} onChange={(e) => setMaterial(e.target.value)} required />
-        </div>
-        <div style={{ marginBottom: 12 }}>
-          <label>Size</label><br />
-          <input type="text" value={size} onChange={(e) => setSize(e.target.value)} required />
-        </div>
-        <div style={{ marginBottom: 12 }}>
-          <label>Images</label><br />
-          <input type="file" multiple accept="image/*" onChange={onFileChange} />
-        </div>
-        <button type="submit" disabled={submitting || !session}>
-          {submitting ? "업로드 중…" : session ? "등록" : "로그인 필요"}
-        </button>
-      </form>
-      {message && <p style={{ marginTop: 12 }}>{message}</p>}
-      <p style={{ marginTop: 8, fontSize: 12, color: '#888' }}>세션 상태: {session ? '활성 (' + session.user.email + ')' : '없음'}</p>
-      <p style={{ marginTop: 16, color: "#666" }}>
-        참고: Storage 버킷 "works" (public) 와 테이블 정책 (select: anon, insert: authenticated) 확인. RLS 오류시 정책 재확인.
-      </p>
-    </div>
+          <div className="mb-3">
+            <label className="form-label">Year</label>
+            <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Title</label>
+            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Material</label>
+            <input type="text" value={material} onChange={(e) => setMaterial(e.target.value)} required className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Size</label>
+            <input type="text" value={size} onChange={(e) => setSize(e.target.value)} className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Images</label>
+            <input type="file" multiple accept="image/*" onChange={onFileChange} className="form-control" />
+          </div>
+          <button type="submit" disabled={submitting || !session} className="btn btn-primary">
+            {submitting ? "업로드 중…" : session ? "등록" : "로그인 필요"}
+          </button>
+        </form>
+        {message && <p className="mt-3 text-primary">{message}</p>}
+        {/* <p className="mt-2 text-muted" style={{ fontSize: 12 }}>세션 상태: {session ? '활성 (' + session.user.email + ')' : '없음'}</p>
+        <p className="mt-4 text-secondary">
+          참고: Storage 버킷 "works" (public) 와 테이블 정책 (select: anon, insert: authenticated) 확인. RLS 오류시 정책 재확인.
+        </p> */}
       </div>
+    </div>
   );
 }

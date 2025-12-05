@@ -217,29 +217,6 @@ body {
   font-weight: 300;
   line-height: 1.6;
 }
-
-.container {
-   padding-top: 144px;
-   width: 100%;
-   margin: 0 auto;
-}
-.inner{
-    max-width: calc(1400px + 40px);
-    width: 100%;
-    margin:0 auto;
-    padding:0 20px;
-}
-
-.container::after {
-    content: "";
-    display: table;
-    clear: both
-}
-
-select, input{
-  width:100%;
-  height: 40px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 16px;
+.container .form-control{
+    border-radius: 5px;
 }

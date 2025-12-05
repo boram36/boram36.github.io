@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 import { useNavigate } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function AdminLogin() {
   const nav = useNavigate();
@@ -31,25 +33,24 @@ export default function AdminLogin() {
 
   return (
     <div className="container">
-        <div className="inner">
-        <h3>관리자 로그인</h3>
-      <form onSubmit={onSubmit}>
-        <div style={{ marginBottom: 12 }}>
-          <label>Email</label><br />
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </div>
-        <div style={{ marginBottom: 12 }}>
-          <label>Password</label><br />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </div>
-        <button type="submit" disabled={loading}>{loading ? "로그인 중…" : "로그인"}</button>
-      </form>
-      {message && <p style={{ marginTop: 12 }}>{message}</p>}
-      <p style={{ marginTop: 8, color: "#666" }}>
-        Supabase Auth에서 관리자 계정을 먼저 생성하세요.
-      </p>
-        </div>
-      
+      <div className="inner">
+        <h3 className="mb-4">관리자 로그인</h3>
+        <form onSubmit={onSubmit} className="mb-3">
+          <div className="mb-3">
+            <label className="form-label">Email</label>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} required className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Password</label>
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} required className="form-control" />
+          </div>
+          <button type="submit" disabled={loading} className="btn btn-primary">
+            {loading ? "로그인 중…" : "로그인"}
+          </button>
+        </form>
+        {message && <p className={message.includes('실패') ? "mt-3 text-danger" : "mt-3 text-success"}>{message}</p>}
+      </div>
     </div>
   );
+
 }
