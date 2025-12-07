@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "../lib/supabase";
 import '../styles/Works.css';
 
@@ -18,6 +18,7 @@ function Collapse({ open, children }) {
 
 function ImageSlider({ images, setModal }) {
 	const [idx, setIdx] = useState(0);
+
 	return (
 		<div style={{ position: 'relative', display: 'flex', alignItems: 'center', maxHeight: 400 }}>
 			<div style={{ flex: '1', marginTop: 20 }}>
@@ -27,7 +28,7 @@ function ImageSlider({ images, setModal }) {
 					style={{ cursor: 'pointer', maxWidth: '100%' }}
 				/>
 			</div>
-			{images.length > 1 && (
+			{images.length > 0 && (
 				<>
 
 					<button
@@ -50,17 +51,24 @@ export default function Works() {
 	const [openIds, setOpenIds] = useState([]);
 	const [openYears, setOpenYears] = useState([]);
 	const [modal, setModal] = useState(null);
+	const [scale, setScale] = useState(1);
+	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const [dragging, setDragging] = useState(false);
+	const dragStart = useRef({ x: 0, y: 0 });
+
 
 	useEffect(() => {
 		(async () => {
 			const { data } = await supabase
 				.from("portfolio_works")
 				.select("*")
-				.order("year", { ascending: false });
+				.order("year", { ascending: false })
+				.order("id", { ascending: true }); // id 오름차순: 먼저 등록된 것이 위에
 
 			setItems(data || []);
 
-			const ys = [...new Set(data.map((v) => v.year))];
+			// 년도별로 최신이 위에, 같은 년도면 id 오름차순(먼저 등록된 것 상단)
+			const ys = [...new Set((data || []).map((v) => v.year))];
 			setYears(ys);
 		})();
 	}, []);
@@ -85,9 +93,9 @@ export default function Works() {
 
 			<div className='inner'>
 				{years.map((year) => {
-					const yearItems = items.filter((v) => v.year === year);
+					// 같은 년도 내에서 id 오름차순(먼저 등록된 것 상단)
+					const yearItems = items.filter((v) => v.year === year).sort((a, b) => a.id - b.id);
 					const isYearOpen = yearItems.every(item => openIds.includes(item.id));
-
 
 					return (
 						<section className='sect-yearList' key={year}>
@@ -96,7 +104,6 @@ export default function Works() {
 									{year}
 								</h2>
 							</div>
-
 
 							{/* header */}
 							<div className='work-info'>
@@ -143,59 +150,101 @@ export default function Works() {
 
 				{modal && (
 					<div
+						className='modal-container'
 						onClick={() => setModal(null)}
 						style={{
-							position: "fixed",
-							inset: 0,
-							background: "rgba(255,255,255,0.95)",
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							zIndex: 999,
+
 						}}
 					>
 						<button
+							className='btn-close-modal'
 							onClick={(e) => {
 								e.stopPropagation();
+								setScale(1);
+								setPosition({ x: 0, y: 0 });
 								setModal(null);
 							}}
+
 							style={{ position: "absolute", top: 30, right: 40, fontSize: 32 }}
-						>
-							×
-						</button>
+						></button>
 
 						<button
+							className='btn-slide-arr prev'
 							onClick={(e) => {
 								e.stopPropagation();
+								setScale(1);
+								setPosition({ x: 0, y: 0 });
+
 								setModal((m) => ({
 									...m,
-									index: Math.max(0, m.index - 1),
+									index: (m.index - 1 + m.images.length) % m.images.length,
 								}));
 							}}
-							style={{ position: "absolute", left: 40, fontSize: 40 }}
-						>
-							←
-						</button>
+						></button>
 
-						<img
-							src={modal.images[modal.index]}
-							style={{ maxWidth: "60vw", maxHeight: "70vh" }}
-						/>
+						<div
+							style={{
+								position: 'relative',
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								maxWidth: "1560px",
+								maxHeight: "700px",
+								overflow: "hidden",
+								cursor: dragging ? "grabbing" : "grab"
+							}}
+
+						>
+							<img
+								src={modal.images[modal.index]}
+								style={{
+									transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
+									transition: dragging ? "none" : "transform 0.15s ease",
+									maxWidth: "1560px",
+									height: "700px",
+									objectFit: "contain",
+									userSelect: "none",
+									pointerEvents: "none"
+								}}
+								draggable="false"
+							/>
+							<div style={{ position: 'absolute', top: 20, left: 20, display: 'flex', gap: 8, zIndex: 2 }}>
+								<button
+									style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
+									onClick={e => { e.stopPropagation(); setScale(s => Math.min(3, s + 0.2)); }}
+									title="확대"
+								>＋</button>
+								<button
+									style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
+									onClick={e => { e.stopPropagation(); setScale(s => Math.max(0.5, s - 0.2)); }}
+									title="축소"
+								>－</button>
+								<button
+									style={{ fontSize: 18, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
+									onClick={e => { e.stopPropagation(); setScale(1); setPosition({ x: 0, y: 0 }); }}
+									title="원본"
+								>원본</button>
+							</div>
+						</div>
+
+
 
 						<button
+							className='btn-slide-arr next'
 							onClick={(e) => {
 								e.stopPropagation();
+								setScale(1);
+								setPosition({ x: 0, y: 0 });
+
 								setModal((m) => ({
 									...m,
-									index: Math.min(m.images.length - 1, m.index + 1),
+									index: (m.index + 1) % m.images.length,
 								}));
 							}}
-							style={{ position: "absolute", right: 40, fontSize: 40 }}
-						>
-							→
-						</button>
 
-						<div style={{ position: "absolute", bottom: 40 }}>
+						></button>
+
+						<div className='slide-pagination'>
 							{modal.index + 1}/{modal.images.length}
 						</div>
 					</div>

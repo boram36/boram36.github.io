@@ -6,7 +6,7 @@ import AdminMenu from "./components/AdminMenu";
 import Screensaver from "./components/Screensaver";
 import Home from "./pages/Home";
 import InfoLayout from "./layouts/InfoLayout";
-import Biography from "./components/Biography";
+import BiographyPage from "./pages/Biography";
 import Publications from "./components/Publications";
 import EssaysPress from "./components/EssaysPress";
 import CurrentUpcoming from "./pages/CurrentUpcoming";
@@ -16,7 +16,19 @@ import Projects from "./components/Project";
 import Video from "./components/Video";
 import Contact from "./pages/Contact";
 import AdminWorks from "./components/AdminWorks";
+import AdminWorksList from "./components/AdminWorksList";
 import AdminLogin from "./components/AdminLogin";
+import AdminWorksEdit from "./components/AdminWorksEdit";
+import AdminMainBackground from "./components/AdminMainBackground";
+import AdminBiography from "./components/AdminBiography";
+import AdminBiographyList from "./components/AdminBiographyList";
+import AdminBiographyEdit from "./components/AdminBiographyEdit";
+import { useParams } from "react-router-dom";
+// AdminWorksEdit 라우트용 래퍼 컴포넌트
+function AdminWorksEditWrapper() {
+  const { id } = useParams();
+  return <AdminWorksEdit id={id} />;
+}
 
 function App() {
   const [showInfo, setShowInfo] = useState(false);
@@ -64,7 +76,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/info" element={<InfoLayout />}>
-              <Route path="biography" element={<Biography />} />
+              <Route path="biography" element={<BiographyPage />} />
               <Route path="publications" element={<Publications />} />
               <Route path="essays" element={<EssaysPress />} />
               <Route path="current" element={<CurrentUpcoming />} />
@@ -76,12 +88,18 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<AdminMenu />} />
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/biography" element={<Biography isAdmin={true} />} />
+            <Route path="/admin/biography" element={<AdminBiography />} />
+            <Route path="/admin/biography/list" element={<AdminBiographyList />} />
+            <Route path="/admin/biography/edit/:id" element={<AdminBiographyEdit />} />
             <Route path="/admin/publications" element={<Publications isAdmin={true} />} />
             <Route path="/admin/essays" element={<EssaysPress isAdmin={true} />} />
             <Route path="/admin/projects" element={<Projects isAdmin={true} />} />
             <Route path="/admin/video" element={<Video isAdmin={true} />} />
             <Route path="/admin/works" element={<AdminWorks />} />
+            <Route path="/admin/works/list" element={<AdminWorksList />} />
+            <Route path="/admin/works/edit/:id" element={<AdminWorksEditWrapper />} />
+            <Route path="/admin/main-bg" element={<AdminMainBackground />} />
+
           </Routes>
         </>
       )}

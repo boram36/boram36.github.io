@@ -7,8 +7,9 @@ export default function Header({ onInfoClick }) {
   const location = useLocation();
   const isInfoPage = location.pathname.startsWith("/info");
   const isWorkPage = location.pathname.startsWith("/work");
+  const isAdmin = location.pathname.startsWith("/admin");
   return (
-    <header className={`header${isInfoPage ? " info-active" : ""}${isWorkPage ? " work-active" : ""}`}>
+    <header className={`header${isInfoPage ? " info-active" : ""}${isWorkPage ? " work-active" : ""} ${isAdmin ? " admin-active" : ""}`}>
       <div className='inner'>
         <div className="header-content">
           <Link to="/" className="site-title">Kim Jongku</Link>

@@ -1,36 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { supabase } from '../lib/supabase';
 
-// 기본 배경 이미지 경로
-const DEFAULT_BG = '/assets/main-bg.jpg';
+export const DEFAULT_BG = '/src/assets/year-bg.png';
 
-function MainBackground({ isAdmin = false }) {
+function MainBackground() {
   const [bgImage, setBgImage] = useState(DEFAULT_BG);
 
-  // 관리자용 이미지 변경 핸들러
-  const handleChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (ev) => setBgImage(ev.target.result);
-      reader.readAsDataURL(file);
-    }
-  };
+  useEffect(() => {
+    // DB에서 url 불러오기
+    const load = async () => {
+      const { data, error } = await supabase
+        .from('main_bg')
+        .select('url')
+        .eq('id', 1)
+        .single();
+      if (data?.url) setBgImage(data.url);
+    };
+    load();
+  }, []);
 
   return (
     <div style={{
-      width: '100vw',
-      height: '100vh',
       backgroundImage: `url(${bgImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       position: 'relative',
-    }}>
-      {isAdmin && (
-        <div style={{ position: 'absolute', top: 20, right: 20, zIndex: 10 }}>
-          <input type="file" accept="image/*" onChange={handleChange} />
-        </div>
-      )}
-    </div>
+    }} />
   );
 }
 

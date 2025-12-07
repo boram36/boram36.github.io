@@ -1,51 +1,14 @@
 /* Header 기본 스타일 */
 
-.site-title {
-  font-size: 28px;
-  font-weight: 400;
-  color: #000;
-  text-decoration: none;
-}
-.info-button {
-  font-size: 28px;
-  font-weight: 400;
-  text-decoration: underline;
-  background: transparent;
-  padding: 0;
-}
+.site-title { font-size: 28px; font-weight: 400; color: #000; text-decoration: none; } 
+.info-button { font-size: 28px; font-weight: 400; text-decoration: underline; background: transparent; padding: 0; } 
+.header {font-size: 21px; position: fixed; top: 0; left: 0; width: 100%; background: #fff; z-index: 100; line-height: 1; } 
+.header .header-content { overflow: hidden; max-width: calc(1400px + 40px); width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 50px 0; } 
+.header.info-active .header-content { border-bottom: 1px solid #797676; } 
+.header.info-active * { color: #767676; } 
+.header.work-active .header-content { border-bottom: 1px solid #000; } 
+.header.admin-active .header-content { border-bottom: 1px solid #000; }
 
-.header {
- 
-    font-size: 21px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    z-index: 100;
-    line-height: 1;
-}
-
-.header .header-content {
-    overflow: hidden;
-    max-width: calc(1400px + 40px);
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px 0;
-}
-
-.header.info-active .header-content{
-  border-bottom: 1px solid #797676;
-}
-.header.info-active *{
-  color: #767676;
-}
-.header.work-active .header-content{
-  border-bottom: 1px solid #000;
-}
 
 @media screen and (max-width: 1024px) {
   .header{height: 100px;}

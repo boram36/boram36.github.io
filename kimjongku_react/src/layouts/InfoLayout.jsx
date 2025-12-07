@@ -11,6 +11,7 @@ export default function InfoLayout() {
         <div className="info-layout">
           <div className="info-l">
             <InfoSidebar />
+            <div className='info-copyright'>© Kim Jongku. All rights reserved.</div>
           </div>
           <div className="info-r">
             <div className="info-content">

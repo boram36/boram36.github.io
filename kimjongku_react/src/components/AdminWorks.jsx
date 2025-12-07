@@ -110,9 +110,10 @@ export default function AdminWorks() {
   return (
     <div className="container">
       <div className="inner">
-        <h3 className="mb-4">Works 업로드 (관리자)</h3>
-        <form onSubmit={onSubmit} className="mb-3">
-          {/* {existingYears.length > 0 && (
+        <div className='content_wrap'>
+          <h3 className="mb-4">Works 업로드 (관리자)</h3>
+          <form onSubmit={onSubmit} className="mb-3">
+            {/* {existingYears.length > 0 && (
           <div className="mb-3">
             <label className="form-label">Year 선택</label>
             <select value={year} onChange={(e) => setYear(e.target.value)} className="form-select">
@@ -123,35 +124,36 @@ export default function AdminWorks() {
             </select>
           </div>
         )} */}
-          <div className="mb-3">
-            <label className="form-label">Year</label>
-            <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required className="form-control" />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Title</label>
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required className="form-control" />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Material</label>
-            <input type="text" value={material} onChange={(e) => setMaterial(e.target.value)} required className="form-control" />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Size</label>
-            <input type="text" value={size} onChange={(e) => setSize(e.target.value)} className="form-control" />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Images</label>
-            <input type="file" multiple accept="image/*" onChange={onFileChange} className="form-control" />
-          </div>
-          <button type="submit" disabled={submitting || !session} className="btn btn-primary">
-            {submitting ? "업로드 중…" : session ? "등록" : "로그인 필요"}
-          </button>
-        </form>
-        {message && <p className="mt-3 text-primary">{message}</p>}
-        {/* <p className="mt-2 text-muted" style={{ fontSize: 12 }}>세션 상태: {session ? '활성 (' + session.user.email + ')' : '없음'}</p>
+            <div className="mb-3">
+              <label className="form-label">Year</label>
+              <input type="number" value={year} onChange={(e) => setYear(e.target.value)} required className="form-control" />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Title</label>
+              <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required className="form-control" />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Material</label>
+              <input type="text" value={material} onChange={(e) => setMaterial(e.target.value)} required className="form-control" />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Size</label>
+              <input type="text" value={size} onChange={(e) => setSize(e.target.value)} className="form-control" />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Images</label>
+              <input type="file" multiple accept="image/*" onChange={onFileChange} className="form-control" />
+            </div>
+            <button type="submit" disabled={submitting || !session} className="btn btn-primary">
+              {submitting ? "업로드 중…" : session ? "등록" : "로그인 필요"}
+            </button>
+          </form>
+          {message && <p className="mt-3 text-primary">{message}</p>}
+          {/* <p className="mt-2 text-muted" style={{ fontSize: 12 }}>세션 상태: {session ? '활성 (' + session.user.email + ')' : '없음'}</p>
         <p className="mt-4 text-secondary">
           참고: Storage 버킷 "works" (public) 와 테이블 정책 (select: anon, insert: authenticated) 확인. RLS 오류시 정책 재확인.
         </p> */}
+        </div>
       </div>
     </div>
   );

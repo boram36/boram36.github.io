@@ -1,12 +1,5 @@
 
 
-.info-layout { position: relative; display: flex; gap: 50px; } 
-.info-sidebar { position: sticky; top: 100px; left: 0; } 
-.info-sidebar { min-width: 180px; display: flex; flex-direction: column; gap: 0.5rem; } 
-.sidebar-link { text-decoration: none; border-radius: 4px; font-weight: 500; } 
-.sidebar-link.active,
-.sidebar-link:hover { background: #e0e0e0; } 
-
 .sect-yearList { margin-top: 40px; } 
 .work-info { display: flex; justify-content: space-between; } 
 .work-info > div { text-align: left; font-weight: 400; cursor: pointer; } 
@@ -22,5 +15,11 @@
 .work-image{ width: 100%; margin-bottom: 40px;}
 .work-image img{max-height: 400px;}
 .work-list + .work-list{margin-top: 10px;}
-.btn-slide-arr{width: 46px; height: 46px; background: url('../assets/ico-slide-arr.svg') no-repeat center center; cursor: pointer;}
-.btn-slide-arr.prev{transform: scaleX(-1); } 
+.btn-slide-arr{width: 46px; height: 46px; background: url('../assets/ico-slide-arr.svg') no-repeat 50% / cover; cursor: pointer;}
+.modal-container { position: fixed;inset: 0;background: #fff;display: flex;align-items: center;justify-content: center;z-index: 999;  } 
+.modal-container .btn-slide-arr{position: absolute; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; }
+.btn-slide-arr{background: url('../assets/ico-slide-arr.svg') no-repeat 50% / cover; cursor: pointer;}
+.btn-slide-arr.next{right: 50px;}
+.btn-slide-arr.prev{transform: translateY(-50%) scaleX(-1); left: 50px;} 
+.btn-close-modal{width: 44px; height: 44px; background: url('../assets/ico-close.svg') no-repeat center center; cursor: pointer;}
+.slide-pagination{position: absolute; bottom: 46px; left: 50%; transform: translateX(-50%); font-size: 34px; color: #000; }    

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -62,72 +63,49 @@ export default function AdminWorksList() {
         }
     };
 
+    const navigate = useNavigate();
+
+
     if (loading) return <div className="p-4">Loading…</div>;
     if (error) return <div className="text-danger">Error: {error}</div>;
 
     return (
         <div className="container">
             <div className="inner">
-                <h3 className="mb-4">등록된 Works 리스트 (관리자)</h3>
-                {message && <div className="mb-3 text-primary">{message}</div>}
-                <table className="table table-bordered table-hover">
-                    <thead className="table-light">
-                        <tr>
-                            <th>Year</th>
-                            <th>Title</th>
-                            <th>Material</th>
-                            <th>Size</th>
-                            <th>이미지</th>
-                            <th>관리</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {items.map((it) => (
-                            <tr key={it.id}>
-                                <td>{it.year}</td>
-                                <td>
-                                    {editId === it.id ? (
-                                        <input name="title" value={editData.title} onChange={onEditChange} className="form-control form-control-sm" />
-                                    ) : (
-                                        it.title
-                                    )}
-                                </td>
-                                <td>
-                                    {editId === it.id ? (
-                                        <input name="material" value={editData.material} onChange={onEditChange} className="form-control form-control-sm" />
-                                    ) : (
-                                        it.material
-                                    )}
-                                </td>
-                                <td>
-                                    {editId === it.id ? (
-                                        <input name="size" value={editData.size} onChange={onEditChange} className="form-control form-control-sm" />
-                                    ) : (
-                                        it.size
-                                    )}
-                                </td>
-                                <td>
-                                    {Array.isArray(it.images) && it.images.length > 0 && (
-                                        <img src={it.images[0]} alt="thumb" style={{ width: 40, height: 40, objectFit: "cover", borderRadius: 4 }} />
-                                    )}
-                                </td>
-                                <td>
-                                    {editId === it.id ? (
-                                        <>
-                                            <button onClick={() => onEditSave(it.id)} className="btn btn-success btn-sm me-2">저장</button>
-                                            <button onClick={() => setEditId(null)} className="btn btn-secondary btn-sm">취소</button>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <button onClick={() => onEdit(it)} className="btn btn-primary btn-sm me-2">편집</button>
-                                            <button onClick={() => onDelete(it.id)} className="btn btn-danger btn-sm">삭제</button>
-                                        </>
-                                    )}
-                                </td>
+                <div className='content_wrap'>
+                    {message && <div className="mb-3 text-primary">{message}</div>}
+                    <table className="table table-bordered table-hover">
+                        <thead className="table-light">
+                            <tr>
+                                <th>Year</th>
+                                <th>Title</th>
+                                <th>Material</th>
+                                <th>Size</th>
+                                <th>이미지</th>
+                                <th>관리</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {items.map((it) => (
+                                <tr key={it.id}>
+                                    <td>{it.year}</td>
+                                    <td>{it.title}</td>
+                                    <td>{it.material}</td>
+                                    <td>{it.size}</td>
+                                    <td>
+                                        {Array.isArray(it.images) && it.images.length > 0 && (
+                                            <img src={it.images[0]} alt="thumb" style={{ width: 40, height: 40, objectFit: "cover", borderRadius: 4 }} />
+                                        )}
+                                    </td>
+                                    <td>
+                                        <button onClick={e => { e.stopPropagation(); navigate(`/admin/works/edit/${it.id}`); }} className="btn btn-primary btn-sm me-2">편집</button>
+                                        <button onClick={e => { e.stopPropagation(); onDelete(it.id); }} className="btn btn-danger btn-sm">삭제</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
