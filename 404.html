@@ -8,21 +8,21 @@
   </head>
   <body>
     <script>
-      // Redirect 404s to index.html for client-side routing
-      // Preserve the path so React Router can handle it
-      (function() {
-        var base = '/kimjongku_react/'; // project page base
-        var redirect = base;
+      (function () {
+        var base = '/';   // 현재 gh-pages 루트 배포에 맞게 수정
         var path = window.location.pathname;
         var search = window.location.search || '';
         var hash = window.location.hash || '';
-        // Trim base from path if present
+
         if (path.indexOf(base) === 0) {
-          path = path.substring(base.length - 1); // keep leading '/'
+          path = path.substring(base.length - 1);
         }
-        // Pass original path to app via ?p=
-        window.location.replace(redirect + '?p=' + encodeURIComponent(path + search) + hash);
+
+        window.location.replace(
+          base + '?p=' + encodeURIComponent(path + search) + hash
+        );
       })();
-    </script>
+      </script>
+
   </body>
 </html>
