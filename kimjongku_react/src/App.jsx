@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import InfoMenu from "./components/InfoMenu";
 import AdminMenu from "./components/AdminMenu";
@@ -34,6 +34,7 @@ function App() {
   const [showInfo, setShowInfo] = useState(false);
   const [screensaver, setScreensaver] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const timerRef = useRef();
   const isAdmin = location.pathname.startsWith('/admin');
 
@@ -41,6 +42,16 @@ function App() {
     window.dispatchEvent(new Event('navigation-start'));
     window.dispatchEvent(new Event('navigation-end'));
   }, [location]);
+
+  // GitHub Pages deep-link fallback: handle ?p=/path passed from 404.html
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    if (p) {
+      // Clean the query so it doesn't keep redirecting
+      navigate(p, { replace: true });
+    }
+  }, [navigate]);
 
   useEffect(() => {
     // Screensaver 일시 비활성화를 위해 타이머 설정을 주석 처리
