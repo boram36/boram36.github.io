@@ -11,8 +11,14 @@
       (function () {
         var projectRoot = '/kimjongku_react';
         var redirectBase = projectRoot + '/';
-        var path = window.location.pathname || '/';
         var search = window.location.search || '';
+
+        if (/([?&])p=/.test(search)) {
+          window.location.replace(redirectBase);
+          return;
+        }
+
+        var path = window.location.pathname || '/';
         var hash = window.location.hash || '';
 
         if (path.startsWith(projectRoot)) {
@@ -24,7 +30,7 @@
         }
 
         window.location.replace(
-          redirectBase + '?p=' + encodeURIComponent(path + search + hash)
+          redirectBase + '?p=' + encodeURIComponent(path + hash)
         );
       })();
       </script>
