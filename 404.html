@@ -9,17 +9,22 @@
   <body>
     <script>
       (function () {
-        var base = '/';   // 현재 gh-pages 루트 배포에 맞게 수정
-        var path = window.location.pathname;
+        var projectRoot = '/kimjongku_react';
+        var redirectBase = projectRoot + '/';
+        var path = window.location.pathname || '/';
         var search = window.location.search || '';
         var hash = window.location.hash || '';
 
-        if (path.indexOf(base) === 0) {
-          path = path.substring(base.length - 1);
+        if (path.startsWith(projectRoot)) {
+          path = path.slice(projectRoot.length);
+        }
+
+        if (!path.startsWith('/')) {
+          path = '/' + path;
         }
 
         window.location.replace(
-          base + '?p=' + encodeURIComponent(path + search) + hash
+          redirectBase + '?p=' + encodeURIComponent(path + search + hash)
         );
       })();
       </script>
