@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import './styles/nprogress-custom.css';
@@ -24,11 +24,14 @@ function NProgressHandler() {
   return null;
 }
 
+// Use BrowserRouter in dev for clean URLs, HashRouter in production (e.g., GitHub Pages)
+const Router = import.meta.env.DEV ? BrowserRouter : HashRouter;
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HashRouter>
+    <Router>
       <NProgressHandler />
       <App />
-    </HashRouter>
+    </Router>
   </StrictMode>
 );
