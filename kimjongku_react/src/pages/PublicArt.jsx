@@ -3,7 +3,7 @@ import { supabase } from "../lib/supabase";
 import "../styles/InfoLayout.css";
 import "../styles/Works.css";
 
-const TABLE_NAME = "publications";
+const TABLE_NAME = "public_art";
 
 const normalizeImages = (rawImages, fallback) => {
     if (Array.isArray(rawImages)) {
@@ -35,112 +35,6 @@ const normalizeImages = (rawImages, fallback) => {
     return [];
 };
 
-const parseArrayField = (value) => {
-    if (!value) return [];
-    if (Array.isArray(value)) return value.filter(Boolean);
-
-    if (typeof value === "string") {
-        try {
-            const parsed = JSON.parse(value);
-            if (Array.isArray(parsed)) {
-                return parsed.filter(Boolean);
-            }
-        } catch (err) {
-            const trimmed = value.trim();
-            if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
-                try {
-                    const parsed = JSON.parse(trimmed);
-                    if (Array.isArray(parsed)) {
-                        return parsed.filter(Boolean);
-                    }
-                } catch (innerErr) {
-                    // no-op
-                }
-            }
-        }
-    }
-
-    return [];
-};
-
-const extractImages = (item) => normalizeImages(item?.images, item?.image);
-
-const extractFiles = (item) => {
-    const arrayCandidates = [item?.files, item?.attachments, item?.downloads];
-    for (const candidate of arrayCandidates) {
-        const parsed = parseArrayField(candidate);
-        if (parsed.length) {
-            return parsed
-                .map((entry) => {
-                    if (!entry) return null;
-                    if (typeof entry === "string") {
-                        return { url: entry, label: "다운로드" };
-                    }
-                    if (typeof entry === "object") {
-                        const url = entry.url || entry.href || entry.path || entry.value;
-                        const label = entry.name || entry.label || entry.title || "다운로드";
-                        return url ? { url, label } : null;
-                    }
-                    return null;
-                })
-                .filter(Boolean);
-        }
-    }
-
-    const singleUrl =
-        item?.file_url ||
-        item?.fileUrl ||
-        item?.download_url ||
-        item?.downloadUrl ||
-        item?.file ||
-        null;
-
-    if (singleUrl) {
-        const label =
-            item?.file_name ||
-            item?.fileName ||
-            item?.download_name ||
-            item?.downloadName ||
-            "다운로드";
-
-        return [{ url: singleUrl, label }];
-    }
-
-    return [];
-};
-
-const extractExternalLink = (item) =>
-    item?.link || item?.url || item?.external_url || item?.externalUrl || null;
-
-const buildPrimaryText = (item) =>
-    item?.title || item?.text || item?.name || item?.headline || "Untitled";
-
-const buildSecondaryLines = (item, primaryText) => {
-    const candidates = [
-        item?.subtitle,
-        item?.text,
-        item?.publisher,
-        item?.location,
-        item?.description,
-        item?.summary,
-        item?.note,
-        item?.author,
-        item?.editor,
-    ];
-
-    const unique = [];
-    candidates.forEach((value) => {
-        if (!value) return;
-        const trimmed = String(value).trim();
-        if (!trimmed || trimmed === primaryText) return;
-        if (!unique.includes(trimmed)) {
-            unique.push(trimmed);
-        }
-    });
-
-    return unique;
-};
-
 function ImageSlider({ images, onOpen }) {
     const [idx, setIdx] = useState(0);
 
@@ -167,7 +61,7 @@ function ImageSlider({ images, onOpen }) {
             <div style={{ flex: 1, marginTop: 10 }}>
                 <img
                     src={images[idx]}
-                    alt="publication"
+                    alt="public-art"
                     onClick={() => onOpen(images, idx)}
                     style={{ cursor: "pointer", maxWidth: "100%" }}
                 />
@@ -202,7 +96,7 @@ function ImageSlider({ images, onOpen }) {
     );
 }
 
-function PublicationsBase({ wrap = true, showTitle = true }) {
+function PublicArtBase({ wrap = true, showTitle = true }) {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -233,9 +127,7 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                 setError("");
                 const normalized = (data || []).map((entry) => ({
                     ...entry,
-                    images: extractImages(entry),
-                    files: extractFiles(entry),
-                    externalLink: extractExternalLink(entry),
+                    images: normalizeImages(entry?.images, entry?.image),
                 }));
                 setItems(normalized);
             }
@@ -360,14 +252,11 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                     const showYear = index === 0 || year !== previousYear;
                     const itemKey = String(item.id ?? `${year}-${index}`);
                     const isOpen = openIds.includes(itemKey);
-                    const primaryText = buildPrimaryText(item);
-                    const secondaryLines = buildSecondaryLines(item, primaryText);
-                    const attachments = item.files || [];
-                    const externalLink = item.externalLink;
-                    const hasGallery = (item.images?.length || 0) > 0;
-                    const hasAttachments = attachments.length > 0;
-                    const hasExternalLink = Boolean(externalLink);
-                    const canExpand = hasGallery || hasAttachments || hasExternalLink;
+                    const images = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
+                    const hasGallery = images.length > 0;
+                    const contentText = (item.text || item.title || "").trim();
+                    const displayText = contentText || "내용 없음";
+                    const canExpand = hasGallery;
 
                     return (
                         <li key={itemKey} className="info-record">
@@ -385,19 +274,7 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                                     disabled={!canExpand}
                                 >
                                     <span className="info-record-text">
-                                        <span style={{ display: "block" }}>{primaryText}</span>
-                                        {secondaryLines.length > 0 && (
-                                            <span
-                                                style={{
-                                                    display: "block",
-                                                    fontSize: "0.85rem",
-                                                    color: "#9a9a9a",
-                                                    lineHeight: 1.4,
-                                                }}
-                                            >
-                                                {secondaryLines.join(" · ")}
-                                            </span>
-                                        )}
+                                        <span style={{ display: "block" }}>{displayText}</span>
                                     </span>
                                     {canExpand && (
                                         <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
@@ -406,51 +283,11 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                                 {canExpand && (
                                     <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
                                         <div className="info-record-expand-inner">
-                                            {hasAttachments && (
-                                                <div
-                                                    style={{
-                                                        display: "flex",
-                                                        flexDirection: "column",
-                                                        gap: 6,
-                                                    }}
-                                                >
-                                                    {attachments.map((file, idx) => (
-                                                        <a
-                                                            className="file-download"
-                                                            key={`${itemKey}-file-${idx}`}
-                                                            href={file.url}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            download
-                                                        >
-                                                            DOWNLOAD
-                                                            <i className="ico ico-download"></i>
-                                                        </a>
-                                                    ))}
+                                            <div className="info-record-image">
+                                                <div className="work-image" style={{ marginBottom: 0 }}>
+                                                    <ImageSlider images={images} onOpen={openModal} />
                                                 </div>
-                                            )}
-
-                                            {hasGallery && (
-                                                <div className="info-record-image">
-                                                    <div className="work-image" style={{ marginBottom: 0 }}>
-                                                        <ImageSlider images={item.images} onOpen={openModal} />
-                                                    </div>
-                                                </div>
-                                            )}
-
-                                            {hasExternalLink && (
-                                                <div>
-                                                    <a
-                                                        className="file-download"
-                                                        href={externalLink}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                    >
-                                                        VIEW LINK
-                                                        <i className="ico ico-download"></i>
-                                                    </a>
-                                                </div>
-                                            )}
+                                            </div>
                                         </div>
                                     </div>
                                 )}
@@ -585,10 +422,10 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
     );
 }
 
-export default function PublicationsPage() {
-    return <PublicationsBase />;
+export default function PublicArtPage() {
+    return <PublicArtBase />;
 }
 
-export function PublicationsPreview(props) {
-    return <PublicationsBase wrap={false} showTitle={false} {...props} />;
+export function PublicArtPreview(props) {
+    return <PublicArtBase wrap={false} showTitle={false} {...props} />;
 }

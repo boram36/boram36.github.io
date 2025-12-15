@@ -65,7 +65,6 @@ export default function AdminWorksList() {
 
     const navigate = useNavigate();
 
-
     if (loading) return <div className="p-4">Loading…</div>;
     if (error) return <div className="text-danger">Error: {error}</div>;
 
@@ -73,16 +72,32 @@ export default function AdminWorksList() {
         <div className="container">
             <div className="inner">
                 <div className='content_wrap'>
+                    <div className="d-flex justify-content-end mb-3 gap-2">
+                        <button
+                            type="button"
+                            className="btn btn-outline-secondary btn-sm"
+                            onClick={() => navigate("/admin")}
+                        >
+                            관리자 홈
+                        </button>
+                        <button
+                            type="button"
+                            className="btn btn-success btn-sm"
+                            onClick={() => navigate("/admin/works")}
+                        >
+                            등록
+                        </button>
+                    </div>
                     {message && <div className="mb-3 text-primary">{message}</div>}
                     <table className="table table-bordered table-hover">
                         <thead className="table-light">
                             <tr>
-                                <th>Year</th>
+                                <th style={{ width: "120px" }}>Year</th>
                                 <th>Title</th>
-                                <th>Material</th>
-                                <th>Size</th>
-                                <th>이미지</th>
-                                <th>관리</th>
+                                <th style={{ width: "180px" }}>Material</th>
+                                <th style={{ width: "160px" }}>Size</th>
+                                <th>Image</th>
+                                <th>Manage</th>
                             </tr>
                         </thead>
                         <tbody>

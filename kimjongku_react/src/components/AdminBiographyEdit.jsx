@@ -67,7 +67,11 @@ export default function AdminBiographyEdit() {
                 setMessage(`불러오기 실패: ${error.message}`);
             } else {
                 const images = normalizeImages(data?.images, data?.image);
-                setItem({ ...data, images });
+                setItem({
+                    ...data,
+                    images,
+                    info: data?.info || "",
+                });
                 setExistingImages(images);
             }
             setLoading(false);
@@ -246,7 +250,7 @@ export default function AdminBiographyEdit() {
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label className="form-label">Text</label>
+                                    <label className="form-label">Contents</label>
                                     <input
                                         type="text"
                                         name="text"
@@ -258,7 +262,7 @@ export default function AdminBiographyEdit() {
                                 </div>
                                 <div className="mb-3">
                                     <div className="mb-3">
-                                        <span className="d-block text-muted mb-2">등록된 이미지</span>
+                                        <span className="d-block text-muted mb-2">Images</span>
                                         {existingImages.length ? (
                                             <div className="d-flex flex-wrap gap-3">
                                                 {existingImages.map((url, idx) => (
@@ -285,7 +289,7 @@ export default function AdminBiographyEdit() {
                                     </div>
                                 </div>
                                 <div className="mb-3">
-                                    <label className="form-label">이미지 추가</label>
+                                    <label className="form-label">Images</label>
                                     <input
                                         type="file"
                                         accept="image/*"

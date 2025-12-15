@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import '../styles/Works.css';
 
@@ -20,8 +21,8 @@ function ImageSlider({ images, setModal }) {
 	const [idx, setIdx] = useState(0);
 
 	return (
-		<div style={{ position: 'relative', display: 'flex', alignItems: 'center', maxHeight: 400 }}>
-			<div style={{ flex: '1', marginTop: 20 }}>
+		<div classsName="work-image_slide" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+			<div className='work-image_img' style={{ flex: '1', marginTop: 20 }}>
 				<img
 					src={images[idx]}
 					onClick={() => setModal({ images, index: idx })}
@@ -33,7 +34,7 @@ function ImageSlider({ images, setModal }) {
 
 					<button
 						className='btn-slide-arr next'
-						style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', cursor: 'pointer' }}
+						style={{}}
 						onClick={(e) => {
 							e.stopPropagation();
 							setIdx((idx + 1) % images.length);
@@ -55,6 +56,8 @@ export default function Works() {
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 	const [dragging, setDragging] = useState(false);
 	const dragStart = useRef({ x: 0, y: 0 });
+	const sectionRefs = useRef(new Map());
+	const location = useLocation();
 
 
 	useEffect(() => {
@@ -88,8 +91,31 @@ export default function Works() {
 		);
 	};
 
+	useEffect(() => {
+		const hash = location.hash ? location.hash.replace("#", "").trim() : "";
+		if (!hash || !items.length) return;
+
+		const targetYear = Number(hash) || hash;
+		if (!items.some((item) => String(item.year) === String(targetYear))) {
+			return;
+		}
+
+		const targetSection = sectionRefs.current.get(String(targetYear));
+		if (!targetSection) return;
+
+		window.requestAnimationFrame(() => {
+			targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+		});
+	}, [location.hash, items]);
+
+	useEffect(() => {
+		return () => {
+			window.scrollTo({ top: 0 });
+		};
+	}, []);
+
 	return (
-		<div className="container">
+		<div className="container works">
 
 			<div className='inner'>
 				{years.map((year) => {
@@ -98,23 +124,30 @@ export default function Works() {
 					const isYearOpen = yearItems.every(item => openIds.includes(item.id));
 
 					return (
-						<section className='sect-yearList' key={year}>
+						<section
+							className='sect-yearList'
+							key={year}
+							id={String(year)}
+							ref={(el) => {
+								const map = sectionRefs.current;
+								if (el) {
+									map.set(String(year), el);
+								} else {
+									map.delete(String(year));
+								}
+							}}
+						>
 							<div className={`work-top ${isYearOpen ? "open" : "close"}`} onClick={() => toggleYear(year)} style={{ cursor: "pointer" }}>
 								<h2 className='work-year'>
 									{year}
 								</h2>
 							</div>
 
-							{/* header */}
-							<div className='work-info'>
-								<div className='work-label' style={{ flex: "0 0 510px" }}>(title)</div>
-								<div className='work-label' style={{ flex: 2 }}>(material)</div>
-								<div className='work-label' style={{ flex: 1 }}>(size)</div>
-							</div>
 
-							{yearItems.map((it) => {
+							{yearItems.map((it, idx) => {
 								const isOpen = openIds.includes(it.id);
 								const imgs = it.images || [];
+								const showLabels = idx === 0;
 
 								return (
 									<div className='work-list' key={it.id}>
@@ -122,9 +155,18 @@ export default function Works() {
 											className='work-info work-item'
 											onClick={() => toggleItem(it.id)}
 										>
-											<div className='work-title' style={{ flex: "0 0 510px" }}>{it.title}</div>
-											<div className='work-material' style={{ flex: 2 }}>{it.material}</div>
-											<div className='work-size' style={{ flex: 1 }}>{it.size}</div>
+											<div className='work-title' style={{ flex: "0 0 510px" }}>
+												{showLabels && <p className='work-label'>(title)</p>}
+												{it.title}
+											</div>
+											<div className='work-material' style={{ flex: 2 }}>
+												{showLabels && <p className='work-label'>(material)</p>}
+												{it.material}
+											</div>
+											<div className='work-size' style={{ flex: 1 }}>
+												{showLabels && <p className='work-label'>(size)</p>}
+												{it.size}
+											</div>
 										</div>
 
 										<Collapse open={isOpen}>
@@ -250,6 +292,12 @@ export default function Works() {
 					</div>
 				)}
 			</div>
+			<div className='info-copyright'>
+				<div className="inner">
+					© Kim Jongku. All rights reserved.
+				</div>
+			</div>
+
 		</div>
 	);
 }

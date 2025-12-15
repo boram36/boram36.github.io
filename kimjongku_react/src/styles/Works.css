@@ -1,14 +1,14 @@
 
 
-.sect-yearList { margin-top: 40px; } 
+.sect-yearList { margin-top: 40px; scroll-margin-top: 140px; } 
 .work-info { display: flex; justify-content: space-between; } 
 .work-info > div { text-align: left; font-weight: 400; cursor: pointer; } 
-.work-year { color: #797676; font-size: 20px; font-weight: 400; } 
+.work-year { color: #797676; font-size: 20px; font-weight: 400; margin-bottom: 0;} 
 .work-label { font-size: 12px; color: #797676; margin-bottom: 20px; } 
 .work-title { font-size:18px; font-style: italic; color: #000; } 
 .work-material { font-size:18px; color: #000; } 
 .work-size { font-size:18px; color: #000; } 
-.work-top::after { content: ''; width: 20px; height: 20px; background: url('../assets/toggle-icon.svg') no-repeat center center; } 
+.work-top::after { content: ''; width: 24px; height: 14px; background: url('../assets/toggle-icon.svg') no-repeat 50% / cover; } 
 .work-top { display: flex; align-items: center; justify-content: space-between; } 
 .work-top.open::after { transform: rotate(180deg); } 
 .work-button{width: 100%;}
@@ -23,3 +23,46 @@
 .btn-slide-arr.prev{transform: translateY(-50%) scaleX(-1); left: 50px;} 
 .btn-close-modal{width: 44px; height: 44px; background: url('../assets/ico-close.svg') no-repeat center center; cursor: pointer;}
 .slide-pagination{position: absolute; bottom: 46px; left: 50%; transform: translateX(-50%); font-size: 34px; color: #000; }    
+.works .info-copyright{
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    bottom: 0;
+    padding: 10px 0;
+}
+
+.carousel-wrap { width: 100%; position: relative; margin-top: 20px; } 
+.carousel-viewport { overflow: hidden; width: 100%; } 
+.carousel-track { display: flex; transition: transform 0.35s ease; cursor: grab; } 
+.carousel-slide { flex: 0 0 100%; max-width: 445px; padding-right: 0; } 
+.carousel-image { width: 100%; height: 280px; background-size: cover; background-position: center; background-repeat: no-repeat; cursor: pointer; } 
+.work-image_slide .btn-slide-arr.next{position: absolute; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; right: 0;}
+
+
+
+@media (max-width: 1024px) {
+  .work-info { flex-direction: column; gap: 5px;}
+  .sect-yearList:first-child { margin-top: 35px; }
+  .sect-yearList + .sect-yearList{margin-top: 60px;}
+  .work-top{margin-bottom: 15px}
+  .work-label{display: none;}
+  .work-info > div{flex: none !important;}
+  .work-list + .work-list{margin-top: 40px;}
+  .work-image img{max-height: 380px;}
+
+
+}
+@media (max-width: 768px) {
+    .work-top{margin-bottom: 10px;}
+    .work-year { font-size: 18px; }
+    .work-title{font-size: 16px;}
+    .work-material { font-size:16px; }
+    .work-size { font-size:16px; }
+    .sect-yearList:first-child { margin-top: 27px; }
+  .sect-yearList + .sect-yearList{margin-top: 40px;}
+  .work-image{margin-bottom: 0;}
+  .work-image img{max-height: 230px;}
+  .btn-slide-arr{width: 40px; height: 40px;}
+  .work-image_img{margin-top: 5px !important}
+ 
+}

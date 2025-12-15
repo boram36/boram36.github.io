@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -27,24 +27,24 @@ const normalizeImages = (rawImages, fallback) => {
     }
 
     if (fallback) {
-        return [fallback];
+        return [fallback].filter(Boolean);
     }
 
     return [];
 };
 
-export default function AdminBiographyList() {
+export default function AdminPublicArtList() {
+    const navigate = useNavigate();
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [message, setMessage] = useState("");
-    const navigate = useNavigate();
 
     useEffect(() => {
         const load = async () => {
             setLoading(true);
             const { data, error } = await supabase
-                .from("biography")
+                .from("public_art")
                 .select("*")
                 .order("year", { ascending: false })
                 .order("id", { ascending: true });
@@ -69,16 +69,17 @@ export default function AdminBiographyList() {
 
     const handleDelete = async (id) => {
         if (!window.confirm("삭제하시겠습니까?")) return;
+
         const { error } = await supabase
-            .from("biography")
+            .from("public_art")
             .delete()
             .eq("id", id);
 
         if (error) {
-            setMessage("삭제 실패: " + error.message);
+            setMessage(`삭제 실패: ${error.message}`);
         } else {
-            setMessage("삭제 완료!");
             setItems((prev) => prev.filter((item) => item.id !== id));
+            setMessage("삭제 완료!");
         }
     };
 
@@ -100,7 +101,7 @@ export default function AdminBiographyList() {
                         <button
                             type="button"
                             className="btn btn-success btn-sm"
-                            onClick={() => navigate("/admin/biography")}
+                            onClick={() => navigate("/admin/public-art")}
                         >
                             등록
                         </button>
@@ -109,11 +110,12 @@ export default function AdminBiographyList() {
                     <table className="table table-bordered table-hover">
                         <thead className="table-light">
                             <tr>
-                                <th style={{ width: "120px" }}>Year</th>
-                                <th style={{ width: "140px" }}>Category</th>
-                                <th>Contents</th>
-                                <th>Images</th>
-                                <th>Manage</th>
+                                <th style={{ width: "120px" }}>
+                                    년도
+                                </th>
+                                <th>내용</th>
+                                <th style={{ width: "160px" }}>이미지</th>
+                                <th style={{ width: "160px" }}>관리</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,8 +124,7 @@ export default function AdminBiographyList() {
                                 return (
                                     <tr key={item.id}>
                                         <td>{item.year}</td>
-                                        <td>{item.category}</td>
-                                        <td className="text-break">{item.text}</td>
+                                        <td className="text-break">{item.text || item.title || "-"}</td>
                                         <td>
                                             {imageArray.length > 0 ? (
                                                 <>
@@ -142,19 +143,13 @@ export default function AdminBiographyList() {
                                         </td>
                                         <td>
                                             <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    navigate(`/admin/biography/edit/${item.id}`);
-                                                }}
+                                                onClick={() => navigate(`/admin/public-art/edit/${item.id}`)}
                                                 className="btn btn-primary btn-sm me-2"
                                             >
                                                 편집
                                             </button>
                                             <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handleDelete(item.id);
-                                                }}
+                                                onClick={() => handleDelete(item.id)}
                                                 className="btn btn-danger btn-sm"
                                             >
                                                 삭제

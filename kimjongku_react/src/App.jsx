@@ -7,14 +7,13 @@ import Screensaver from "./components/Screensaver";
 import Home from "./pages/Home";
 import InfoLayout from "./layouts/InfoLayout";
 import BiographyPage from "./pages/Biography";
-import Publications from "./components/Publications";
-import EssaysPress from "./components/EssaysPress";
-import CurrentUpcoming from "./pages/CurrentUpcoming";
+import EssaysPressPage from "./pages/EssayPress";
+import PublicationsPage from "./pages/Publications";
+import PublicArtPage from "./pages/PublicArt";
 import Works from "./pages/Works";
 import Work from "./pages/Work";
 import Projects from "./components/Project";
-import Video from "./components/Video";
-import Contact from "./pages/Contact";
+import VideoPage from "./pages/Video";
 import AdminWorks from "./components/AdminWorks";
 import AdminWorksList from "./components/AdminWorksList";
 import AdminLogin from "./components/AdminLogin";
@@ -23,6 +22,18 @@ import AdminMainBackground from "./components/AdminMainBackground";
 import AdminBiography from "./components/AdminBiography";
 import AdminBiographyList from "./components/AdminBiographyList";
 import AdminBiographyEdit from "./components/AdminBiographyEdit";
+import AdminPublications from "./components/AdminPublications";
+import AdminPublicationsList from "./components/AdminPublicationsList";
+import AdminPublicationsEdit from "./components/AdminPublicationsEdit";
+import AdminPublicArt from "./components/AdminPublicArt";
+import AdminPublicArtList from "./components/AdminPublicArtList";
+import AdminPublicArtEdit from "./components/AdminPublicArtEdit";
+import AdminVideo from "./components/AdminVideo";
+import AdminVideoList from "./components/AdminVideoList";
+import AdminVideoEdit from "./components/AdminVideoEdit";
+import AdminEssaysPress from "./components/AdminEssaysPress";
+import AdminEssaysPressList from "./components/AdminEssaysPressList";
+import AdminEssaysPressEdit from "./components/AdminEssaysPressEdit";
 import { useParams } from "react-router-dom";
 // AdminWorksEdit 라우트용 래퍼 컴포넌트
 function AdminWorksEditWrapper() {
@@ -39,48 +50,47 @@ function App() {
   const isAdmin = location.pathname.startsWith('/admin');
 
   useEffect(() => {
-    window.dispatchEvent(new Event('navigation-start'));
-    window.dispatchEvent(new Event('navigation-end'));
-  }, [location]);
-
-  // GitHub Pages deep-link fallback: handle ?p=/path passed from 404.html
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const p = params.get('p');
-    if (p) {
-      // Clean the query so it doesn't keep redirecting
-      navigate(p, { replace: true });
+    if (isAdmin) {
+      setScreensaver(false);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      return;
     }
-  }, [navigate]);
 
-  useEffect(() => {
-    // Screensaver 일시 비활성화를 위해 타이머 설정을 주석 처리
     const resetTimer = () => {
       if (timerRef.current) clearTimeout(timerRef.current);
-      if (screensaver) setScreensaver(false);
-      // timerRef.current = setTimeout(() => setScreensaver(true), 6000);
+
+
+
+      timerRef.current = setTimeout(() => {
+        setScreensaver(true);
+      }, 100000); // ✅ 6초
     };
-    if (isAdmin) {
-      // 관리자 페이지에서는 스크린세이버 비활성화
-      if (screensaver) setScreensaver(false);
-      if (timerRef.current) clearTimeout(timerRef.current);
-      return; // 이벤트 리스너 등록 안 함
-    }
-    window.addEventListener('mousemove', resetTimer);
-    window.addEventListener('mousedown', resetTimer);
+
+    // 최초 진입 시 타이머 시작
     resetTimer();
+
+    const events = [
+      "touchstart",
+      "click",
+    ];
+
+    events.forEach((event) =>
+      window.addEventListener(event, resetTimer, { passive: true })
+    );
+
     return () => {
-      window.removeEventListener('mousemove', resetTimer);
-      window.removeEventListener('mousedown', resetTimer);
+      events.forEach((event) =>
+        window.removeEventListener(event, resetTimer)
+      );
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [screensaver, isAdmin]);
+  }, [isAdmin, screensaver, location.pathname]);
+
 
   return (
     <>
-      {/* 스크린세이버 표시 주석 처리 */}
-      {/* {!isAdmin && screensaver && <Screensaver onExit={() => setScreensaver(false)} />} */}
-      {true && (
+      {!isAdmin && screensaver && <Screensaver onExit={() => setScreensaver(false)} />}
+      {!screensaver && (
         <>
           <Header onInfoClick={() => setShowInfo(!showInfo)} />
           {showInfo && !isAdmin && <InfoMenu />}
@@ -88,24 +98,32 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/info" element={<InfoLayout />}>
               <Route path="biography" element={<BiographyPage />} />
-              <Route path="publications" element={<Publications />} />
-              <Route path="essays" element={<EssaysPress />} />
-              <Route path="current" element={<CurrentUpcoming />} />
+              <Route path="essays" element={<EssaysPressPage />} />
+              <Route path="publications" element={<PublicationsPage />} />
+              <Route path="public-art" element={<PublicArtPage />} />
+              <Route path="video" element={<VideoPage />} />
             </Route>
             <Route path="/works" element={<Works />} />
             <Route path="/work/:year" element={<Work />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/video" element={<Video />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/video" element={<VideoPage />} />
             <Route path="/admin" element={<AdminMenu />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/biography" element={<AdminBiography />} />
             <Route path="/admin/biography/list" element={<AdminBiographyList />} />
             <Route path="/admin/biography/edit/:id" element={<AdminBiographyEdit />} />
-            <Route path="/admin/publications" element={<Publications isAdmin={true} />} />
-            <Route path="/admin/essays" element={<EssaysPress isAdmin={true} />} />
+            <Route path="/admin/publications" element={<AdminPublications />} />
+            <Route path="/admin/publications/list" element={<AdminPublicationsList />} />
+            <Route path="/admin/publications/edit/:id" element={<AdminPublicationsEdit />} />
+            <Route path="/admin/public-art" element={<AdminPublicArt />} />
+            <Route path="/admin/public-art/list" element={<AdminPublicArtList />} />
+            <Route path="/admin/public-art/edit/:id" element={<AdminPublicArtEdit />} />
+            <Route path="/admin/video" element={<AdminVideo />} />
+            <Route path="/admin/video/list" element={<AdminVideoList />} />
+            <Route path="/admin/video/edit/:id" element={<AdminVideoEdit />} />
+            <Route path="/admin/essays" element={<AdminEssaysPress />} />
+            <Route path="/admin/essays/list" element={<AdminEssaysPressList />} />
+            <Route path="/admin/essays/edit/:id" element={<AdminEssaysPressEdit />} />
             <Route path="/admin/projects" element={<Projects isAdmin={true} />} />
-            <Route path="/admin/video" element={<Video isAdmin={true} />} />
             <Route path="/admin/works" element={<AdminWorks />} />
             <Route path="/admin/works/list" element={<AdminWorksList />} />
             <Route path="/admin/works/edit/:id" element={<AdminWorksEditWrapper />} />

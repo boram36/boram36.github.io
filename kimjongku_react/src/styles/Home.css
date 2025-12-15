@@ -1,9 +1,11 @@
 .home-container { max-width: 800px; margin: 120px auto; padding-left: 80px; text-align: left; } 
-.year-listing { padding: 95px 100px; background: url('../assets/year-bg.png') no-repeat center center; background-size: cover; display: flex; flex-wrap: wrap; gap: 70px 90px; justify-content: left; } 
-.year-listing > li { width: 90px; } 
+.year-listing {margin-bottom: 0; padding: 95px 100px; background: url('../assets/year-bg.png') no-repeat center center; background-size: cover; display: flex; flex-wrap: wrap; gap: 0 90px; justify-content: left; height: calc(100vh - 130px - 95px);} 
+.year-listing > li { width: 90px; height: 18%;} 
 .year-list { display: flex; flex-direction: column; gap: 14px; /* 연도 사이 간격 */}
 .year-item { font-size: 30px; color: #fff; text-decoration: none; font-weight: 600; cursor: pointer; } 
 .year-item:hover { opacity: 1; } 
+.container.main{padding-bottom: 0;}
+.main .info-copyright{bottom: 10px;}
 
 @media (max-width: 1024px) {
   .container.main{
@@ -38,5 +40,9 @@
 
   .year-item{
     font-size: 20px;
+  }
+  .main .info-copyright{
+        position: static;
+    padding: 5px 20px;
   }
 }

@@ -58,6 +58,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <div className="info-copyright">© Kim Jongku. All rights reserved.</div>
       </div>
     </div>
   );

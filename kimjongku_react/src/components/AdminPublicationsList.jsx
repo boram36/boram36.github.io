@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -27,24 +27,70 @@ const normalizeImages = (rawImages, fallback) => {
     }
 
     if (fallback) {
-        return [fallback];
+        return [fallback].filter(Boolean);
     }
 
     return [];
 };
 
-export default function AdminBiographyList() {
+const parseArrayField = (value) => {
+    if (!value) return [];
+    if (Array.isArray(value)) return value.filter(Boolean);
+
+    if (typeof value === "string") {
+        try {
+            const parsed = JSON.parse(value);
+            if (Array.isArray(parsed)) {
+                return parsed.filter(Boolean);
+            }
+        } catch (err) {
+            const trimmed = value.trim();
+            if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+                try {
+                    const parsed = JSON.parse(trimmed);
+                    if (Array.isArray(parsed)) {
+                        return parsed.filter(Boolean);
+                    }
+                } catch (innerErr) {
+                    return [];
+                }
+            }
+        }
+    }
+
+    return [];
+};
+
+const normalizeFiles = (raw) => {
+    const parsed = parseArrayField(raw);
+    return parsed
+        .map((entry) => {
+            if (!entry) return null;
+            if (typeof entry === "string") {
+                return { url: entry, label: "파일" };
+            }
+            if (typeof entry === "object") {
+                const url = entry.url || entry.href || entry.path || entry.value;
+                const label = entry.name || entry.label || entry.title || "파일";
+                return url ? { url, label } : null;
+            }
+            return null;
+        })
+        .filter(Boolean);
+};
+
+export default function AdminPublicationsList() {
+    const navigate = useNavigate();
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [message, setMessage] = useState("");
-    const navigate = useNavigate();
 
     useEffect(() => {
         const load = async () => {
             setLoading(true);
             const { data, error } = await supabase
-                .from("biography")
+                .from("publications")
                 .select("*")
                 .order("year", { ascending: false })
                 .order("id", { ascending: true });
@@ -57,6 +103,7 @@ export default function AdminBiographyList() {
                 const normalized = (data || []).map((entry) => ({
                     ...entry,
                     images: normalizeImages(entry?.images, entry?.image),
+                    files: normalizeFiles(entry?.files || entry?.attachments || entry?.downloads),
                 }));
                 setItems(normalized);
             }
@@ -69,16 +116,17 @@ export default function AdminBiographyList() {
 
     const handleDelete = async (id) => {
         if (!window.confirm("삭제하시겠습니까?")) return;
+
         const { error } = await supabase
-            .from("biography")
+            .from("publications")
             .delete()
             .eq("id", id);
 
         if (error) {
-            setMessage("삭제 실패: " + error.message);
+            setMessage(`삭제 실패: ${error.message}`);
         } else {
-            setMessage("삭제 완료!");
             setItems((prev) => prev.filter((item) => item.id !== id));
+            setMessage("삭제 완료!");
         }
     };
 
@@ -100,7 +148,7 @@ export default function AdminBiographyList() {
                         <button
                             type="button"
                             className="btn btn-success btn-sm"
-                            onClick={() => navigate("/admin/biography")}
+                            onClick={() => navigate("/admin/publications")}
                         >
                             등록
                         </button>
@@ -109,21 +157,37 @@ export default function AdminBiographyList() {
                     <table className="table table-bordered table-hover">
                         <thead className="table-light">
                             <tr>
-                                <th style={{ width: "120px" }}>Year</th>
-                                <th style={{ width: "140px" }}>Category</th>
-                                <th>Contents</th>
-                                <th>Images</th>
-                                <th>Manage</th>
+                                <th style={{ width: "120px" }}>년도</th>
+                                <th>내용</th>
+                                <th style={{ width: "180px" }}>첨부</th>
+                                <th style={{ width: "160px" }}>이미지</th>
+                                <th style={{ width: "160px" }}>관리</th>
                             </tr>
                         </thead>
                         <tbody>
                             {items.map((item) => {
                                 const imageArray = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
+                                const fileArray = Array.isArray(item.files) ? item.files : [];
+                                const primaryFile = fileArray[0];
+                                const extraFileCount = fileArray.length > 1 ? fileArray.length - 1 : 0;
                                 return (
                                     <tr key={item.id}>
                                         <td>{item.year}</td>
-                                        <td>{item.category}</td>
-                                        <td className="text-break">{item.text}</td>
+                                        <td className="text-break">{item.title || "-"}</td>
+                                        <td className="text-break">
+                                            {primaryFile ? (
+                                                <>
+                                                    <a href={primaryFile.url} target="_blank" rel="noopener noreferrer">
+                                                        {primaryFile.label || "파일"}
+                                                    </a>
+                                                    {extraFileCount > 0 && (
+                                                        <span className="ms-2 text-muted">+{extraFileCount}</span>
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <span className="text-muted">첨부 없음</span>
+                                            )}
+                                        </td>
                                         <td>
                                             {imageArray.length > 0 ? (
                                                 <>
@@ -142,19 +206,13 @@ export default function AdminBiographyList() {
                                         </td>
                                         <td>
                                             <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    navigate(`/admin/biography/edit/${item.id}`);
-                                                }}
+                                                onClick={() => navigate(`/admin/publications/edit/${item.id}`)}
                                                 className="btn btn-primary btn-sm me-2"
                                             >
                                                 편집
                                             </button>
                                             <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handleDelete(item.id);
-                                                }}
+                                                onClick={() => handleDelete(item.id)}
                                                 className="btn btn-danger btn-sm"
                                             >
                                                 삭제

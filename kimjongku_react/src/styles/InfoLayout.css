@@ -42,7 +42,7 @@
 .info-r{flex: 1;display: flex;flex-direction: column; justify-content: space-between;}
 .info-sidebar { position: sticky; top:160px; left: 0; } 
 .info-sidebar { min-width: 300px; display: flex; flex-direction: column; gap: 20px; } 
-.sidebar-link { text-decoration: none; border-radius: 4px; font-weight: 500; color: #797676; font-size: 20px; } 
+.sidebar-link { text-decoration: none; border-radius: 4px; font-weight: 400; color: #797676; font-size: 20px; line-height: 1.2;} 
 .sidebar-link.active,
 .sidebar-link:hover { text-decoration: underline; } 
 .info-top > div { color: #797676; font-size: 18px; line-height: 30px; } 
@@ -52,44 +52,60 @@
 .info-category-section { display: flex; flex-direction: column; } 
 .info-category-title { font-size: 20px; color: #797676; margin-bottom: 0; line-height: 42px; font-weight: 400;} 
 .info-record-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column;} 
-.info-record { display: flex; align-items: flex-start; margin-left: 15px; flex-wrap: wrap;} 
+.info-record { display: flex; align-items: flex-start; flex-wrap: wrap;} 
+.info-biography .info-record{margin-left: 15px;}
+.info-biography .info-record-image{ padding-left: 100px;}
 .info-record-year { min-width: 80px; margin-right: 20px; font-size: 18px; font-weight: 400; color: #797676; line-height: 42px; } 
-.info-record-button { border: none; background: transparent; padding: 0; margin: 0; display: inline-flex; align-items: center; gap: 8px; text-align: left; cursor: pointer; color: #2d2d2d; font-size: 0.96rem; line-height: 1.5; } 
+.info-record-button { border: none; background: transparent; padding: 0; margin: 0; display: inline-flex; align-items: center; gap: 8px; text-align: left; cursor: pointer;} 
 .info-record-button:disabled,
 .info-record-button[disabled] { opacity: 1; } 
 .info-record-arrow { font-size: 18px; font-weight: 400; color: #797676; } 
 .info-record-text { flex: 1; font-size: 18px; font-weight: 400; color: #797676; line-height: 42px;} 
-.info-record-image {width: 100%; padding-left: 100px;} 
+.info-record-image {width: 100%;} 
 .info-record-image img { } 
-.info-copyright {
-    color: #9B9B9B;
-    font-size: 14px;
-    font-weight: 300;
-    position: fixed;
-    bottom: 85px;
-}
-.info-content {
-    padding-bottom: 85px;
-}
+.info-copyright { color: #9B9B9B; font-size: 14px; font-weight: 300; position: fixed; bottom: 85px; } 
+.info-content {padding-bottom: 85px;}
+.file-download{position: absolute; top: -35px; right: 0; color: #797676; display: flex; align-items: center; gap: 6px; font-size: 18px; font-weight: 400; text-decoration: underline; text-underline-offset: 4px; }
+.file-download .ico-download{width:22px; height:22px; background: url('../assets/ico-download.svg') no-repeat 50% / cover; display: inline-block; }
+.info-record-expand{width: 100%; max-height:0;opacity:0;transform:translateY(-6px);transition:max-height 0.35s ease,opacity 0.25s ease,transform 0.35s ease;pointer-events:none;}
+.info-record-expand.open{max-height:500px;opacity:1;transform:translateY(0);pointer-events:auto;}
+.info-record-expand-inner{display:flex;flex-direction:column;}
 
-@media (max-width: 768px) {
-  .info-record {
-    grid-template-columns: 56px 1fr;
-    column-gap: 16px;
-  }
-
-  .info-record-image {
-    padding-left: 56px;
-  }
-}
 
 
 
 @media (max-width: 1024px) {
-  .container{padding-top: 100px;}
+  .container{padding-top: 100px; padding-bottom: 40px;}
+  .info-layout {flex-direction: column; gap: 40px; height: auto;}
+  .info-copyright{bottom: 0; left: 0; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); width: 100%; padding: 5px 40px; }
+  .info-content{padding-bottom: 40px; }
+  .file-download {
+    position: static;
+    justify-content: right;
+  }
 }
 
 @media (max-width: 768px) {
- .container{padding-top: 75px; } 
+ .container{padding-top: 70px; padding-bottom: 20px;} 
  .container.main .inner{height: auto; }
+ .info-layout{margin-top: 25px; gap: 25px;}
+ .info-sidebar {gap: 15px;}
+ .sidebar-link{font-size: 18px;}
+ .info-top > div{font-size: 16px; line-height: 25px;}
+ .info-page{gap: 15px;}
+ .info-category-title{font-size: 18px;}
+ .info-record-year{font-size: 16px; min-width: 50px; margin-right: 0; line-height: 20px;}
+ .info-biography .info-record{margin-left: 0;}
+ .info-record-text{font-size: 16px; line-height: 20px;}
+ .info-record-button{line-height: 20px;}
+ .info-record-arrow{font-size: 16px;}
+ .info-record-list{gap: 12px;}
+ .info-record-button{flex: 1;}
+ .info-biography .info-record-image{padding-left: 0;}
+ .file-download {
+    font-size: 16px;
+}
+.info-copyright{
+    padding: 5px 20px;
+  }
 }

@@ -99,9 +99,7 @@ export default function AdminBiography() {
         try {
             let uploadedUrls = [];
             if (imageFiles.length) {
-                uploadedUrls = (await Promise.all(imageFiles.map(uploadImage)))
-                    .filter(Boolean)
-                    .filter((url, index, arr) => arr.indexOf(url) === index);
+                uploadedUrls = (await Promise.all(imageFiles.map(uploadImage))).filter(Boolean);
             }
 
             const payload = {

@@ -71,6 +71,7 @@ function ImageSlider({ images, onOpen }) {
         position: "relative",
         width: "100%",
         maxHeight: 400,
+        paddingRight: 46,
       }}
     >
       <div style={{ flex: 1, marginTop: 10 }}>
@@ -81,24 +82,13 @@ function ImageSlider({ images, onOpen }) {
           style={{ cursor: "pointer", maxWidth: "100%" }}
         />
       </div>
-      {images.length > 0 && (
+      {images.length > 1 && (
         <>
-          <button
-            className="btn-slide-arr prev"
-            style={{
-              position: "absolute",
-              left: 10,
-              top: "50%",
-              transform: "translateY(-50%)",
-              cursor: "pointer",
-            }}
-            onClick={goPrev}
-          />
           <button
             className="btn-slide-arr next"
             style={{
               position: "absolute",
-              right: 10,
+              right: 0,
               top: "50%",
               transform: "translateY(-50%)",
               cursor: "pointer",
@@ -274,7 +264,7 @@ function BiographyBase({ wrap = true, showTitle = true }) {
 
   const renderBody = () => {
     return (
-      <div className="info-page">
+      <div className="info-page info-biography">
         {showTitle}
         {wrap && (
           <div className="info-top">
@@ -316,7 +306,7 @@ function BiographyBase({ wrap = true, showTitle = true }) {
 
                     {isOpen && images.length > 0 && (
                       <div className="info-record-image">
-                        <div className="work-image" style={{ marginBottom: 0 }}>
+                        <div className="work-image" style={{ marginBottom: 10 }}>
                           <ImageSlider images={images} onOpen={openModal} />
                         </div>
                       </div>
