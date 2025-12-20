@@ -1,17 +1,19 @@
 <!-- SPA fallback for GitHub Pages -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Redirecting…</title>
-    <meta name="robots" content="noindex" />
-  </head>
-  <body>
-    <script>
-      (function () {
+<head>
+<meta charset="utf-8" />
+<title>Redirecting…</title>
+<meta name="robots" content="noindex" />
+</head>
+<body>
+<script>
+(function () {
         var projectRoot = '/kimjongku_react';
         var redirectBase = projectRoot + '/';
-        var search = window.location.search || '';
+        var base = '/';   // 현재 gh-pages 루트 배포에 맞게 수정
+        var path = window.location.pathname;
+var search = window.location.search || '';
 
         if (/([?&])p=/.test(search)) {
           window.location.replace(redirectBase);
@@ -19,7 +21,7 @@
         }
 
         var path = window.location.pathname || '/';
-        var hash = window.location.hash || '';
+var hash = window.location.hash || '';
 
         if (path.startsWith(projectRoot)) {
           path = path.slice(projectRoot.length);
@@ -27,13 +29,16 @@
 
         if (!path.startsWith('/')) {
           path = '/' + path;
-        }
+        if (path.indexOf(base) === 0) {
+          path = path.substring(base.length - 1);
+}
 
-        window.location.replace(
+window.location.replace(
           redirectBase + '?p=' + encodeURIComponent(path + hash)
-        );
-      })();
-      </script>
+          base + '?p=' + encodeURIComponent(path + search) + hash
+);
+})();
+</script>
 
-  </body>
+</body>
 </html>
