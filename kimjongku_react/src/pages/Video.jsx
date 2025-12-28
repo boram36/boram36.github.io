@@ -171,56 +171,80 @@ export default function VideoPage() {
         );
     };
 
-    const renderBody = () => (
-        <div className="info-page">
-            <ul className="info-record-list">
-                {sortedItems.map((item, index) => {
-                    const year = item.year ? String(item.year) : "";
-                    const previousYear = index === 0 ? null : String(sortedItems[index - 1].year ?? "");
-                    const showYear = index === 0 || year !== previousYear;
-                    const itemKey = String(item.id ?? `${year}-${index}`);
-                    const isOpen = openIds.includes(itemKey);
-                    const hasVideo = item.videoUrl.length > 0;
-                    const displayText = item.text || "내용 없음";
+    const renderBody = () => {
+        const groupedByYear = [];
 
-                    return (
-                        <li key={itemKey} className="info-record">
-                            <span
-                                className="info-record-year"
-                                style={{ visibility: showYear ? "visible" : "hidden" }}
-                            >
-                                {year}
-                            </span>
-                            <div style={{ flex: 1 }}>
-                                <button
-                                    type="button"
-                                    className="info-record-button"
-                                    onClick={() => toggleItem(itemKey, hasVideo)}
-                                    disabled={!hasVideo}
-                                >
-                                    <span className="info-record-text">
-                                        <span style={{ display: "block" }}>{displayText}</span>
-                                    </span>
-                                    {hasVideo && (
-                                        <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
-                                    )}
-                                </button>
-                                {hasVideo && (
-                                    <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
-                                        <div className="info-record-expand-inner">
-                                            <div className="info-record-image" style={{ width: "100%" }}>
-                                                <VideoEmbed videoUrl={item.videoUrl} />
-                                            </div>
+        sortedItems.forEach((item, index) => {
+            const yearLabel = item.year ? String(item.year) : "";
+            const groupKey = yearLabel || `unknown-${index}`;
+            const itemKey = String(item.id ?? `${groupKey}-${index}`);
+            const hasVideo = item.videoUrl.length > 0;
+            const displayText = item.text || "내용 없음";
+
+            const entry = {
+                itemKey,
+                hasVideo,
+                displayText,
+                videoUrl: item.videoUrl,
+            };
+
+            const lastGroup = groupedByYear[groupedByYear.length - 1];
+            if (lastGroup && lastGroup.groupKey === groupKey) {
+                lastGroup.entries.push(entry);
+            } else {
+                groupedByYear.push({
+                    groupKey,
+                    yearLabel,
+                    entries: [entry],
+                });
+            }
+        });
+
+        return (
+            <div className="info-page">
+                <ul className="info-record-list">
+                    {groupedByYear.map(({ groupKey, yearLabel, entries }) => (
+                        <li key={`group-${groupKey}`} className="info-record">
+                            <span className="info-record-year">{yearLabel}</span>
+                            <div className="info-record-multi">
+                                {entries.map(({ itemKey, hasVideo, displayText, videoUrl }) => {
+                                    const isOpen = openIds.includes(itemKey);
+
+                                    return (
+                                        <div key={itemKey} className="info-record-line">
+                                            <button
+                                                type="button"
+                                                className="info-record-button"
+                                                onClick={() => toggleItem(itemKey, hasVideo)}
+                                                disabled={!hasVideo}
+                                            >
+                                                <span className="info-record-text">
+                                                    <span style={{ display: "block" }}>{displayText}</span>
+                                                </span>
+                                                {hasVideo && (
+                                                    <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
+                                                )}
+                                            </button>
+
+                                            {hasVideo && (
+                                                <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
+                                                    <div className="info-record-expand-inner">
+                                                        <div className="info-record-image" style={{ width: "100%" }}>
+                                                            <VideoEmbed videoUrl={videoUrl} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
-                                    </div>
-                                )}
+                                    );
+                                })}
                             </div>
                         </li>
-                    );
-                })}
-            </ul>
-        </div>
-    );
+                    ))}
+                </ul>
+            </div>
+        );
+    };
 
     if (loading && !items.length) {
         return <div className="text-muted mb-3">불러오는 중...</div>;

@@ -18,7 +18,6 @@ export default function InfoLayout() {
             </div>
           </div>
         </div>
-        <div className='info-copyright'>© Kim Jongku. All rights reserved.</div>
       </div>
     </div>
   );

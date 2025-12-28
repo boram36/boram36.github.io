@@ -1,45 +1,44 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { supabase } from "../lib/supabase";
-import '../styles/Works.css';
+import "../styles/InfoLayout.css";
+import "../styles/Works.css";
 
-function Collapse({ open, children }) {
+function ImageSlider({ images, onOpen }) {
+	const [index, setIndex] = useState(0);
+
+	if (!Array.isArray(images) || images.length === 0) return null;
+
+	const hasMultiple = images.length > 1;
+
+	const goPrev = (event) => {
+		event.stopPropagation();
+		setIndex((prev) => (prev - 1 + images.length) % images.length);
+	};
+
+	const goNext = (event) => {
+		event.stopPropagation();
+		setIndex((prev) => (prev + 1) % images.length);
+	};
+
 	return (
-		<div
-			style={{
-				maxHeight: open ? 1000 : 0,
-				overflow: "hidden",
-				transition: "max-height 0.3s ease",
-			}}
-		>
-			{children}
-		</div>
-	);
-}
-
-function ImageSlider({ images, setModal }) {
-	const [idx, setIdx] = useState(0);
-
-	return (
-		<div classsName="work-image_slide" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-			<div className='work-image_img' style={{ flex: '1', marginTop: 20 }}>
+		<div className="work-image-slide" style={{ position: "relative", display: "flex", alignItems: "center", maxHeight: 400 }}>
+			<div className="work-image_img" style={{ flex: 1, marginTop: 20 }}>
 				<img
-					src={images[idx]}
-					onClick={() => setModal({ images, index: idx })}
-					style={{ cursor: 'pointer', maxWidth: '100%' }}
+					src={images[index]}
+					onClick={() => onOpen(images, index)}
+					style={{ cursor: "pointer", maxWidth: "100%" }}
+					alt="work"
 				/>
 			</div>
-			{images.length > 0 && (
+			{hasMultiple && (
 				<>
 
 					<button
-						className='btn-slide-arr next'
-						style={{}}
-						onClick={(e) => {
-							e.stopPropagation();
-							setIdx((idx + 1) % images.length);
-						}}
-					></button>
+						className="btn-slide-arr next"
+						style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
+						onClick={goNext}
+					/>
 				</>
 			)}
 		</div>
@@ -50,7 +49,6 @@ export default function Works() {
 	const [years, setYears] = useState([]);
 	const [items, setItems] = useState([]);
 	const [openIds, setOpenIds] = useState([]);
-	const [openYears, setOpenYears] = useState([]);
 	const [modal, setModal] = useState(null);
 	const [scale, setScale] = useState(1);
 	const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -58,6 +56,86 @@ export default function Works() {
 	const dragStart = useRef({ x: 0, y: 0 });
 	const sectionRefs = useRef(new Map());
 	const location = useLocation();
+
+	const resetView = () => {
+		setScale(1);
+		setPosition({ x: 0, y: 0 });
+		setDragging(false);
+	};
+
+	const openModal = (images, index = 0) => {
+		if (!Array.isArray(images) || images.length === 0) return;
+		resetView();
+		setModal({ images, index });
+	};
+
+	const closeModal = () => {
+		resetView();
+		setModal(null);
+	};
+
+	const goPrev = (e) => {
+		e?.stopPropagation();
+		if (!modal) return;
+		resetView();
+		setModal((current) => ({
+			...current,
+			index: (current.index - 1 + current.images.length) % current.images.length,
+		}));
+	};
+
+	const goNext = (e) => {
+		e?.stopPropagation();
+		if (!modal) return;
+		resetView();
+		setModal((current) => ({
+			...current,
+			index: (current.index + 1) % current.images.length,
+		}));
+	};
+
+	const handleMouseDown = (e) => {
+		e.stopPropagation();
+		setDragging(true);
+		dragStart.current = {
+			x: e.clientX - position.x,
+			y: e.clientY - position.y,
+		};
+	};
+
+	const handleMouseMove = (e) => {
+		if (!dragging) return;
+		setPosition({
+			x: e.clientX - dragStart.current.x,
+			y: e.clientY - dragStart.current.y,
+		});
+	};
+
+	const handleMouseUp = () => {
+		setDragging(false);
+	};
+
+	const handleWheel = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		const delta = e.deltaY < 0 ? 0.2 : -0.2;
+		setScale((prev) => Math.min(3, Math.max(0.5, prev + delta)));
+	};
+
+	const zoomIn = (e) => {
+		e.stopPropagation();
+		setScale((prev) => Math.min(3, prev + 0.2));
+	};
+
+	const zoomOut = (e) => {
+		e.stopPropagation();
+		setScale((prev) => Math.max(0.5, prev - 0.2));
+	};
+
+	const zoomReset = (e) => {
+		e.stopPropagation();
+		resetView();
+	};
 
 
 	useEffect(() => {
@@ -148,6 +226,7 @@ export default function Works() {
 								const isOpen = openIds.includes(it.id);
 								const imgs = it.images || [];
 								const showLabels = idx === 0;
+								const hasGallery = imgs.length > 0;
 
 								return (
 									<div className='work-list' key={it.id}>
@@ -169,20 +248,24 @@ export default function Works() {
 											</div>
 										</div>
 
-										<Collapse open={isOpen}>
-											<div className='work-info'>
-												<div style={{ flex: "0 0 510px" }}></div>
-												<div style={{ flex: 2 }}>
-													<div className='work-image'>
-														{imgs.length > 0 && (
-															<ImageSlider images={imgs} setModal={setModal} />
-														)}
+										{hasGallery && (
+											<div className={`info-record-expand ${isOpen ? "open" : ""}`}>
+												<div className="info-record-expand-inner">
+													<div style={{ display: "flex" }}>
+														<div style={{ flex: "0 0 510px" }}>
+														</div>
+														<div style={{ flex: 1 }}>
+															<div className="info-record-image">
+																<div className="work-image" style={{ marginBottom: 10 }}>
+																	<ImageSlider images={imgs} onOpen={openModal} />
+																</div>
+															</div>
+														</div>
 													</div>
 
 												</div>
 											</div>
-
-										</Collapse>
+										)}
 									</div>
 								);
 							})}
@@ -193,36 +276,24 @@ export default function Works() {
 				{modal && (
 					<div
 						className='modal-container'
-						onClick={() => setModal(null)}
-						style={{
-
-						}}
+						onClick={closeModal}
+						onMouseMove={handleMouseMove}
+						onMouseUp={handleMouseUp}
+						onMouseLeave={handleMouseUp}
+						onWheel={handleWheel}
 					>
 						<button
 							className='btn-close-modal'
 							onClick={(e) => {
 								e.stopPropagation();
-								setScale(1);
-								setPosition({ x: 0, y: 0 });
-								setModal(null);
+								closeModal();
 							}}
-
 							style={{ position: "absolute", top: 30, right: 40, fontSize: 32 }}
 						></button>
 
-						<button
-							className='btn-slide-arr prev'
-							onClick={(e) => {
-								e.stopPropagation();
-								setScale(1);
-								setPosition({ x: 0, y: 0 });
-
-								setModal((m) => ({
-									...m,
-									index: (m.index - 1 + m.images.length) % m.images.length,
-								}));
-							}}
-						></button>
+						{modal.images.length > 1 && (
+							<button className='btn-slide-arr prev' onClick={goPrev}></button>
+						)}
 
 						<div
 							style={{
@@ -235,6 +306,7 @@ export default function Works() {
 								overflow: "hidden",
 								cursor: dragging ? "grabbing" : "grab"
 							}}
+							onMouseDown={handleMouseDown}
 
 						>
 							<img
@@ -253,38 +325,25 @@ export default function Works() {
 							<div style={{ position: 'absolute', top: 20, left: 20, display: 'flex', gap: 8, zIndex: 2 }}>
 								<button
 									style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
-									onClick={e => { e.stopPropagation(); setScale(s => Math.min(3, s + 0.2)); }}
+									onClick={zoomIn}
 									title="확대"
 								>＋</button>
 								<button
 									style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
-									onClick={e => { e.stopPropagation(); setScale(s => Math.max(0.5, s - 0.2)); }}
+									onClick={zoomOut}
 									title="축소"
 								>－</button>
 								<button
 									style={{ fontSize: 18, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
-									onClick={e => { e.stopPropagation(); setScale(1); setPosition({ x: 0, y: 0 }); }}
+									onClick={zoomReset}
 									title="원본"
-								>원본</button>
+								> <i className="icon-reset"></i></button>
 							</div>
 						</div>
 
-
-
-						<button
-							className='btn-slide-arr next'
-							onClick={(e) => {
-								e.stopPropagation();
-								setScale(1);
-								setPosition({ x: 0, y: 0 });
-
-								setModal((m) => ({
-									...m,
-									index: (m.index + 1) % m.images.length,
-								}));
-							}}
-
-						></button>
+						{modal.images.length > 1 && (
+							<button className='btn-slide-arr next' onClick={goNext}></button>
+						)}
 
 						<div className='slide-pagination'>
 							{modal.index + 1}/{modal.images.length}
@@ -292,11 +351,7 @@ export default function Works() {
 					</div>
 				)}
 			</div>
-			<div className='info-copyright'>
-				<div className="inner">
-					© Kim Jongku. All rights reserved.
-				</div>
-			</div>
+
 
 		</div>
 	);

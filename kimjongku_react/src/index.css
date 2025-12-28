@@ -41,6 +41,8 @@ body{
     -webkit-text-size-adjust:none;
     -moz-text-size-adjust:none;
     -ms-text-size-adjust:none;
+    overflow-y: scroll;
+    scrollbar-gutter: stable both-edges;
 }
 
 

@@ -1,10 +1,10 @@
 
 
-.sect-yearList { margin-top: 40px; scroll-margin-top: 140px; } 
+.sect-yearList { margin-top: 50px; scroll-margin-top: 140px; } 
 .work-info { display: flex; justify-content: space-between; } 
 .work-info > div { text-align: left; font-weight: 400; cursor: pointer; } 
 .work-year { color: #797676; font-size: 20px; font-weight: 400; margin-bottom: 0;} 
-.work-label { font-size: 12px; color: #797676; margin-bottom: 20px; } 
+.work-label { font-size: 12px; color: #797676; margin-bottom: 10px; } 
 .work-title { font-size:18px; font-style: italic; color: #000; } 
 .work-material { font-size:18px; color: #000; } 
 .work-size { font-size:18px; color: #000; } 
@@ -14,7 +14,7 @@
 .work-button{width: 100%;}
 .work-image{ width: 100%; margin-bottom: 40px;}
 .work-image img{max-height: 400px;}
-.work-list + .work-list{margin-top: 10px;}
+.work-list + .work-list{margin-top: 0;}
 .btn-slide-arr{width: 46px; height: 46px; background: url('../assets/ico-slide-arr.svg') no-repeat 50% / cover; cursor: pointer;}
 .modal-container { position: fixed;inset: 0;background: #fff;display: flex;align-items: center;justify-content: center;z-index: 999;  } 
 .modal-container .btn-slide-arr{position: absolute; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; }

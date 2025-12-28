@@ -350,117 +350,162 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
         resetView();
     };
 
-    const renderBody = () => (
-        <div className="info-page">
-            {showTitle}
-            <ul className="info-record-list">
-                {sortedItems.map((item, index) => {
-                    const year = item.year ? String(item.year) : "";
-                    const previousYear = index === 0 ? null : String(sortedItems[index - 1].year ?? "");
-                    const showYear = index === 0 || year !== previousYear;
-                    const itemKey = String(item.id ?? `${year}-${index}`);
-                    const isOpen = openIds.includes(itemKey);
-                    const primaryText = buildPrimaryText(item);
-                    const secondaryLines = buildSecondaryLines(item, primaryText);
-                    const attachments = item.files || [];
-                    const externalLink = item.externalLink;
-                    const hasGallery = (item.images?.length || 0) > 0;
-                    const hasAttachments = attachments.length > 0;
-                    const hasExternalLink = Boolean(externalLink);
-                    const canExpand = hasGallery || hasAttachments || hasExternalLink;
+    const renderBody = () => {
+        const groupedByYear = [];
 
-                    return (
-                        <li key={itemKey} className="info-record">
-                            <span
-                                className="info-record-year"
-                                style={{ visibility: showYear ? "visible" : "hidden" }}
-                            >
-                                {year}
-                            </span>
-                            <div style={{ flex: 1 }}>
-                                <button
-                                    type="button"
-                                    className="info-record-button"
-                                    onClick={() => toggleItem(itemKey, canExpand)}
-                                    disabled={!canExpand}
-                                >
-                                    <span className="info-record-text">
-                                        <span style={{ display: "block" }}>{primaryText}</span>
-                                        {secondaryLines.length > 0 && (
-                                            <span
-                                                style={{
-                                                    display: "block",
-                                                    fontSize: "0.85rem",
-                                                    color: "#9a9a9a",
-                                                    lineHeight: 1.4,
-                                                }}
+        sortedItems.forEach((item, index) => {
+            const yearLabel = item.year ? String(item.year) : "";
+            const groupKey = yearLabel || `unknown-${index}`;
+            const itemKey = String(item.id ?? `${groupKey}-${index}`);
+            const primaryText = buildPrimaryText(item);
+            const secondaryLines = buildSecondaryLines(item, primaryText);
+            const attachments = item.files || [];
+            const externalLink = item.externalLink;
+            const images = item.images || [];
+            const hasGallery = images.length > 0;
+            const hasAttachments = attachments.length > 0;
+            const hasExternalLink = Boolean(externalLink);
+
+            const entry = {
+                itemKey,
+                primaryText,
+                secondaryLines,
+                attachments,
+                externalLink,
+                images,
+                canExpand: hasGallery || hasAttachments || hasExternalLink,
+                hasGallery,
+                hasAttachments,
+                hasExternalLink,
+            };
+
+            const lastGroup = groupedByYear[groupedByYear.length - 1];
+            if (lastGroup && lastGroup.groupKey === groupKey) {
+                lastGroup.entries.push(entry);
+            } else {
+                groupedByYear.push({
+                    groupKey,
+                    yearLabel,
+                    entries: [entry],
+                });
+            }
+        });
+
+        return (
+            <div className="info-page">
+                {showTitle}
+                <ul className="info-record-list">
+                    {groupedByYear.map(({ groupKey, yearLabel, entries }) => (
+                        <li key={`group-${groupKey}`} className="info-record">
+                            <span className="info-record-year">{yearLabel}</span>
+                            <div className="info-record-multi">
+                                {entries.map((entry) => {
+                                    const {
+                                        itemKey,
+                                        primaryText,
+                                        secondaryLines,
+                                        attachments,
+                                        externalLink,
+                                        images,
+                                        canExpand,
+                                        hasGallery,
+                                        hasAttachments,
+                                        hasExternalLink,
+                                    } = entry;
+
+                                    const isOpen = openIds.includes(itemKey);
+
+                                    return (
+                                        <div key={itemKey} className="info-record-line">
+                                            <button
+                                                type="button"
+                                                className="info-record-button"
+                                                onClick={() => toggleItem(itemKey, canExpand)}
+                                                disabled={!canExpand}
                                             >
-                                                {secondaryLines.join(" · ")}
-                                            </span>
-                                        )}
-                                    </span>
-                                    {canExpand && (
-                                        <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
-                                    )}
-                                </button>
-                                {canExpand && (
-                                    <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
-                                        <div className="info-record-expand-inner">
-                                            {hasAttachments && (
-                                                <div
-                                                    style={{
-                                                        display: "flex",
-                                                        flexDirection: "column",
-                                                        gap: 6,
-                                                    }}
-                                                >
-                                                    {attachments.map((file, idx) => (
-                                                        <a
-                                                            className="file-download"
-                                                            key={`${itemKey}-file-${idx}`}
-                                                            href={file.url}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            download
+                                                <span className="info-record-text">
+                                                    <span style={{ display: "block" }}>{primaryText}</span>
+                                                    {secondaryLines.length > 0 && (
+                                                        <span
+                                                            style={{
+                                                                display: "block",
+                                                                fontSize: "0.85rem",
+                                                                color: "#9a9a9a",
+                                                                lineHeight: 1.4,
+                                                            }}
                                                         >
-                                                            DOWNLOAD
-                                                            <i className="ico ico-download"></i>
-                                                        </a>
-                                                    ))}
-                                                </div>
-                                            )}
+                                                            {secondaryLines.join(" · ")}
+                                                        </span>
+                                                    )}
+                                                </span>
+                                                {canExpand && (
+                                                    <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
+                                                )}
+                                            </button>
 
-                                            {hasGallery && (
-                                                <div className="info-record-image">
-                                                    <div className="work-image" style={{ marginBottom: 0 }}>
-                                                        <ImageSlider images={item.images} onOpen={openModal} />
+                                            {canExpand && (
+                                                <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
+                                                    <div className="info-record-expand-inner">
+                                                        {hasAttachments && (
+                                                            <div
+                                                                style={{
+                                                                    display: "flex",
+                                                                    flexDirection: "column",
+                                                                    gap: 6,
+                                                                }}
+                                                            >
+                                                                {attachments.map((file, idx) => (
+                                                                    <a
+                                                                        className="file-download"
+                                                                        key={`${itemKey}-file-${idx}`}
+                                                                        href={file.url}
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        download
+                                                                        style={{ position: "static" }}
+                                                                    >
+                                                                        DOWNLOAD
+                                                                        <i className="ico ico-download"></i>
+                                                                    </a>
+                                                                ))}
+                                                            </div>
+                                                        )}
+
+                                                        {hasGallery && (
+                                                            <div className="info-record-image">
+                                                                <div className="work-image" style={{ marginBottom: 0 }}>
+                                                                    <ImageSlider images={images} onOpen={openModal} />
+                                                                </div>
+                                                            </div>
+                                                        )}
+
+                                                        {hasExternalLink && (
+                                                            <div>
+                                                                <a
+                                                                    className="file-download"
+                                                                    href={externalLink}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    style={{ position: "static" }}
+                                                                >
+                                                                    VIEW LINK
+                                                                    <i className="ico ico-download"></i>
+                                                                </a>
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 </div>
                                             )}
-
-                                            {hasExternalLink && (
-                                                <div>
-                                                    <a
-                                                        className="file-download"
-                                                        href={externalLink}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                    >
-                                                        VIEW LINK
-                                                        <i className="ico ico-download"></i>
-                                                    </a>
-                                                </div>
-                                            )}
                                         </div>
-                                    </div>
-                                )}
+                                    );
+                                })}
                             </div>
                         </li>
-                    );
-                })}
-            </ul>
-        </div>
-    );
+                    ))}
+                </ul>
+            </div>
+        );
+    };
 
     const modalOverlay = !modal ? null : (
         <div
@@ -561,7 +606,7 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                         onClick={zoomReset}
                         title="원본"
                     >
-                        원본
+                        <i className="icon-reset"></i>
                     </button>
                 </div>
             </div>

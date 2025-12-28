@@ -53,15 +53,17 @@ const getImages = (item) => {
 function ImageSlider({ images, onOpen }) {
   const [idx, setIdx] = useState(0);
 
-  if (!images.length) return null;
+  if (!Array.isArray(images) || images.length === 0) return null;
 
-  const goPrev = (e) => {
-    e.stopPropagation();
+  const hasMultiple = images.length > 1;
+
+  const goPrev = (event) => {
+    event.stopPropagation();
     setIdx((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  const goNext = (e) => {
-    e.stopPropagation();
+  const goNext = (event) => {
+    event.stopPropagation();
     setIdx((prev) => (prev + 1) % images.length);
   };
 
@@ -71,7 +73,6 @@ function ImageSlider({ images, onOpen }) {
         position: "relative",
         width: "100%",
         maxHeight: 400,
-        paddingRight: 46,
       }}
     >
       <div style={{ flex: 1, marginTop: 10 }}>
@@ -82,13 +83,24 @@ function ImageSlider({ images, onOpen }) {
           style={{ cursor: "pointer", maxWidth: "100%" }}
         />
       </div>
-      {images.length > 1 && (
+      {hasMultiple && (
         <>
+          <button
+            className="btn-slide-arr prev"
+            style={{
+              position: "absolute",
+              left: 10,
+              top: "50%",
+              transform: "translateY(-50%)",
+              cursor: "pointer",
+            }}
+            onClick={goPrev}
+          />
           <button
             className="btn-slide-arr next"
             style={{
               position: "absolute",
-              right: 0,
+              right: 10,
               top: "50%",
               transform: "translateY(-50%)",
               cursor: "pointer",
@@ -171,14 +183,13 @@ function BiographyBase({ wrap = true, showTitle = true }) {
     return [...ordered, ...remaining];
   }, [sortedItems]);
 
-  const toggleItem = (item) => {
-    const images = getImages(item);
-    if (!images.length) return;
+  const toggleItem = (key, canExpand) => {
+    if (!canExpand) return;
 
     setOpenIds((prev) =>
-      prev.includes(item.id)
-        ? prev.filter((id) => id !== item.id)
-        : [...prev, item.id]
+      prev.includes(key)
+        ? prev.filter((id) => id !== key)
+        : [...prev, key]
     );
   };
 
@@ -263,60 +274,93 @@ function BiographyBase({ wrap = true, showTitle = true }) {
   };
 
   const renderBody = () => {
+    const sections = itemsByCategory.map(({ category, items: categoryItems }) => {
+      const groupedByYear = [];
+
+      categoryItems.forEach((item, index) => {
+        const groupKey = item.year != null ? String(item.year) : `unknown-${index}`;
+        const itemKey = item?.id != null ? String(item.id) : `${category}-${index}`;
+        const images = getImages(item);
+
+        const entry = {
+          item,
+          itemKey,
+          images,
+        };
+
+        const lastGroup = groupedByYear[groupedByYear.length - 1];
+        if (lastGroup && lastGroup.groupKey === groupKey) {
+          lastGroup.entries.push(entry);
+        } else {
+          groupedByYear.push({
+            groupKey,
+            yearLabel: item.year,
+            entries: [entry],
+          });
+        }
+      });
+
+      return (
+        <section key={category} className="info-category-section">
+          <h5 className="info-category-title">{category}</h5>
+          <ul className="info-record-list">
+            {groupedByYear.map(({ groupKey, yearLabel, entries }) => (
+              <li key={`${category}-${groupKey}`} className="info-record">
+                <span className="info-record-year">{yearLabel}</span>
+                <div className="info-record-multi">
+                  {entries.map(({ item, itemKey, images }) => {
+                    const isOpen = openIds.includes(itemKey);
+                    const hasGallery = images.length > 0;
+                    const canExpand = hasGallery;
+
+                    return (
+                      <div key={itemKey} className="info-record-line">
+                        <button
+                          type="button"
+                          className="info-record-button"
+                          onClick={() => toggleItem(itemKey, canExpand)}
+                          disabled={!canExpand}
+                        >
+                          <span className="info-record-text">{item.text}</span>
+                          {canExpand && (
+                            <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
+                          )}
+                        </button>
+
+                        {canExpand && (
+                          <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
+                            <div className="info-record-expand-inner">
+                              <div className="info-record-image">
+                                <div className="work-image" style={{ marginBottom: 10 }}>
+                                  <ImageSlider images={images} onOpen={openModal} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    });
+
+
+
     return (
       <div className="info-page info-biography">
-        {showTitle}
-        {wrap && (
+        {INTRO_LINES.length > 0 && (
           <div className="info-top">
             {INTRO_LINES.map((line) => (
               <div key={line}>{line}</div>
             ))}
           </div>
         )}
-
-        {itemsByCategory.map(({ category, items: categoryItems }) => (
-          <section key={category} className="info-category-section">
-            <h5 className="info-category-title">{category}</h5>
-            <ul className="info-record-list">
-              {categoryItems.map((item, index) => {
-                const images = getImages(item);
-                const isOpen = openIds.includes(item.id);
-                const showYear = index === 0 || categoryItems[index - 1].year !== item.year;
-
-                return (
-                  <li key={item.id} className="info-record">
-                    <span
-                      className="info-record-year"
-                      style={{ visibility: showYear ? "visible" : "hidden" }}
-                    >
-                      {item.year}
-                    </span>
-                    <button
-                      type="button"
-                      className="info-record-button"
-                      onClick={() => toggleItem(item)}
-                      disabled={!images.length}
-                    >
-
-                      <span className="info-record-text">{item.text}</span>
-                      {images.length > 0 && (
-                        <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
-                      )}
-                    </button>
-
-                    {isOpen && images.length > 0 && (
-                      <div className="info-record-image">
-                        <div className="work-image" style={{ marginBottom: 10 }}>
-                          <ImageSlider images={images} onOpen={openModal} />
-                        </div>
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </section>
-        ))}
+        {sections}
       </div>
     );
   };
@@ -339,8 +383,12 @@ function BiographyBase({ wrap = true, showTitle = true }) {
         style={{ position: "absolute", top: 30, right: 40, fontSize: 32 }}
       />
 
-      <button className="btn-slide-arr prev" onClick={goPrev} />
-      <button className="btn-slide-arr next" onClick={goNext} />
+      {modal.images.length > 1 && (
+        <>
+          <button className="btn-slide-arr prev" onClick={goPrev} />
+          <button className="btn-slide-arr next" onClick={goNext} />
+        </>
+      )}
 
       <div
         style={{
@@ -420,7 +468,7 @@ function BiographyBase({ wrap = true, showTitle = true }) {
             onClick={zoomReset}
             title="원본"
           >
-            원본
+            <i className="icon-reset"></i>
           </button>
         </div>
       </div>

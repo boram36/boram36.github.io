@@ -242,62 +242,86 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
         resetView();
     };
 
-    const renderBody = () => (
-        <div className="info-page">
-            {showTitle}
-            <ul className="info-record-list">
-                {sortedItems.map((item, index) => {
-                    const year = item.year ? String(item.year) : "";
-                    const previousYear = index === 0 ? null : String(sortedItems[index - 1].year ?? "");
-                    const showYear = index === 0 || year !== previousYear;
-                    const itemKey = String(item.id ?? `${year}-${index}`);
-                    const isOpen = openIds.includes(itemKey);
-                    const images = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
-                    const hasGallery = images.length > 0;
-                    const contentText = (item.text || item.title || "").trim();
-                    const displayText = contentText || "내용 없음";
-                    const canExpand = hasGallery;
+    const renderBody = () => {
+        const groupedByYear = [];
 
-                    return (
-                        <li key={itemKey} className="info-record">
-                            <span
-                                className="info-record-year"
-                                style={{ visibility: showYear ? "visible" : "hidden" }}
-                            >
-                                {year}
-                            </span>
-                            <div style={{ flex: 1 }}>
-                                <button
-                                    type="button"
-                                    className="info-record-button"
-                                    onClick={() => toggleItem(itemKey, canExpand)}
-                                    disabled={!canExpand}
-                                >
-                                    <span className="info-record-text">
-                                        <span style={{ display: "block" }}>{displayText}</span>
-                                    </span>
-                                    {canExpand && (
-                                        <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
-                                    )}
-                                </button>
-                                {canExpand && (
-                                    <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
-                                        <div className="info-record-expand-inner">
-                                            <div className="info-record-image">
-                                                <div className="work-image" style={{ marginBottom: 0 }}>
-                                                    <ImageSlider images={images} onOpen={openModal} />
+        sortedItems.forEach((item, index) => {
+            const yearLabel = item.year ? String(item.year) : "";
+            const groupKey = yearLabel || `unknown-${index}`;
+            const itemKey = String(item.id ?? `${groupKey}-${index}`);
+            const images = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
+            const hasGallery = images.length > 0;
+            const contentText = (item.text || item.title || "").trim();
+            const displayText = contentText || "내용 없음";
+
+            const entry = {
+                itemKey,
+                images,
+                hasGallery,
+                displayText,
+            };
+
+            const lastGroup = groupedByYear[groupedByYear.length - 1];
+            if (lastGroup && lastGroup.groupKey === groupKey) {
+                lastGroup.entries.push(entry);
+            } else {
+                groupedByYear.push({
+                    groupKey,
+                    yearLabel,
+                    entries: [entry],
+                });
+            }
+        });
+
+        return (
+            <div className="info-page">
+                {showTitle}
+                <ul className="info-record-list">
+                    {groupedByYear.map(({ groupKey, yearLabel, entries }) => (
+                        <li key={`group-${groupKey}`} className="info-record">
+                            <span className="info-record-year">{yearLabel}</span>
+                            <div className="info-record-multi">
+                                {entries.map(({ itemKey, images, hasGallery, displayText }) => {
+                                    const isOpen = openIds.includes(itemKey);
+                                    const canExpand = hasGallery;
+
+                                    return (
+                                        <div key={itemKey} className="info-record-line">
+                                            <button
+                                                type="button"
+                                                className="info-record-button"
+                                                onClick={() => toggleItem(itemKey, canExpand)}
+                                                disabled={!canExpand}
+                                            >
+                                                <span className="info-record-text">
+                                                    <span style={{ display: "block" }}>{displayText}</span>
+                                                </span>
+                                                {canExpand && (
+                                                    <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
+                                                )}
+                                            </button>
+
+                                            {canExpand && (
+                                                <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
+                                                    <div className="info-record-expand-inner">
+                                                        <div className="info-record-image">
+                                                            <div className="work-image" style={{ marginBottom: 0 }}>
+                                                                <ImageSlider images={images} onOpen={openModal} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            )}
                                         </div>
-                                    </div>
-                                )}
+                                    );
+                                })}
                             </div>
                         </li>
-                    );
-                })}
-            </ul>
-        </div>
-    );
+                    ))}
+                </ul>
+            </div>
+        );
+    };
 
     const modalOverlay = !modal ? null : (
         <div
@@ -398,7 +422,7 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
                         onClick={zoomReset}
                         title="원본"
                     >
-                        원본
+                        <i className="icon-reset"></i>
                     </button>
                 </div>
             </div>

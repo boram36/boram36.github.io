@@ -1,10 +1,20 @@
 .home-container { max-width: 800px; margin: 120px auto; padding-left: 80px; text-align: left; } 
-.year-listing {margin-bottom: 0; padding: 95px 100px; background: url('../assets/year-bg.png') no-repeat center center; background-size: cover; display: flex; flex-wrap: wrap; gap: 0 90px; justify-content: left; height: calc(100vh - 130px - 95px);} 
-.year-listing > li { width: 90px; height: 18%;} 
-.year-list { display: flex; flex-direction: column; gap: 14px; /* 연도 사이 간격 */}
-.year-item { font-size: 30px; color: #fff; text-decoration: none; font-weight: 600; cursor: pointer; } 
+.year-listing {
+  margin-bottom: 0; 
+ padding: 40px 0px; 
+ background: url('../assets/year-bg.png') no-repeat center center; 
+ background-size: cover; 
+ display: grid; 
+ grid-template-columns: repeat(7, 1fr); 
+ row-gap: 47px; 
+ justify-items: center;
+ align-content: start;
+ height: 610px;
+} 
+.year-list { display: flex; flex-direction: column;}
+.year-item { font-size: 32px; font-weight: 400; color: #fff; text-decoration: none; cursor: pointer; } 
 .year-item:hover { opacity: 1; } 
-.container.main{padding-bottom: 0;}
+.container.main{padding-bottom: 60px; padding-top: 260px;}
 .main .info-copyright{bottom: 10px;}
 
 @media (max-width: 1024px) {
@@ -22,10 +32,6 @@
     gap: 0;
     padding: 50px;
   }
-  .year-listing > li {
-    width: 25%;
-    text-align: center;
-}
 }
 
 @media (max-width: 768px) {

@@ -353,105 +353,129 @@ function EssaysPressBase({ wrap = true, showTitle = true }) {
     resetView();
   };
 
-  const renderBody = () => (
-    <div className="info-page">
-      {/* {showTitle && (
-        <h2 className="info-page-title" style={{ marginBottom: 24 }}>
-          Essays &amp; Press
-        </h2>
-      )} */}
+  const renderBody = () => {
+    const groupedByYear = [];
 
-      {/* {wrap && INTRO_LINES.length > 0 && (
-        <div className="info-top">
-          {INTRO_LINES.map((line) => (
-            <div key={line}>{line}</div>
-          ))}
-        </div>
-      )} */}
+    sortedItems.forEach((item, index) => {
+      const yearLabel = item.year ? String(item.year) : "";
+      const groupKey = yearLabel || `unknown-${index}`;
+      const itemKey = String(item.id ?? `${groupKey}-${index}`);
+      const primaryText = buildPrimaryText(item);
+      const secondaryLines = buildSecondaryLines(item, primaryText);
+      const attachments = item.files || [];
+      const images = item.images || [];
+      const hasGallery = images.length > 0;
+      const hasAttachments = attachments.length > 0;
 
-      <ul className="info-record-list">
-        {sortedItems.map((item, index) => {
-          const year = item.year ? String(item.year) : "";
-          const previousYear = index === 0 ? null : String(sortedItems[index - 1].year ?? "");
-          const showYear = index === 0 || year !== previousYear;
-          const itemKey = String(item.id ?? `${year}-${index}`);
-          const isOpen = openIds.includes(itemKey);
-          const primaryText = buildPrimaryText(item);
-          const secondaryLines = buildSecondaryLines(item, primaryText);
-          const attachments = item.files || [];
-          const externalLink = item.externalLink;
-          const hasGallery = (item.images?.length || 0) > 0;
-          const hasAttachments = attachments.length > 0;
-          const canExpand = hasGallery || hasAttachments;
+      const entry = {
+        itemKey,
+        primaryText,
+        secondaryLines,
+        attachments,
+        images,
+        canExpand: hasGallery || hasAttachments,
+      };
 
-          return (
-            <li key={itemKey} className="info-record">
-              <span
-                className="info-record-year"
-                style={{ visibility: showYear ? "visible" : "hidden" }}
-              >
-                {year}
-              </span>
-              <div style={{ flex: 1, fontSize: 0 }}>
-                <button
-                  type="button"
-                  className="info-record-button"
-                  onClick={() => toggleItem(itemKey, canExpand)}
-                  disabled={!canExpand}
-                >
-                  <span className="info-record-text">
-                    <span style={{ display: "block" }}>{primaryText}</span>
-                    {secondaryLines.length > 0 && (
-                      <span
+      const lastGroup = groupedByYear[groupedByYear.length - 1];
+      if (lastGroup && lastGroup.groupKey === groupKey) {
+        lastGroup.entries.push(entry);
+      } else {
+        groupedByYear.push({
+          groupKey,
+          yearLabel,
+          entries: [entry],
+        });
+      }
+    });
 
-                      >
-                        {secondaryLines.join(" · ")}
-                      </span>
-                    )}
-                  </span>
-                  {canExpand && (
-                    <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
-                  )}
-                </button>
-                {canExpand && (
-                  <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
-                    <div className="info-record-expand-inner">
-                      {hasAttachments && (
-                        <div
+    return (
+      <div className="info-page">
+        {/* {showTitle && (
+          <h2 className="info-page-title" style={{ marginBottom: 24 }}>
+            Essays &amp; Press
+          </h2>
+        )} */}
+
+        {/* {wrap && INTRO_LINES.length > 0 && (
+          <div className="info-top">
+            {INTRO_LINES.map((line) => (
+              <div key={line}>{line}</div>
+            ))}
+          </div>
+        )} */}
+
+        <ul className="info-record-list">
+          {groupedByYear.map(({ groupKey, yearLabel, entries }) => (
+            <li key={`group-${groupKey}`} className="info-record">
+              <span className="info-record-year">{yearLabel}</span>
+              <div className="info-record-multi">
+                {entries.map(
+                  ({ itemKey, primaryText, secondaryLines, attachments, images, canExpand }) => {
+                    const isOpen = openIds.includes(itemKey);
+                    const hasGallery = images.length > 0;
+                    const hasAttachments = attachments.length > 0;
+
+                    return (
+                      <div key={itemKey} className="info-record-line">
+                        <button
+                          type="button"
+                          className="info-record-button"
+                          onClick={() => toggleItem(itemKey, canExpand)}
+                          disabled={!canExpand}
                         >
-                          {attachments.map((file, idx) => (
-                            <a
-                              className="file-download"
-                              key={`${itemKey}-file-${idx}`}
-                              href={file.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              download
-                            >
-                              DOWNLOAD
-                              <i className="ico ico-download"></i>
-                            </a>
-                          ))}
-                        </div>
-                      )}
+                          <span className="info-record-text">
+                            <span style={{ display: "block" }}>{primaryText}</span>
+                            {secondaryLines.length > 0 && (
+                              <span>{secondaryLines.join(" · ")}</span>
+                            )}
+                          </span>
+                          {canExpand && (
+                            <span className="info-record-arrow">{isOpen ? "▲" : "▼"}</span>
+                          )}
+                        </button>
 
-                      {hasGallery && (
-                        <div className="info-record-image">
-                          <div className="work-image" style={{ marginBottom: 10 }}>
-                            <ImageSlider images={item.images} onOpen={openModal} />
+                        {canExpand && (
+                          <div className={`info-record-expand ${isOpen ? "open" : ""}`}>
+                            <div className="info-record-expand-inner">
+                              {hasAttachments && (
+                                <div className="info-record-files">
+                                  {attachments.map((file, idx) => (
+                                    <a
+                                      className="file-download"
+                                      key={`${itemKey}-file-${idx}`}
+                                      href={file.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      download
+                                    >
+                                      DOWNLOAD
+                                      <i className="ico ico-download"></i>
+                                    </a>
+                                  ))}
+                                </div>
+                              )}
+
+                              {hasGallery && (
+                                <div className="info-record-image">
+                                  <div className="work-image" style={{ marginBottom: 10 }}>
+                                    <ImageSlider images={images} onOpen={openModal} />
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                        )}
+                      </div>
+                    );
+                  }
                 )}
               </div>
             </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   const modalOverlay = !modal ? null : (
     <div
@@ -552,7 +576,7 @@ function EssaysPressBase({ wrap = true, showTitle = true }) {
             onClick={zoomReset}
             title="원본"
           >
-            원본
+            <i className="icon-reset"></i>
           </button>
         </div>
       </div>
