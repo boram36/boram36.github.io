@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const TABLE_NAME = "videos";
 
-const extractText = (entry) => (entry?.text || entry?.title || "").trim();
+const extractText = (entry) => (entry?.text || "").trim();
 const extractVideoUrl = (entry) => {
     const candidates = [entry?.video_url, entry?.videoUrl, entry?.url];
     const value = candidates.find((candidate) => typeof candidate === "string" && candidate.trim().length);
@@ -14,10 +14,28 @@ const extractVideoUrl = (entry) => {
 
 export default function AdminVideoList() {
     const navigate = useNavigate();
+    const [session, setSession] = useState(null);
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        const initSession = async () => {
+            const { data } = await supabase.auth.getSession();
+            setSession(data.session);
+        };
+
+        initSession();
+
+        const { data: authListener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+            setSession(nextSession);
+        });
+
+        return () => {
+            authListener.subscription.unsubscribe();
+        };
+    }, []);
 
     useEffect(() => {
         const load = async () => {
@@ -48,6 +66,11 @@ export default function AdminVideoList() {
     }, []);
 
     const handleDelete = async (id) => {
+        if (!session) {
+            setMessage("로그인이 필요합니다. /admin/login에서 먼저 로그인해주세요.");
+            return;
+        }
+
         if (!window.confirm("삭제하시겠습니까?")) return;
 
         const { error } = await supabase.from(TABLE_NAME).delete().eq("id", id);
@@ -82,6 +105,7 @@ export default function AdminVideoList() {
                             등록
                         </button>
                     </div>
+                    {!session && <div className="alert alert-warning">편집/삭제하려면 관리자 로그인이 필요합니다.</div>}
                     {message && <div className="mb-3 text-primary">{message}</div>}
                     <table className="table table-bordered table-hover">
                         <thead className="table-light">
@@ -110,12 +134,14 @@ export default function AdminVideoList() {
                                         <button
                                             onClick={() => navigate(`/admin/video/edit/${item.id}`)}
                                             className="btn btn-primary btn-sm me-2"
+                                            disabled={!session}
                                         >
                                             편집
                                         </button>
                                         <button
                                             onClick={() => handleDelete(item.id)}
                                             className="btn btn-danger btn-sm"
+                                            disabled={!session}
                                         >
                                             삭제
                                         </button>

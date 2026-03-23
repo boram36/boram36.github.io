@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,6 +8,7 @@ const TABLE_NAME = "videos";
 
 export default function AdminVideo() {
     const navigate = useNavigate();
+    const [session, setSession] = useState(null);
     const [form, setForm] = useState({
         year: DEFAULT_YEAR,
         text: "",
@@ -15,6 +16,23 @@ export default function AdminVideo() {
     });
     const [message, setMessage] = useState("");
     const [submitting, setSubmitting] = useState(false);
+
+    useEffect(() => {
+        const initSession = async () => {
+            const { data } = await supabase.auth.getSession();
+            setSession(data.session);
+        };
+
+        initSession();
+
+        const { data: authListener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+            setSession(nextSession);
+        });
+
+        return () => {
+            authListener.subscription.unsubscribe();
+        };
+    }, []);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -32,6 +50,11 @@ export default function AdminVideo() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setMessage("");
+
+        if (!session) {
+            setMessage("로그인이 필요합니다. /admin/login에서 먼저 로그인해주세요.");
+            return;
+        }
 
         const trimmedText = form.text.trim();
         const trimmedVideoUrl = form.videoUrl.trim();
@@ -86,6 +109,12 @@ export default function AdminVideo() {
                         </button>
                     </div>
 
+                    {!session && (
+                        <div className="alert alert-warning">
+                            등록하려면 먼저 관리자 로그인 후 다시 시도해주세요.
+                        </div>
+                    )}
+
                     <form onSubmit={handleSubmit} className="mb-4">
                         <div className="mb-3">
                             <label className="form-label">
@@ -128,8 +157,8 @@ export default function AdminVideo() {
                         </div>
 
                         <div className="d-grid d-md-flex justify-content-md-end">
-                            <button type="submit" className="btn btn-primary" disabled={submitting}>
-                                {submitting ? "등록 중..." : "등록"}
+                            <button type="submit" className="btn btn-primary" disabled={submitting || !session}>
+                                {submitting ? "등록 중..." : session ? "등록" : "로그인 필요"}
                             </button>
                         </div>
                     </form>
