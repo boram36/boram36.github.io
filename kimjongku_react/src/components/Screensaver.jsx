@@ -50,6 +50,7 @@ const normalizeEntryImages = (entry) => {
 // -------------------- 컴포넌트 --------------------
 export default function Screensaver({ onExit }) {
   const [images, setImages] = useState([]);
+  const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -96,7 +97,11 @@ export default function Screensaver({ onExit }) {
   }, []);
 
   const handleExit = () => {
-    if (typeof onExit === "function") onExit();
+    if (!exiting) setExiting(true);
+  };
+
+  const handleWrapAnimEnd = () => {
+    if (exiting && typeof onExit === "function") onExit();
   };
 
   const handleOverlayClick = (event) => {
@@ -108,16 +113,17 @@ export default function Screensaver({ onExit }) {
   const hasSlides = images.length > 0;
   const slidesCount = hasSlides ? images.length : 1;
 
-  // ✅ 1회만 재생되도록 길이 기반 duration 계산
-  const animationDuration = `${Math.min(
-    Math.max(slidesCount * 3.5, 20),
-    60
-  )}s`;
+  // 무한 루프용 이미지 2배 복제
+  const loopedImages = hasSlides ? [...images, ...images] : [];
+
+  // 스크롤 duration: 이미지 수 기반
+  const animationDuration = `${Math.max(slidesCount * 4, 30)}s`;
 
   return (
     <div
-      className="screensaver-wrap"
+      className={`screensaver-wrap${exiting ? " exiting" : ""}`}
       onClick={handleOverlayClick}
+      onAnimationEnd={handleWrapAnimEnd}
       onKeyDown={(event) => {
         if (["Enter", " ", "Escape"].includes(event.key)) {
           event.preventDefault();
@@ -131,13 +137,12 @@ export default function Screensaver({ onExit }) {
       {hasSlides && (
         <div className="screensaver-marquee">
           <div
-            className="screensaver-track once"
+            className="screensaver-track"
             style={{ "--screensaver-duration": animationDuration }}
-            onAnimationEnd={handleExit}
           >
-            {images.map((src, idx) => (
-              <div key={`${idx}-${src}`} className="screensaver-slide">
-                <img src={src} alt="screensaver" loading="lazy" />
+            {loopedImages.map((src, idx) => (
+              <div key={idx} className="screensaver-slide">
+                <img src={src} alt="screensaver" loading="eager" />
               </div>
             ))}
           </div>

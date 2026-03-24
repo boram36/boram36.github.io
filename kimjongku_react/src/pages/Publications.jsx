@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 import "../styles/InfoLayout.css";
 import "../styles/Works.css";
 
@@ -166,7 +166,7 @@ function ImageSlider({ images, onOpen }) {
         >
             <div style={{ flex: 1, marginTop: 10 }}>
                 <img
-                    src={images[idx]}
+                    src={optimizeImageUrl(images[idx], 800, 85)}
                     alt="publication"
                     onClick={() => onOpen(images, idx)}
                     style={{ cursor: "pointer", maxWidth: "100%" }}
@@ -180,7 +180,7 @@ function ImageSlider({ images, onOpen }) {
                             position: "absolute",
                             left: 10,
                             top: "50%",
-                            transform: "translateY(-50%)",
+                            transform: "translateY(-50%) scaleX(-1)",
                             cursor: "pointer",
                         }}
                         onClick={goPrev}
@@ -571,9 +571,11 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                             fontSize: 22,
                             padding: "2px 10px",
                             borderRadius: 6,
-                            border: "1px solid #ccc",
-                            background: "#fff",
+                            border: "1px solid #333",
+                            background: "#000",
+                            color: "#fff",
                             cursor: "pointer",
+                            opacity: 0.5,
                         }}
                         onClick={zoomIn}
                         title="확대"
@@ -585,9 +587,11 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                             fontSize: 22,
                             padding: "2px 10px",
                             borderRadius: 6,
-                            border: "1px solid #ccc",
-                            background: "#fff",
+                            border: "1px solid #333",
+                            background: "#000",
+                            color: "#fff",
                             cursor: "pointer",
+                            opacity: 0.5,
                         }}
                         onClick={zoomOut}
                         title="축소"
@@ -599,9 +603,11 @@ function PublicationsBase({ wrap = true, showTitle = true }) {
                             fontSize: 18,
                             padding: "2px 10px",
                             borderRadius: 6,
-                            border: "1px solid #ccc",
-                            background: "#fff",
+                            border: "1px solid #333",
+                            background: "#000",
+                            color: "#fff",
                             cursor: "pointer",
+                            opacity: 0.5,
                         }}
                         onClick={zoomReset}
                         title="원본"

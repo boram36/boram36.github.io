@@ -90,8 +90,7 @@ function App() {
   return (
     <>
       {!isAdmin && screensaver && <Screensaver onExit={() => setScreensaver(false)} />}
-      {!screensaver && (
-        <>
+      <>
           <Header onInfoClick={() => setShowInfo(!showInfo)} />
           {showInfo && !isAdmin && <InfoMenu />}
           <Routes>
@@ -131,7 +130,6 @@ function App() {
 
           </Routes>
         </>
-      )}
     </>
   );
 }

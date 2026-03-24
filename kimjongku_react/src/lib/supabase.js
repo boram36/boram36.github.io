@@ -18,3 +18,14 @@ if (typeof window !== 'undefined') {
     window.supabase = supabase;
   }
 }
+
+// 이미지 URL 최적화 함수
+export const optimizeImageUrl = (url, width = 1000, quality = 80) => {
+	if (!url) return url;
+	if (typeof url !== 'string') return url;
+	// Supabase 이미지 URL에만 최적화 파라미터 추가
+	if (url.includes('supabase')) {
+		return `${url}?width=${width}&quality=${quality}`;
+	}
+	return url;
+};
