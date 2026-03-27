@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { supabase, optimizeImageUrl } from "../lib/supabase";
 import "../styles/InfoLayout.css";
 import "../styles/Works.css";
@@ -121,6 +122,8 @@ function ImageSlider({ images, onOpen }) {
 }
 
 function BiographyBase({ wrap = true, showTitle = true }) {
+  const location = useLocation();
+  const refreshAt = location.state?.refreshAt || 0;
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -163,7 +166,7 @@ function BiographyBase({ wrap = true, showTitle = true }) {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [refreshAt]);
 
   const sortedItems = useMemo(
     () => [...items].sort((a, b) => (b.year - a.year) || (a.id - b.id)),
