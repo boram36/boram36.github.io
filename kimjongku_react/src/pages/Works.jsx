@@ -293,21 +293,21 @@ export default function Works() {
 								e.stopPropagation();
 								closeModal();
 							}}
-							style={{ position: "absolute", top: 30, right: 40, fontSize: 32 }}
-						></button>
+						style={{ position: "absolute", top: 30, right: 40, fontSize: 32, zIndex: 1000 }}
+					></button>
 
-						{modal.images.length > 1 && (
-							<button className='btn-slide-arr prev' onClick={goPrev}></button>
-						)}
+					{modal.images.length > 1 && (
+						<button className='btn-slide-arr prev' onClick={goPrev}></button>
+					)}
 
-						<div
-							style={{
-								position: 'relative',
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								maxWidth: "1560px",
-								maxHeight: "700px",
+					<div
+						style={{
+							position: 'relative',
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							width: "min(92vw, 1560px)",
+							height: "min(78vh, 700px)",
 								overflow: "hidden",
 								cursor: dragging ? "grabbing" : "grab"
 							}}
@@ -319,8 +319,10 @@ export default function Works() {
 								style={{
 									transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
 									transition: dragging ? "none" : "transform 0.15s ease",
-									maxWidth: "1560px",
-									height: "700px",
+									maxWidth: "100%",
+									maxHeight: "100%",
+									width: "auto",
+									height: "auto",
 									objectFit: "contain",
 									userSelect: "none",
 									pointerEvents: "none"

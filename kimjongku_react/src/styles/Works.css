@@ -57,7 +57,7 @@
   .modal-container .btn-slide-arr.prev{left: 14px;}
   .modal-container .btn-slide-arr.next{right: 14px;}
   .modal-zoom-controls{left: 0 !important; top: 14px !important;}
-  .btn-close-modal{width: 38px; height: 38px; background-size: 30px 30px;}
+  .btn-close-modal{width: 38px; height: 38px; background-size: 30px 30px; top: 14px !important; right: 14px !important;}
   .slide-pagination{font-size: 26px; bottom: 34px;}
 
 
