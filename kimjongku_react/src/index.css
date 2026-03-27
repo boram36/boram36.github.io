@@ -46,6 +46,12 @@ body{
     scrollbar-gutter: stable both-edges;
 }
 
+html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 
 a{
     color:#000;
