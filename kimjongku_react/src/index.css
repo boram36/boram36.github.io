@@ -10,6 +10,7 @@
     padding:0;
     border:0 ;
     box-sizing:border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -51,11 +52,18 @@ a{
     display:block;
     text-decoration:none;
     cursor:pointer;
+    -webkit-text-fill-color: #000;
 }
 
 
 a:hover, a:active{
     text-decoration:none;
+}
+
+button {
+    color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 

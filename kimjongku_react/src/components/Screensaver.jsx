@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import "../styles/Screensaver.css";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 
 const STORAGE_BUCKETS = ["works"];
-const MAX_IMAGES = 80;
+const MAX_IMAGES = 120;  // 전체 범위 + 안정성 균형
+const STORAGE_FALLBACK_THRESHOLD = 40;
 
 // -------------------- 이미지 파싱 유틸 --------------------
 const parseImages = (raw) => {
@@ -81,12 +82,14 @@ export default function Screensaver({ onExit }) {
       });
 
       // DB 이미지가 너무 적으면 Storage에서도 보충
-      if (collected.size < MAX_IMAGES / 2) {
+      if (collected.size < STORAGE_FALLBACK_THRESHOLD) {
         const storageUrls = await loadFromStorage();
         storageUrls.forEach((url) => collected.add(url));
       }
 
-      const finalImages = Array.from(collected).slice(0, MAX_IMAGES);
+      const finalImages = Array.from(collected)
+        .slice(0, MAX_IMAGES)  // 안정성을 위한 제한
+        .map((url) => optimizeImageUrl(url, 1200, 80));
       setImages(finalImages);
     };
 
@@ -113,11 +116,9 @@ export default function Screensaver({ onExit }) {
   const hasSlides = images.length > 0;
   const slidesCount = hasSlides ? images.length : 1;
 
-  // 무한 루프용 이미지 2배 복제
-  const loopedImages = hasSlides ? [...images, ...images] : [];
-
-  // 스크롤 duration: 이미지 수 기반
-  const animationDuration = `${Math.max(slidesCount * 4, 30)}s`;
+  // 무한 루프: 이미지 2배 복제 후 translateX(-50%)로 seamless 반복 (클릭 시에만 종료)
+  const animationDuration = `${Math.max(slidesCount * 6, 60)}s`;
+  const loopedImages = [...images, ...images];
 
   return (
     <div
@@ -140,14 +141,18 @@ export default function Screensaver({ onExit }) {
             className="screensaver-track"
             style={{ "--screensaver-duration": animationDuration }}
           >
-            {loopedImages.map((src, idx) => (
+              {loopedImages.map((src, idx) => (
               <div key={idx} className="screensaver-slide">
-                <img src={src} alt="screensaver" loading="eager" />
+                <img
+                  src={src}
+                  alt="screensaver"
+                  loading="eager"
+                />
               </div>
             ))}
           </div>
-        </div>
-      )}
+          </div>
+        )}
     </div>
   );
 }
@@ -195,5 +200,5 @@ async function loadFromStorage() {
     if (accumulator.size >= MAX_IMAGES) break;
   }
 
-  return Array.from(accumulator);
+  return Array.from(accumulator).slice(0, MAX_IMAGES);
 }

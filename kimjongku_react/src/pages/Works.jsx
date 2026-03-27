@@ -27,6 +27,13 @@ function ImageSlider({ images, onOpen }) {
 				<img
 					src={optimizeImageUrl(images[index], 800, 85)}
 					onClick={() => onOpen(images, index)}
+					loading="eager"
+					decoding="async"
+					onError={(e) => {
+						if (e.currentTarget.dataset.fallbackApplied) return;
+						e.currentTarget.dataset.fallbackApplied = "1";
+						e.currentTarget.src = images[index] || "";
+					}}
 					style={{ cursor: "pointer", maxWidth: "100%" }}
 					alt="work"
 				/>
@@ -251,10 +258,9 @@ export default function Works() {
 										{hasGallery && (
 											<div className={`info-record-expand ${isOpen ? "open" : ""}`}>
 												<div className="info-record-expand-inner">
-													<div style={{ display: "flex" }}>
-														<div style={{ flex: "0 0 510px" }}>
-														</div>
-														<div style={{ flex: 1 }}>
+													<div className="work-image-layout">
+														<div className="work-image-offset"></div>
+														<div className="work-image-content">
 															<div className="info-record-image">
 																<div className="work-image" style={{ marginBottom: 10 }}>
 																	<ImageSlider images={imgs} onOpen={openModal} />
@@ -276,7 +282,6 @@ export default function Works() {
 				{modal && (
 					<div
 						className='modal-container'
-						onClick={closeModal}
 						onMouseMove={handleMouseMove}
 						onMouseUp={handleMouseUp}
 						onMouseLeave={handleMouseUp}
@@ -322,7 +327,7 @@ export default function Works() {
 								}}
 								draggable="false"
 							/>
-							<div style={{ position: 'absolute', top: 20, left: 20, display: 'flex', gap: 8, zIndex: 2 }}>
+							<div className='modal-zoom-controls' style={{ position: 'absolute', top: 20, left: 20, display: 'flex', gap: 8, zIndex: 2 }}>
 								<button
 								style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #333', background: '#000', color: '#fff', cursor: 'pointer', opacity: 0.5 }}
 								onClick={zoomIn}

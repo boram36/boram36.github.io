@@ -79,6 +79,13 @@ function ImageSlider({ images, onOpen }) {
         <img
           src={optimizeImageUrl(images[idx], 800, 85)}
           alt="biography"
+          loading="eager"
+          decoding="async"
+          onError={(event) => {
+            if (event.currentTarget.dataset.fallbackApplied) return;
+            event.currentTarget.dataset.fallbackApplied = "1";
+            event.currentTarget.src = images[idx] || "";
+          }}
           onClick={() => onOpen(images, idx)}
           style={{ cursor: "pointer", maxWidth: "100%" }}
         />
@@ -368,7 +375,6 @@ function BiographyBase({ wrap = true, showTitle = true }) {
   const modalOverlay = !modal ? null : (
     <div
       className="modal-container"
-      onClick={closeModal}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
@@ -396,8 +402,8 @@ function BiographyBase({ wrap = true, showTitle = true }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          maxWidth: "1560px",
-          maxHeight: "700px",
+          width: "min(92vw, 1560px)",
+          height: "min(78vh, 700px)",
           overflow: "hidden",
           cursor: dragging ? "grabbing" : "grab",
         }}
@@ -409,8 +415,10 @@ function BiographyBase({ wrap = true, showTitle = true }) {
           style={{
             transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
             transition: dragging ? "none" : "transform 0.15s ease",
-            maxWidth: "1560px",
-            height: "700px",
+            maxWidth: "100%",
+            maxHeight: "100%",
+            width: "auto",
+            height: "auto",
             objectFit: "contain",
             userSelect: "none",
             pointerEvents: "none",
@@ -419,6 +427,7 @@ function BiographyBase({ wrap = true, showTitle = true }) {
         />
 
         <div
+          className="modal-zoom-controls"
           style={{
             position: "absolute",
             top: 20,
