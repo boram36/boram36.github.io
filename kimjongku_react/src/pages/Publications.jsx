@@ -145,6 +145,7 @@ function ImageSlider({ images, onOpen }) {
     const [idx, setIdx] = useState(0);
 
     if (!images.length) return null;
+    const hasMultiple = images.length > 1;
 
     const goPrev = (event) => {
         event.stopPropagation();
@@ -164,7 +165,16 @@ function ImageSlider({ images, onOpen }) {
                 maxHeight: 400,
             }}
         >
-            <div style={{ flex: 1, marginTop: 10 }}>
+            <div
+                style={{
+                    marginTop: 10,
+                    paddingLeft: hasMultiple ? 64 : 0,
+                    paddingRight: hasMultiple ? 64 : 0,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
                 <img
                     src={optimizeImageUrl(images[idx], 800, 85)}
                     alt="publication"
@@ -176,10 +186,10 @@ function ImageSlider({ images, onOpen }) {
                         event.currentTarget.src = images[idx] || "";
                     }}
                     onClick={() => onOpen(images, idx)}
-                    style={{ cursor: "pointer", maxWidth: "100%" }}
+                    style={{ cursor: "pointer", maxWidth: "100%", display: "block" }}
                 />
             </div>
-            {images.length > 1 && (
+            {hasMultiple && (
                 <>
                     <button
                         className="btn-slide-arr prev"

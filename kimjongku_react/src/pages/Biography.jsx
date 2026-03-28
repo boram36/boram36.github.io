@@ -58,11 +58,6 @@ function ImageSlider({ images, onOpen }) {
 
   const hasMultiple = images.length > 1;
 
-  const goPrev = (event) => {
-    event.stopPropagation();
-    setIdx((prev) => (prev - 1 + images.length) % images.length);
-  };
-
   const goNext = (event) => {
     event.stopPropagation();
     setIdx((prev) => (prev + 1) % images.length);
@@ -93,17 +88,6 @@ function ImageSlider({ images, onOpen }) {
       </div>
       {hasMultiple && (
         <>
-          <button
-            className="btn-slide-arr prev"
-            style={{
-              position: "absolute",
-              left: 10,
-              top: "50%",
-              transform: "translateY(-50%) scaleX(-1)",
-              cursor: "pointer",
-            }}
-            onClick={goPrev}
-          />
           <button
             className="btn-slide-arr next"
             style={{
