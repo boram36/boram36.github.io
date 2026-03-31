@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/Screensaver.css";
 import { supabase, optimizeImageUrl } from "../lib/supabase";
 
-const STORAGE_BUCKETS = ["works"];
-const MAX_IMAGES = 120;  // 전체 범위 + 안정성 균형
-const STORAGE_FALLBACK_THRESHOLD = 40;
+const SCREENSAVER_IMAGE_LIMIT = 20;
 
 // -------------------- 이미지 파싱 유틸 --------------------
 const parseImages = (raw) => {
@@ -48,6 +46,18 @@ const normalizeEntryImages = (entry) => {
   return parseImages(entry?.images).filter(Boolean);
 };
 
+const pickRandomImages = (urls, limit) => {
+  const copy = [...urls];
+
+  // Fisher-Yates shuffle for unbiased random selection each run.
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+
+  return copy.slice(0, Math.min(limit, copy.length));
+};
+
 // -------------------- 컴포넌트 --------------------
 export default function Screensaver({ onExit }) {
   const [images, setImages] = useState([]);
@@ -81,15 +91,14 @@ export default function Screensaver({ onExit }) {
         });
       });
 
-      // DB 이미지가 너무 적으면 Storage에서도 보충
-      if (collected.size < STORAGE_FALLBACK_THRESHOLD) {
-        const storageUrls = await loadFromStorage();
-        storageUrls.forEach((url) => collected.add(url));
-      }
+      const randomImages = pickRandomImages(
+        Array.from(collected),
+        SCREENSAVER_IMAGE_LIMIT
+      );
 
-      const finalImages = Array.from(collected)
-        .slice(0, MAX_IMAGES)  // 안정성을 위한 제한
-        .map((url) => optimizeImageUrl(url, 1200, 80));
+      const finalImages = randomImages.map((url) =>
+        optimizeImageUrl(url, 1200, 80)
+      );
       setImages(finalImages);
     };
 
@@ -155,50 +164,4 @@ export default function Screensaver({ onExit }) {
         )}
     </div>
   );
-}
-
-// -------------------- Storage 보조 로딩 --------------------
-async function loadFromStorage() {
-  const accumulator = new Set();
-
-  const traverseBucket = async (bucket, prefix = "") => {
-    const { data, error } = await supabase.storage.from(bucket).list(prefix, {
-      limit: 100,
-      sortBy: { column: "created_at", order: "desc" },
-    });
-
-    if (error) {
-      console.warn(
-        `Screensaver: storage list failed (${bucket}/${prefix}):`,
-        error.message
-      );
-      return;
-    }
-
-    for (const item of data || []) {
-      const path = prefix ? `${prefix}/${item.name}` : item.name;
-      const isFile = item.metadata && typeof item.metadata.size === "number";
-
-      if (isFile) {
-        const { data: publicInfo } =
-          supabase.storage.from(bucket).getPublicUrl(path);
-        const url = publicInfo?.publicUrl;
-
-        if (typeof url === "string" && url.startsWith("http")) {
-          accumulator.add(url);
-        }
-        if (accumulator.size >= MAX_IMAGES) return;
-      } else {
-        await traverseBucket(bucket, path);
-        if (accumulator.size >= MAX_IMAGES) return;
-      }
-    }
-  };
-
-  for (const bucket of STORAGE_BUCKETS) {
-    await traverseBucket(bucket, "");
-    if (accumulator.size >= MAX_IMAGES) break;
-  }
-
-  return Array.from(accumulator).slice(0, MAX_IMAGES);
 }
