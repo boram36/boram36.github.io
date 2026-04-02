@@ -2,14 +2,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 import { DEFAULT_BG } from "../components/MainBackground";
 
 const years = Array.from({ length: 2025 - 1988 + 1 }, (_, i) => 2025 - i);
 
+const CACHE_KEY = "main_bg_url";
+
 export default function Home() {
   const navigate = useNavigate();
-  const [bgImage, setBgImage] = useState(DEFAULT_BG);
+
+  // 캐시된 URL이 있으면 즉시 사용, 없으면 DEFAULT_BG
+  const cached = typeof window !== "undefined" ? localStorage.getItem(CACHE_KEY) : null;
+  const [bgImage, setBgImage] = useState(cached || DEFAULT_BG);
 
   useEffect(() => {
     let mounted = true;
@@ -24,9 +29,15 @@ export default function Home() {
       if (!mounted) return;
 
       if (data?.url && !error) {
-        setBgImage(data.url);
-      } else {
-        setBgImage(DEFAULT_BG);
+        const url = optimizeImageUrl(data.url, 1600, 85);
+        // 이미지 미리 로드 후에 교체 (깜빡임 방지)
+        const img = new Image();
+        img.onload = () => {
+          if (!mounted) return;
+          setBgImage(url);
+          localStorage.setItem(CACHE_KEY, url);
+        };
+        img.src = url;
       }
     };
 

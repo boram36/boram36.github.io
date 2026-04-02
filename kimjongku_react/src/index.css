@@ -10,6 +10,7 @@
     padding:0;
     border:0 ;
     box-sizing:border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -41,8 +42,13 @@ body{
     -webkit-text-size-adjust:none;
     -moz-text-size-adjust:none;
     -ms-text-size-adjust:none;
-    overflow-y: scroll;
-    scrollbar-gutter: stable both-edges;
+    overflow-y: auto;
+}
+
+html, body, #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 
@@ -51,11 +57,18 @@ a{
     display:block;
     text-decoration:none;
     cursor:pointer;
+    -webkit-text-fill-color: #000;
 }
 
 
 a:hover, a:active{
     text-decoration:none;
+}
+
+button {
+    color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 

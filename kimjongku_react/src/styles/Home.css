@@ -28,9 +28,11 @@
     height: 100%;
   }
   .year-listing{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     height: 100%;
-    gap: 0;
-    padding: 50px;
+    row-gap: 36px;
+    column-gap: 10px;
+    padding: 50px 0;
   }
 }
 
@@ -40,8 +42,10 @@
     padding-left: 40px;
   }
   .year-listing{
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     padding: 40px 0;
-    gap: 44px 0;
+    row-gap: 30px;
+    column-gap: 8px;
   }
 
   .year-item{

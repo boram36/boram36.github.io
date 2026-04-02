@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import "../styles/Screensaver.css";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 
-const STORAGE_BUCKETS = ["works"];
-const MAX_IMAGES = 80;
+const SCREENSAVER_IMAGE_LIMIT = 20;
 
 // -------------------- 이미지 파싱 유틸 --------------------
 const parseImages = (raw) => {
@@ -47,9 +46,22 @@ const normalizeEntryImages = (entry) => {
   return parseImages(entry?.images).filter(Boolean);
 };
 
+const pickRandomImages = (urls, limit) => {
+  const copy = [...urls];
+
+  // Fisher-Yates shuffle for unbiased random selection each run.
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+
+  return copy.slice(0, Math.min(limit, copy.length));
+};
+
 // -------------------- 컴포넌트 --------------------
 export default function Screensaver({ onExit }) {
   const [images, setImages] = useState([]);
+  const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -79,13 +91,14 @@ export default function Screensaver({ onExit }) {
         });
       });
 
-      // DB 이미지가 너무 적으면 Storage에서도 보충
-      if (collected.size < MAX_IMAGES / 2) {
-        const storageUrls = await loadFromStorage();
-        storageUrls.forEach((url) => collected.add(url));
-      }
+      const randomImages = pickRandomImages(
+        Array.from(collected),
+        SCREENSAVER_IMAGE_LIMIT
+      );
 
-      const finalImages = Array.from(collected).slice(0, MAX_IMAGES);
+      const finalImages = randomImages.map((url) =>
+        optimizeImageUrl(url, 1200, 80)
+      );
       setImages(finalImages);
     };
 
@@ -96,7 +109,11 @@ export default function Screensaver({ onExit }) {
   }, []);
 
   const handleExit = () => {
-    if (typeof onExit === "function") onExit();
+    if (!exiting) setExiting(true);
+  };
+
+  const handleWrapAnimEnd = () => {
+    if (exiting && typeof onExit === "function") onExit();
   };
 
   const handleOverlayClick = (event) => {
@@ -108,16 +125,15 @@ export default function Screensaver({ onExit }) {
   const hasSlides = images.length > 0;
   const slidesCount = hasSlides ? images.length : 1;
 
-  // ✅ 1회만 재생되도록 길이 기반 duration 계산
-  const animationDuration = `${Math.min(
-    Math.max(slidesCount * 3.5, 20),
-    60
-  )}s`;
+  // 무한 루프: 이미지 2배 복제 후 translateX(-50%)로 seamless 반복 (클릭 시에만 종료)
+  const animationDuration = `${Math.max(slidesCount * 6, 60)}s`;
+  const loopedImages = [...images, ...images];
 
   return (
     <div
-      className="screensaver-wrap"
+      className={`screensaver-wrap${exiting ? " exiting" : ""}`}
       onClick={handleOverlayClick}
+      onAnimationEnd={handleWrapAnimEnd}
       onKeyDown={(event) => {
         if (["Enter", " ", "Escape"].includes(event.key)) {
           event.preventDefault();
@@ -131,64 +147,21 @@ export default function Screensaver({ onExit }) {
       {hasSlides && (
         <div className="screensaver-marquee">
           <div
-            className="screensaver-track once"
+            className="screensaver-track"
             style={{ "--screensaver-duration": animationDuration }}
-            onAnimationEnd={handleExit}
           >
-            {images.map((src, idx) => (
-              <div key={`${idx}-${src}`} className="screensaver-slide">
-                <img src={src} alt="screensaver" loading="lazy" />
+              {loopedImages.map((src, idx) => (
+              <div key={idx} className="screensaver-slide">
+                <img
+                  src={src}
+                  alt="screensaver"
+                  loading="eager"
+                />
               </div>
             ))}
           </div>
-        </div>
-      )}
+          </div>
+        )}
     </div>
   );
-}
-
-// -------------------- Storage 보조 로딩 --------------------
-async function loadFromStorage() {
-  const accumulator = new Set();
-
-  const traverseBucket = async (bucket, prefix = "") => {
-    const { data, error } = await supabase.storage.from(bucket).list(prefix, {
-      limit: 100,
-      sortBy: { column: "created_at", order: "desc" },
-    });
-
-    if (error) {
-      console.warn(
-        `Screensaver: storage list failed (${bucket}/${prefix}):`,
-        error.message
-      );
-      return;
-    }
-
-    for (const item of data || []) {
-      const path = prefix ? `${prefix}/${item.name}` : item.name;
-      const isFile = item.metadata && typeof item.metadata.size === "number";
-
-      if (isFile) {
-        const { data: publicInfo } =
-          supabase.storage.from(bucket).getPublicUrl(path);
-        const url = publicInfo?.publicUrl;
-
-        if (typeof url === "string" && url.startsWith("http")) {
-          accumulator.add(url);
-        }
-        if (accumulator.size >= MAX_IMAGES) return;
-      } else {
-        await traverseBucket(bucket, path);
-        if (accumulator.size >= MAX_IMAGES) return;
-      }
-    }
-  };
-
-  for (const bucket of STORAGE_BUCKETS) {
-    await traverseBucket(bucket, "");
-    if (accumulator.size >= MAX_IMAGES) break;
-  }
-
-  return Array.from(accumulator);
 }

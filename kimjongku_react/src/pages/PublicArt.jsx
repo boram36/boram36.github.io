@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 import "../styles/InfoLayout.css";
 import "../styles/Works.css";
 
@@ -60,8 +60,15 @@ function ImageSlider({ images, onOpen }) {
         >
             <div style={{ flex: 1, marginTop: 10 }}>
                 <img
-                    src={images[idx]}
+                    src={optimizeImageUrl(images[idx], 800, 85)}
                     alt="public-art"
+                    loading="eager"
+                    decoding="async"
+                    onError={(event) => {
+                        if (event.currentTarget.dataset.fallbackApplied) return;
+                        event.currentTarget.dataset.fallbackApplied = "1";
+                        event.currentTarget.src = images[idx] || "";
+                    }}
                     onClick={() => onOpen(images, idx)}
                     style={{ cursor: "pointer", maxWidth: "100%" }}
                 />
@@ -326,7 +333,6 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
     const modalOverlay = !modal ? null : (
         <div
             className="modal-container"
-            onClick={closeModal}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
@@ -350,21 +356,23 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    maxWidth: "1560px",
-                    maxHeight: "700px",
+                    width: "min(92vw, 1560px)",
+                    height: "min(78vh, 700px)",
                     overflow: "hidden",
                     cursor: dragging ? "grabbing" : "grab",
                 }}
                 onMouseDown={handleMouseDown}
             >
                 <img
-                    src={modal.images[modal.index]}
+                    src={optimizeImageUrl(modal.images[modal.index], 1560, 90)}
                     alt="publication"
                     style={{
                         transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
                         transition: dragging ? "none" : "transform 0.15s ease",
-                        maxWidth: "1560px",
-                        height: "700px",
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        width: "auto",
+                        height: "auto",
                         objectFit: "contain",
                         userSelect: "none",
                         pointerEvents: "none",
@@ -373,6 +381,7 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
                 />
 
                 <div
+                    className="modal-zoom-controls"
                     style={{
                         position: "absolute",
                         top: 20,
@@ -387,9 +396,11 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
                             fontSize: 22,
                             padding: "2px 10px",
                             borderRadius: 6,
-                            border: "1px solid #ccc",
-                            background: "#fff",
+                            border: "1px solid #333",
+                            background: "#000",
+                            color: "#fff",
                             cursor: "pointer",
+                            opacity: 0.5,
                         }}
                         onClick={zoomIn}
                         title="확대"
@@ -401,9 +412,11 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
                             fontSize: 22,
                             padding: "2px 10px",
                             borderRadius: 6,
-                            border: "1px solid #ccc",
-                            background: "#fff",
+                            border: "1px solid #333",
+                            background: "#000",
+                            color: "#fff",
                             cursor: "pointer",
+                            opacity: 0.5,
                         }}
                         onClick={zoomOut}
                         title="축소"
@@ -415,9 +428,11 @@ function PublicArtBase({ wrap = true, showTitle = true }) {
                             fontSize: 18,
                             padding: "2px 10px",
                             borderRadius: 6,
-                            border: "1px solid #ccc",
-                            background: "#fff",
+                            border: "1px solid #333",
+                            background: "#000",
+                            color: "#fff",
                             cursor: "pointer",
+                            opacity: 0.5,
                         }}
                         onClick={zoomReset}
                         title="원본"

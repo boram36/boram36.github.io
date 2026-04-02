@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 import "../styles/InfoLayout.css";
 import "../styles/Works.css";
 
@@ -25,8 +25,15 @@ function ImageSlider({ images, onOpen }) {
 		<div className="work-image-slide" style={{ position: "relative", display: "flex", alignItems: "center", maxHeight: 400 }}>
 			<div className="work-image_img" style={{ flex: 1, marginTop: 20 }}>
 				<img
-					src={images[index]}
+					src={optimizeImageUrl(images[index], 800, 85)}
 					onClick={() => onOpen(images, index)}
+					loading="eager"
+					decoding="async"
+					onError={(e) => {
+						if (e.currentTarget.dataset.fallbackApplied) return;
+						e.currentTarget.dataset.fallbackApplied = "1";
+						e.currentTarget.src = images[index] || "";
+					}}
 					style={{ cursor: "pointer", maxWidth: "100%" }}
 					alt="work"
 				/>
@@ -251,10 +258,9 @@ export default function Works() {
 										{hasGallery && (
 											<div className={`info-record-expand ${isOpen ? "open" : ""}`}>
 												<div className="info-record-expand-inner">
-													<div style={{ display: "flex" }}>
-														<div style={{ flex: "0 0 510px" }}>
-														</div>
-														<div style={{ flex: 1 }}>
+													<div className="work-image-layout">
+														<div className="work-image-offset"></div>
+														<div className="work-image-content">
 															<div className="info-record-image">
 																<div className="work-image" style={{ marginBottom: 10 }}>
 																	<ImageSlider images={imgs} onOpen={openModal} />
@@ -276,7 +282,6 @@ export default function Works() {
 				{modal && (
 					<div
 						className='modal-container'
-						onClick={closeModal}
 						onMouseMove={handleMouseMove}
 						onMouseUp={handleMouseUp}
 						onMouseLeave={handleMouseUp}
@@ -288,21 +293,21 @@ export default function Works() {
 								e.stopPropagation();
 								closeModal();
 							}}
-							style={{ position: "absolute", top: 30, right: 40, fontSize: 32 }}
-						></button>
+						style={{ position: "absolute", top: 30, right: 40, fontSize: 32, zIndex: 1000 }}
+					></button>
 
-						{modal.images.length > 1 && (
-							<button className='btn-slide-arr prev' onClick={goPrev}></button>
-						)}
+					{modal.images.length > 1 && (
+						<button className='btn-slide-arr prev' onClick={goPrev}></button>
+					)}
 
-						<div
-							style={{
-								position: 'relative',
-								display: "flex",
-								alignItems: "center",
-								justifyContent: "center",
-								maxWidth: "1560px",
-								maxHeight: "700px",
+					<div
+						style={{
+							position: 'relative',
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							width: "min(92vw, 1560px)",
+							height: "min(78vh, 700px)",
 								overflow: "hidden",
 								cursor: dragging ? "grabbing" : "grab"
 							}}
@@ -310,31 +315,33 @@ export default function Works() {
 
 						>
 							<img
-								src={modal.images[modal.index]}
+								src={optimizeImageUrl(modal.images[modal.index], 1560, 90)}
 								style={{
 									transform: `translate(${position.x}px, ${position.y}px) scale(${scale})`,
 									transition: dragging ? "none" : "transform 0.15s ease",
-									maxWidth: "1560px",
-									height: "700px",
+									maxWidth: "100%",
+									maxHeight: "100%",
+									width: "auto",
+									height: "auto",
 									objectFit: "contain",
 									userSelect: "none",
 									pointerEvents: "none"
 								}}
 								draggable="false"
 							/>
-							<div style={{ position: 'absolute', top: 20, left: 20, display: 'flex', gap: 8, zIndex: 2 }}>
+							<div className='modal-zoom-controls' style={{ position: 'absolute', top: 20, left: 20, display: 'flex', gap: 8, zIndex: 2 }}>
 								<button
-									style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
-									onClick={zoomIn}
-									title="확대"
-								>＋</button>
-								<button
-									style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
-									onClick={zoomOut}
-									title="축소"
-								>－</button>
-								<button
-									style={{ fontSize: 18, padding: '2px 10px', borderRadius: 6, border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
+								style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #333', background: '#000', color: '#fff', cursor: 'pointer', opacity: 0.5 }}
+								onClick={zoomIn}
+								title="확대"
+							>＋</button>
+							<button
+								style={{ fontSize: 22, padding: '2px 10px', borderRadius: 6, border: '1px solid #333', background: '#000', color: '#fff', cursor: 'pointer', opacity: 0.5 }}
+								onClick={zoomOut}
+								title="축소"
+							>－</button>
+							<button
+								style={{ fontSize: 18, padding: '2px 10px', borderRadius: 6, border: '1px solid #333', background: '#000', color: '#fff', cursor: 'pointer', opacity: 0.5 }}
 									onClick={zoomReset}
 									title="원본"
 								> <i className="icon-reset"></i></button>

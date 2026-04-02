@@ -1,5 +1,9 @@
 
 
+.work-image-layout { display: flex; }
+.work-image-offset { flex: 0 0 510px; }
+.work-image-content { flex: 1; min-width: 0; }
+
 .sect-yearList { margin-top: 50px; scroll-margin-top: 140px; } 
 .work-info { display: flex; justify-content: space-between; } 
 .work-info > div { text-align: left; font-weight: 400; cursor: pointer; } 
@@ -17,7 +21,7 @@
 .work-list + .work-list{margin-top: 0;}
 .btn-slide-arr{width: 46px; height: 46px; background: url('../assets/ico-slide-arr.svg') no-repeat 50% / cover; cursor: pointer;}
 .modal-container { position: fixed;inset: 0;background: #fff;display: flex;align-items: center;justify-content: center;z-index: 999;  } 
-.modal-container .btn-slide-arr{position: absolute; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; }
+.modal-container .btn-slide-arr{position: absolute; top: 50%; transform: translateY(-50%); width: 80px; height: 80px; z-index: 5;}
 .btn-slide-arr{background: url('../assets/ico-slide-arr.svg') no-repeat 50% / cover; cursor: pointer;}
 .btn-slide-arr.next{right: 50px;}
 .btn-slide-arr.prev{transform: translateY(-50%) scaleX(-1); left: 50px;} 
@@ -49,6 +53,12 @@
   .work-info > div{flex: none !important;}
   .work-list + .work-list{margin-top: 40px;}
   .work-image img{max-height: 380px;}
+  .modal-container .btn-slide-arr{width: 56px; height: 56px;}
+  .modal-container .btn-slide-arr.prev{left: 14px;}
+  .modal-container .btn-slide-arr.next{right: 14px;}
+  .modal-zoom-controls{left: 0 !important; top: 14px !important;}
+  .btn-close-modal{width: 38px; height: 38px; background-size: 30px 30px; top: 14px !important; right: 14px !important;}
+  .slide-pagination{font-size: 26px; bottom: 34px;}
 
 
 }
@@ -63,6 +73,14 @@
   .work-image{margin-bottom: 0;}
   .work-image img{max-height: 230px;}
   .btn-slide-arr{width: 40px; height: 40px;}
+  .modal-container .btn-slide-arr{width: 44px; height: 44px;}
+  .modal-container .btn-slide-arr.prev{left: 8px;}
+  .modal-container .btn-slide-arr.next{right: 8px;}
+  .modal-zoom-controls{left: 0 !important; top: 14px !important; gap: 6px !important;}
+  .btn-close-modal{width: 36px; height: 36px; background-size: 26px 26px; top: 14px !important; right: 12px !important;}
+  .slide-pagination{font-size: 22px; bottom: 24px;}
   .work-image_img{margin-top: 5px !important}
+  .work-image-layout { display: block; }
+  .work-image-offset { display: none; }
  
 }
