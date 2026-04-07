@@ -170,7 +170,6 @@ export default function AdminPublicArtEdit() {
             const payload = {
                 year: Number(item.year) || null,
                 text: trimmedText,
-                title: trimmedText,
                 image: combinedImages[0] || null,
                 images: combinedImages.length ? JSON.stringify(combinedImages) : null,
             };
