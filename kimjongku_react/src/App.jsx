@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation, useNavigate, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import InfoMenu from "./components/InfoMenu";
 import AdminMenu from "./components/AdminMenu";
@@ -35,10 +35,30 @@ import AdminEssaysPress from "./components/AdminEssaysPress";
 import AdminEssaysPressList from "./components/AdminEssaysPressList";
 import AdminEssaysPressEdit from "./components/AdminEssaysPressEdit";
 import { useParams } from "react-router-dom";
-// AdminWorksEdit 라우트용 래퍼 컴포넌트
+import { supabase } from "./lib/supabase";
+
 function AdminWorksEditWrapper() {
   const { id } = useParams();
   return <AdminWorksEdit id={id} />;
+}
+
+function ProtectedRoute({ children }) {
+  const [status, setStatus] = useState("loading");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      setStatus(data.session ? "ok" : "unauth");
+    });
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setStatus(session ? "ok" : "unauth");
+    });
+    return () => listener.subscription.unsubscribe();
+  }, []);
+
+  if (status === "loading") return null;
+  if (status === "unauth") return <Navigate to="/admin/login" replace />;
+  return children;
 }
 
 function App() {
@@ -105,28 +125,28 @@ function App() {
             <Route path="/works" element={<Works />} />
             <Route path="/work/:year" element={<Work />} />
             <Route path="/video" element={<VideoPage />} />
-            <Route path="/admin" element={<AdminMenu />} />
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/biography" element={<AdminBiography />} />
-            <Route path="/admin/biography/list" element={<AdminBiographyList />} />
-            <Route path="/admin/biography/edit/:id" element={<AdminBiographyEdit />} />
-            <Route path="/admin/publications" element={<AdminPublications />} />
-            <Route path="/admin/publications/list" element={<AdminPublicationsList />} />
-            <Route path="/admin/publications/edit/:id" element={<AdminPublicationsEdit />} />
-            <Route path="/admin/public-art" element={<AdminPublicArt />} />
-            <Route path="/admin/public-art/list" element={<AdminPublicArtList />} />
-            <Route path="/admin/public-art/edit/:id" element={<AdminPublicArtEdit />} />
-            <Route path="/admin/video" element={<AdminVideo />} />
-            <Route path="/admin/video/list" element={<AdminVideoList />} />
-            <Route path="/admin/video/edit/:id" element={<AdminVideoEdit />} />
-            <Route path="/admin/essays" element={<AdminEssaysPress />} />
-            <Route path="/admin/essays/list" element={<AdminEssaysPressList />} />
-            <Route path="/admin/essays/edit/:id" element={<AdminEssaysPressEdit />} />
-            <Route path="/admin/projects" element={<Projects isAdmin={true} />} />
-            <Route path="/admin/works" element={<AdminWorks />} />
-            <Route path="/admin/works/list" element={<AdminWorksList />} />
-            <Route path="/admin/works/edit/:id" element={<AdminWorksEditWrapper />} />
-            <Route path="/admin/main-bg" element={<AdminMainBackground />} />
+            <Route path="/admin" element={<ProtectedRoute><AdminMenu /></ProtectedRoute>} />
+            <Route path="/admin/biography" element={<ProtectedRoute><AdminBiography /></ProtectedRoute>} />
+            <Route path="/admin/biography/list" element={<ProtectedRoute><AdminBiographyList /></ProtectedRoute>} />
+            <Route path="/admin/biography/edit/:id" element={<ProtectedRoute><AdminBiographyEdit /></ProtectedRoute>} />
+            <Route path="/admin/publications" element={<ProtectedRoute><AdminPublications /></ProtectedRoute>} />
+            <Route path="/admin/publications/list" element={<ProtectedRoute><AdminPublicationsList /></ProtectedRoute>} />
+            <Route path="/admin/publications/edit/:id" element={<ProtectedRoute><AdminPublicationsEdit /></ProtectedRoute>} />
+            <Route path="/admin/public-art" element={<ProtectedRoute><AdminPublicArt /></ProtectedRoute>} />
+            <Route path="/admin/public-art/list" element={<ProtectedRoute><AdminPublicArtList /></ProtectedRoute>} />
+            <Route path="/admin/public-art/edit/:id" element={<ProtectedRoute><AdminPublicArtEdit /></ProtectedRoute>} />
+            <Route path="/admin/video" element={<ProtectedRoute><AdminVideo /></ProtectedRoute>} />
+            <Route path="/admin/video/list" element={<ProtectedRoute><AdminVideoList /></ProtectedRoute>} />
+            <Route path="/admin/video/edit/:id" element={<ProtectedRoute><AdminVideoEdit /></ProtectedRoute>} />
+            <Route path="/admin/essays" element={<ProtectedRoute><AdminEssaysPress /></ProtectedRoute>} />
+            <Route path="/admin/essays/list" element={<ProtectedRoute><AdminEssaysPressList /></ProtectedRoute>} />
+            <Route path="/admin/essays/edit/:id" element={<ProtectedRoute><AdminEssaysPressEdit /></ProtectedRoute>} />
+            <Route path="/admin/projects" element={<ProtectedRoute><Projects isAdmin={true} /></ProtectedRoute>} />
+            <Route path="/admin/works" element={<ProtectedRoute><AdminWorks /></ProtectedRoute>} />
+            <Route path="/admin/works/list" element={<ProtectedRoute><AdminWorksList /></ProtectedRoute>} />
+            <Route path="/admin/works/edit/:id" element={<ProtectedRoute><AdminWorksEditWrapper /></ProtectedRoute>} />
+            <Route path="/admin/main-bg" element={<ProtectedRoute><AdminMainBackground /></ProtectedRoute>} />
 
           </Routes>
         </>

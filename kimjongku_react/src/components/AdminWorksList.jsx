@@ -75,11 +75,13 @@ export default function AdminWorksList() {
         try {
             const results = await Promise.all(
                 items.map((item, idx) =>
-                    supabase.from("portfolio_works").update({ sort_order: idx }).eq("id", item.id)
+                    supabase.from("portfolio_works").update({ sort_order: idx + 1 }).eq("id", item.id).select("id")
                 )
             );
             const failed = results.find((r) => r.error);
             if (failed) throw new Error(failed.error.message);
+            const blocked = results.find((r) => !r.data || r.data.length === 0);
+            if (blocked) throw new Error("권한 없음: Supabase RLS UPDATE 정책을 확인해주세요.");
             setMessage("순서가 저장되었습니다.");
             setOrderChanged(false);
         } catch (err) {
