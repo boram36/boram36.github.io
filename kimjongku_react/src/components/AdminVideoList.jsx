@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,6 +19,10 @@ export default function AdminVideoList() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [message, setMessage] = useState("");
+    const [orderChanged, setOrderChanged] = useState(false);
+    const [saving, setSaving] = useState(false);
+    const [dragOverIdx, setDragOverIdx] = useState(null);
+    const dragIdx = useRef(null);
 
     useEffect(() => {
         const initSession = async () => {
@@ -43,6 +47,7 @@ export default function AdminVideoList() {
             const { data, error } = await supabase
                 .from(TABLE_NAME)
                 .select("*")
+                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("year", { ascending: false })
                 .order("id", { ascending: true });
 
@@ -64,6 +69,57 @@ export default function AdminVideoList() {
 
         load();
     }, []);
+
+    const handleDragStart = (e, idx) => {
+        dragIdx.current = idx;
+        e.dataTransfer.effectAllowed = "move";
+    };
+
+    const handleDragEnter = (idx) => {
+        if (dragIdx.current === null || dragIdx.current === idx) return;
+        const from = dragIdx.current;
+        dragIdx.current = idx;
+        setDragOverIdx(idx);
+        setItems((prev) => {
+            const next = [...prev];
+            const [moved] = next.splice(from, 1);
+            next.splice(idx, 0, moved);
+            return next;
+        });
+        setOrderChanged(true);
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+    };
+
+    const handleDragEnd = () => {
+        dragIdx.current = null;
+        setDragOverIdx(null);
+    };
+
+    const handleSaveOrder = async () => {
+        setSaving(true);
+        setMessage("");
+        try {
+            const results = await Promise.all(
+                items.map((item, idx) =>
+                    supabase.from(TABLE_NAME).update({ sort_order: idx + 1 }).eq("id", item.id).select("id")
+                )
+            );
+            const failed = results.find((r) => r.error);
+            if (failed) throw new Error(failed.error.message);
+            const blocked = results.find((r) => !r.data || r.data.length === 0);
+            if (blocked) throw new Error("권한 없음: Supabase RLS UPDATE 정책을 확인해주세요.");
+            setMessage("순서가 저장되었습니다.");
+            setOrderChanged(false);
+        } catch (err) {
+            setMessage("순서 저장 실패: " + err.message);
+        } finally {
+            setSaving(false);
+        }
+    };
 
     const handleDelete = async (id) => {
         if (!session) {
@@ -97,6 +153,16 @@ export default function AdminVideoList() {
                         >
                             관리자 홈
                         </button>
+                        {orderChanged && (
+                            <button
+                                type="button"
+                                className="btn btn-warning btn-sm"
+                                onClick={handleSaveOrder}
+                                disabled={saving}
+                            >
+                                {saving ? "저장 중..." : "순서 저장"}
+                            </button>
+                        )}
                         <button
                             type="button"
                             className="btn btn-success btn-sm"
@@ -110,6 +176,7 @@ export default function AdminVideoList() {
                     <table className="table table-bordered table-hover">
                         <thead className="table-light">
                             <tr>
+                                <th style={{ width: "32px" }}></th>
                                 <th style={{ width: "120px" }}>년도</th>
                                 <th>내용</th>
                                 <th style={{ width: "220px" }}>영상 링크</th>
@@ -117,8 +184,21 @@ export default function AdminVideoList() {
                             </tr>
                         </thead>
                         <tbody>
-                            {items.map((item) => (
-                                <tr key={item.id}>
+                            {items.map((item, idx) => (
+                                <tr
+                                    key={item.id}
+                                    draggable
+                                    onDragStart={(e) => handleDragStart(e, idx)}
+                                    onDragEnter={() => handleDragEnter(idx)}
+                                    onDragOver={handleDragOver}
+                                    onDragEnd={handleDragEnd}
+                                    style={{
+                                        opacity: dragIdx.current === idx ? 0.4 : 1,
+                                        background: dragOverIdx === idx ? "#e8f4ff" : undefined,
+                                        cursor: "grab",
+                                    }}
+                                >
+                                    <td style={{ textAlign: "center", color: "#aaa", fontSize: "1.1rem", userSelect: "none" }}>⠿</td>
                                     <td>{item.year}</td>
                                     <td className="text-break">{item.text || "-"}</td>
                                     <td className="text-break">
@@ -132,14 +212,14 @@ export default function AdminVideoList() {
                                     </td>
                                     <td>
                                         <button
-                                            onClick={() => navigate(`/admin/video/edit/${item.id}`)}
+                                            onClick={(e) => { e.stopPropagation(); navigate(`/admin/video/edit/${item.id}`); }}
                                             className="btn btn-primary btn-sm me-2"
                                             disabled={!session}
                                         >
                                             편집
                                         </button>
                                         <button
-                                            onClick={() => handleDelete(item.id)}
+                                            onClick={(e) => { e.stopPropagation(); handleDelete(item.id); }}
                                             className="btn btn-danger btn-sm"
                                             disabled={!session}
                                         >

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 import "../styles/InfoLayout.css";
 import "../styles/Works.css";
@@ -123,6 +123,7 @@ export default function VideoPage() {
             const { data, error } = await supabase
                 .from(TABLE_NAME)
                 .select("*")
+                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("year", { ascending: false })
                 .order("id", { ascending: true });
 
@@ -150,17 +151,6 @@ export default function VideoPage() {
         };
     }, []);
 
-    const sortedItems = useMemo(() => {
-        return [...items].sort((a, b) => {
-            const yearA = Number(a.year) || 0;
-            const yearB = Number(b.year) || 0;
-            if (yearA === yearB) {
-                return (a.id ?? 0) - (b.id ?? 0);
-            }
-            return yearB - yearA;
-        });
-    }, [items]);
-
     const toggleItem = (key, canExpand) => {
         if (!canExpand) return;
         const normalizedKey = String(key);
@@ -174,7 +164,7 @@ export default function VideoPage() {
     const renderBody = () => {
         const groupedByYear = [];
 
-        sortedItems.forEach((item, index) => {
+        items.forEach((item, index) => {
             const yearLabel = item.year ? String(item.year) : "";
             const groupKey = yearLabel || `unknown-${index}`;
             const itemKey = String(item.id ?? `${groupKey}-${index}`);

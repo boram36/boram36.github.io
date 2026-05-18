@@ -205,8 +205,7 @@ export default function Works() {
 
 			<div className='inner'>
 				{years.map((year) => {
-					// 같은 년도 내에서 id 오름차순(먼저 등록된 것 상단)
-					const yearItems = items.filter((v) => v.year === year).sort((a, b) => a.id - b.id);
+					const yearItems = items.filter((v) => v.year === year);
 					const isYearOpen = yearItems.every(item => openIds.includes(item.id));
 
 					return (
