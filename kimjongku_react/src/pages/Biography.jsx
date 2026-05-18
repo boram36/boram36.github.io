@@ -153,13 +153,8 @@ function BiographyBase({ wrap = true, showTitle = true }) {
     };
   }, [refreshAt]);
 
-  const sortedItems = useMemo(
-    () => [...items].sort((a, b) => (b.year - a.year) || (a.id - b.id)),
-    [items]
-  );
-
   const itemsByCategory = useMemo(() => {
-    const grouped = sortedItems.reduce((acc, item) => {
+    const grouped = items.reduce((acc, item) => {
       const key = item.category || "기타";
       if (!acc[key]) acc[key] = [];
       acc[key].push(item);
@@ -176,7 +171,7 @@ function BiographyBase({ wrap = true, showTitle = true }) {
       .map((category) => ({ category, items: grouped[category] }));
 
     return [...ordered, ...remaining];
-  }, [sortedItems]);
+  }, [items]);
 
   const toggleItem = (key, canExpand) => {
     if (!canExpand) return;

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { supabase, optimizeImageUrl } from "../lib/supabase";
 import "../styles/InfoLayout.css";
 import "../styles/Works.css";
@@ -260,17 +260,6 @@ function EssaysPressBase({ wrap = true, showTitle = true }) {
     };
   }, []);
 
-  const sortedItems = useMemo(() => {
-    return [...items].sort((a, b) => {
-      const yearA = Number(a.year) || 0;
-      const yearB = Number(b.year) || 0;
-      if (yearA === yearB) {
-        return (a.id ?? 0) - (b.id ?? 0);
-      }
-      return yearB - yearA;
-    });
-  }, [items]);
-
   const toggleItem = (key, canExpand) => {
     if (!canExpand) return;
     const normalizedKey = String(key);
@@ -364,7 +353,7 @@ function EssaysPressBase({ wrap = true, showTitle = true }) {
   const renderBody = () => {
     const groupedByYear = [];
 
-    sortedItems.forEach((item, index) => {
+    items.forEach((item, index) => {
       const yearLabel = item.year ? String(item.year) : "";
       const groupKey = yearLabel || `unknown-${index}`;
       const itemKey = String(item.id ?? `${groupKey}-${index}`);
