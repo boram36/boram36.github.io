@@ -150,8 +150,9 @@ export default function Works() {
 			const { data } = await supabase
 				.from("portfolio_works")
 				.select("*")
+				.order("sort_order", { ascending: true, nullsFirst: false })
 				.order("year", { ascending: false })
-				.order("id", { ascending: true }); // id 오름차순: 먼저 등록된 것이 위에
+				.order("id", { ascending: true });
 
 			setItems(data || []);
 

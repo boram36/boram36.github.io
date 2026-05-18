@@ -126,7 +126,7 @@ export default function Screensaver({ onExit }) {
   const slidesCount = hasSlides ? images.length : 1;
 
   // 무한 루프: 이미지 2배 복제 후 translateX(-50%)로 seamless 반복 (클릭 시에만 종료)
-  const animationDuration = `${Math.max(slidesCount * 6, 60)}s`;
+  const animationDuration = `${Math.max(slidesCount * 3, 30)}s`;
   const loopedImages = [...images, ...images];
 
   return (

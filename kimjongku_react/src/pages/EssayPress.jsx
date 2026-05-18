@@ -231,6 +231,7 @@ function EssaysPressBase({ wrap = true, showTitle = true }) {
       const { data, error } = await supabase
         .from(TABLE_NAME)
         .select("*")
+        .order("sort_order", { ascending: true, nullsFirst: false })
         .order("year", { ascending: false })
         .order("id", { ascending: true });
 

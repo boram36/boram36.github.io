@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,9 +7,12 @@ export default function AdminWorksList() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [editId, setEditId] = useState(null);
-    const [editData, setEditData] = useState({ title: "", material: "", size: "" });
     const [message, setMessage] = useState("");
+    const [orderChanged, setOrderChanged] = useState(false);
+    const [saving, setSaving] = useState(false);
+    const [dragOverIdx, setDragOverIdx] = useState(null);
+    const dragIdx = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const load = async () => {
@@ -17,6 +20,7 @@ export default function AdminWorksList() {
             const { data, error } = await supabase
                 .from("portfolio_works")
                 .select("*")
+                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("year", { ascending: false });
             setItems(data || []);
             setError(error?.message || null);
@@ -25,36 +29,9 @@ export default function AdminWorksList() {
         load();
     }, []);
 
-    const onEdit = (item) => {
-        setEditId(item.id);
-        setEditData({ title: item.title, material: item.material, size: item.size });
-        setMessage("");
-    };
-
-    const onEditChange = (e) => {
-        setEditData({ ...editData, [e.target.name]: e.target.value });
-    };
-
-    const onEditSave = async (id) => {
-        const { error } = await supabase
-            .from("portfolio_works")
-            .update(editData)
-            .eq("id", id);
-        if (error) {
-            setMessage("수정 실패: " + error.message);
-        } else {
-            setMessage("수정 완료!");
-            setItems((prev) => prev.map((it) => (it.id === id ? { ...it, ...editData } : it)));
-            setEditId(null);
-        }
-    };
-
-    const onDelete = async (id) => {
+    const handleDelete = async (id) => {
         if (!window.confirm("정말 삭제하시겠습니까?")) return;
-        const { error } = await supabase
-            .from("portfolio_works")
-            .delete()
-            .eq("id", id);
+        const { error } = await supabase.from("portfolio_works").delete().eq("id", id);
         if (error) {
             setMessage("삭제 실패: " + error.message);
         } else {
@@ -63,7 +40,54 @@ export default function AdminWorksList() {
         }
     };
 
-    const navigate = useNavigate();
+    const handleDragStart = (e, idx) => {
+        dragIdx.current = idx;
+        e.dataTransfer.effectAllowed = "move";
+    };
+
+    const handleDragEnter = (idx) => {
+        if (dragIdx.current === null || dragIdx.current === idx) return;
+        const from = dragIdx.current;
+        dragIdx.current = idx;
+        setDragOverIdx(idx);
+        setItems((prev) => {
+            const next = [...prev];
+            const [moved] = next.splice(from, 1);
+            next.splice(idx, 0, moved);
+            return next;
+        });
+        setOrderChanged(true);
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+    };
+
+    const handleDragEnd = () => {
+        dragIdx.current = null;
+        setDragOverIdx(null);
+    };
+
+    const handleSaveOrder = async () => {
+        setSaving(true);
+        setMessage("");
+        try {
+            const results = await Promise.all(
+                items.map((item, idx) =>
+                    supabase.from("portfolio_works").update({ sort_order: idx }).eq("id", item.id)
+                )
+            );
+            const failed = results.find((r) => r.error);
+            if (failed) throw new Error(failed.error.message);
+            setMessage("순서가 저장되었습니다.");
+            setOrderChanged(false);
+        } catch (err) {
+            setMessage("순서 저장 실패: " + err.message);
+        } finally {
+            setSaving(false);
+        }
+    };
 
     if (loading) return <div className="p-4">Loading…</div>;
     if (error) return <div className="text-danger">Error: {error}</div>;
@@ -80,6 +104,16 @@ export default function AdminWorksList() {
                         >
                             관리자 홈
                         </button>
+                        {orderChanged && (
+                            <button
+                                type="button"
+                                className="btn btn-warning btn-sm"
+                                onClick={handleSaveOrder}
+                                disabled={saving}
+                            >
+                                {saving ? "저장 중..." : "순서 저장"}
+                            </button>
+                        )}
                         <button
                             type="button"
                             className="btn btn-success btn-sm"
@@ -92,6 +126,7 @@ export default function AdminWorksList() {
                     <table className="table table-bordered table-hover">
                         <thead className="table-light">
                             <tr>
+                                <th style={{ width: "32px" }}></th>
                                 <th style={{ width: "120px" }}>Year</th>
                                 <th>Title</th>
                                 <th style={{ width: "180px" }}>Material</th>
@@ -101,8 +136,21 @@ export default function AdminWorksList() {
                             </tr>
                         </thead>
                         <tbody>
-                            {items.map((it) => (
-                                <tr key={it.id}>
+                            {items.map((it, idx) => (
+                                <tr
+                                    key={it.id}
+                                    draggable
+                                    onDragStart={(e) => handleDragStart(e, idx)}
+                                    onDragEnter={() => handleDragEnter(idx)}
+                                    onDragOver={handleDragOver}
+                                    onDragEnd={handleDragEnd}
+                                    style={{
+                                        opacity: dragIdx.current === idx ? 0.4 : 1,
+                                        background: dragOverIdx === idx ? "#e8f4ff" : undefined,
+                                        cursor: "grab",
+                                    }}
+                                >
+                                    <td style={{ textAlign: "center", color: "#aaa", fontSize: "1.1rem", userSelect: "none" }}>⠿</td>
                                     <td>{it.year}</td>
                                     <td>{it.title}</td>
                                     <td>{it.material}</td>
@@ -113,8 +161,8 @@ export default function AdminWorksList() {
                                         )}
                                     </td>
                                     <td>
-                                        <button onClick={e => { e.stopPropagation(); navigate(`/admin/works/edit/${it.id}`); }} className="btn btn-primary btn-sm me-2">편집</button>
-                                        <button onClick={e => { e.stopPropagation(); onDelete(it.id); }} className="btn btn-danger btn-sm">삭제</button>
+                                        <button onClick={(e) => { e.stopPropagation(); navigate(`/admin/works/edit/${it.id}`); }} className="btn btn-primary btn-sm me-2">편집</button>
+                                        <button onClick={(e) => { e.stopPropagation(); handleDelete(it.id); }} className="btn btn-danger btn-sm">삭제</button>
                                     </td>
                                 </tr>
                             ))}

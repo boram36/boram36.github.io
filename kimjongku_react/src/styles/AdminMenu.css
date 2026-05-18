@@ -52,6 +52,7 @@
   border-radius: 999px;
   background: #1d4ed8;
   color: #fff;
+  -webkit-text-fill-color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 600;
@@ -63,6 +64,7 @@
 .admin-menu-button.secondary {
   background: #fff;
   color: #1d4ed8;
+  -webkit-text-fill-color: #1d4ed8;
   border: 1px solid #cbd5f5;
   box-shadow: none;
 }
