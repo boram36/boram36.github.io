@@ -185,17 +185,6 @@ function ImageSlider({ images, onOpen }) {
       {images.length > 1 && (
         <>
           <button
-            className="btn-slide-arr prev"
-            style={{
-              position: "absolute",
-              left: 10,
-              top: "50%",
-              transform: "translateY(-50%)",
-              cursor: "pointer",
-            }}
-            onClick={goPrev}
-          />
-          <button
             className="btn-slide-arr next"
             style={{
               position: "absolute",

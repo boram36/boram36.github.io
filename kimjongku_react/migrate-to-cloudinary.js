@@ -1,8 +1,9 @@
 // Supabase Storage → Cloudinary 마이그레이션 스크립트
 // 실행: node migrate-to-cloudinary.js
-// 필요: Node 18+
+// 필요: Node 18+, npm install sharp
 
 import { createClient } from "@supabase/supabase-js";
+import sharp from "sharp";
 
 const SUPABASE_URL = "https://lnfoyqgnldmeonuyezsh.supabase.co";
 const SUPABASE_KEY =
@@ -15,9 +16,46 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 const isSupabaseUrl = (url) =>
     typeof url === "string" && url.includes("supabase.co/storage");
 
+function parseSupabasePath(url) {
+    // https://xxx.supabase.co/storage/v1/object/public/BUCKET/PATH
+    const match = url.match(/\/storage\/v1\/object\/public\/([^/]+)\/(.+)/);
+    if (!match) return null;
+    return { bucket: match[1], path: match[2] };
+}
+
+async function compressImage(sourceUrl) {
+    let buffer;
+
+    const parsed = parseSupabasePath(sourceUrl);
+    if (parsed) {
+        const { data, error } = await supabase.storage
+            .from(parsed.bucket)
+            .download(parsed.path);
+        if (error) throw new Error(`Supabase 다운로드 실패: ${error.message}`);
+        buffer = Buffer.from(await data.arrayBuffer());
+    } else {
+        const res = await fetch(sourceUrl);
+        if (!res.ok) throw new Error(`다운로드 실패: HTTP ${res.status}`);
+        buffer = Buffer.from(await res.arrayBuffer());
+    }
+
+    return sharp(buffer)
+        .resize({ width: 1920, withoutEnlargement: true })
+        .jpeg({ quality: 82 })
+        .toBuffer();
+}
+
 async function uploadToCloudinary(sourceUrl, resourceType = "image", folder = "") {
     const body = new FormData();
-    body.append("file", sourceUrl);
+
+    if (resourceType === "image") {
+        const compressed = await compressImage(sourceUrl);
+        body.append("file", new Blob([compressed], { type: "image/jpeg" }), "image.jpg");
+    } else {
+        // 파일(PDF 등)은 URL 직접 전달
+        body.append("file", sourceUrl);
+    }
+
     body.append("upload_preset", UPLOAD_PRESET);
     if (folder) body.append("folder", folder);
 
@@ -56,7 +94,8 @@ function parseFiles(raw) {
 }
 
 // images 배열만 있는 테이블 (portfolio_works는 array 타입, 나머지는 JSON string)
-async function migrateImageRows(rows, folder, tableName, storeAsArray = false) {
+// hasImageCol: 테이블에 단수 image 컬럼이 있는지 여부
+async function migrateImageRows(rows, folder, tableName, storeAsArray = false, hasImageCol = true) {
     let count = 0;
     for (const row of rows) {
         const images = parseImages(row.images, row.image);
@@ -76,13 +115,17 @@ async function migrateImageRows(rows, folder, tableName, storeAsArray = false) {
                 }
             }
 
-            await supabase
+            const payload = {
+                images: storeAsArray ? newImages : JSON.stringify(newImages),
+            };
+            if (hasImageCol) payload.image = newImages[0] || null;
+
+            const { error: updateError } = await supabase
                 .from(tableName)
-                .update({
-                    images: storeAsArray ? newImages : JSON.stringify(newImages),
-                    image: newImages[0] || null,
-                })
+                .update(payload)
                 .eq("id", row.id);
+
+            if (updateError) throw new Error(updateError.message);
 
             count++;
             console.log(` (${newImages.length}장)`);
@@ -156,13 +199,18 @@ async function migrateImageAndFileRows(rows, folder, tableName) {
 async function main() {
     console.log("🚀 Supabase Storage → Cloudinary 마이그레이션 시작\n");
 
-    // portfolio_works (images: PostgreSQL array 타입)
+    // portfolio_works (images: PostgreSQL array 타입, image 단수 컬럼 없음)
     console.log("📁 portfolio_works");
-    const { data: works } = await supabase
+    const { data: works, error: worksError } = await supabase
         .from("portfolio_works")
-        .select("id, images, image");
-    const worksCount = await migrateImageRows(works || [], "works", "portfolio_works", true);
-    console.log(`   → ${worksCount}개 항목 완료\n`);
+        .select("id, images");
+    if (worksError) {
+        console.log(`   ✗ 쿼리 실패: ${worksError.message}\n`);
+    } else {
+        console.log(`   총 ${works?.length || 0}행 발견`);
+        const worksCount = await migrateImageRows(works || [], "works", "portfolio_works", true, false);
+        console.log(`   → ${worksCount}개 항목 완료\n`);
+    }
 
     // biography (images: JSON string)
     console.log("📁 biography");
