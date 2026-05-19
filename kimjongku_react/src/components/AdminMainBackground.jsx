@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase, uploadImageToSupabase } from "../lib/supabase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // DB에 main_bg 테이블(혹은 row)에서 url 관리한다고 가정
@@ -30,18 +30,12 @@ export default function AdminMainBackground() {
         setUploading(true);
         try {
             const file = files[0];
-            const ext = file.name.split('.').pop();
-            const filePath = `main_bg/bg_${Date.now()}.${ext}`;
-            let { error: uploadError } = await supabase.storage.from('images').upload(filePath, file, { upsert: true });
-            if (uploadError) throw uploadError;
-            const { data } = supabase.storage.from('images').getPublicUrl(filePath);
-            if (!data?.publicUrl) throw new Error('이미지 URL 생성 실패');
-            // DB에 url 저장
+            const publicUrl = await uploadImageToSupabase(file, "main_bg");
             const { error: dbError } = await supabase
                 .from("main_bg")
-                .upsert({ id: 1, url: data.publicUrl }, { onConflict: ['id'] });
+                .upsert({ id: 1, url: publicUrl }, { onConflict: ['id'] });
             if (dbError) throw dbError;
-            setBgUrl(data.publicUrl);
+            setBgUrl(publicUrl);
             setMessage('배경 이미지가 변경되었습니다!');
         } catch (err) {
             setMessage('업로드 실패: ' + err.message);

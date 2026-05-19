@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { supabase, uploadImageToSupabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const categories = [
@@ -10,8 +10,6 @@ const categories = [
     "Collection&Commission",
 ];
 
-const STORAGE_BUCKET = "images";
-const STORAGE_FOLDER = "biography";
 
 const normalizeImages = (rawImages, fallback) => {
     if (Array.isArray(rawImages)) {
@@ -118,23 +116,7 @@ export default function AdminBiographyEdit() {
         });
     };
 
-    const uploadImage = async (file) => {
-        const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
-        const filename = `bio_${Date.now()}_${Math.random().toString(36).slice(2, 10)}.${ext}`;
-        const path = `${STORAGE_FOLDER}/${filename}`;
-
-        const { error: uploadError } = await supabase.storage
-            .from(STORAGE_BUCKET)
-            .upload(path, file, {
-                upsert: true,
-                contentType: file.type || "image/jpeg",
-            });
-
-        if (uploadError) throw new Error(uploadError.message);
-
-        const { data } = supabase.storage.from(STORAGE_BUCKET).getPublicUrl(path);
-        return data?.publicUrl || null;
-    };
+    const uploadImage = (file) => uploadImageToSupabase(file, "biography");
 
     const handleSubmit = async (event) => {
         event.preventDefault();

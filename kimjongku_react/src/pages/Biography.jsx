@@ -126,8 +126,8 @@ function BiographyBase({ wrap = true, showTitle = true }) {
       const { data, error } = await supabase
         .from("biography")
         .select("*")
-        .order("sort_order", { ascending: true, nullsFirst: false })
         .order("year", { ascending: false })
+        .order("sort_order", { ascending: true, nullsFirst: false })
         .order("id", { ascending: true });
 
       if (!mounted) return;

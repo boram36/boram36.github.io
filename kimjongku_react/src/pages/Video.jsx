@@ -123,8 +123,8 @@ export default function VideoPage() {
             const { data, error } = await supabase
                 .from(TABLE_NAME)
                 .select("*")
-                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("year", { ascending: false })
+                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("id", { ascending: true });
 
             if (!mounted) return;

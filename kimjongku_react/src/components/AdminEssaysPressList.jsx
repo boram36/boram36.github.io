@@ -96,8 +96,8 @@ export default function AdminEssaysPressList() {
             const { data, error } = await supabase
                 .from("essays_press")
                 .select("*")
-                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("year", { ascending: false })
+                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("id", { ascending: true });
 
             if (error) {

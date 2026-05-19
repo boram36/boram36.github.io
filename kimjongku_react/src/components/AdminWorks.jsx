@@ -1,11 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase, uploadImageToSupabase } from "../lib/supabase";
 
 export default function AdminWorks() {
-  const [session, setSession] = useState(null);
   const [year, setYear] = useState(2025);
-  const [existingYears, setExistingYears] = useState([]);
   const [title, setTitle] = useState("");
   const [material, setMaterial] = useState("");
   const [size, setSize] = useState("");
@@ -13,77 +12,19 @@ export default function AdminWorks() {
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    const init = async () => {
-      const { data } = await supabase.auth.getSession();
-      setSession(data.session);
-    };
-    init();
-    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-    return () => {
-      authListener.subscription.unsubscribe();
-    };
-  }, []);
-
-  // 기존 등록된 연도 목록 불러오기
-  useEffect(() => {
-    const loadYears = async () => {
-      const { data, error } = await supabase
-        .from('portfolio_works')
-        .select('year')
-        .order('year', { ascending: false });
-      if (!error && data) {
-        const uniq = Array.from(new Set(data.map(d => d.year))).filter(y => typeof y === 'number');
-        setExistingYears(uniq);
-      }
-    };
-    loadYears();
-  }, []);
+  const navigate = useNavigate();
 
   const onFileChange = (e) => {
     setFiles(Array.from(e.target.files || []));
   };
 
-  const uploadImages = async () => {
-    const bucket = "works"; // 미리 생성된 Storage 버킷 이름
-    const urls = [];
-    for (const file of files) {
-      // 파일명 클린징: 한글/공백/특수문자 문제로 Invalid key 발생 가능
-      const originalName = file.name || 'file';
-      const extMatch = originalName.match(/\.([a-zA-Z0-9]+)$/);
-      const ext = extMatch ? extMatch[1].toLowerCase() : (file.type.split('/')[1] || 'dat');
-      const base = originalName
-        .replace(/\.[^.]+$/, '') // 확장자 제거
-        .toLowerCase()
-        .replace(/[^a-z0-9-_]+/g, '-') // 허용외 문자 -> -
-        .replace(/-+/g, '-') // 중복 - 정리
-        .replace(/^-|-$/g, '') // 앞뒤 - 제거
-        .slice(0, 40) || 'img';
-      const safeName = `${base}-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
-      const path = `${year}/${safeName}`; // 경로 내 한글/공백 제거된 안전한 이름
-      const { error: upErr } = await supabase.storage.from(bucket).upload(path, file, {
-        upsert: false,
-        contentType: file.type || "image/jpeg",
-      });
-      if (upErr) throw new Error(`이미지 업로드 실패: ${upErr.message}`);
-      const { data: pub } = supabase.storage.from(bucket).getPublicUrl(path);
-      urls.push(pub.publicUrl);
-    }
-    return urls;
-  };
+  const uploadImages = () => Promise.all(files.map((file) => uploadImageToSupabase(file, "works")));
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!session) {
-      setMessage("로그인이 필요합니다. /admin/login으로 이동하세요.");
-      return;
-    }
     setSubmitting(true);
     setMessage("");
     try {
-      console.log("[AdminWorks] 현재 세션:", session);
       const imageUrls = files.length ? await uploadImages() : [];
       const { error: insertError } = await supabase.from("portfolio_works").insert({
         year: Number(year),
@@ -112,6 +53,27 @@ export default function AdminWorks() {
       <div className="inner">
         <div className='content_wrap'>
           <h3 className="mb-4">Works 업로드 (관리자)</h3>
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <div className="d-flex gap-2">
+                  <button type="button" className="btn btn-outline-secondary btn-sm" onClick={() => navigate(-1)}>
+                      뒤로가기
+                  </button>
+                  <button
+                      type="button"
+                      className="btn btn-outline-primary btn-sm"
+                      onClick={() => navigate("/admin/works/list")}
+                  >
+                      목록 관리
+                  </button>
+              </div>
+              <button
+                  type="button"
+                  className="btn btn-outline-secondary btn-sm"
+                  onClick={() => navigate("/admin")}
+              >
+                  관리자 홈
+              </button>
+          </div>
           <form onSubmit={onSubmit} className="mb-3">
             {/* {existingYears.length > 0 && (
           <div className="mb-3">
@@ -144,8 +106,8 @@ export default function AdminWorks() {
               <label className="form-label">Images</label>
               <input type="file" multiple accept="image/*" onChange={onFileChange} className="form-control" />
             </div>
-            <button type="submit" disabled={submitting || !session} className="btn btn-primary">
-              {submitting ? "업로드 중…" : session ? "등록" : "로그인 필요"}
+            <button type="submit" disabled={submitting} className="btn btn-primary">
+              {submitting ? "업로드 중…" : "등록"}
             </button>
           </form>
           {message && <p className="mt-3 text-primary">{message}</p>}

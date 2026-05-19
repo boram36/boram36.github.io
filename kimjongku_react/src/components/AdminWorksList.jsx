@@ -20,8 +20,8 @@ export default function AdminWorksList() {
             const { data, error } = await supabase
                 .from("portfolio_works")
                 .select("*")
-                .order("sort_order", { ascending: true, nullsFirst: false })
-                .order("year", { ascending: false });
+                .order("year", { ascending: false })
+                .order("sort_order", { ascending: true, nullsFirst: false });
             setItems(data || []);
             setError(error?.message || null);
             setLoading(false);

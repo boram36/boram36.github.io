@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { supabase, uploadImageToSupabase, uploadFileToSupabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const STORAGE_BUCKET = "images";
-const IMAGE_FOLDER = "essays_press/images";
-const FILE_FOLDER = "essays_press/files";
 
 const normalizeImages = (rawImages, fallback) => {
     if (Array.isArray(rawImages)) {
@@ -83,24 +79,6 @@ const normalizeFiles = (raw) => {
         .filter(Boolean);
 };
 
-const sanitizeFileName = (name, fallback) => {
-    if (!name) return fallback;
-    const withoutExt = name.replace(/\.[^.]+$/, "");
-    const cleaned = withoutExt
-        .toLowerCase()
-        .replace(/[^a-z0-9-_]+/g, "-")
-        .replace(/-+/g, "-")
-        .replace(/^-|-$/g, "");
-    return cleaned || fallback;
-};
-
-const buildStoragePath = (folder, file, prefix) => {
-    const extMatch = file.name.match(/\.([a-zA-Z0-9]+)$/);
-    const mimeExt = file.type.split("/")[1];
-    const ext = extMatch ? extMatch[1].toLowerCase() : mimeExt || "dat";
-    const safe = sanitizeFileName(file.name, prefix);
-    return `${folder}/${safe}-${Date.now()}-${Math.random().toString(36).slice(2, 10)}.${ext}`;
-};
 
 const readFileAsDataURL = (file) =>
     new Promise((resolve) => {
@@ -197,37 +175,16 @@ export default function AdminEssaysPressEdit() {
         });
     };
 
-    const uploadToStorage = async (file, folder, defaultPrefix, contentTypeFallback) => {
-        const path = buildStoragePath(folder, file, defaultPrefix);
-        const { error: uploadError } = await supabase.storage
-            .from(STORAGE_BUCKET)
-            .upload(path, file, {
-                upsert: true,
-                contentType: file.type || contentTypeFallback,
-            });
-
-        if (uploadError) throw new Error(uploadError.message);
-
-        const { data } = supabase.storage.from(STORAGE_BUCKET).getPublicUrl(path);
-        if (!data?.publicUrl) throw new Error("파일 URL을 가져오지 못했습니다.");
-        return data.publicUrl;
-    };
-
     const uploadImages = async () => {
         if (!imageFiles.length) return [];
-        const uploads = await Promise.all(
-            imageFiles.map((file) => uploadToStorage(file, IMAGE_FOLDER, "essay-img", "image/jpeg"))
-        );
+        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToSupabase(file, "essays_press")));
         return uploads.filter(Boolean);
     };
 
     const uploadAttachment = async () => {
         if (!newAttachment) return null;
-        const url = await uploadToStorage(newAttachment, FILE_FOLDER, "essay-file", "application/octet-stream");
-        return {
-            url,
-            label: newAttachment.name || "파일 다운로드",
-        };
+        const url = await uploadFileToSupabase(newAttachment, "essays_press");
+        return { url, label: newAttachment.name || "파일 다운로드" };
     };
 
     const handleSubmit = async (event) => {

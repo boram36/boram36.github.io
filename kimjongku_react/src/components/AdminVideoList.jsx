@@ -47,8 +47,8 @@ export default function AdminVideoList() {
             const { data, error } = await supabase
                 .from(TABLE_NAME)
                 .select("*")
-                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("year", { ascending: false })
+                .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("id", { ascending: true });
 
             if (error) {

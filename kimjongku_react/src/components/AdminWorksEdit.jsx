@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { supabase, uploadImageToSupabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const normalizeImages = (rawImages, fallback) => {
@@ -33,13 +33,11 @@ const normalizeImages = (rawImages, fallback) => {
     return [];
 };
 
-const STORAGE_BUCKET = "images";
-const STORAGE_FOLDER = "works";
 
 export default function AdminWorksEdit({ id, onDone }) {
     const navigate = useNavigate();
     const [item, setItem] = useState(null);
-    const [form, setForm] = useState({ title: "", material: "", size: "" });
+    const [form, setForm] = useState({ title: "", year: "", material: "", size: "" });
     const [existingImages, setExistingImages] = useState([]);
     const [imageFiles, setImageFiles] = useState([]);
     const [newPreviews, setNewPreviews] = useState([]);
@@ -63,6 +61,7 @@ export default function AdminWorksEdit({ id, onDone }) {
                 setItem(data);
                 setForm({
                     title: data.title || "",
+                    year: data.year || "",
                     material: data.material || "",
                     size: data.size || "",
                 });
@@ -113,20 +112,7 @@ export default function AdminWorksEdit({ id, onDone }) {
         setExistingImages((prev) => prev.filter((url) => url !== target));
     };
 
-    const uploadImage = async (file) => {
-        const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
-        const filename = `work_${Date.now()}_${Math.random().toString(36).slice(2, 10)}.${ext}`;
-        const path = `${STORAGE_FOLDER}/${filename}`;
-
-        const { error } = await supabase.storage
-            .from(STORAGE_BUCKET)
-            .upload(path, file, { upsert: true, contentType: file.type || "image/jpeg" });
-
-        if (error) throw new Error(error.message);
-
-        const { data } = supabase.storage.from(STORAGE_BUCKET).getPublicUrl(path);
-        return data?.publicUrl || null;
-    };
+    const uploadImage = (file) => uploadImageToSupabase(file, "works");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -146,9 +132,10 @@ export default function AdminWorksEdit({ id, onDone }) {
 
             const payload = {
                 title: form.title.trim(),
+                year: Number(form.year),
                 material: form.material.trim(),
                 size: form.size.trim(),
-                images: combined.length ? combined : null,
+                images: combined,
             };
 
             const { error } = await supabase
@@ -213,6 +200,16 @@ export default function AdminWorksEdit({ id, onDone }) {
                         </button>
                     </div>
                     <form onSubmit={handleSubmit}>
+                         <div className="mb-3">
+                            <label className="form-label">Year</label>
+                            <input
+                                type="text"
+                                name="year"
+                                value={form.year}
+                                onChange={handleChange}
+                                className="form-control"
+                            />
+                        </div>
                         <div className="mb-3">
                             <label className="form-label">Title</label>
                             <input

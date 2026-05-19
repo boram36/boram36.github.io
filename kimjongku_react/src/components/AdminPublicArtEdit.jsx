@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { supabase, uploadImageToSupabase } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const STORAGE_BUCKET = "images";
-const IMAGE_FOLDER = "public_art/images";
 
 const normalizeImages = (rawImages, fallback) => {
     if (Array.isArray(rawImages)) {
@@ -36,24 +33,6 @@ const normalizeImages = (rawImages, fallback) => {
     return [];
 };
 
-const sanitizeFileName = (name, fallback) => {
-    if (!name) return fallback;
-    const withoutExt = name.replace(/\.[^.]+$/, "");
-    const cleaned = withoutExt
-        .toLowerCase()
-        .replace(/[^a-z0-9-_]+/g, "-")
-        .replace(/-+/g, "-")
-        .replace(/^-|-$/g, "");
-    return cleaned || fallback;
-};
-
-const buildStoragePath = (folder, file, prefix) => {
-    const extMatch = file.name.match(/\.([a-zA-Z0-9]+)$/);
-    const mimeExt = file.type.split("/")[1];
-    const ext = extMatch ? extMatch[1].toLowerCase() : mimeExt || "dat";
-    const safe = sanitizeFileName(file.name, prefix);
-    return `${folder}/${safe}-${Date.now()}-${Math.random().toString(36).slice(2, 10)}.${ext}`;
-};
 
 const readFileAsDataURL = (file) =>
     new Promise((resolve) => {
@@ -123,27 +102,9 @@ export default function AdminPublicArtEdit() {
         });
     };
 
-    const uploadToStorage = async (file, folder, defaultPrefix, contentTypeFallback) => {
-        const path = buildStoragePath(folder, file, defaultPrefix);
-        const { error: uploadError } = await supabase.storage
-            .from(STORAGE_BUCKET)
-            .upload(path, file, {
-                upsert: true,
-                contentType: file.type || contentTypeFallback,
-            });
-
-        if (uploadError) throw new Error(uploadError.message);
-
-        const { data } = supabase.storage.from(STORAGE_BUCKET).getPublicUrl(path);
-        if (!data?.publicUrl) throw new Error("파일 URL을 가져오지 못했습니다.");
-        return data.publicUrl;
-    };
-
     const uploadImages = async () => {
         if (!imageFiles.length) return [];
-        const uploads = await Promise.all(
-            imageFiles.map((file) => uploadToStorage(file, IMAGE_FOLDER, "public-art-img", "image/jpeg"))
-        );
+        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToSupabase(file, "public_art")));
         return uploads.filter(Boolean);
     };
 

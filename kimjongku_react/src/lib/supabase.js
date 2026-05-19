@@ -19,7 +19,31 @@ if (typeof window !== 'undefined') {
   }
 }
 
-// 이미지 URL 최적화 함수
+export const uploadImageToSupabase = async (file, folder = "") => {
+	const ext = file.name.split('.').pop().toLowerCase();
+	const fileName = `${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
+	const path = folder ? `${folder}/${fileName}` : fileName;
+
+	const { error } = await supabase.storage.from('images').upload(path, file);
+	if (error) throw new Error(error.message);
+
+	const { data } = supabase.storage.from('images').getPublicUrl(path);
+	return data.publicUrl;
+};
+
+export const uploadFileToSupabase = async (file, folder = "") => {
+	const ext = file.name.split('.').pop().toLowerCase();
+	const fileName = `${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
+	const path = folder ? `${folder}/${fileName}` : fileName;
+
+	const { error } = await supabase.storage.from('files').upload(path, file);
+	if (error) throw new Error(error.message);
+
+	const { data } = supabase.storage.from('files').getPublicUrl(path);
+	return data.publicUrl;
+};
+
+// 이미지 URL 최적화 함수 (Supabase Storage / Cloudinary 모두 지원)
 export const optimizeImageUrl = (url, width = 1000, quality = 80) => {
 	if (!url) return url;
 	if (typeof url !== 'string') return url;
@@ -32,6 +56,12 @@ export const optimizeImageUrl = (url, width = 1000, quality = 80) => {
 		if (touchDevice || mobileUA) return url;
 	}
 
+	// Cloudinary URL: /upload/ 뒤에 변환 파라미터 삽입
+	if (url.includes('res.cloudinary.com')) {
+		if (url.includes('/upload/w_') || url.includes('/upload/q_')) return url;
+		return url.replace('/upload/', `/upload/w_${width},q_${quality}/`);
+	}
+
 	// Supabase 이미지 URL에만 최적화 파라미터 추가 (중복 파라미터 방지)
 	if (url.includes('supabase')) {
 		if (/([?&])width=|([?&])quality=/.test(url)) {
@@ -40,5 +70,6 @@ export const optimizeImageUrl = (url, width = 1000, quality = 80) => {
 		const separator = url.includes('?') ? '&' : '?';
 		return `${url}${separator}width=${width}&quality=${quality}`;
 	}
+
 	return url;
 };

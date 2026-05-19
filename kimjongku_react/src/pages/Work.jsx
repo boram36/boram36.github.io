@@ -19,6 +19,7 @@ export default function Work() {
         .from("portfolio_works")
         .select("id, year, title, material, size, images")
         .eq("year", Number(year))
+        .order("sort_order", { ascending: true, nullsFirst: false })
         .order("id", { ascending: true });
       if (error) {
         setError(error.message);
