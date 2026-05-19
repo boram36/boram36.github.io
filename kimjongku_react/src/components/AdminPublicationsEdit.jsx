@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { supabase, uploadImageToSupabase, uploadFileToSupabase } from "../lib/supabase";
+import { supabase } from "../lib/supabase";
+import { uploadImageToCloudinary, uploadFileToCloudinary } from "../lib/cloudinary";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const normalizeImages = (rawImages, fallback) => {
@@ -177,13 +178,13 @@ export default function AdminPublicationsEdit() {
 
     const uploadImages = async () => {
         if (!imageFiles.length) return [];
-        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToSupabase(file, "publications")));
+        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToCloudinary(file, "publications")));
         return uploads.filter(Boolean);
     };
 
     const uploadAttachment = async () => {
         if (!newAttachment) return null;
-        const url = await uploadFileToSupabase(newAttachment, "publications");
+        const url = await uploadFileToCloudinary(newAttachment, "publications");
         return { url, label: newAttachment.name || "파일 다운로드" };
     };
 

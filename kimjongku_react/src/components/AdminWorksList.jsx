@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AdminWorksList() {
@@ -19,7 +19,7 @@ export default function AdminWorksList() {
             setLoading(true);
             const { data, error } = await supabase
                 .from("portfolio_works")
-                .select("*")
+                .select("id, year, title, material, size, sort_order, images")
                 .order("year", { ascending: false })
                 .order("sort_order", { ascending: true, nullsFirst: false });
             setItems(data || []);
@@ -159,7 +159,7 @@ export default function AdminWorksList() {
                                     <td>{it.size}</td>
                                     <td>
                                         {Array.isArray(it.images) && it.images.length > 0 && (
-                                            <img src={it.images[0]} alt="thumb" style={{ width: 40, height: 40, objectFit: "cover", borderRadius: 4 }} />
+                                            <img src={optimizeImageUrl(it.images[0], 80, 70)} alt="thumb" loading="lazy" style={{ width: 40, height: 40, objectFit: "cover", borderRadius: 4 }} />
                                         )}
                                     </td>
                                     <td>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase, uploadImageToSupabase } from "../lib/supabase";
+import { supabase } from "../lib/supabase";
+import { uploadImageToCloudinary } from "../lib/cloudinary";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const DEFAULT_YEAR = new Date().getFullYear();
@@ -52,7 +53,7 @@ export default function AdminPublicArt() {
 
     const uploadImages = async () => {
         if (!imageFiles.length) return [];
-        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToSupabase(file, "public_art")));
+        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToCloudinary(file, "public_art")));
         return uploads.filter(Boolean);
     };
 

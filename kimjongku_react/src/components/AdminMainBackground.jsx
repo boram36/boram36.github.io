@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { supabase, uploadImageToSupabase } from "../lib/supabase";
+import { supabase } from "../lib/supabase";
+import { uploadImageToCloudinary } from "../lib/cloudinary";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // DB에 main_bg 테이블(혹은 row)에서 url 관리한다고 가정
@@ -30,7 +31,7 @@ export default function AdminMainBackground() {
         setUploading(true);
         try {
             const file = files[0];
-            const publicUrl = await uploadImageToSupabase(file, "main_bg");
+            const publicUrl = await uploadImageToCloudinary(file, "main_bg");
             const { error: dbError } = await supabase
                 .from("main_bg")
                 .upsert({ id: 1, url: publicUrl }, { onConflict: ['id'] });

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 
 export default function Work() {
   const { year } = useParams();
@@ -121,8 +121,9 @@ export default function Work() {
                         </>
                       )}
                       <img
-                        src={imgs[idx]}
+                        src={optimizeImageUrl(imgs[idx], 920, 85)}
                         alt={it.title}
+                        loading="lazy"
                         style={{ width: '100%', height: 'auto', borderRadius: 8, cursor: 'zoom-in' }}
                         onClick={() => setModalImage(imgs[idx])}
                       />
@@ -136,8 +137,9 @@ export default function Work() {
                           {imgs.map((src, i) => (
                             <img
                               key={src}
-                              src={src}
+                              src={optimizeImageUrl(src, 160, 70)}
                               alt={`${it.title} ${i + 1}`}
+                              loading="lazy"
                               style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 6, border: i === idx ? '2px solid #333' : '1px solid #ccc', cursor: 'pointer' }}
                               onClick={() => setSliderIndex((s) => ({ ...s, [it.id]: i }))}
                             />

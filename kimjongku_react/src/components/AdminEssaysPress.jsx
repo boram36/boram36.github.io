@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase, uploadImageToSupabase, uploadFileToSupabase } from "../lib/supabase";
+import { supabase } from "../lib/supabase";
+import { uploadImageToCloudinary, uploadFileToCloudinary } from "../lib/cloudinary";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const DEFAULT_YEAR = new Date().getFullYear();
@@ -67,13 +68,13 @@ export default function AdminEssaysPress() {
 
     const uploadImages = async () => {
         if (!imageFiles.length) return [];
-        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToSupabase(file, "essays_press")));
+        const uploads = await Promise.all(imageFiles.map((file) => uploadImageToCloudinary(file, "essays_press")));
         return uploads.filter(Boolean);
     };
 
     const uploadAttachment = async () => {
         if (!attachment) return null;
-        const url = await uploadFileToSupabase(attachment, "essays_press");
+        const url = await uploadFileToCloudinary(attachment, "essays_press");
         return { url, label: attachment.name || "파일 다운로드" };
     };
 

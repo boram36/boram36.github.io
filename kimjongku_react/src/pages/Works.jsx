@@ -27,7 +27,7 @@ function ImageSlider({ images, onOpen }) {
 				<img
 					src={optimizeImageUrl(images[index], 800, 85)}
 					onClick={() => onOpen(images, index)}
-					loading="eager"
+					loading="lazy"
 					decoding="async"
 					onError={(e) => {
 						if (e.currentTarget.dataset.fallbackApplied) return;
@@ -255,8 +255,8 @@ export default function Works() {
 											</div>
 										</div>
 
-										{hasGallery && (
-											<div className={`info-record-expand ${isOpen ? "open" : ""}`}>
+										{hasGallery && isOpen && (
+											<div className="info-record-expand open">
 												<div className="info-record-expand-inner">
 													<div className="work-image-layout">
 														<div className="work-image-offset"></div>

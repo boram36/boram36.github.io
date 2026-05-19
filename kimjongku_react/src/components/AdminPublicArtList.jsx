@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../lib/supabase";
+import { supabase, optimizeImageUrl } from "../lib/supabase";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const normalizeImages = (rawImages, fallback) => {
@@ -49,7 +49,7 @@ export default function AdminPublicArtList() {
             setLoading(true);
             const { data, error } = await supabase
                 .from("public_art")
-                .select("*")
+                .select("id, year, text, title, sort_order, images, image")
                 .order("year", { ascending: false })
                 .order("sort_order", { ascending: true, nullsFirst: false })
                 .order("id", { ascending: true });
@@ -202,8 +202,9 @@ export default function AdminPublicArtList() {
                                             {imageArray.length > 0 ? (
                                                 <>
                                                     <img
-                                                        src={imageArray[0]}
+                                                        src={optimizeImageUrl(imageArray[0], 80, 70)}
                                                         alt="thumb"
+                                                        loading="lazy"
                                                         style={{ width: 40, height: 40, objectFit: "cover", borderRadius: 4 }}
                                                     />
                                                     {imageArray.length > 1 && (

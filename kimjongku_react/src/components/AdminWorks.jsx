@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase, uploadImageToSupabase } from "../lib/supabase";
+import { supabase } from "../lib/supabase";
+import { uploadImageToCloudinary } from "../lib/cloudinary";
 
 export default function AdminWorks() {
   const [year, setYear] = useState(2025);
@@ -18,7 +19,7 @@ export default function AdminWorks() {
     setFiles(Array.from(e.target.files || []));
   };
 
-  const uploadImages = () => Promise.all(files.map((file) => uploadImageToSupabase(file, "works")));
+  const uploadImages = () => Promise.all(files.map((file) => uploadImageToCloudinary(file, "works")));
 
   const onSubmit = async (e) => {
     e.preventDefault();

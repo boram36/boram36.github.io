@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase, uploadImageToSupabase } from "../lib/supabase";
+import { supabase } from "../lib/supabase";
+import { uploadImageToCloudinary } from "../lib/cloudinary";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const normalizeImages = (rawImages, fallback) => {
@@ -112,7 +113,7 @@ export default function AdminWorksEdit({ id, onDone }) {
         setExistingImages((prev) => prev.filter((url) => url !== target));
     };
 
-    const uploadImage = (file) => uploadImageToSupabase(file, "works");
+    const uploadImage = (file) => uploadImageToCloudinary(file, "works");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
