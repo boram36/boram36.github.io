@@ -6,10 +6,6 @@ import { createClient } from "@supabase/supabase-js";
 import sharp from "sharp";
 
 const SUPABASE_URL = "https://lnfoyqgnldmeonuyezsh.supabase.co";
-const SUPABASE_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxuZm95cWdubGRtZW9udXllenNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ1NTgzMTAsImV4cCI6MjA4MDEzNDMxMH0.FWLEvrQO6IDunRMLhiZrBNF1tMA6Bkt66ncWSqJrCFQ";
-const CLOUD_NAME = "dyvt73vph";
-const UPLOAD_PRESET = "shr8p3cq";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
